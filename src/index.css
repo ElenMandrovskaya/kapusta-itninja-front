@@ -1,4 +1,4 @@
-@import 'node_modules/modern-normalize/modern-normalize.css';
+/* @import 'node_modules/modern-normalize/modern-normalize.css'; */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 
 :root {
@@ -15,7 +15,6 @@
 --red-text-color: #E53935;
 --green-text-color: #407946;
 --kapusta-color: #DFE2EB;
-box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   }
 
 body {
