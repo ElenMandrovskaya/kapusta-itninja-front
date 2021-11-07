@@ -76,7 +76,6 @@ color: var(--balance-text-color);
 @media screen and (min-width: 768px) {
     border-radius: 16px;
   }
-
 `;
 
 export const BalanceWrap = styled.div`
@@ -105,12 +104,19 @@ content: '';
 position: absolute;
 transform: rotate(45deg);
 z-index:-1;
-top: -11px;
+top: -10px;
 left: 69px;
-background: linear-gradient(117.84deg, #1d346a 2.84%, #031634 67.28%);
-width: 30px;
-height: 30px;
+background: linear-gradient(117.84deg, #1d346a 2.84%, #031634 77.28%);
+width: 26px;
+height: 22px;
+@media screen and (min-width: 768px) {
+left: 47px;
+  }
 }
+@media screen and (min-width: 768px) {
+  margin-top: 7px;
+  width: 292px;
+  }
 `;
 export const BalanceText = styled.p`
 font-size: 14px;
