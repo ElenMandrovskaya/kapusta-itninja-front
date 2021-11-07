@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
-export const BalanceContainer = styled.div`
+export const BalanceContainer = styled.form`
+position: relative;
 text-align: center;
 background-color: var(--table-color); //временно
 @media screen and (min-width: 768px) {
@@ -13,7 +14,7 @@ padding-left: 35px;
 }
 `;
 
-export const BalanceTitle = styled.p`
+export const BalanceTitle = styled.label`
 font-family: Roboto;
 font-style: normal;
 font-weight: 500;
@@ -25,12 +26,13 @@ margin-bottom: 6px;
     margin-bottom: 0px;
   }
 `;
-export const BalanceAmount = styled.div`
+export const BalanceAmount = styled.input`
 display: flex;
 justify-content: center;
 align-items: center;
 width: 125px;
 height: 44px;
+background-color: transparent;
 border: 2px solid #FFFFFF;
 border-radius: 22px 0px 0px 22px;
 font-weight: bold;
@@ -39,6 +41,7 @@ line-height: 14px;
 letter-spacing: 0.02em;
 text-transform: uppercase;
 color: var(--black-text-color);
+padding: 12px 20px;
 @media screen and (max-width: 767px) {
     border-right: none;
 }
@@ -75,6 +78,7 @@ color: var(--balance-text-color);
   }
 
 `;
+
 export const BalanceWrap = styled.div`
 margin: 0 auto;
 display: flex;
@@ -85,5 +89,37 @@ margin: 0;
 margin-left: 21px;
 justify-content: space-between;
   }
+`;
 
+export const BalanceModal = styled.div`
+position: absolute;
+top: calc(100% + 18px);
+width: 282px;
+border-radius: 30px;
+background: linear-gradient(117.84deg, #1d346a 2.84%, #031634 67.28%);
+box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+color: white;
+padding: 30px 25px;
+&::before {
+content: '';
+position: absolute;
+transform: rotate(45deg);
+z-index:-1;
+top: -11px;
+left: 69px;
+background: linear-gradient(117.84deg, #1d346a 2.84%, #031634 67.28%);
+width: 30px;
+height: 30px;
+}
+`;
+export const BalanceText = styled.p`
+font-size: 14px;
+line-height: 20px;
+margin-bottom: 20px;
+text-align: left;
+`;
+export const BalanceNote = styled.p`
+font-size: 12px;
+line-height: 16px;
+text-align: left;
 `;
