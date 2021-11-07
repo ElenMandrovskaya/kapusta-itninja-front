@@ -1,1 +1,0 @@
-# kapusta-itninja-front
