@@ -1,6 +1,5 @@
 import React from 'react';
 import { BgGrey, Container } from './App.styled';
-import { Container } from './App.styled';
 // import { Test } from '../components/Test/Test';
 import { Balance } from '../components/Balance/Balance';
 import user from '../data/user.json';
@@ -9,6 +8,7 @@ import GoBackHomeBtn from '../components/GoBackHomeButton/GoBackHomeButton';
 import MouthPicker from '../components/MonthPicker/MounthPicker';
 import StatisticAmounts from '../components/StatisticAmounts/StatisticAmounts.jsx';
 import MyChart from '../components/Charts/Charts';
+import {Report} from '../components/Report/Report';
 
 export default function App() {
   return (
@@ -20,6 +20,7 @@ export default function App() {
       <StatementBtn />
       <MouthPicker />
       <StatisticAmounts />
+      <Report />
       <MyChart />
     </Container>
     </BgGrey>
