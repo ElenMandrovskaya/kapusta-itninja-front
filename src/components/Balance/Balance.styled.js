@@ -102,13 +102,11 @@ padding: 30px 25px;
 &::before {
 content: '';
 position: absolute;
-transform: rotate(45deg);
-z-index:-1;
-top: -10px;
+top: -24px;
 left: 69px;
-background: linear-gradient(117.84deg, #1d346a 2.84%, #031634 77.28%);
-width: 26px;
-height: 22px;
+border: 12px solid transparent; 
+border-bottom: 13px solid #162b58;
+
 @media screen and (min-width: 768px) {
 left: 47px;
   }
