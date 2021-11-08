@@ -2,12 +2,12 @@ import React from "react";
 import DatePicker from "react-datepicker";
 import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
 import { DateContainer, Label } from "./Calendar.styled";
-import { IoCalendarOutline } from "react-icons/io5";
+// import { IoCalendarOutline } from "react-icons/io5";
 
 const Calendar = ({ selectedDate, handleChange }) => (
     <DateContainer>
         <Label htmlFor="datepicker" >
-            <IoCalendarOutline />
+            {/* <IoCalendarOutline /> */}
         </Label>
         <DatePicker
         className="datepicker"

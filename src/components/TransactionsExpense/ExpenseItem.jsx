@@ -8,11 +8,7 @@ const ExpenseItem = () => {
             <ItemDesc>описание</ItemDesc>
             <ItemCategory>категория</ItemCategory>
             <ItemSum> -  грн.</ItemSum>
-            <ItemBtn
-                type="button"
-            >
-                del
-            </ItemBtn>
+            <ItemBtn type="button" />
         </Item>
     );
 };
