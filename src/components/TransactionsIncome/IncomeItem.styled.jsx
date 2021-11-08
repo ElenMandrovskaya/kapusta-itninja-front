@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import img from "../../images/delete.svg";
 
 export const Item = styled.li`
   display: grid;
@@ -89,6 +90,9 @@ export const ItemBtn = styled.button`
     border-radius: 20px;
     border: none;
     background-color: inherit;
+    background-image: url(${img});
+    background-repeat: no-repeat;
+    background-position: center;
     &:hover {
       background-color: #f5f6fb;
     }

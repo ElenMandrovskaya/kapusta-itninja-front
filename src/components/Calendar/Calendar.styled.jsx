@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import img from "../../images/calendar.svg"
 
 export const DateContainer = styled.div`
   display: flex;
@@ -20,4 +21,8 @@ export const DateContainer = styled.div`
 export const Label = styled.label`
   margin-right: 5px;
   cursor: pointer;
+  width: 23px;
+  height: 20px;
+  margin-right: 10px;
+  background-image: url(${img});
 `;

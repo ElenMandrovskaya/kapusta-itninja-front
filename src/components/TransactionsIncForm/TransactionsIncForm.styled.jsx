@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import img from "../../images/calculator.svg"
 
 export const Form = styled.form`
 display: flex;
@@ -21,7 +22,7 @@ export const FormInput = styled.div`
     width: 20px;
     height: 20px;
     color: #f5f6fb;
-
+    background-image: url(${img});
   }
 `;
 export const FormBtn = styled.div`
