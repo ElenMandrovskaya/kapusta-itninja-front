@@ -44,6 +44,7 @@ function SignInForm() {
         <LabelInputForm marginBTM>
           <FormInputDescription>Пароль:</FormInputDescription>
           <FormInput
+            // desktopInputPassword
             password
             placeholder={'········'}
             type="password"

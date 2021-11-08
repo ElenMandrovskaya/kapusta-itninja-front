@@ -9,6 +9,10 @@ export const AuthGoogleDescription = styled.p`
   color: var(--main-text-color);
 
   margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 export const AuthGoogleBtn = styled.button`
@@ -88,10 +92,28 @@ export const FormInput = styled.input`
     color: ${props => (props.password ? `#000` : `#A6ABB9`)};
     font-size: ${props => (props.password ? `44px` : `14px`)};
   }
+  /* @media (max-width: 1279px) {
+    ::placeholder {
+      color: #a6abb9;
+      font-size: 14px;
+      font-weight: 400px;
+      letter-spacing: 0.04em;
+      line-height: 1.167;
+    }
+  } */
 
   /* :focus,
   :hover {
     outline: 1px solid var(--accent-color);
+  } */
+
+  /* @media (max-width: 1279px) {
+    display: ${props =>
+    props.desktopInputPassword ? `none` : `inline - block`};
+  }
+  @media (max-width: 1279px) {
+    display: ${props =>
+    props.mobileAndTabletInputPassword ? `inline - block` : `none`};
   } */
 `;
 
@@ -116,5 +138,5 @@ export const FormBtn = styled.button`
   filter: ${props =>
     props.submitBtn
       ? ` drop-shadow(1px 3px 5px rgba(255, 107, 8, 0.35));`
-      : `drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15))`};
+      : `drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15));`};
 `;
