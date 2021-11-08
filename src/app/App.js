@@ -20,10 +20,10 @@ export default function App() {
   return (
     <div>
     <BgGrey />
+    <Header />
     <BgAuth />
-    {/* <BgUnAuth /> */}
+    {/* <BgUnAuth />   */}
     <Container>
-      <Header /> 
       <Balance value={user.balance} />
       <GoBackHomeBtn />
       <StatementBtn />

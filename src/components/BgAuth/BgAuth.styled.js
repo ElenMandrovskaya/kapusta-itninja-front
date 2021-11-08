@@ -16,7 +16,7 @@ height: 142px;
 }
 @media screen and (min-width: 1280px) {
 z-index: -1;
-bottom: -5%;
+bottom: -40px;
 right: 0;
 background-image: url(${imgDesc});
 background-repeat: repeat;

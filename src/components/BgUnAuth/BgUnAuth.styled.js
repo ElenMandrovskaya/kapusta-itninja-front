@@ -16,7 +16,7 @@ background-repeat: no-repeat;
 width: 49px;
 height: 89px;
 @media screen and (min-width: 768px) {
-top: 28px;
+top: 84px;
 right: 0;
 background-image: url(${imgTab});
 background-repeat: repeat;
@@ -24,8 +24,6 @@ width: 100%;
 height: 232px;
 }
 @media screen and (min-width: 1280px) {
-top: 0;
-
 }
 `;
 export const BgIconBottom = styled.svg`

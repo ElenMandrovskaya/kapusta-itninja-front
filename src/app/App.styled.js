@@ -22,9 +22,12 @@ position: fixed;
 z-index: -1;
 background-color: var(--table-color); 
 width: 100%;
-height: 286px;
+height: 50%;
 border-radius: 0 0 0 180px; 
 @media screen and (min-width: 768px) {
-  height: 526px;
+  height: 50%;
+  }
+  @media screen and (min-width: 1280px) {
+  height: 68%;
   }
 `;
