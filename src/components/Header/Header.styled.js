@@ -7,14 +7,13 @@ export const ContainerHeader = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;  
-  background-color:   #FFFFFF;
+  background-color: #FFFFFF;
   height: 56px;
   margin: 0 auto;
-
-  @media screen and (min-width: 1280px) { 
-     width: 1280px;
+  padding: 0 19px;
+  @media screen and (min-width: 768px) { 
      padding: 0 26px;
-   } 
+   }
 `;
 export const UserInfo = styled.div`
  display: flex;
@@ -74,7 +73,9 @@ export const AvatarTxt = styled.div`
 
 export const Logo = styled.svg`
     background-image: url(${logo});
-    /* background-repeat: no-repeat; */  
+    width: 90px;
+    height: 31px;
+    background-repeat: no-repeat;  
 `;
 
 export const Icon = styled.svg`
