@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const BalanceContainer = styled.form`
 position: relative;
 text-align: center;
-background-color: var(--table-color); //временно
+/* background-color: var(--table-color); //временно */
 @media screen and (min-width: 768px) {
 display: flex;
 justify-content: center;
