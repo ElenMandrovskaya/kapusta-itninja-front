@@ -53,7 +53,7 @@ function SignInForm() {
           />
         </LabelInputForm>
 
-        <FormBtn type="submit" marginRigth15 accentBGColor whiteColor>
+        <FormBtn type="submit" marginRigth15 submitBtn>
           Войти
         </FormBtn>
         <a href="/" alt="Sign in with Google">

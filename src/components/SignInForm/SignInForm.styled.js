@@ -103,7 +103,7 @@ export const FormBtn = styled.button`
   border-radius: 16px;
   margin-right: ${props => (props.marginRigth15 ? '15px' : '0px')};
   background-color: ${props =>
-    props.accentBGColor ? `var(--accent-color)` : `#f6f7fb`};
+    props.submitBtn ? `var(--accent-color)` : `#f6f7fb`};
   cursor: pointer;
 
   text-transform: uppercase;
@@ -112,5 +112,9 @@ export const FormBtn = styled.button`
   font-weight: 700;
   line-height: 1.167;
   letter-spacing: 0.02em;
-  color: ${props => (props.whiteColor ? `#fff` : `var(--main-text-color)`)};
+  color: ${props => (props.submitBtn ? `#fff` : `var(--main-text-color)`)};
+  filter: ${props =>
+    props.submitBtn
+      ? ` drop-shadow(1px 3px 5px rgba(255, 107, 8, 0.35));`
+      : `drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15))`};
 `;
