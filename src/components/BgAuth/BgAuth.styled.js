@@ -16,11 +16,11 @@ height: 142px;
 }
 @media screen and (min-width: 1280px) {
 z-index: -1;
-bottom: -40px;
+bottom: 0;
 right: 0;
 background-image: url(${imgDesc});
 background-repeat: repeat;
 width: 100%;
-height: 232px;
+height: 23%;
 }
 `;
