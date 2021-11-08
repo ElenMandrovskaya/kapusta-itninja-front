@@ -18,9 +18,12 @@ export const Container = styled.div`
 `;
 
 export const BgGrey = styled.div`
+position: fixed;
+z-index: -1;
 background-color: var(--table-color); 
+width: 100%;
 height: 286px;
-border-radius: 0 0 0 80px; 
+border-radius: 0 0 0 180px; 
 @media screen and (min-width: 768px) {
   height: 526px;
   }
