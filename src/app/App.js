@@ -1,5 +1,6 @@
 import React from 'react';
 import { BgGrey, Container } from './App.styled';
+import  { Header } from "../components/Header/Header";
 // import { Test } from '../components/Test/Test';
 import { Balance } from '../components/Balance/Balance';
 import user from '../data/user.json';
@@ -18,6 +19,7 @@ export default function App() {
   return (
     <BgGrey>
     <Container>
+       <Header /> 
       {/* <Test /> */}
       <Balance value={user.balance} />
       <GoBackHomeBtn />
