@@ -106,15 +106,6 @@ export const FormInput = styled.input`
   :hover {
     outline: 1px solid var(--accent-color);
   } */
-
-  /* @media (max-width: 1279px) {
-    display: ${props =>
-    props.desktopInputPassword ? `none` : `inline - block`};
-  }
-  @media (max-width: 1279px) {
-    display: ${props =>
-    props.mobileAndTabletInputPassword ? `inline - block` : `none`};
-  } */
 `;
 
 export const FormBtn = styled.button`
