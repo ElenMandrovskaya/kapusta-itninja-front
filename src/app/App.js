@@ -1,7 +1,6 @@
 import React from 'react';
 import { BgGrey, Container } from './App.styled';
 import  { Header } from "../components/Header/Header";
-// import { Test } from '../components/Test/Test';
 import { Balance } from '../components/Balance/Balance';
 import user from '../data/user.json';
 import StatementBtn from '../components/GoToStatementsButton/GoToStatementsButton.jsx';
@@ -14,13 +13,17 @@ import TransactionsExpenses from '../components/TransactionsExpense/Transactions
 import TransactionsIncForm from '../components/TransactionsIncForm/TransactionsIncForm';
 import TransactionsIncome from '../components/TransactionsIncome/TransactionsIncome';
 import {Report} from '../components/Report/Report';
+import { BgUnAuth } from '../components/BgUnAuth/BgUnAuth';
+import { BgAuth } from '../components/BgAuth//BgAuth'
 
 export default function App() {
   return (
-    <BgGrey>
+    <div>
+    <BgGrey />
+    <BgAuth />
+    {/* <BgUnAuth /> */}
     <Container>
-       <Header /> 
-      {/* <Test /> */}
+      <Header /> 
       <Balance value={user.balance} />
       <GoBackHomeBtn />
       <StatementBtn />
@@ -33,6 +36,6 @@ export default function App() {
       <TransactionsIncForm />
       <TransactionsIncome />
     </Container>
-    </BgGrey>
+    </div>
   );
 }
