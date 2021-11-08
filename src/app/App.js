@@ -1,4 +1,5 @@
 import React from 'react';
+import { BgGrey, Container } from './App.styled';
 import { Container } from './App.styled';
 // import { Test } from '../components/Test/Test';
 import { Balance } from '../components/Balance/Balance';
@@ -11,6 +12,7 @@ import MyChart from '../components/Charts/Charts';
 
 export default function App() {
   return (
+    <BgGrey>
     <Container>
       {/* <Test /> */}
       <Balance value={user.balance} />
@@ -20,5 +22,6 @@ export default function App() {
       <StatisticAmounts />
       <MyChart />
     </Container>
+    </BgGrey>
   );
 }
