@@ -9,19 +9,21 @@ import MouthPicker from '../components/MonthPicker/MounthPicker';
 import StatisticAmounts from '../components/StatisticAmounts/StatisticAmounts.jsx';
 import MyChart from '../components/Charts/Charts';
 import {Report} from '../components/Report/Report';
+import { LogoUnAuth } from '../components/MainLogoUnAuth/MainLogo';
 
 export default function App() {
   return (
     <BgGrey>
+      <LogoUnAuth />
     <Container>
-      {/* <Test /> */}
+      {/* <Test />
       <Balance value={user.balance} />
       <GoBackHomeBtn />
       <StatementBtn />
       <MouthPicker />
       <StatisticAmounts />
       <Report />
-      <MyChart />
+      <MyChart /> */}
     </Container>
     </BgGrey>
   );
