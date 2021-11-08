@@ -1,0 +1,12 @@
+[
+  {
+    "sum": 45000,
+    "name": "ЗП",
+    "icon": "salary"
+  },
+  {
+    "sum": 1500,
+    "name": "Доп.доход",
+    "icon": "salary-plus"
+  }
+]
