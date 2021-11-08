@@ -3,6 +3,7 @@ import { Example, Image, Section } from './Test.styled';
 import Donatello from '../../images/donatello.jpg';
 import FormContainer from '../FormContainer';
 import SignInForm from '../SignInForm';
+import SignUpForm from '../SignUpForm';
 
 export function Test() {
   return (
@@ -10,7 +11,11 @@ export function Test() {
       <Example>Just for test, Good Luck, ItNinja!!!</Example>
       <Image src={Donatello} />
       <FormContainer>
-        <SignInForm></SignInForm>
+        <SignInForm />
+      </FormContainer>
+
+      <FormContainer>
+        <SignUpForm />
       </FormContainer>
     </Section>
   );

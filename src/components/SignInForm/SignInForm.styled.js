@@ -11,9 +11,7 @@ export const AuthGoogleDescription = styled.p`
   margin-bottom: 20px;
 `;
 
-export const AuthGoogleButton = styled.button`
-  width: 122px;
-  height: 40px;
+export const AuthGoogleBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,6 +23,7 @@ export const AuthGoogleButton = styled.button`
   background-color: #f6f7fb;
   border: 0px solid transparent;
   border-radius: 26px;
+  cursor: pointer;
 `;
 
 export const SpanTextWrapper = styled.span`
@@ -50,10 +49,12 @@ export const OtherDescriptionToSignUp = styled.p`
 
 export const SignInFormWrapper = styled.form`
   align-items: left;
+  width: 265px;
 `;
 export const LabelInputForm = styled.label`
   display: block;
-  margin-bottom: 30px;
+  margin-bottom: ${props => (props.marginBTM ? `40px` : `30px`)};
+  cursor: pointer;
 `;
 export const FormInputDescription = styled.span`
   font-family: Roboto, sant-serif;
@@ -67,7 +68,6 @@ export const FormInputDescription = styled.span`
   margin-bottom: 10px;
 `;
 export const FormInput = styled.input`
-  display: block;
   width: 265px;
   height: 52px;
   border: 0px solid transparent;
@@ -75,20 +75,37 @@ export const FormInput = styled.input`
   background-color: #f6f7fb;
   padding: 17px 20px;
 
-  font-family: Roboto, sant-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.167;
-  letter-spacing: 0.04em;
+  font-family: ${props =>
+    props.password ? `Montserrat` : `Roboto, sant-serif`};
+  font-size: ${props => (props.password ? `44px` : `14px`)};
+  font-weight: ${props => (props.password ? `400` : `500`)};
+  line-height: ${props => (props.password ? `1.23` : `1.167`)};
+  letter-spacing: ${props => (props.password ? `0em` : `0.04em`)};
+  color: #000;
+  outline: none;
+
+  ::placeholder {
+    color: ${props => (props.password ? `#000` : `#A6ABB9`)};
+    font-size: ${props => (props.password ? `44px` : `14px`)};
+  }
+
+  /* :focus,
+  :hover {
+    outline: 1px solid var(--accent-color);
+  } */
 `;
+
 export const FormBtn = styled.button`
   width: 125px;
   height: 44px;
+
   border: 0px solid transparent;
   border-radius: 16px;
   margin-right: ${props => (props.marginRigth15 ? '15px' : '0px')};
   background-color: ${props =>
     props.accentBGColor ? `var(--accent-color)` : `#f6f7fb`};
+  cursor: pointer;
+
   text-transform: uppercase;
   font-family: Roboto, sant-serif;
   font-size: 12px;
@@ -96,9 +113,4 @@ export const FormBtn = styled.button`
   line-height: 1.167;
   letter-spacing: 0.02em;
   color: ${props => (props.whiteColor ? `#fff` : `var(--main-text-color)`)};
-`;
-
-export const ButtonContainer = styled.div`
-  display: flex;
-  margin-top: 10px;
 `;

@@ -1,10 +1,9 @@
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { FcGoogle } from 'react-icons/fc';
-import { IconContext } from 'react-icons';
 
 import { AuthGoogleDescription } from './SignInForm.styled';
-import { AuthGoogleButton } from './SignInForm.styled';
+import { AuthGoogleBtn } from './SignInForm.styled';
 import { SpanTextWrapper } from './SignInForm.styled';
 import { OtherDescriptionToSignUp } from './SignInForm.styled';
 
@@ -13,7 +12,6 @@ import { LabelInputForm } from './SignInForm.styled';
 import { FormInputDescription } from './SignInForm.styled';
 import { FormInput } from './SignInForm.styled';
 import { FormBtn } from './SignInForm.styled';
-import { ButtonContainer } from './SignInForm.styled';
 
 function SignInForm() {
   return (
@@ -22,10 +20,10 @@ function SignInForm() {
         Вы можете авторизоваться с помощью Google Account:
       </AuthGoogleDescription>
 
-      <AuthGoogleButton>
+      <AuthGoogleBtn type="button">
         <FcGoogle size={18} />
         <SpanTextWrapper>Google</SpanTextWrapper>
-      </AuthGoogleButton>
+      </AuthGoogleBtn>
 
       <OtherDescriptionToSignUp>
         Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:
@@ -34,25 +32,38 @@ function SignInForm() {
       <SignInFormWrapper>
         <LabelInputForm>
           <FormInputDescription>Электронная почта:</FormInputDescription>
-          <FormInput placeholder={'your@email.com'} />
+          <FormInput
+            placeholder={'your@email.com'}
+            type="email"
+            name="email"
+            // onChange={handleChange}
+            // value={email}
+          />
         </LabelInputForm>
 
-        <LabelInputForm>
+        <LabelInputForm marginBTM>
           <FormInputDescription>Пароль:</FormInputDescription>
-          <FormInput />
+          <FormInput
+            password
+            placeholder={'········'}
+            type="password"
+            name="password"
+            // onChange={handleChange}
+            // value={password}
+          />
         </LabelInputForm>
 
-        <ButtonContainer>
-          <FormBtn marginRigth15 accentBGColor whiteColor>
-            Войти
-          </FormBtn>
-          <FormBtn>Регистрация</FormBtn>
-        </ButtonContainer>
+        <FormBtn type="submit" marginRigth15 accentBGColor whiteColor>
+          Войти
+        </FormBtn>
+        <a href="/" alt="Sign in with Google">
+          <FormBtn type="button">Регистрация</FormBtn>
+        </a>
       </SignInFormWrapper>
     </Fragment>
   );
 }
 
-SignInForm.propTypes = {};
+// SignInForm.propTypes = {};
 
 export default SignInForm;
