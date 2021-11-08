@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './App.styled';
+import { BgGrey, Container } from './App.styled';
 // import { Test } from '../components/Test/Test';
 import { Balance } from '../components/Balance/Balance';
 import user from '../data/user.json';
@@ -12,9 +12,11 @@ import TransactionsExpForm from '../components/TransactionsExpForm/TransactionsE
 import TransactionsExpenses from '../components/TransactionsExpense/TransactionsExpense';
 import TransactionsIncForm from '../components/TransactionsIncForm/TransactionsIncForm';
 import TransactionsIncome from '../components/TransactionsIncome/TransactionsIncome';
+import {Report} from '../components/Report/Report';
 
 export default function App() {
   return (
+    <BgGrey>
     <Container>
       {/* <Test /> */}
       <Balance value={user.balance} />
@@ -22,11 +24,13 @@ export default function App() {
       <StatementBtn />
       <MouthPicker />
       <StatisticAmounts />
+      <Report />
       <MyChart />
       <TransactionsExpForm />
       <TransactionsExpenses />
       <TransactionsIncForm />
       <TransactionsIncome />
     </Container>
+    </BgGrey>
   );
 }

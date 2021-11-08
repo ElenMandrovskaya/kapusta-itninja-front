@@ -16,3 +16,12 @@ export const Container = styled.div`
     padding: 0 110px;
   }
 `;
+
+export const BgGrey = styled.div`
+background-color: var(--table-color); 
+height: 286px;
+border-radius: 0 0 0 80px; 
+@media screen and (min-width: 768px) {
+  height: 526px;
+  }
+`;

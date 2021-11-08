@@ -13,10 +13,10 @@ export function Balance({value}) {
                 type="text"
                 defaultValue={value}/>
             <SubmitBtn type="submit">подтвердить</SubmitBtn>
-            <BalanceModal onClick={removeBalanceModal}>
+            {/* <BalanceModal onClick={removeBalanceModal}>
              <BalanceText>Привет! Для начала работы внеси текущий баланс своего счета!</BalanceText>
              <BalanceNote>Ты не можешь тратить деньги пока их у тебя нет 😊</BalanceNote>
-         </BalanceModal>
+         </BalanceModal> */}
          </BalanceWrap>
          </BalanceContainer>
   )
