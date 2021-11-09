@@ -7,8 +7,6 @@ export const LogoutModal = () => {
             <ModalContent>
                 <ModalLogoutP>Вы действительно хотите выйти?</ModalLogoutP>
                 <ModalLogoutButton>
-                    
-            <use class="icon-menu" href="./images/sprite.svg#icon-burger"></use>
                     <Button type="button">
                         Да
                     </Button>  
