@@ -9,8 +9,8 @@ export function Balance({}) {
     const [balanceModalOpen, setTBalanceModalOpen] = useState(true);
     const removeBalanceModal = () => { setTBalanceModalOpen(false) };
 
-    const dispatch = useDispatch();
-    const currentBalance = useSelector(getBalance);
+    // const dispatch = useDispatch();
+    // const currentBalance = useSelector(getBalance);
 
     // const handleChange = (evt) => {
     //     const { value } = evt.currentTarget;

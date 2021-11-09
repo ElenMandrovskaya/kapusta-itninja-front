@@ -1,2 +1,2 @@
-export const getBalance = state => state.balance;
+export const getCirrentBalance = state => state.balance;
 
