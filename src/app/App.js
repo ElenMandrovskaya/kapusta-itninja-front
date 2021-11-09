@@ -15,6 +15,7 @@ import TransactionsIncome from '../components/TransactionsIncome/TransactionsInc
 import {Report} from '../components/Report/Report';
 import { BgUnAuth } from '../components/BgUnAuth/BgUnAuth';
 import { BgAuth } from '../components/BgAuth//BgAuth'
+import { HeroTitle } from '../components/HeroTitle/HeroTitle';
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
     <BgAuth />
     {/* <BgUnAuth />   */}
     <Container>
+      <HeroTitle />
       <Balance value={user.balance} />
       <GoBackHomeBtn />
       <StatementBtn />
