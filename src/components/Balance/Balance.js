@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getBalance } from '../../redux/balance/balance-operations';
-import * as balanceOperations from "../../redux/balance/balance-operations";
+// import { useDispatch, useSelector } from 'react-redux';
+// import { getBalance } from '../../redux/balance/balance-operations';
+// import * as balanceOperations from "../../redux/balance/balance-operations";
 import { BalanceContainer, BalanceTitle, BalanceAmount, SubmitBtn, BalanceWrap, BalanceModal, BalanceText, BalanceNote } from "./Balance.styled";
 
 export function Balance({}) {
@@ -12,25 +12,26 @@ export function Balance({}) {
     const dispatch = useDispatch();
     const currentBalance = useSelector(getBalance);
 
-    const handleChange = (evt) => {
-        const { value } = evt.currentTarget;
-            setBalance(value);
-        };
-    const handleSubmit = (evt) => {
-            evt.preventDefault();
-            dispatch(balanceOperations.addBalance({ balance }))
-         };
+    // const handleChange = (evt) => {
+    //     const { value } = evt.currentTarget;
+    //         setBalance(value);
+    //     };
+    // const handleSubmit = (evt) => {
+    //         evt.preventDefault();
+    //         dispatch(balanceOperations.addBalance({ balance }))
+    //      };
     return (
-        <BalanceContainer onSubmit={handleSubmit}>
+        <BalanceContainer 
+        // onSubmit={handleSubmit}
+        >
          <BalanceTitle>Баланс:</BalanceTitle>
          <BalanceWrap>
             <BalanceAmount 
                 name="balance"
                 type="text"
-                defaultValue={`00.00`}
-                // id={nameId}
+                // defaultValue={`00.00`}
                 value={balance}
-                onChange={handleChange}
+                // onChange={handleChange}
                 />
             <SubmitBtn type="submit">подтвердить</SubmitBtn>
             {/* <BalanceModal onClick={removeBalanceModal}>

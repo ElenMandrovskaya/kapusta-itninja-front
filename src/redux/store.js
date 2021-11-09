@@ -1,9 +1,11 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
-import BalanceReducer from "./balance/balance-slice";
+import balanceReducer from "./balance/balance-slice"
 
-const store = configureStore({
-    reducer: BalanceReducer,
-    devtools: process.env.NODE_ENV !== 'production'
-})
+export const store = configureStore({
+    reducer: {
+          balance: balanceReducer, 
+      },
+      devtools: process.env.NODE_ENV !== 'production'
+  })
 
 export default store;

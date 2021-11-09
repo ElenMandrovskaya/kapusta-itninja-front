@@ -1,1 +1,2 @@
-export const getContacts = state => state.balance.current;
+export const getBalance = state => state.balance;
+
