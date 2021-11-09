@@ -25,7 +25,7 @@ export default function App() {
     {/* <BgUnAuth />   */}
     <Container>
       <HeroTitle />
-      {/* <Balance /> */}
+      <Balance />
       <GoBackHomeBtn />
       <StatementBtn />
       <MouthPicker />

@@ -5,8 +5,11 @@ const balanceSlice = createSlice({
     name: 'balance',
     initialState: '0',
     extraReducers: {
-        [balanceOperations.getCurrentBalance.fulfilled](state, action) {
-            state.items = action.payload
+        [balanceOperations.getBalance.fulfilled](state, action) {
+            state.balance = action.payload
+        },
+        [balanceOperations.updBalance.fulfilled](state, action) {
+            state.balance.push(action.payload)
         },
     }
 
