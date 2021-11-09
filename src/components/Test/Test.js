@@ -16,7 +16,6 @@ export function Test() {
 
       <FormContainer>
         <SignUpForm />
-      </FormContainer> */}
     </Section>
   );
 }
