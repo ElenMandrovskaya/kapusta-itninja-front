@@ -2,7 +2,6 @@ import React from 'react';
 import { BgGrey, Container } from './App.styled';
 import  { Header } from "../components/Header/Header";
 import { Balance } from '../components/Balance/Balance';
-import user from '../data/user.json';
 import StatementBtn from '../components/GoToStatementsButton/GoToStatementsButton.jsx';
 import GoBackHomeBtn from '../components/GoBackHomeButton/GoBackHomeButton';
 import MouthPicker from '../components/MonthPicker/MounthPicker';
@@ -26,7 +25,7 @@ export default function App() {
     {/* <BgUnAuth />   */}
     <Container>
       <HeroTitle />
-      <Balance value={user.balance} />
+      {/* <Balance /> */}
       <GoBackHomeBtn />
       <StatementBtn />
       <MouthPicker />
