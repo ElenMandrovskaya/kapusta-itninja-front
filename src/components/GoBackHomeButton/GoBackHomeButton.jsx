@@ -1,8 +1,14 @@
 import React from 'react';
-import { Link } from './GoBackHomeButton.styled';
+import { Img, Link, Span } from './GoBackHomeButton.styled';
+import arrowButton from '../../images/arrow-back.svg';
 
 const GoBackHomeBtn = () => {
-  return <Link>Вернутся на главную</Link>;
+  return (
+    <Link>
+      <Img src={arrowButton} alt="" />
+      <Span>Вернутся на главную</Span>
+    </Link>
+  );
 };
 
 export default GoBackHomeBtn;
