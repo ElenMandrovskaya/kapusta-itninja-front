@@ -15,6 +15,7 @@ import {Report} from '../components/Report/Report';
 import { BgUnAuth } from '../components/BgUnAuth/BgUnAuth';
 import { BgAuth } from '../components/BgAuth//BgAuth'
 import { HeroTitle } from '../components/HeroTitle/HeroTitle';
+import { LogoutModal } from '../components/LogoutModal/LogoutModal'
 import FormContainer from '../components/FormContainer/FormContainer';
 import SignInForm from '../components/SignInForm/SignInForm';
 import SignUpForm from '../components/SignUpForm/SignUpForm';
@@ -24,6 +25,7 @@ export default function App() {
     <div>
     <BgGrey />
     <Header />
+    <LogoutModal />
     <BgAuth />
     {/* <BgUnAuth />   */}
     <Container>
