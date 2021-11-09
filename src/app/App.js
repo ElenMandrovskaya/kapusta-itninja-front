@@ -15,12 +15,14 @@ import {Report} from '../components/Report/Report';
 import { BgUnAuth } from '../components/BgUnAuth/BgUnAuth';
 import { BgAuth } from '../components/BgAuth//BgAuth'
 import { HeroTitle } from '../components/HeroTitle/HeroTitle';
+import { LogoutModal } from '../components/LogoutModal/LogoutModal'
 
 export default function App() {
   return (
     <div>
     <BgGrey />
     <Header />
+    <LogoutModal />
     <BgAuth />
     {/* <BgUnAuth />   */}
     <Container>
