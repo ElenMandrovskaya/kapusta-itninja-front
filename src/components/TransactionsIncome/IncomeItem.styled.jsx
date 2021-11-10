@@ -81,7 +81,7 @@ export const ItemDesc = styled.span``;
 export const ItemCategory = styled.span``;
 export const ItemSum = styled.span`
   font-weight: 700;
-  color: #e7192e;
+  color: var(--green-text-color);
 `;
 
 export const ItemBtn = styled.button`
