@@ -8,8 +8,9 @@ import GoBackHomeBtn from '../components/GoBackHomeButton/GoBackHomeButton';
 import MouthPicker from '../components/MonthPicker/MounthPicker';
 import StatisticAmounts from '../components/StatisticAmounts/StatisticAmounts.jsx';
 import MyChart from '../components/Charts/Charts';
-import {Report} from '../components/Report/Report';
-import TransactionsPage from '../pages/TransactionsPage/TransactionsPage';
+import { Report } from '../components/Report/Report';
+import TransactionPage from "../pages/TransactionsPage/TransactionsPage"
+
 export default function App() {
   return (
     <BgGrey>
@@ -21,8 +22,8 @@ export default function App() {
       <MouthPicker />
       <StatisticAmounts />
       <Report />
-        <MyChart />
-        <TransactionsPage />
+      <MyChart />
+      <TransactionPage />
     </Container>
     </BgGrey>
   );

@@ -4,7 +4,7 @@ import CategoryInput from "../CategoryInput/CategoryInput";
 import { Form, Wrapper, FormInput, FormBtn, InputAmount, InputDesc, ButtonOrange, Button } from "./TransactionsExpForm.styled";
 
 const TransactionsExpForm = () => {
-    const [startDate, setStartDate] = useState(new Date());
+        const [startDate, setStartDate] = useState(new Date());
     const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
     const [amount, setAmount] = useState("");
@@ -38,7 +38,7 @@ const TransactionsExpForm = () => {
             <Wrapper>
                 <Calendar
                     selectedDate={startDate}
-                    handleChange={(date) => setStartDate(date)}
+                    handleChange={(date) => setStartDate(date)}                
                 />
                 <FormInput>
                     <InputDesc
@@ -56,19 +56,17 @@ const TransactionsExpForm = () => {
                         type="text"
                         placeholder="0,00"
                         value={amount}
-                        onChange={(e) => setAmount(e.target.value)}                
+                        onChange={(e) => setAmount(e.target.value)} 
                     />
                 </FormInput>
                 <FormBtn>
                     <ButtonOrange
                         type="submit"
-                        buttonHandler={addExpense}>
+                        buttonHandler="">
                         Ввод
                     </ButtonOrange>
                     <Button
-                        type="button"
-                        buttonHandler={reset}
-                    >
+                        type="button">
                         Очистить
                     </Button>         
                 </FormBtn>
