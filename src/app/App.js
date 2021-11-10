@@ -36,7 +36,7 @@ export default function App() {
       <FormContainer>
         <SignUpForm />
       </FormContainer>  
-      {/* <Balance /> */}
+      <Balance /> 
       <GoBackHomeBtn />
       <StatementBtn />
       <MouthPicker />
