@@ -3,7 +3,7 @@ import * as balanceOperations from './balance-operations';
 
 const balanceSlice = createSlice({
     name: 'balance',
-    initialState: '0',
+    initialState: 0,
     extraReducers: {
         [balanceOperations.getBalance.fulfilled](state, action) {
             state.balance = action.payload
