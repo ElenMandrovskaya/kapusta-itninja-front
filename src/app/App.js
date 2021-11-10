@@ -1,22 +1,39 @@
 import React from 'react';
 import { BgGrey, Container } from './App.styled';
-// import { Test } from '../components/Test/Test';
+import  { Header } from "../components/Header/Header";
 import { Balance } from '../components/Balance/Balance';
-import user from '../data/user.json';
 import StatementBtn from '../components/GoToStatementsButton/GoToStatementsButton.jsx';
 import GoBackHomeBtn from '../components/GoBackHomeButton/GoBackHomeButton';
 import MouthPicker from '../components/MonthPicker/MounthPicker';
 import StatisticAmounts from '../components/StatisticAmounts/StatisticAmounts.jsx';
 import MyChart from '../components/Charts/Charts';
-import { Report } from '../components/Report/Report';
 import TransactionPage from "../pages/TransactionsPage/TransactionsPage"
+import {Report} from '../components/Report/Report';
+import { BgUnAuth } from '../components/BgUnAuth/BgUnAuth';
+import { BgAuth } from '../components/BgAuth//BgAuth'
+import { HeroTitle } from '../components/HeroTitle/HeroTitle';
+import { LogoutModal } from '../components/LogoutModal/LogoutModal'
+import FormContainer from '../components/FormContainer/FormContainer';
+import SignInForm from '../components/SignInForm/SignInForm';
+import SignUpForm from '../components/SignUpForm/SignUpForm';
 
 export default function App() {
   return (
-    <BgGrey>
+    <div>
+    <BgGrey />
+    <Header />
+    <LogoutModal />
+    <BgAuth />
+    {/* <BgUnAuth />   */}
     <Container>
-      {/* <Test /> */}
-      <Balance value={user.balance} />
+      <HeroTitle />
+      <FormContainer>
+        <SignInForm />
+      </FormContainer>
+      <FormContainer>
+        <SignUpForm />
+      </FormContainer>  
+      <Balance /> 
       <GoBackHomeBtn />
       <StatementBtn />
       <MouthPicker />
@@ -25,6 +42,6 @@ export default function App() {
       <MyChart />
       <TransactionPage />
     </Container>
-    </BgGrey>
+    </div>
   );
 }
