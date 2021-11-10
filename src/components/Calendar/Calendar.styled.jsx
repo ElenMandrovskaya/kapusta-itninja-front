@@ -19,10 +19,8 @@ export const DateContainer = styled.div`
   }
 `;
 export const Label = styled.label`
-  margin-right: 5px;
   cursor: pointer;
-  width: 23px;
+  width: 25px;
   height: 20px;
-  margin-right: 10px;
   background-image: url(${img});
 `;
