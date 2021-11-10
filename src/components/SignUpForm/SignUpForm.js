@@ -64,11 +64,11 @@ function SignUpForm() {
           />
         </LabelInputForm>
 
-        <FormBtn type="submit" marginRigth15>
+        <FormBtn type="button" marginRigth15>
           Войти
         </FormBtn>
         <a href="/" alt="Sign in with Google">
-          <FormBtn type="button" submitBtn>
+          <FormBtn type="submit" submitBtn>
             Регистрация
           </FormBtn>
         </a>
