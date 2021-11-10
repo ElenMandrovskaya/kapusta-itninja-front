@@ -2,43 +2,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 
 :root {
---main-bg-color: #F2F5FC;
---black-text-color: #000;
---main-text-color: #52555F;
---placeholder-text-color: #C7CCDC;
---balance-text-color: #52555fb3;
---accent-color: #FF751D;
---pale-orange: #FFDAC0;
---table-color: #F5F6FB;
---dark-icons-color: #071F41;
---light-icons-color: #F5F6FB;
---red-text-color: #E53935;
---green-text-color: #407946;
---kapusta-color: #DFE2EB;
-  }
+  --main-bg-color: #f2f5fc;
+  --black-text-color: #000;
+  --main-text-color: #52555f;
+  --placeholder-text-color: #c7ccdc;
+  --balance-text-color: #52555fb3;
+  --accent-color: #ff751d;
+  --pale-orange: #ffdac0;
+  --table-color: #f5f6fb;
+  --dark-icons-color: #071f41;
+  --light-icons-color: #f5f6fb;
+  --red-text-color: #e53935;
+  --green-text-color: #407946;
+  --kapusta-color: #dfe2eb;
+}
 
 body {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 *,
 *::before,
 *::after {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 h1,
 h2,
@@ -47,16 +48,39 @@ h4,
 h5,
 h6,
 p {
-    margin: 0;
+  margin: 0;
 }
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 address {
-    font-style: normal;
+  font-style: normal;
 }
 img {
-    display: block;
-    max-width: 100%;
-    height: auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Date picker */
+.datepicker {
+  position: relative;
+  border: 0;
+  padding: 0;
+  margin-bottom: 4px;
+  margin-left: 10px;
+  width: 75px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+  outline: none;
+  color: #52555f;
+  background-color: transparent;
+}
+
+.datepicker:hover {
+  cursor: pointer;
 }
