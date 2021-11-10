@@ -26,6 +26,6 @@ yarn-error.log*
 .DS_Store
 .vscode/
 .idea/
-package-lock.json
+# package-lock.json
 
 /server/node_modules
