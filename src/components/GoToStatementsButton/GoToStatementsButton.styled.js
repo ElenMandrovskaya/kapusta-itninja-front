@@ -1,12 +1,14 @@
 import styled from '@emotion/styled';
 
 export const Link = styled.a`
+  display: flex;
+  cursor: pointer;
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
   line-height: 14px;
-  /* identical to box height */
+ 
 
   letter-spacing: 0.04em;
 
@@ -14,5 +16,12 @@ export const Link = styled.a`
 `;
 export const Svg = styled.svg`
   margin-left: 15px;
-  /* background: #52555f; */
+ 
+`;
+export const Img = styled.img`
+  margin-left: 20px;
+
+`;
+export const Span = styled.p`
+
 `;

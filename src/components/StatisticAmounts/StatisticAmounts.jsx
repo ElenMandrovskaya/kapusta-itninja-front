@@ -1,13 +1,19 @@
 import React from 'react';
-import { Div } from '../StatisticAmounts/StatisticAmounts.styled';
-import { Costs, P, Profit, Vl } from './StatisticAmounts.styled';
+import {
+  Div,
+  Title,
+  ProfitSpan,
+  Vl,
+  CostSpan,
+} from './StatisticAmounts.styled';
+// import { Costs, P, Profit, Vl, Span } from './StatisticAmounts.styled';
 
 const StatisticAmounts = () => {
   return (
     <Div>
-      <P>Расходы: {<Costs> - 5 555 грн.</Costs>} </P>
+      <Title>Расходы: {<CostSpan> - 5 555 грн.</CostSpan>} </Title>
       <Vl />
-      <P>Доходы:{<Profit> + 7 777 грн.</Profit>} </P>
+      <Title>Доходы:{<ProfitSpan> + 7 777 грн.</ProfitSpan>} </Title>
     </Div>
   );
 };
