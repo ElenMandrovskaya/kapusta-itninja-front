@@ -8,7 +8,6 @@ import SignInForm from '../components/SignInForm';
 import RegistrationPageContainer from '../components/RegistrationPageContainer';
 
 export default function RegistrationPage() {
-  const [isRegistration, setIsRegistration] = useState(false);
   return (
     <div>
       <BgGrey />
