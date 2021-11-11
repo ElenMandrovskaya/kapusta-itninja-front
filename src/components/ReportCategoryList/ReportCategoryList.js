@@ -6,7 +6,9 @@ export function ReportCategoryList({ catagories }) {
   return (
     <CategoryList>
       {catagories.map(({ name, sum, icon }) => {
-        return <ReportCategoryItem name={name} sum={sum} icon={icon} />;
+        return (
+          <ReportCategoryItem key={icon} name={name} sum={sum} icon={icon} />
+        );
       })}
     </CategoryList>
   );
