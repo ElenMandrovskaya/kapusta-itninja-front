@@ -1,43 +1,39 @@
 import React from 'react';
 import { BgGrey, Container } from './App.styled';
-import  { Header } from "../components/Header/Header";
+import { Header } from '../components/Header/Header';
 import { Balance } from '../components/Balance/Balance';
-import user from '../data/user.json';
 import StatementBtn from '../components/GoToStatementsButton/GoToStatementsButton.jsx';
 import GoBackHomeBtn from '../components/GoBackHomeButton/GoBackHomeButton';
 import MouthPicker from '../components/MonthPicker/MounthPicker';
 import StatisticAmounts from '../components/StatisticAmounts/StatisticAmounts.jsx';
 import MyChart from '../components/Charts/Charts';
-import TransactionsExpForm from '../components/TransactionsExpForm/TransactionsExpForm';
-import TransactionsExpenses from '../components/TransactionsExpense/TransactionsExpense';
-import TransactionsIncForm from '../components/TransactionsIncForm/TransactionsIncForm';
-import TransactionsIncome from '../components/TransactionsIncome/TransactionsIncome';
+import TransactionPage from "../pages/TransactionsPage/TransactionsPage"
 // import {Report} from '../components/Report/Report';
 import { BgUnAuth } from '../components/BgUnAuth/BgUnAuth';
-import { BgAuth } from '../components/BgAuth//BgAuth'
-import { HeroTitle } from '../components/HeroTitle/HeroTitle';
+import { BgAuth } from '../components/BgAuth//BgAuth';
+// import { HeroTitle } from '../components/HeroTitle/HeroTitle';
+import RegistrationPage from '../pages/RegistrationPage';
+// import { LogoutModal } from '../components/LogoutModal/LogoutModal'
 
 export default function App() {
   return (
     <div>
-    <BgGrey />
-    <Header />
-    <BgAuth />
-    {/* <BgUnAuth />   */}
-    <Container>
-      <HeroTitle />
-      <Balance value={user.balance} />
-      <GoBackHomeBtn />
-      <StatementBtn />
-      <MouthPicker />
-      <StatisticAmounts />
-      {/* <Report /> */}
-      <MyChart />
-      <TransactionsExpForm />
-      <TransactionsExpenses />
-      <TransactionsIncForm />
-      <TransactionsIncome />
-    </Container>
+      <BgGrey />
+      {/* <Header /> */}
+      <RegistrationPage />
+      <BgAuth />
+      {/* <BgUnAuth />   */}
+      <Container>
+        {/* <HeroTitle /> */}
+        <Balance /> 
+        <TransactionPage />
+        <GoBackHomeBtn />
+        <StatementBtn />
+        <MouthPicker />
+        <StatisticAmounts />
+//         <Report />
+        <MyChart />
+      </Container>
     </div>
   );
 }
