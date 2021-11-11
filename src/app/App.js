@@ -31,7 +31,7 @@ export default function App() {
         <StatementBtn />
         <MouthPicker />
         <StatisticAmounts />
-//         <Report />
+        {/* <Report /> */}
         <MyChart />
       </Container>
     </div>
