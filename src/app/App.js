@@ -1,6 +1,6 @@
 import React from 'react';
 import { BgGrey, Container } from './App.styled';
-import  { Header } from "../components/Header/Header";
+import { Header } from '../components/Header/Header';
 import { Balance } from '../components/Balance/Balance';
 import StatementBtn from '../components/GoToStatementsButton/GoToStatementsButton.jsx';
 import GoBackHomeBtn from '../components/GoBackHomeButton/GoBackHomeButton';
@@ -11,32 +11,34 @@ import TransactionsExpForm from '../components/TransactionsExpForm/TransactionsE
 import TransactionsExpenses from '../components/TransactionsExpense/TransactionsExpense';
 import TransactionsIncForm from '../components/TransactionsIncForm/TransactionsIncForm';
 import TransactionsIncome from '../components/TransactionsIncome/TransactionsIncome';
-import {Report} from '../components/Report/Report';
+import { Report } from '../components/Report/Report';
 import { BgUnAuth } from '../components/BgUnAuth/BgUnAuth';
-import { BgAuth } from '../components/BgAuth//BgAuth'
+import { BgAuth } from '../components/BgAuth//BgAuth';
 import { HeroTitle } from '../components/HeroTitle/HeroTitle';
+import RegistrationPage from '../pages/RegistrationPage';
 
 export default function App() {
   return (
     <div>
-    <BgGrey />
-    <Header />
-    <BgAuth />
-    {/* <BgUnAuth />   */}
-    <Container>
-      <HeroTitle />
-      {/* <Balance /> */}
-      <GoBackHomeBtn />
-      <StatementBtn />
-      <MouthPicker />
-      <StatisticAmounts />
-      <Report />
-      <MyChart />
-      <TransactionsExpForm />
-      <TransactionsExpenses />
-      <TransactionsIncForm />
-      <TransactionsIncome />
-    </Container>
+      <RegistrationPage />
+      <BgGrey />
+      <Header />
+      <BgAuth />
+      {/* <BgUnAuth />   */}
+      <Container>
+        <HeroTitle />
+        {/* <Balance /> */}
+        <GoBackHomeBtn />
+        <StatementBtn />
+        <MouthPicker />
+        <StatisticAmounts />
+        <Report />
+        <MyChart />
+        <TransactionsExpForm />
+        <TransactionsExpenses />
+        <TransactionsIncForm />
+        <TransactionsIncome />
+      </Container>
     </div>
   );
 }
