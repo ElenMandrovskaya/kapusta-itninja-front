@@ -1,19 +1,21 @@
 import axios from 'axios';
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-export const getBalance = createAsyncThunk('contacts/getbalance', async () => {
+axios.defaults.baseURL = 'https://kapusta-finance-tracker.herokuapp.com';
+
+export const getBalance = createAsyncThunk('balance/getBalance', async () => {
     try {
-        const { data } = await axios.get('/balance');
+        const { data } = await axios.get('/api/user/balance');
+        console.log(data)
         return data;
     }
     catch (error) {
         // toast.error("");
     }
 });
-
-export const addBalance = createAsyncThunk('balance/addbalance', async balance => {
+export const updBalance = createAsyncThunk('balance/updBalance', async balance => {
     try {
-        const { data } = await axios.post('/balance', balance);
+        const { data } = await axios.post('/api/user/balance', balance);
         return data;
     }
     catch (error) {

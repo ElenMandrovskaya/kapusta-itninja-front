@@ -30,6 +30,7 @@ export const BalanceAmount = styled.input`
 display: flex;
 justify-content: center;
 align-items: center;
+text-align: center;
 width: 125px;
 height: 44px;
 background-color: transparent;
@@ -41,7 +42,17 @@ line-height: 14px;
 letter-spacing: 0.02em;
 text-transform: uppercase;
 color: var(--black-text-color);
-padding: 12px 20px;
+padding: 12px 15px;
+&:hover {
+  border-color: var(--accent-color);
+}
+&:focus {
+  border-color: var(--accent-color);
+}
+&::placeholder{
+  color: var(--balance-text-color);
+  
+}
 @media screen and (max-width: 767px) {
     border-right: none;
 }
@@ -98,7 +109,7 @@ border-radius: 30px;
 background: linear-gradient(117.84deg, #1d346a 2.84%, #031634 67.28%);
 box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
 color: white;
-padding: 30px 25px;
+padding: 30px 25px 15px 25px;
 &::before {
 content: '';
 position: absolute;
