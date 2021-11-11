@@ -14,7 +14,7 @@ export const Button = styled.button`
   background: none;
 `;
 
-export const H4 = styled.h4`
+export const Title = styled.h4`
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
@@ -37,4 +37,15 @@ export const Span = styled.span`
   text-transform: uppercase;
 
   color: #000000;
+`;
+export const Picker = styled.div`
+  width: 115px;
+  background: none;
+  border: none;
+  text-align: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  text-transform: uppercase;
 `;

@@ -4,7 +4,7 @@ import { Header } from '../components/Header/Header';
 import { Balance } from '../components/Balance/Balance';
 import StatementBtn from '../components/GoToStatementsButton/GoToStatementsButton.jsx';
 import GoBackHomeBtn from '../components/GoBackHomeButton/GoBackHomeButton';
-import MouthPicker from '../components/MonthPicker/MounthPicker';
+import MonthPicker from '../components/MonthPicker/MonthPicker.jsx';
 import StatisticAmounts from '../components/StatisticAmounts/StatisticAmounts.jsx';
 import MyChart from '../components/Charts/Charts';
 import TransactionPage from "../pages/TransactionsPage/TransactionsPage"
@@ -14,6 +14,7 @@ import { BgAuth } from '../components/BgAuth//BgAuth';
 // import { HeroTitle } from '../components/HeroTitle/HeroTitle';
 import RegistrationPage from '../pages/RegistrationPage';
 // import { LogoutModal } from '../components/LogoutModal/LogoutModal'
+
 
 export default function App() {
   return (
