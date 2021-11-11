@@ -12,7 +12,7 @@ import TransactionsExpForm from '../components/TransactionsExpForm/TransactionsE
 import TransactionsExpenses from '../components/TransactionsExpense/TransactionsExpense';
 import TransactionsIncForm from '../components/TransactionsIncForm/TransactionsIncForm';
 import TransactionsIncome from '../components/TransactionsIncome/TransactionsIncome';
-import {Report} from '../components/Report/Report';
+// import {Report} from '../components/Report/Report';
 import { BgUnAuth } from '../components/BgUnAuth/BgUnAuth';
 import { BgAuth } from '../components/BgAuth//BgAuth'
 import { HeroTitle } from '../components/HeroTitle/HeroTitle';
@@ -31,7 +31,7 @@ export default function App() {
       <StatementBtn />
       <MouthPicker />
       <StatisticAmounts />
-      <Report />
+      {/* <Report /> */}
       <MyChart />
       <TransactionsExpForm />
       <TransactionsExpenses />
