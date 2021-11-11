@@ -7,46 +7,33 @@ import GoBackHomeBtn from '../components/GoBackHomeButton/GoBackHomeButton';
 import MonthPicker from '../components/MonthPicker/MonthPicker.jsx';
 import StatisticAmounts from '../components/StatisticAmounts/StatisticAmounts.jsx';
 import MyChart from '../components/Charts/Charts';
-import TransactionsExpForm from '../components/TransactionsExpForm/TransactionsExpForm';
-import TransactionsExpenses from '../components/TransactionsExpense/TransactionsExpense';
-import TransactionsIncForm from '../components/TransactionsIncForm/TransactionsIncForm';
-import TransactionsIncome from '../components/TransactionsIncome/TransactionsIncome';
-import { Report } from '../components/Report/Report';
+import TransactionPage from "../pages/TransactionsPage/TransactionsPage"
+// import {Report} from '../components/Report/Report';
 import { BgUnAuth } from '../components/BgUnAuth/BgUnAuth';
 import { BgAuth } from '../components/BgAuth//BgAuth';
-import { HeroTitle } from '../components/HeroTitle/HeroTitle';
-import { LogoutModal } from '../components/LogoutModal/LogoutModal';
-import FormContainer from '../components/FormContainer/FormContainer';
-import SignInForm from '../components/SignInForm/SignInForm';
-import SignUpForm from '../components/SignUpForm/SignUpForm';
+// import { HeroTitle } from '../components/HeroTitle/HeroTitle';
+import RegistrationPage from '../pages/RegistrationPage';
+// import { LogoutModal } from '../components/LogoutModal/LogoutModal'
+
 
 export default function App() {
   return (
     <div>
       <BgGrey />
-      <Header />
-      <LogoutModal />
+      {/* <Header /> */}
+      <RegistrationPage />
       <BgAuth />
       {/* <BgUnAuth />   */}
       <Container>
-        <HeroTitle />
-        <FormContainer>
-          <SignInForm />
-        </FormContainer>
-        <FormContainer>
-          <SignUpForm />
-        </FormContainer>
-        <Balance />
+        {/* <HeroTitle /> */}
+        <Balance /> 
+        <TransactionPage />
         <GoBackHomeBtn />
         <StatementBtn />
-        <MonthPicker />
+        <MouthPicker />
         <StatisticAmounts />
-        <Report />
+        {/* <Report /> */}
         <MyChart />
-        <TransactionsExpForm />
-        <TransactionsExpenses />
-        <TransactionsIncForm />
-        <TransactionsIncome />
       </Container>
     </div>
   );

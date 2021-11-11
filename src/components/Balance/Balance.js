@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { HiOutlineCursorClick, HiOutlineLightBulb } from "react-icons/hi";
 import { getCurrentBalance } from '../../redux/balance/balance-selectors';
@@ -17,13 +17,12 @@ export function Balance({}) {
         const { value } = evt.currentTarget;
             setBalance(value);
         };
-
     const handleSubmit = (evt) => {
             evt.preventDefault();
             dispatch(balanceOperations.updBalance({ balance }))
          };
 
-         
+        //  console.log(balance)
     return (
         <BalanceContainer 
         onSubmit={handleSubmit}
