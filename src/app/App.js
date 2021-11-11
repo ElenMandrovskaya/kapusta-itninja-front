@@ -8,16 +8,12 @@ import MouthPicker from '../components/MonthPicker/MounthPicker';
 import StatisticAmounts from '../components/StatisticAmounts/StatisticAmounts.jsx';
 import MyChart from '../components/Charts/Charts';
 import TransactionPage from "../pages/TransactionsPage/TransactionsPage"
-import {Report} from '../components/Report/Report';
+// import {Report} from '../components/Report/Report';
 import { BgUnAuth } from '../components/BgUnAuth/BgUnAuth';
 import { BgAuth } from '../components/BgAuth//BgAuth';
 // import { HeroTitle } from '../components/HeroTitle/HeroTitle';
 import RegistrationPage from '../pages/RegistrationPage';
 // import { LogoutModal } from '../components/LogoutModal/LogoutModal'
-// import FormContainer from '../components/FormContainer/FormContainer';
-// import SignInForm from '../components/SignInForm/SignInForm';
-// import SignUpForm from '../components/SignUpForm/SignUpForm';
-
 
 export default function App() {
   return (
@@ -35,7 +31,7 @@ export default function App() {
         <StatementBtn />
         <MouthPicker />
         <StatisticAmounts />
-        <Report />
+//         <Report />
         <MyChart />
       </Container>
     </div>
