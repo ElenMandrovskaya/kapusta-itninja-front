@@ -131,3 +131,27 @@ export const FormBtn = styled.button`
       ? ` drop-shadow(1px 3px 5px rgba(255, 107, 8, 0.35));`
       : `drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15));`};
 `;
+
+/** @jsx jsx */
+// import { jsx, css } from '@emotion/react';
+
+// const pinkInput = css`
+//   background-color: pink;
+// `;
+// const RedPasswordInput = props => (
+//   <input
+//     type="password"
+//     css={css`
+//       background-color: red;
+//       display: block;
+//     `}
+//     {...props}
+//   />
+// );
+
+// render(
+//   <div>
+//     <RedPasswordInput placeholder="red" />
+//     <RedPasswordInput placeholder="pink" css={pinkInput} />
+//   </div>,
+// );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { BgGrey, Container } from './App.styled';
-import  { Header } from "../components/Header/Header";
+import { Header } from '../components/Header/Header';
 import { Balance } from '../components/Balance/Balance';
 import StatementBtn from '../components/GoToStatementsButton/GoToStatementsButton.jsx';
 import GoBackHomeBtn from '../components/GoBackHomeButton/GoBackHomeButton';
@@ -10,38 +10,34 @@ import MyChart from '../components/Charts/Charts';
 import TransactionPage from "../pages/TransactionsPage/TransactionsPage"
 import {Report} from '../components/Report/Report';
 import { BgUnAuth } from '../components/BgUnAuth/BgUnAuth';
-import { BgAuth } from '../components/BgAuth//BgAuth'
+import { BgAuth } from '../components/BgAuth//BgAuth';
 import { HeroTitle } from '../components/HeroTitle/HeroTitle';
-import { LogoutModal } from '../components/LogoutModal/LogoutModal'
+import RegistrationPage from '../pages/RegistrationPage';
+// import { LogoutModal } from '../components/LogoutModal/LogoutModal'
 import FormContainer from '../components/FormContainer/FormContainer';
 import SignInForm from '../components/SignInForm/SignInForm';
 import SignUpForm from '../components/SignUpForm/SignUpForm';
 
+
 export default function App() {
   return (
     <div>
-    <BgGrey />
-    <Header />
-    <LogoutModal />
-    <BgAuth />
-    {/* <BgUnAuth />   */}
-    <Container>
-      <HeroTitle />
-      <FormContainer>
-        <SignInForm />
-      </FormContainer>
-      <FormContainer>
-        <SignUpForm />
-      </FormContainer>  
-      <Balance /> 
-      <GoBackHomeBtn />
-      <StatementBtn />
-      <MouthPicker />
-      <StatisticAmounts />
-      <Report />
-      <MyChart />
-      <TransactionPage />
-    </Container>
+      <BgGrey />
+      <Header />
+      <RegistrationPage />
+      <BgAuth />
+      {/* <BgUnAuth />   */}
+      <Container>
+        <HeroTitle />
+        <Balance /> 
+        <GoBackHomeBtn />
+        <StatementBtn />
+        <MouthPicker />
+        <StatisticAmounts />
+        <Report />
+        <MyChart />
+        <TransactionPage />
+      </Container>
     </div>
   );
 }

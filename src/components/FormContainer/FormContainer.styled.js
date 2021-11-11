@@ -5,6 +5,14 @@ export const FormWrapper = styled.div`
   @media (max-width: 768px) {
     width: 300px;
   }
+  @media (max-width: 1279px) {
+    margin-top: 50px;
+  }
+
+  @media (min-width: 1280px) {
+    margin-left: 128px;
+  }
+
   /* height: 535px; */
   padding: 50px 85px;
   @media (max-width: 768px) {
