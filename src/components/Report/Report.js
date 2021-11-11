@@ -9,14 +9,14 @@ import { ReportIncomePage } from '../../pages/ReportIncomePage';
 export function Report() {
   return (
     <ReportContainer>
-      {/* <Switch> */}
+      <Switch>
       <Route path="/costs">
         <ReportCostsPage />
       </Route>
-      {/* <Route path="/income"> */}
-      {/* <ReportIncomePage /> */}
-      {/* </Route> */}
-      {/* </Switch> */}
+      <Route path="/income">
+      <ReportIncomePage />
+      </Route>
+      </Switch>
     </ReportContainer>
   );
 }

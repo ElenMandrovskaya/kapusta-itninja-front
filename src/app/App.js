@@ -8,7 +8,7 @@ import MonthPicker from '../components/MonthPicker/MonthPicker.jsx';
 import StatisticAmounts from '../components/StatisticAmounts/StatisticAmounts.jsx';
 import MyChart from '../components/Charts/Charts';
 import TransactionPage from "../pages/TransactionsPage/TransactionsPage"
-// import {Report} from '../components/Report/Report';
+import {Report} from '../components/Report/Report';
 import { BgUnAuth } from '../components/BgUnAuth/BgUnAuth';
 import { BgAuth } from '../components/BgAuth//BgAuth';
 // import { HeroTitle } from '../components/HeroTitle/HeroTitle';
@@ -22,7 +22,7 @@ export default function App() {
       <BgGrey />
       {/* <Header /> */}
       <RegistrationPage />
-      <BgAuth />
+      {/* <BgAuth /> */}
       {/* <BgUnAuth />   */}
       <Container>
         {/* <HeroTitle /> */}
@@ -32,7 +32,7 @@ export default function App() {
         <StatementBtn />
         <MouthPicker />
         <StatisticAmounts />
-        {/* <Report /> */}
+        <Report />
         <MyChart />
       </Container>
     </div>
