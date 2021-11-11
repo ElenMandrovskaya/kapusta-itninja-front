@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BgGrey, Container } from '../app/App.styled';
 import { Header } from '../components/Header/Header';
-import { BgAuth } from '../components/BgAuth/BgAuth';
+import { BgUnAuth } from '../components/BgUnAuth/BgUnAuth';
 import { HeroTitle } from '../components/HeroTitle/HeroTitle';
 import FormContainer from '../components/FormContainer';
 import SignInForm from '../components/SignInForm';
@@ -12,7 +12,7 @@ export default function RegistrationPage() {
     <div>
       <BgGrey />
       <Header />
-      <BgAuth />
+      <BgUnAuth />
       <Container>
         <RegistrationPageContainer>
           <HeroTitle />
