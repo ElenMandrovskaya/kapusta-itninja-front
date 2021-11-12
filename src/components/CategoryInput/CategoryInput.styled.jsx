@@ -15,6 +15,9 @@ export const Input = styled.input`
   border-left: none;
   outline: none;
   padding-left: 21px;
+  &::placeholder {
+    color: #C7CCDC;
+  }
 
   &:focus + .arrow {
     transform: rotate(-180deg);
