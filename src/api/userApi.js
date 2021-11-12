@@ -1,28 +1,23 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://kapusta-finance-tracker.herokuapp.com/api';
+axios.defaults.baseURL = 'https://kapusta-finance-tracker.herokuapp.com';
 
-// {
-//     "name": "Elena",
-//     "email": "dzyubahelen@gmail.com",
-//     "password": "12345678"
-// }
 export async function signUp(credentials) {
-    const data = await axios.post(`/user/signup`, credentials);
+    const data = await axios.post(`/api/user/signup`, credentials);
     return data;
 };
 
 export async function signIn(credentials) {
-    const data = await axios.post(`/user/login`, credentials);
+    const data = await axios.post(`/api/user/login`, credentials);
     return data;
 };
 
 export async function getCurrentUser() {
-    const data = await axios.get(`/user/current`);
+    const data = await axios.get(`/api/user/current`);
     return data;
 };
 
 export async function signOut() {
-    const data = await axios.post(`/user/logout`);
+    const data = await axios.post(`/api/user/logout`);
     return data;
 };
