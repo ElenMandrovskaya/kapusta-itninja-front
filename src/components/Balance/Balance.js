@@ -5,7 +5,7 @@ import { getCurrentBalance } from '../../redux/balance/balance-selectors';
 import * as balanceOperations from "../../redux/balance/balance-operations";
 import { BalanceContainer, BalanceTitle, BalanceAmount, SubmitBtn, BalanceWrap, BalanceModal, BalanceText, BalanceNote } from "./Balance.styled";
 
-export function Balance({}) {
+export default function Balance({}) {
     const [balance, setBalance] = useState("");
     const currentBalance = +useSelector(getCurrentBalance);
     const dispatch = useDispatch();
