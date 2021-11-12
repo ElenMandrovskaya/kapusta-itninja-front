@@ -4,14 +4,13 @@ import { Header } from '../components/Header/Header';
 import { Balance } from '../components/Balance/Balance';
 import StatementBtn from '../components/GoToStatementsButton/GoToStatementsButton.jsx';
 import GoBackHomeBtn from '../components/GoBackHomeButton/GoBackHomeButton';
-import MonthPicker from '../components/MonthPicker/MonthPicker.jsx';
+import MonthPicker from '../components/MonthPicker/MonthPicker';
 import StatisticAmounts from '../components/StatisticAmounts/StatisticAmounts.jsx';
 import MyChart from '../components/Charts/Charts';
 import TransactionPage from "../pages/TransactionsPage/TransactionsPage"
 import {Report} from '../components/Report/Report';
 import { BgUnAuth } from '../components/BgUnAuth/BgUnAuth';
 import { BgAuth } from '../components/BgAuth//BgAuth';
-// import { HeroTitle } from '../components/HeroTitle/HeroTitle';
 import RegistrationPage from '../pages/RegistrationPage';
 // import { LogoutModal } from '../components/LogoutModal/LogoutModal'
 
@@ -30,7 +29,7 @@ export default function App() {
         <TransactionPage />
         <GoBackHomeBtn />
         <StatementBtn />
-        <MouthPicker />
+        <MonthPicker />
         <StatisticAmounts />
         <Report />
         <MyChart />
