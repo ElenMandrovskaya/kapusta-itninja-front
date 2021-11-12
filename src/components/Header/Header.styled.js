@@ -15,6 +15,14 @@ export const ContainerHeader = styled.header`
      padding: 0 26px;
    }
 `;
+
+export const Logo = styled.svg`
+    background-image: url(${logo});
+    width: 90px;
+    height: 31px;
+    background-repeat: no-repeat;  
+`;
+
 export const UserInfo = styled.div`
  display: flex;
  align-items: center;
@@ -25,6 +33,21 @@ export const UserInfo = styled.div`
 }
 `; 
 
+// Avatar
+export const AvatarUser = styled.div`
+  display: flex;
+  width: 32px;
+  height: 32px;
+  background-color: #F5F6FA;
+  border-radius: 50%;
+  margin-right: 12px;
+`;
+
+export const AvatarTxt = styled.div`
+  margin: auto;
+  `;
+
+// имя 
 export const UserName = styled.p`
 display: none;
 
@@ -35,15 +58,35 @@ display: none;
 }
 `;
 
-export const UserLogout = styled.p`
+// кнопка Выйти
+export const Button = styled.button`
+  display: flex;
+  background: transparent;
+  border: none;
+`;
+export const LogoutP = styled.p`
   display: none;
 
   @media screen and  (min-width: 768px) {
    display: flex;
-   text-decoration: underline;
+     /* justify-content: space-between; */
    color:  var(--main-text-color);
-   cursor: pointer;
+ 
+   &:hover {
+    text-decoration: underline;
+    cursor: pointer;
   }
+  }
+`; 
+// кнопка Выйти для мобилки
+export const  LogoutSvg = styled.svg`
+background-image: url(${img});
+width: 16px;
+height: 16px;
+
+@media screen and  (min-width: 768px) {
+display: none;
+}
 `;
 
 export const Line = styled.div`
@@ -58,32 +101,5 @@ export const Line = styled.div`
     }
 `;
 
-export const AvatarUser = styled.div`
-  display: flex;
-  width: 32px;
-  height: 32px;
-  background-color: #F5F6FA;
-  border-radius: 50%;
-  margin-right: 12px;
-`;
 
-export const AvatarTxt = styled.div`
-  margin: auto;
-  `;
 
-export const Logo = styled.svg`
-    background-image: url(${logo});
-    width: 90px;
-    height: 31px;
-    background-repeat: no-repeat;  
-`;
-
-export const Icon = styled.svg`
-background-image: url(${img});
-width: 16px;
-height: 16px;
-
-@media screen and  (min-width: 768px) {
-display: none;
-}
-`;
