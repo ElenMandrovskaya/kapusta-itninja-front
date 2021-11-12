@@ -3,6 +3,9 @@ import img from "../../images/calculator.svg"
 
 export const Form = styled.form`
 display: flex;
+ margin-bottom: 59px;
+    justify-content: space-between;
+    flex-direction: row;
 `;
 
 export const Wrapper = styled.div`
@@ -36,12 +39,18 @@ export const InputAmount = styled.input`
   border-radius: 0px 16px 16px 0px;
   outline: none;
   padding-left: 21px;
+  &::placeholder {
+    color: #C7CCDC;
+  }
 `;
 export const InputDesc = styled.input`
   border: 2px solid #f5f6fb;
   border-radius: 16px 0px 0px 0px;
   outline: none;
   padding-left: 20px;
+  &::placeholder {
+    color: #C7CCDC;
+  }
 `;
 
 export const Button = styled.button`
