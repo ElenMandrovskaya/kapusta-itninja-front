@@ -27,7 +27,7 @@ export const signUp = createAsyncThunk('auth/signUp', async (credentials, thunkA
 
 export const signIn = createAsyncThunk('auth/signIn', async (credentials, thunkAPI) => {
     try {
-        const { data } = await axios.post('/api/users/login', credentials);
+        const { data } = await axios.post('/api/user/login', credentials);
         token.set(data.token);
         toast.warning('You are logged into your account')
         return data;
@@ -59,7 +59,7 @@ export const getCurrentUser = createAsyncThunk('auth/current', async (_, thunkAP
     }
     token.set(persistedToken);
     try {
-        const { data } = await axios.get('/api/users/current');
+        const { data } = await axios.get('/api/user/current');
         return data;
     }
     catch (error) {

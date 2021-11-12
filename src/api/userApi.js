@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://kapusta-finance-tracker.herokuapp.com/api';
+axios.defaults.baseURL = 'https://kapusta-finance-tracker.herokuapp.com';
 
 // {
 //     "name": "Elena",
