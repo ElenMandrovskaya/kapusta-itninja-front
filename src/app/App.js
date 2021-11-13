@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { lazy, Suspense, useEffect } from 'react';
 
 import TransactionPage from '../pages/TransactionsPage/TransactionsPage';
@@ -11,6 +11,10 @@ import PrivateRoute from '../routers/PrivateRouter';
 import PublicRoute from '../routers/PublicRouter';
 
 import * as authOperations from '../redux/auth/auth-operations';
+import { authSelectors } from '../redux/auth/auth-selectors'
+import { BgGrey } from './App.styled';
+import { BgUnAuth } from '../components/BgUnAuth/BgUnAuth';
+import { BgAuth } from '../components/BgAuth/BgAuth';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -18,11 +22,14 @@ export default function App() {
   useEffect(() => {
     dispatch(authOperations.getCurrentUser());
   }, [dispatch]);
-
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+  console.log(isLoggedIn)
   return (
-      // {/* <Suspense fallback={<Spinner/>}> */}
+    <>
+      <BgGrey />
+      {isLoggedIn ? <BgAuth/> : <BgUnAuth />}
+      {/* <Suspense fallback={<Spinner/>}> */}
       <Switch>
-
         <PublicRoute exact path="/" edirectTo="/transactions" restricted>
           <RegistrationPage />
         </PublicRoute>
@@ -36,6 +43,6 @@ export default function App() {
         </PrivateRoute>
       </Switch>
         // {/* </Suspense> */}
-
+      </>
   );
 }
