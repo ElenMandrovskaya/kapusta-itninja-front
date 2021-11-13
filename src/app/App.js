@@ -1,39 +1,41 @@
 import React from 'react';
-import { BgGrey, Container } from './App.styled';
-// import { Header } from '../components/Header/Header';
-// import { Balance } from '../components/Balance/Balance';
-import StatementBtn from '../components/GoToStatementsButton/GoToStatementsButton.jsx';
-import GoBackHomeBtn from '../components/GoBackHomeButton/GoBackHomeButton';
-import MonthPicker from '../components/MonthPicker/MonthPicker';
-import StatisticAmounts from '../components/StatisticAmounts/StatisticAmounts.jsx';
-import MyChart from '../components/Charts/Charts';
-import TransactionPage from "../pages/TransactionsPage/TransactionsPage"
-import {Report} from '../components/Report/Report';
-// import { BgUnAuth } from '../components/BgUnAuth/BgUnAuth';
-// import { BgAuth } from '../components/BgAuth//BgAuth';
-import RegistrationPage from '../pages/RegistrationPage';
-// import { LogoutModal } from '../components/LogoutModal/LogoutModal'
+import { Switch } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { lazy, Suspense, useEffect } from 'react';
 
+import TransactionPage from '../pages/TransactionsPage/TransactionsPage';
+import RegistrationPage from '../pages/RegistrationPage';
+import { ReportsPage } from '../pages/ReportsPage/ReportsPage';
+
+import PrivateRoute from '../routers/PrivateRouter';
+import PublicRoute from '../routers/PublicRouter';
+
+import * as authOperations from '../redux/auth/auth-operations';
 
 export default function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(authOperations.getCurrentUser());
+  }, [dispatch]);
+
   return (
-    <div>
-      <BgGrey />
-      {/* <Header /> */}
-      <RegistrationPage />
-      {/* <BgAuth /> */}
-      {/* <BgUnAuth />   */}
-      <Container>
-        {/* <HeroTitle /> */}
-        {/* <Balance />  */}
-        <TransactionPage />
-        {/* <GoBackHomeBtn /> */}
-        {/* <StatementBtn /> */}
-        {/* <MonthPicker /> */}
-        {/* <StatisticAmounts /> */}
-        {/* <Report /> */}
-        {/* <MyChart /> */}
-      </Container>
-    </div>
+      // {/* <Suspense fallback={<Spinner/>}> */}
+      <Switch>
+
+        <PublicRoute exact path="/" edirectTo="/transactions" restricted>
+          <RegistrationPage />
+        </PublicRoute>
+
+        <PrivateRoute exact path="/transactions"  >
+          <TransactionPage />
+        </PrivateRoute>
+
+        <PrivateRoute exact path="/reports" >
+          <ReportsPage />
+        </PrivateRoute>
+      </Switch>
+        // {/* </Suspense> */}
+
   );
 }

@@ -16,9 +16,9 @@ const token = {
 export const signUp = createAsyncThunk('auth/signUp', async (credentials, thunkAPI) => {
     try {
         const { data } = await userApi.signUp(credentials)
-        token.set(data.data.token);
+        // token.set(data.result.token);
         toast.warning('You have successfully registered please confirm your email')
-        return data.data;
+        return data.result;
     }
     catch (error) {
         toast.warning('Such an account already exists');
@@ -29,10 +29,9 @@ export const signUp = createAsyncThunk('auth/signUp', async (credentials, thunkA
 export const signIn = createAsyncThunk('auth/signIn', async (credentials, thunkAPI) => {
     try {
         const { data } = await userApi.signIn(credentials)
-        token.set(data.data.token);
+        token.set(data.result.token);
         toast.warning('You are logged into your account')
-        console.log(data.data)
-        return data.data;
+        return data.result;
     }
     catch (error) {
         toast.warning('Something went wrong! Check your the credentials');
@@ -62,7 +61,7 @@ export const getCurrentUser = createAsyncThunk('auth/current', async (_, thunkAP
     token.set(persistedToken);
     try {
         const { data } = await userApi.getCurrentUser()
-        return data.data;
+        return data.result;
     }
     catch (error) {
         toast.warning('Could not identify you');

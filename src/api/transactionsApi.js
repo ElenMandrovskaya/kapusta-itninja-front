@@ -1,9 +1,34 @@
-// import axios from 'axios';
+import axios from 'axios';
 
-// // export async function getTransactions() {
-// //   const { data } = await axios.get(`/transactions`);
-// //   return data;
-// // }
+// ОТПРАВКА ТРАНЗАКЦИИ РАСХОДА
+// пример запроса
+// https://kapusta-finance-tracker.herokuapp.com/api/transactions/expense/618d6f49d6ef526ae14ea08a/?day=11&month=11&year=2021
+//пример тела запроса 
+
+// export async function addExpTransactions() {
+//     // const transactionState = {
+//     //     "description": "Шоколад",
+//     //     "value": 50.00
+//     // }
+//     // const categoryId = '618d6f49d6ef526ae14ea093'
+//     // const day = '13'
+//     // const month = '11'
+//     // const year = '2021'
+
+//     const { data } = await axios.post(`/api/transactions/expence/${categoryId}/?day=${day}&month=${month}&year=${year}`, transactionState);
+//     console.log(data)
+//     return data;
+//   }
+// пример запроса
+// https://kapusta-finance-tracker.herokuapp.com/api/transactions/expense/618d6f49d6ef526ae14ea093/?day=11&month=11&year=2021
+//пример тела запроса 
+// {
+//     "description": "Шоколад",
+//     "value": 50.00
+// }
+
+
+
 
 // // https://kapusta-finance-tracker.herokuapp.com/api/transactions/expense/61881d846a0d3f73e0414dbb
 // export async function addTransactions(transaction) {

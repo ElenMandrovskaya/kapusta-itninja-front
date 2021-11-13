@@ -1,14 +1,15 @@
 import axios from 'axios';
 
 export async function getCategoriesByExpense() {
-    const data = await axios.get(`/api/categories/expense`);
-    return data;
+    const {data} = await axios.get(`/api/categories/expense`);
+    console.log(data.result.categories)
+    return data.result.categories;
 };
 // ответ
 // {
 //     "status": "success",
 //     "code": 200,
-//     "data": {
+//     "result": {
 //         "categories": [
 //             {
 //                 "_id": "618d6f49d6ef526ae14ea089",
@@ -59,14 +60,14 @@ export async function getCategoriesByExpense() {
 // }
 
 export async function getCategoriesByIncome() {
-    const data = await axios.get(`/api/categories/income`);
-    return data;
+    const { data } = await axios.get(`/api/categories/income`);
+    return data.result.categories;
 };
 // ответ
 // {
 //     "status": "success",
 //     "code": 200,
-//     "data": {
+//     "result": {
 //         "categories": [
 //             {
 //                 "_id": "618d6f49d6ef526ae14ea093",
