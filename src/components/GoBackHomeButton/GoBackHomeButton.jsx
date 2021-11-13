@@ -1,12 +1,14 @@
+// import { render } from '@testing-library/react';
 import React from 'react';
-import { Img, Link, Span } from './GoBackHomeButton.styled';
-import arrowButton from '../../images/arrow-back.svg';
+// import TransactionsPage from '../../pages/TransactionsPage/TransactionsPage';
+import { Img, Link, Title } from './GoBackHomeButton.styled';
+// import arrowButton from '../../images/arrow-back.svg';
 
 const GoBackHomeBtn = () => {
   return (
-    <Link>
-      <Img src={arrowButton} alt="" />
-      <Span>Вернутся на главную</Span>
+    <Link to="/transactions">
+      <Img />
+      <Title>Вернутся на главную</Title>
     </Link>
   );
 };
