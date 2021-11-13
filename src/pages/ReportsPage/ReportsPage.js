@@ -6,13 +6,17 @@ import MonthPicker from '../../components/MonthPicker/MonthPicker';
 import StatisticAmounts from '../../components/StatisticAmounts/StatisticAmounts';
 import MyChart from '../../components/Charts/Charts';
 import { Report } from '../../components/Report/Report';
+import { ReportsPageHeader } from './ReportsPage.styled';
 
 export function ReportsPage() {
   return (
     <div>
       {/* <Balance /> */}
-      <GoBackHomeBtn />
-      <MonthPicker />
+      <ReportsPageHeader>
+        <GoBackHomeBtn />
+        <GoBackHomeBtn />
+        <MonthPicker />
+      </ReportsPageHeader>
       <StatisticAmounts />
       <Report />
       {/* <MyChart /> */}

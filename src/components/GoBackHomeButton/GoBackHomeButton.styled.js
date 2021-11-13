@@ -1,12 +1,18 @@
 import styled from '@emotion/styled';
+import arrowBack from '../../images/arrow-back.svg';
 
-export const Span = styled.p`
+export const Title = styled.p`
   @media screen and (max-width: 320px) {
     display: none;
   }
 `;
-export const Img = styled.img`
-  margin-right: 18px;
+export const Img = styled.svg`
+  background-image: url(${arrowBack});
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  /* width: 24px; */
+  margin-right: 15px;
 `;
 export const Link = styled.a`
   cursor: pointer;

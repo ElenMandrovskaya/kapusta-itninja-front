@@ -1,12 +1,16 @@
 import styled from '@emotion/styled';
 
 export const Div = styled.div`
-  display: flex;
-  align-items: center;
-  text-align: center;
+  display: block;
+  /* text-align: right; */
+  /* align-items: center; */
+  /* justify-content: space-between; */
+  /* text-align: center; */
 `;
 export const Button = styled.button`
+  padding: 0;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
   border: 1px solid transparent;
@@ -20,8 +24,8 @@ export const Title = styled.h4`
   font-weight: normal;
   font-size: 12px;
   line-height: 14px;
-
-  /* text-align: center; */
+  margin-bottom: 5px;
+  text-align: center;
   letter-spacing: 0.04em;
 
   color: rgba(82, 85, 95, 0.7);
@@ -39,7 +43,11 @@ export const Span = styled.span`
   color: #000000;
 `;
 export const Picker = styled.div`
-  width: 115px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  /* width: 150 px; */
+  /* width: 115px;
   background: none;
   border: none;
   text-align: center;
@@ -47,5 +55,5 @@ export const Picker = styled.div`
   font-weight: bold;
   font-size: 14px;
   line-height: 16px;
-  text-transform: uppercase;
+  text-transform: uppercase; */
 `;
