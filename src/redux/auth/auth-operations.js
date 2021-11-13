@@ -2,6 +2,7 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import * as userApi from '../../api/userApi';
 
 const token = {
   set(token) {
@@ -14,10 +15,10 @@ const token = {
 
 export const signUp = createAsyncThunk('auth/signUp', async (credentials, thunkAPI) => {
     try {
-        const { data } = await axios.post('api/user/signup', credentials);
-        token.set(data.token);
-        toast.warning('You have successfully registered')
-        return data;
+        const { data } = await userApi.signUp(credentials)
+        token.set(data.data.token);
+        toast.warning('You have successfully registered please confirm your email')
+        return data.data;
     }
     catch (error) {
         toast.warning('Such an account already exists');
@@ -27,20 +28,21 @@ export const signUp = createAsyncThunk('auth/signUp', async (credentials, thunkA
 
 export const signIn = createAsyncThunk('auth/signIn', async (credentials, thunkAPI) => {
     try {
-        const { data } = await axios.post('/api/user/login', credentials);
-        token.set(data.token);
+        const { data } = await userApi.signIn(credentials)
+        token.set(data.data.token);
         toast.warning('You are logged into your account')
-        return data;
+        console.log(data.data)
+        return data.data;
     }
     catch (error) {
-        toast.warning('Something went wrong! Verify your the credentials');
+        toast.warning('Something went wrong! Check your the credentials');
         return thunkAPI.rejectWithValue(error.message);
     }
 });
 
 export const signOut = createAsyncThunk('auth/signOut', async (_, thunkAPI) => {
     try {
-        await axios.post('/api/user/logout');
+        await userApi.signOut()
         token.unset();
         toast.warning('You are logged out of your account')
     }
@@ -59,11 +61,21 @@ export const getCurrentUser = createAsyncThunk('auth/current', async (_, thunkAP
     }
     token.set(persistedToken);
     try {
-        const { data } = await axios.get('/api/user/current');
-        return data;
+        const { data } = await userApi.getCurrentUser()
+        return data.data;
     }
     catch (error) {
         toast.warning('Could not identify you');
         return thunkAPI.rejectWithValue(error.message);
+    }
+});
+
+export const updBalance = createAsyncThunk('balance/updBalance', async balance => {
+    try {
+        const { data } = await axios.post('/api/user/balance', balance);
+        return data;
+    }
+    catch (error) {
+        // toast.error("");
     }
 });
