@@ -11,7 +11,7 @@ import { Container } from "../../app/App.styled";
 const TransactionsPage = () => {
     return (
         <Container>
-            <Balance />
+            {/* <Balance /> */}
             <GoToStatementsButton />
             <div>
                 <Tabs>

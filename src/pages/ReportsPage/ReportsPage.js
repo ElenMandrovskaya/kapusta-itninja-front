@@ -10,7 +10,7 @@ import { Report } from '../../components/Report/Report';
 export function ReportsPage() {
   return (
     <div>
-      <Balance />
+      {/* <Balance /> */}
       <GoBackHomeBtn />
       <MonthPicker />
       <StatisticAmounts />
