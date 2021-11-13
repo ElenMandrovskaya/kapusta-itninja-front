@@ -5,20 +5,20 @@ import axios from 'axios';
 // https://kapusta-finance-tracker.herokuapp.com/api/transactions/expense/618d6f49d6ef526ae14ea08a/?day=11&month=11&year=2021
 //пример тела запроса 
 
-export async function addExpTransactions() {
-    // const transactionState = {
-    //     "description": "Шоколад",
-    //     "value": 50.00
-    // }
-    // const categoryId = '618d6f49d6ef526ae14ea093'
-    // const day = '13'
-    // const month = '11'
-    // const year = '2021'
+// export async function addExpTransactions() {
+//     // const transactionState = {
+//     //     "description": "Шоколад",
+//     //     "value": 50.00
+//     // }
+//     // const categoryId = '618d6f49d6ef526ae14ea093'
+//     // const day = '13'
+//     // const month = '11'
+//     // const year = '2021'
 
-    const { data } = await axios.post(`/api/transactions/expence/${categoryId}/?day=${day}&month=${month}&year=${year}`, transactionState);
-    console.log(data)
-    return data;
-  }
+//     const { data } = await axios.post(`/api/transactions/expence/${categoryId}/?day=${day}&month=${month}&year=${year}`, transactionState);
+//     console.log(data)
+//     return data;
+//   }
 // пример запроса
 // https://kapusta-finance-tracker.herokuapp.com/api/transactions/expense/618d6f49d6ef526ae14ea093/?day=11&month=11&year=2021
 //пример тела запроса 
