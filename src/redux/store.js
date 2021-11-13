@@ -21,7 +21,7 @@ const middleware = [
 export const store = configureStore({
     reducer: {
         auth: persistReducer(authPersistConfig, authReducer),
-        balance: balanceReducer, 
+        // balance: balanceReducer, 
       },
       middleware,
     //   devtools: process.env.NODE_ENV !== 'production'

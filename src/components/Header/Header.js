@@ -1,20 +1,21 @@
 import React from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
-// import * as authOperations from '../../redux/auth/auth-operaions';
-// import { authSelectors } from '../../redux/auth/auth-selectors'
+import { useSelector, useDispatch } from 'react-redux';
+import * as authOperations from '../../redux/auth/auth-operations';
+import { authSelectors } from '../../redux/auth/auth-selectors'
+// import LogoutModal from '../LogoutModal/LogoutModal';
 import { ContainerHeader, UserInfo, UserName, Button, LogoutP, AvatarUser, AvatarTxt, Line, LogoutSvg , Logo } from "./Header.styled";
 import defaultAvatar from '../../images/avatar.png';
 
 
 export function Header () {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     // const name = useSelector(authSelectors.getUserName);
-    // const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+    const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
     return (
         <ContainerHeader>         
             <Logo />
-            {/* {isLoggedIn  && (  */}
+            {isLoggedIn  && ( 
             <UserInfo>                    
                 <AvatarUser>   
                     <img
@@ -29,14 +30,16 @@ export function Header () {
                 {/* <UserName>{name}</UserName> */}
                 <Line> </Line>
 
-               <Button>
-               {/* onClick={() => dispatch(authOperations.logOut())} */}
+                <Button type="button" 
+                  onClick={() => dispatch(authOperations.signOut())}>
+              
                     <LogoutP>Выйти</LogoutP>
                     <LogoutSvg />
-               </Button>
+                </Button>
 
+               {/* {isModalLogout && <LogoutModal />} */}
             </UserInfo>
-       {/* )} */}
+             )}
         </ContainerHeader>      
     )
 }

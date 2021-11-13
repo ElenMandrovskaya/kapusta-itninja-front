@@ -1,7 +1,7 @@
 import React from 'react';
 import { BgGrey, Container } from './App.styled';
-import { Header } from '../components/Header/Header';
-import { Balance } from '../components/Balance/Balance';
+// import { Header } from '../components/Header/Header';
+// import { Balance } from '../components/Balance/Balance';
 import StatementBtn from '../components/GoToStatementsButton/GoToStatementsButton.jsx';
 import GoBackHomeBtn from '../components/GoBackHomeButton/GoBackHomeButton';
 import MonthPicker from '../components/MonthPicker/MonthPicker';
@@ -15,6 +15,7 @@ import { BgAuth } from '../components/BgAuth//BgAuth';
 // import { LogoutModal } from '../components/LogoutModal/LogoutModal';
 import { ReportsPage } from '../pages/ReportsPage/ReportsPage';
 
+
 export default function App() {
   return (
     <div>
@@ -24,13 +25,8 @@ export default function App() {
       {/* <BgAuth /> */}
       {/* <BgUnAuth />   */}
       <Container>
-        {/* <HeroTitle /> */}
-        {/* <Balance /> */}
-        {/* <TransactionPage /> */}
-        {/* <GoBackHomeBtn /> */}
-        {/* <StatementBtn /> */}
-        {/* <MonthPicker /> */}
-        {/* <StatisticAmounts /> */}
+        {/* <Balance />  */}
+        <TransactionPage />
         <ReportsPage />
         {/* <Report /> */}
         {/* <MyChart /> */}

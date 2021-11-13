@@ -1,13 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { HiOutlineCursorClick, HiOutlineLightBulb } from "react-icons/hi";
-import { getCurrentBalance } from '../../redux/balance/balance-selectors';
-import * as balanceOperations from "../../redux/balance/balance-operations";
+// import { getCurrentBalance } from '../../redux/balance/balance-selectors';
+// import * as balanceOperations from "../../redux/balance/balance-operations";
+import * as authOperations from "../../redux/auth/auth-operations"
 import { BalanceContainer, BalanceTitle, BalanceAmount, SubmitBtn, BalanceWrap, BalanceModal, BalanceText, BalanceNote } from "./Balance.styled";
 
-export function Balance({}) {
+export default function Balance({}) {
     const [balance, setBalance] = useState("");
-    const currentBalance = +useSelector(getCurrentBalance);
+    const currentBalance = useSelector(state => state.auth.user.balance);
     const dispatch = useDispatch();
 
     const [balanceNote, setBalanceNote] = useState(true);
@@ -19,10 +20,10 @@ export function Balance({}) {
         };
     const handleSubmit = (evt) => {
             evt.preventDefault();
-            dispatch(balanceOperations.updBalance({ balance }))
+            dispatch(authOperations.updBalance({balance}))
          };
 
-        //  console.log(balance)
+         console.log(currentBalance)
     return (
         <BalanceContainer 
         onSubmit={handleSubmit}
