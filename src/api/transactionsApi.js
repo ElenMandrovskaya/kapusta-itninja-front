@@ -6,14 +6,14 @@ import axios from 'axios';
 //пример тела запроса 
 
 export async function addExpTransactions() {
-    const transactionState = {
-        "description": "Шоколад",
-        "value": 50.00
-    }
-    const categoryId = '618d6f49d6ef526ae14ea093'
-    const day = '13'
-    const month = '11'
-    const year = '2021'
+    // const transactionState = {
+    //     "description": "Шоколад",
+    //     "value": 50.00
+    // }
+    // const categoryId = '618d6f49d6ef526ae14ea093'
+    // const day = '13'
+    // const month = '11'
+    // const year = '2021'
 
     const { data } = await axios.post(`/api/transactions/expence/${categoryId}/?day=${day}&month=${month}&year=${year}`, transactionState);
     console.log(data)
