@@ -1,16 +1,18 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useRouteMatch } from 'react-router-dom';
 import { ReportIcon } from '../ReportIcon/ReportIcon';
-import { CategoryItem, Text } from './ReportCategoryItem.styled';
+import { CategoryItem, Text, NavLinkElem } from './ReportCategoryItem.styled';
 
 export function ReportCategoryItem({ name, sum, icon }) {
+  const { url, path } = useRouteMatch();
+
   return (
     <CategoryItem>
-      {/* <NavLink to={{ pathname: `/${icon}` }}> */}
-      <Text>{sum}</Text>
-      <ReportIcon name={icon} color="#071F41" size="56" />
-      <Text>{name}</Text>
-      {/* </NavLink> */}
+      <NavLinkElem to={`${url}/${icon}`}>
+        <Text>{sum}</Text>
+        <ReportIcon name={icon} color="#071F41" size="56" />
+        <Text>{name}</Text>
+      </NavLinkElem>
     </CategoryItem>
   );
 }
