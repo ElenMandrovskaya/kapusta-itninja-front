@@ -4,23 +4,26 @@ import {
     CategoryItem, CategoryLabel, RadioButton, ArrowDown, ArrowUp
 } from "./CategoryInput.styled";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { getCategoriesByExpense, getCategoriesByIncome } from "../../api/categoriesApi";
+import { addExpTransactions } from "../../api/transactionsApi";
 
 const CategoryInput = ({ type, categoryPick, setCategory}) => {
     const [isCategories, setIsCategories] = useState(false);
-
-    const expenseCategory = [
-        "Транспорт",
-        "Продукты",
-        "Здоровье",
-        "Алкоголь",
-        "Развлечения",
-        "Всё для дома",
-        "Техника",
-        "Коммуналка, связь",
-        "Спорт, хобби",
-        "Образование",
-        "Прочее",
-    ];
+    // const expenseCategoryArray = getCategoriesByExpense()
+    const expenseCategory = addExpTransactions()
+    // const expenseCategory = [
+    //     "Транспорт",
+    //     "Продукты",
+    //     "Здоровье",
+    //     "Алкоголь",
+    //     "Развлечения",
+    //     "Всё для дома",
+    //     "Техника",
+    //     "Коммуналка, связь",
+    //     "Спорт, хобби",
+    //     "Образование",
+    //     "Прочее",
+    // ];
     const incomeCategory = ["ЗП", "Доп. доход"];
 
     const handleClick = () => {
