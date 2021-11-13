@@ -27,12 +27,12 @@ export default function App() {
         {/* <HeroTitle /> */}
         {/* <Balance />  */}
         <TransactionPage />
-        <GoBackHomeBtn />
-        <StatementBtn />
-        <MonthPicker />
-        <StatisticAmounts />
-        <Report />
-        <MyChart />
+        {/* <GoBackHomeBtn /> */}
+        {/* <StatementBtn /> */}
+        {/* <MonthPicker /> */}
+        {/* <StatisticAmounts /> */}
+        {/* <Report /> */}
+        {/* <MyChart /> */}
       </Container>
     </div>
   );

@@ -4,7 +4,8 @@ import { Header } from '../components/Header/Header';
 import { BgUnAuth } from '../components/BgUnAuth/BgUnAuth';
 import { HeroTitle } from '../components/HeroTitle/HeroTitle';
 import FormContainer from '../components/FormContainer';
-import SignInForm from '../components/SignInForm';
+// import SignInForm from '../components/SignInForm';
+import AuthForm from '../components/SignInForm/authForm';
 import RegistrationPageContainer from '../components/RegistrationPageContainer';
 
 export default function RegistrationPage() {
@@ -17,7 +18,8 @@ export default function RegistrationPage() {
         <RegistrationPageContainer>
           <HeroTitle />
           <FormContainer>
-            <SignInForm />
+            {/* <SignInForm /> */}
+            <AuthForm />
           </FormContainer>
         </RegistrationPageContainer>
       </Container>

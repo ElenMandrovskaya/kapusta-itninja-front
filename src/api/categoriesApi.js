@@ -5,7 +5,7 @@ export async function getCategoriesByExpense() {
     return data;
 };
 // ответ
-{
+// {
 //     "status": "success",
 //     "code": 200,
 //     "data": {
