@@ -1,17 +1,27 @@
 import React from 'react';
 import {
-  Link,
   Span,
+  Link,
   Img,
 } from '../GoToStatementsButton/GoToStatementsButton.styled';
+import { NavLink } from 'react-router-dom';
 import reportIcon from '../../images/report-icon.svg';
+// import TransactionsPage from '../../pages/TransactionsPage/TransactionsPage';
 
 const StatementBtn = () => {
   return (
-    <Link>
+    // <Link>
+    <NavLink
+      to="/reports"
+      // style={isActive => ({
+      //   color: isActive ? 'green' : 'blue',
+      // })}
+      // component={TransactionsPage}
+    >
       <Span>Перейти к отчетам</Span>
       <Img src={reportIcon} alt="report link" />
-    </Link>
+    </NavLink>
+    /* </Link> */
   );
 };
 export default StatementBtn;
