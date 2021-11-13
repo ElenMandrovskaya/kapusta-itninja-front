@@ -1,4 +1,6 @@
 import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
+import imgHover from '../../images/bg-img-hover.svg';
 
 export const CategoryItem = styled.li`
   border-bottom: 1px solid #e0e5eb;
@@ -13,6 +15,14 @@ export const CategoryItem = styled.li`
     padding: 0;
     margin: 5px;
     margin-bottom: 15px;
+  }
+`;
+
+export const NavLinkElem = styled(NavLink)`
+  &.active {
+    /* background: red; */
+    /* background-image: url(${imgHover}); */
+    /* fill: var(--accent-color); */
   }
 `;
 
