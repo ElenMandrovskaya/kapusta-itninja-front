@@ -23,8 +23,7 @@ export default function Balance() {
             // evt.preventDefault();
             dispatch(authOperations.updBalance({balance}))
          };
-         console.log(currentBalance)
-         console.log(balance)
+
     return (
         <BalanceContainer 
         onSubmit={handleSubmit}

@@ -5,15 +5,15 @@ import ReportCosts from '../ReportCosts/ReportCosts';
 import ReportIncome from '../ReportIncome/ReportIncome';
 
 export default function Report() {
-  const { url, path } = useRouteMatch();
-console.log(path)
+  // const { url, path } = useRouteMatch();
+
   return (
     <ReportContainer>
       <Switch>
-        <Route path={`${path}/costs`}>
+        <Route path={`/reports/costs`}>
           <ReportCosts />
         </Route>
-        <Route path={`${path}income`}>
+        <Route path={`/reports/income`}>
           <ReportIncome />
         </Route>
         <Redirect to="/reports/costs" />

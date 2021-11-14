@@ -16,7 +16,7 @@ export default function ReportsPage() {
       <ReportsPageHeader>
         <GoBackHomeBtn />
         <GoBackHomeBtn />
-        {/* <MonthPicker /> */}
+        <MonthPicker />
       </ReportsPageHeader>
       <StatisticAmounts />
       {/* <Report /> */}

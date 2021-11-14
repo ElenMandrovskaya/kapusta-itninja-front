@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Div, Title, Span, Picker } from './MonthPicker.styled';
 import 'moment/locale/ru';
 import moment from 'moment';
-import { ReportIcon } from '../ReportIcon/ReportIcon';
+import ReportIcon from '../ReportIcon/ReportIcon';
 
 import { useState } from 'react';
 
