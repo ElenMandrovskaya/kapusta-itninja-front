@@ -1,4 +1,4 @@
-import React, {  useEffect } from 'react';
+import React, { useEffect } from 'react';
 // lazy, Suspense,
 import { Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,7 +13,7 @@ import PrivateRoute from '../routers/PrivateRouter';
 import PublicRoute from '../routers/PublicRouter';
 
 import * as authOperations from '../redux/auth/auth-operations';
-import { authSelectors } from '../redux/auth/auth-selectors'
+import { authSelectors } from '../redux/auth/auth-selectors';
 import { BgGrey, AppWrap, Container } from './App.styled';
 import BgUnAuth from '../components/BgUnAuth/BgUnAuth';
 import BgAuth from '../components/BgAuth/BgAuth';
@@ -30,26 +30,26 @@ export default function App() {
   return (
     <AppWrap>
       <BgGrey />
-      {isLoggedIn ? <BgAuth/> : <BgUnAuth />}
+      {isLoggedIn ? <BgAuth /> : <BgUnAuth />}
       <Header />
       <Container>
-      {/* <Suspense fallback={<Spinner/>}> */}
-      <Switch>
-        <PublicRoute exact path="/" edirectTo="/transactions" restricted>
-          <RegistrationPage />
-        </PublicRoute>
+        {/* <Suspense fallback={<Spinner/>}> */}
+        <Switch>
+          <PublicRoute exact path="/" edirectTo="/transactions" restricted>
+            <RegistrationPage />
+          </PublicRoute>
 
-        <PrivateRoute exact path="/transactions"  >
-          <TransactionPage />
-        </PrivateRoute>
+          <PrivateRoute exact path="/transactions">
+            <TransactionPage />
+          </PrivateRoute>
 
-        <PrivateRoute exact path="/reports" >
-          <ReportsPage />
-        </PrivateRoute>
-      </Switch>
+          <PrivateRoute path="/reports">
+            <ReportsPage />
+          </PrivateRoute>
+        </Switch>
       </Container>
-        {/* </Suspense> */}
-        <ToastContainer />
-      </AppWrap>
+      {/* </Suspense> */}
+      <ToastContainer />
+    </AppWrap>
   );
 }

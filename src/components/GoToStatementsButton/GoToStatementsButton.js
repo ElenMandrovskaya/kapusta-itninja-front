@@ -7,7 +7,7 @@ import reportIcon from '../../images/report-icon.svg';
 const StatementBtn = () => {
   return (
     <NavLink
-      to="/reports"
+      to="/reports/costs"
       style={isActive => ({
         color: 'rgba(82, 85, 95, 0.7)',
         display: 'flex',
@@ -18,6 +18,7 @@ const StatementBtn = () => {
         lineHeight: '14px',
         letterSpacing: '0.04em',
       })}
+
       // component={TransactionsPage}
     >
       <Span>Перейти к отчетам</Span>
