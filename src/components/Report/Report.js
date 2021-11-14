@@ -4,7 +4,7 @@ import { ReportContainer } from './Report.styled';
 import ReportCosts from '../ReportCosts/ReportCosts';
 import ReportIncome from '../ReportIncome/ReportIncome';
 
-export default function Report() {
+function Report() {
   // const { url, path } = useRouteMatch();
 
   return (
@@ -21,3 +21,5 @@ export default function Report() {
     </ReportContainer>
   );
 }
+
+export default Report;

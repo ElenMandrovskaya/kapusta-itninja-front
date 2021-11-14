@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  Span,
-  Img,
-} from './GoToStatementsButton.styled';
+import { Span, Img } from './GoToStatementsButton.styled';
 import { NavLink } from 'react-router-dom';
 import reportIcon from '../../images/report-icon.svg';
 // import TransactionsPage from '../../pages/TransactionsPage/TransactionsPage';
@@ -11,7 +8,7 @@ const StatementBtn = () => {
   return (
     // <Link>
     <NavLink
-      to="/reports"
+      to="/reports/costs"
       // style={isActive => ({
       //   color: isActive ? 'green' : 'blue',
       // })}
