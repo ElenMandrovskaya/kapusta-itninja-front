@@ -2,7 +2,7 @@ import React from 'react';
 
 import { CartsBg } from './Charts.styled';
 import { BarChart, Bar, XAxis, Cell } from 'recharts';
-// import data from '../../data/catCosts.json';
+import data from '../../data/catCosts.json';
 
 // console.log(data[0].chart);
 
@@ -18,7 +18,7 @@ const renderCustomBarLabel = ({ x, y, width, value }) => {
   );
 };
 
-const MyChart = ({ data }) => {
+const MyChart = () => {
   console.log(data);
   return (
     <CartsBg>

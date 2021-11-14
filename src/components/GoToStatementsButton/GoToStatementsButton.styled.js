@@ -13,10 +13,14 @@ export const Link = styled.div`
 
   color: rgba(82, 85, 95, 0.7);
 `;
-export const Svg = styled.svg`
-  margin-left: 15px;
-`;
+// export const Svg = styled.svg`
+//   margin-left: 15px;
+// `;
 export const Img = styled.img`
-  margin-left: 20px;
+  margin-left: 15px;
+  width: 14px;
+  height: 14px;
 `;
-export const Span = styled.p``;
+export const Span = styled.p`
+  /* padding-left: 55px; */
+`;
