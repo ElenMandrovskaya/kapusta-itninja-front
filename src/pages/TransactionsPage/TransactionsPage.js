@@ -6,7 +6,7 @@ import TransactionsExpForm from "../../components/TransactionsExpForm/Transactio
 import TransactionsExpense from "../../components/TransactionsExpense/TransactionsExpense";
 import TransactionsIncome from "../../components/TransactionsIncome/TransactionsIncome";
 import TransactionsIncForm from "../../components/TransactionsIncForm/TransactionsIncForm";
-import { AppWrap } from "../../app/App.styled";
+import { AppWrap, BalannceTab } from "../../app/App.styled";
 
 const TransactionsPage = () => {
     const [transactions, setTransactions] = useState();
@@ -22,8 +22,10 @@ const TransactionsPage = () => {
 
     return (
         <AppWrap>
-            <Balance />
-            <GoToStatementsButton />
+            <BalannceTab> 
+                <Balance />
+                <GoToStatementsButton />
+            </BalannceTab>
             <AppWrap>
                 <Tabs>
                     <TabList>
