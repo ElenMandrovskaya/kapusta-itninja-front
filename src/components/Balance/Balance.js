@@ -19,8 +19,13 @@ export default function Balance() {
         const { value } = evt.currentTarget;
             setBalance(value);
         };
+
+    useEffect(() => {
+            dispatch(authOperations.getBalance());
+          }, [dispatch]);   
+
     const handleSubmit = (evt) => {
-            // evt.preventDefault();
+            evt.preventDefault();
             dispatch(authOperations.updBalance({balance}))
          };
 
