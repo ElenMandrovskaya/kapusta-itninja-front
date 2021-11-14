@@ -3,11 +3,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as authOperations from '../../redux/auth/auth-operations';
 import { authSelectors } from '../../redux/auth/auth-selectors'
 // import LogoutModal from '../LogoutModal/LogoutModal';
-import { ContainerHeader, UserInfo, UserName, Button, LogoutP, AvatarUser, AvatarTxt, Line, LogoutSvg , Logo } from "./Header.styled";
+import { ContainerHeader, UserInfo, UserName, Button, LogoutP, AvatarUser, Line, LogoutSvg , Logo } from "./Header.styled";
 import defaultAvatar from '../../images/avatar.png';
 
 
-export function Header () {
+export default function Header () {
     const dispatch = useDispatch();
     // const name = useSelector(authSelectors.getUserName);
     const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);

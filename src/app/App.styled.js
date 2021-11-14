@@ -31,3 +31,4 @@ border-radius: 0 0 0 180px;
   height: 68%;
   }
 `;
+export const AppWrap = styled.div``;

@@ -1,11 +1,11 @@
 import React from 'react';
 import { NavLink, useRouteMatch } from 'react-router-dom';
-import { ReportIcon } from '../ReportIcon/ReportIcon';
-import { ReportCategoryList } from '../ReportCategoryList/ReportCategoryList';
+import ReportIcon  from '../ReportIcon/ReportIcon';
+import ReportCategoryList from '../ReportCategoryList/ReportCategoryList';
 import categories from '../../data/catagoriesCosts.json';
 import { ReportCostContainer, Title } from './ReportCosts.styled';
 
-export function ReportCosts() {
+export default function ReportCosts() {
   const { url, path } = useRouteMatch();
 
   return (

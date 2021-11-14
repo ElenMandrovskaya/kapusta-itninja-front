@@ -18,6 +18,6 @@ export async function getCurrentUser() {
 };
 
 export async function signOut() {
-    const data = await axios.post(`/api/user/logout`);
+    const data = await axios.get(`/api/user/logout`);
     return data;
 };

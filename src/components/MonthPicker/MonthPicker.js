@@ -28,7 +28,6 @@ const MonthPicker = () => {
   };
 
   return (
-    <div>
       <Div>
         <Title>Текущий период:</Title>
         <Picker>
@@ -43,8 +42,8 @@ const MonthPicker = () => {
           </Button>
         </Picker>
       </Div>
-    </div>
   );
 };
 
 export default MonthPicker;
+``

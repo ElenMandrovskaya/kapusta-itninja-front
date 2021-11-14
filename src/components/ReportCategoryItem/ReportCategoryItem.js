@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavLink, useRouteMatch } from 'react-router-dom';
-import { ReportIcon } from '../ReportIcon/ReportIcon';
+import ReportIcon from '../ReportIcon/ReportIcon';
 import { CategoryItem, Text, NavLinkElem } from './ReportCategoryItem.styled';
 
-export function ReportCategoryItem({ name, sum, icon }) {
+export default function ReportCategoryItem({ name, sum, icon }) {
   const { url, path } = useRouteMatch();
 
   return (

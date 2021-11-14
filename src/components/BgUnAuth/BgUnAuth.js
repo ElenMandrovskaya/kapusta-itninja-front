@@ -1,7 +1,7 @@
 import React from 'react';
 import { BgIcon, BgIconBottom } from './BgUnAuth.styled';
 
-export function BgUnAuth () {
+export default function BgUnAuth () {
     return (
         <div>
             <BgIcon />

@@ -1,19 +1,19 @@
 import React from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import Balance from "../../components/Balance/Balance";
-import GoToStatementsButton from "../../components/GoToStatementsButton/GoToStatementsButton.jsx"
+import GoToStatementsButton from "../../components/GoToStatementsButton/GoToStatementsButton"
 import TransactionsExpForm from "../../components/TransactionsExpForm/TransactionsExpForm";
 import TransactionsExpense from "../../components/TransactionsExpense/TransactionsExpense";
 import TransactionsIncome from "../../components/TransactionsIncome/TransactionsIncome";
 import TransactionsIncForm from "../../components/TransactionsIncForm/TransactionsIncForm";
-import { Container } from "../../app/App.styled";
+import { AppWrap } from "../../app/App.styled";
 
 const TransactionsPage = () => {
     return (
-        <Container>
-            {/* <Balance /> */}
+        <AppWrap>
+            <Balance />
             <GoToStatementsButton />
-            <div>
+            <AppWrap>
                 <Tabs>
                     <TabList>
                         <Tab>Расход</Tab>
@@ -28,8 +28,8 @@ const TransactionsPage = () => {
                         <TransactionsIncome />
                     </TabPanel>
                 </Tabs>
-            </div> 
-        </Container>
+            </AppWrap> 
+        </AppWrap>
     );
 };
 

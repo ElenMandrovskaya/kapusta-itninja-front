@@ -1,20 +1,23 @@
-import React from 'react';
+import React, {  useEffect } from 'react';
+// lazy, Suspense,
 import { Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { lazy, Suspense, useEffect } from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import TransactionPage from '../pages/TransactionsPage/TransactionsPage';
 import RegistrationPage from '../pages/RegistrationPage';
-import { ReportsPage } from '../pages/ReportsPage/ReportsPage';
+import ReportsPage from '../pages/ReportsPage/ReportsPage';
 
 import PrivateRoute from '../routers/PrivateRouter';
 import PublicRoute from '../routers/PublicRouter';
 
 import * as authOperations from '../redux/auth/auth-operations';
 import { authSelectors } from '../redux/auth/auth-selectors'
-import { BgGrey } from './App.styled';
-import { BgUnAuth } from '../components/BgUnAuth/BgUnAuth';
-import { BgAuth } from '../components/BgAuth/BgAuth';
+import { BgGrey, AppWrap, Container } from './App.styled';
+import BgUnAuth from '../components/BgUnAuth/BgUnAuth';
+import BgAuth from '../components/BgAuth/BgAuth';
+import Header from '../components/Header/Header';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -23,11 +26,13 @@ export default function App() {
     dispatch(authOperations.getCurrentUser());
   }, [dispatch]);
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-  console.log(isLoggedIn)
+
   return (
-    <>
+    <AppWrap>
       <BgGrey />
       {isLoggedIn ? <BgAuth/> : <BgUnAuth />}
+      <Header />
+      <Container>
       {/* <Suspense fallback={<Spinner/>}> */}
       <Switch>
         <PublicRoute exact path="/" edirectTo="/transactions" restricted>
@@ -42,7 +47,9 @@ export default function App() {
           <ReportsPage />
         </PrivateRoute>
       </Switch>
-        // {/* </Suspense> */}
-      </>
+      </Container>
+        {/* </Suspense> */}
+        <ToastContainer />
+      </AppWrap>
   );
 }
