@@ -6,8 +6,7 @@ import axios from 'axios';
 
 export async function getSummaryExpense() {
     const {data} = await axios.get(`/api/reports/expense?year=2021`);
-    console.log(data.result)
-    return data.result;
+    return data.result.finalReportArray;
 };
 // ответ
 // {
@@ -29,8 +28,7 @@ export async function getSummaryExpense() {
 
 export async function getSummaryIncome() {
     const {data} = await axios.get(`/api/reports/expense?year=2021`);
-    console.log(data.result)
-    return data.result;
+    return data.result.finalReportArray;
 };
 // ответ 
 // {
