@@ -2,8 +2,14 @@ import React from "react";
 import TransactionMonthSummary from "../TransactionMonthSummary/TransactionMonthSummary";
 import IncomeItem from "./IncomeItem";
 import { Main, Table, TableHead, TableTitle, TableList } from "./TransactionsIncome.styled";
+import income from "../../data/income.json";
 
 const TransactionsIncome = () => {
+    const sortedArray = [...income].sort((prevIncome, nextIncome) => {
+    const prevDateArr = prevIncome.date.split(".");
+    const nextDateArr = nextIncome.date.split(".");
+    return new Date(`${nextDateArr[1]}.${nextDateArr[0]}.${nextDateArr[2]}`) - new Date(`${prevDateArr[1]}.${prevDateArr[0]}.${prevDateArr[2]}`)
+  });
     
     return (
       <Main>
@@ -17,7 +23,9 @@ const TransactionsIncome = () => {
           </TableHead>
 
           <TableList>
-                    <IncomeItem />
+            {sortedArray.map(({date, description, amount, id, category}) => (
+              <IncomeItem date={date} description={description} amount={amount} key={id} id={id} category={category}/>
+            ))}
           </TableList>
         </Table>
 
