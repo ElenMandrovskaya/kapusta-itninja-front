@@ -3,9 +3,9 @@ import useModal from "../Modal/useModal";
 import Modal from "../Modal/logoutModal";
 import { Item, ItemDate, ItemDesc, ItemCategory, ItemSum, ItemBtn } from "./ExpenseItem.styled"
 
-function ExpenseItem({ date, description, amount, id, category }) {
+function ExpenseItem( {date, description, amount, id, category} ) {
     const { isShowingModal, toggle } = useModal();
-    
+    // console.log(date)
     return (
         <Item>
             <ItemDate>{date}</ItemDate>
