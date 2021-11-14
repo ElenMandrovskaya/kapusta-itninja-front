@@ -2,9 +2,17 @@ import React from "react";
 import ExpenseItem from "./ExpenseItem";
 import TransactionMonthSummary from "../TransactionMonthSummary/TransactionMonthSummary";
 import { Main, Table, TableHead, TableTitle, TableList } from "./TransactionsExpense.styled";
+import expense from "../../data/expense.json";
 
 const TransactionsExpense = () => {
-    
+    const sortedArray = [...expense].sort((prevExpense, nextExpense) => {
+    const prevDateArr = prevExpense.date.split(".");
+    const nextDateArr = nextExpense.date.split(".");
+    return (
+      new Date(`${nextDateArr[1]}.${nextDateArr[0]}.${nextDateArr[2]}`) -
+      new Date(`${prevDateArr[1]}.${prevDateArr[0]}.${prevDateArr[2]}`)
+    );
+  });
     return (
       <Main>
         <Table>
@@ -17,7 +25,9 @@ const TransactionsExpense = () => {
           </TableHead>
 
           <TableList>
-                    <ExpenseItem />
+            {sortedArray.map(({ date, description, amount, id, category }) => (
+             <ExpenseItem date={date} description={description} amount={amount} key={id} id={id} category={category}/>
+            ))}
           </TableList>
         </Table>
 
