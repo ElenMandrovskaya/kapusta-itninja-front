@@ -78,13 +78,13 @@ export const updBalance = createAsyncThunk('balance/updBalance', async balance =
         // toast.error("");
     }
 });
-// export const getBalance = createAsyncThunk('balance/getBalance', async () => {
-//     try {
-//         const { data } = await axios.get('/api/user/balance');
-//         console.log(data.result)
-//         return data.result;
-//     }
-//     catch (error) {
-//         // toast.error("");
-//     }
-// });
+export const getBalance = createAsyncThunk('balance/getBalance', async () => {
+    try {
+        const { data } = await axios.get('/api/user/balance');
+        // console.log(data.result)
+        return data.result;
+    }
+    catch (error) {
+        // toast.error("");
+    }
+});
