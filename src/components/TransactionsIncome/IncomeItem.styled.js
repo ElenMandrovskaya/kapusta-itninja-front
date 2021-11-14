@@ -16,15 +16,11 @@ export const Item = styled.li`
   line-height: 15px;
   letter-spacing: 0.04em;
   height: 50px;
-
+  padding: 0 10px;
   & span {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-  }
-
-  &:nth-child(1) {
-    padding: 0 10px;
   }
 
     /* @media screen and (max-width: 767px) {

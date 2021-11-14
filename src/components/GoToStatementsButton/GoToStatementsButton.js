@@ -6,18 +6,24 @@ import reportIcon from '../../images/report-icon.svg';
 
 const StatementBtn = () => {
   return (
-    // <Link>
     <NavLink
       to="/reports/costs"
-      // style={isActive => ({
-      //   color: isActive ? 'green' : 'blue',
-      // })}
+      style={isActive => ({
+        color: 'rgba(82, 85, 95, 0.7)',
+        display: 'flex',
+
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: '12px',
+        lineHeight: '14px',
+        letterSpacing: '0.04em',
+      })}
+
       // component={TransactionsPage}
     >
       <Span>Перейти к отчетам</Span>
       <Img src={reportIcon} alt="report link" />
     </NavLink>
-    /* </Link> */
   );
 };
 export default StatementBtn;

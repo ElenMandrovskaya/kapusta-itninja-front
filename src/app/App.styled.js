@@ -32,3 +32,5 @@ border-radius: 0 0 0 180px;
   }
 `;
 export const AppWrap = styled.div``;
+
+export const BalannceTab = styled.div``;
