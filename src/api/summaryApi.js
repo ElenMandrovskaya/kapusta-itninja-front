@@ -27,7 +27,7 @@ export async function getSummaryExpense() {
 // https://kapusta-finance-tracker.herokuapp.com/api/reports/income?year=2021
 
 export async function getSummaryIncome() {
-    const {data} = await axios.get(`/api/reports/expense?year=2021`);
+    const {data} = await axios.get(`/api/reports/income?year=2021`);
     return data.result.finalReportArray;
 };
 // ответ 
