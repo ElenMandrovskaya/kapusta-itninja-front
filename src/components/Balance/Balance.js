@@ -1,14 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { HiOutlineCursorClick, HiOutlineLightBulb } from "react-icons/hi";
+import { authSelectors } from '../../redux/auth/auth-selectors'
 // import { getCurrentBalance } from '../../redux/balance/balance-selectors';
 // import * as balanceOperations from "../../redux/balance/balance-operations";
 import * as authOperations from "../../redux/auth/auth-operations"
 import { BalanceContainer, BalanceTitle, BalanceAmount, SubmitBtn, BalanceWrap, BalanceModal, BalanceText, BalanceNote } from "./Balance.styled";
 
-export default function Balance({}) {
+export default function Balance() {
     const [balance, setBalance] = useState("");
-    const currentBalance = useSelector(state => state.auth.user.balance);
+    const currentBalance = useSelector(authSelectors.getCurrentBalance);
     const dispatch = useDispatch();
 
     const [balanceNote, setBalanceNote] = useState(true);
@@ -19,11 +20,10 @@ export default function Balance({}) {
             setBalance(value);
         };
     const handleSubmit = (evt) => {
-            evt.preventDefault();
+            // evt.preventDefault();
             dispatch(authOperations.updBalance({balance}))
          };
 
-         console.log(currentBalance)
     return (
         <BalanceContainer 
         onSubmit={handleSubmit}
@@ -36,7 +36,8 @@ export default function Balance({}) {
                         type="text"
                         onChange={handleChange}
                         autoComplete="off"
-                        placeholder={`${currentBalance.toFixed(2)} UAH`}/>
+                        placeholder={`${currentBalance.toFixed(2)} UAH`}
+                        />
                     <SubmitBtn type="submit">подтвердить</SubmitBtn>
                     {balanceNote && <BalanceModal onClick={removeBalanceNote}>
                     <BalanceText>Привет! Для начала работы внеси текущий баланс своего счета!</BalanceText>

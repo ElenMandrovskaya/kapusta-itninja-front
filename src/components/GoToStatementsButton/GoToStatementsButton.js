@@ -1,9 +1,8 @@
 import React from 'react';
 import {
   Span,
-  Link,
   Img,
-} from '../GoToStatementsButton/GoToStatementsButton.styled';
+} from './GoToStatementsButton.styled';
 import { NavLink } from 'react-router-dom';
 import reportIcon from '../../images/report-icon.svg';
 // import TransactionsPage from '../../pages/TransactionsPage/TransactionsPage';

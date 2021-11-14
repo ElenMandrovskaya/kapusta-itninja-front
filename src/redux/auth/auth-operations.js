@@ -61,7 +61,7 @@ export const getCurrentUser = createAsyncThunk('auth/current', async (_, thunkAP
     token.set(persistedToken);
     try {
         const { data } = await userApi.getCurrentUser()
-        return data.result;
+        return data.result.user;
     }
     catch (error) {
         toast.warning('Could not identify you');
@@ -78,3 +78,13 @@ export const updBalance = createAsyncThunk('balance/updBalance', async balance =
         // toast.error("");
     }
 });
+// export const getBalance = createAsyncThunk('balance/getBalance', async () => {
+//     try {
+//         const { data } = await axios.get('/api/user/balance');
+//         console.log(data.result)
+//         return data.result;
+//     }
+//     catch (error) {
+//         // toast.error("");
+//     }
+// });

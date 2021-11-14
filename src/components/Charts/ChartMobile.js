@@ -12,7 +12,7 @@ import {
 } from 'recharts';
 import data from '../../data/catCosts.json';
 
-console.log(data[0].chart);
+// console.log(data[0].chart);
 
 const MobileChart = () => {
   const MobileBarLabel = ({ x, y, width, value }) => (

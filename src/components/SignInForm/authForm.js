@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import * as authOperations from '../../redux/auth/auth-operations';
-import { authSelectors } from '../../redux/auth/auth-selectors';
+// import { authSelectors } from '../../redux/auth/auth-selectors';
 
 import { AuthGoogleDescription, AuthGoogleBtn, SpanTextWrapper, OtherDescriptionToSignUp, SignInFormWrapper, LabelInputForm, FormInputDescription, FormInput, FormBtn} from './SignInForm.styled';
 

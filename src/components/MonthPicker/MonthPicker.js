@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Div, Title, Span, Picker } from './MonthPicker.styled';
 import 'moment/locale/ru';
 import moment from 'moment';
-import { ReportIcon } from '../ReportIcon/ReportIcon';
+import ReportIcon from '../ReportIcon/ReportIcon';
 
 import { useState } from 'react';
 
@@ -28,7 +28,6 @@ const MonthPicker = () => {
   };
 
   return (
-    <div>
       <Div>
         <Title>Текущий период:</Title>
         <Picker>
@@ -43,8 +42,8 @@ const MonthPicker = () => {
           </Button>
         </Picker>
       </Div>
-    </div>
   );
 };
 
 export default MonthPicker;
+``

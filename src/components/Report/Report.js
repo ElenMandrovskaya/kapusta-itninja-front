@@ -1,11 +1,11 @@
 import React from 'react';
 import { Switch, Route, useRouteMatch, Redirect } from 'react-router-dom';
 import { ReportContainer } from './Report.styled';
-import { ReportCosts } from '../ReportCosts/ReportCosts';
-import { ReportIncome } from '../ReportIncome/ReportIncome';
+import ReportCosts from '../ReportCosts/ReportCosts';
+import ReportIncome from '../ReportIncome/ReportIncome';
 
-export function Report() {
-  const { url, path } = useRouteMatch();
+export default function Report() {
+  // const { url, path } = useRouteMatch();
 
   return (
     <ReportContainer>

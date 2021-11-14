@@ -1,7 +1,7 @@
 import React from 'react';
 import { HeroLogo, HeroText, HeroTitl } from './HeroTitle.styled';
 
-export function HeroTitle () {
+export default function HeroTitle () {
     return (
         <HeroLogo>
             <HeroTitl />
