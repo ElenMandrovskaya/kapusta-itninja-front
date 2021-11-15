@@ -17,6 +17,8 @@ const StatementBtn = () => {
         fontSize: '12px',
         lineHeight: '14px',
         letterSpacing: '0.04em',
+        alignItems: 'center',
+        textAlign: 'center',
       })}
 
       // component={TransactionsPage}

@@ -12,9 +12,9 @@ import { AppWrap } from '../../app/App.styled';
 function ReportsPage() {
   return (
     <AppWrap>
-      <Balance />
       <ReportsPageHeader>
         <GoBackHomeBtn />
+        <Balance />
         <MonthPicker />
       </ReportsPageHeader>
       <StatisticAmounts />
