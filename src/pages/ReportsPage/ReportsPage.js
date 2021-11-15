@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { Route } from 'react-router-dom';
 import Balance from '../../components/Balance/Balance';
 import GoBackHomeBtn from '../../components/GoBackHomeButton/GoBackHomeButton';
@@ -8,17 +9,41 @@ import MyChart from '../../components/Charts/Charts';
 import Report from '../../components/Report/Report';
 import { ReportsPageHeader } from './ReportsPage.styled';
 import { AppWrap } from '../../app/App.styled';
+import 'moment/locale/ru';
+import moment from 'moment';
 
 function ReportsPage() {
+  const [newDate, setNewDate] = useState(moment(new Date()));
+  const [dateMonth, setDateMonth] = useState(moment(new Date()).format('MM'));
+  const [dateYears, setDateYears] = useState(moment(new Date()).format('YYYY'));
+
+  let monthChangeHandler = () => {
+    setDateMonth(newDate.add(-1, 'month').format('MM'));
+    if (dateMonth === '01') {
+      setDateYears(newDate.add('year').format('YYYY'));
+    }
+  };
+
+  let monthChangeHandlerRight = () => {
+    setDateMonth(newDate.add(1, 'month').format('MM'));
+    if (dateMonth === '12') {
+      setDateYears(newDate.add('year').format('YYYY'));
+    }
+  };
   return (
     <AppWrap>
       <Balance />
       <ReportsPageHeader>
         <GoBackHomeBtn />
-        <MonthPicker />
+        <MonthPicker
+          monthChangeHandler={monthChangeHandler}
+          monthChangeHandlerRight={monthChangeHandlerRight}
+          dateMonth={dateMonth}
+          dateYears={dateYears}
+        />
       </ReportsPageHeader>
       <StatisticAmounts />
-      <Report />
+      <Report dateMonth={Number(dateMonth)} dateYears={Number(dateYears)} />
       {/* <MyChart /> */}
     </AppWrap>
   );
