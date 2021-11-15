@@ -2,7 +2,7 @@ import React from 'react';
 
 import { CartsBg } from './Charts.styled';
 import { BarChart, Bar, XAxis, Cell } from 'recharts';
-import data from '../../data/catCosts.json';
+import data from '../../data/expense.json';
 
 // console.log(data[0].chart);
 

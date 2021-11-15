@@ -102,6 +102,7 @@ justify-content: space-between;
 `;
 
 export const BalanceModal = styled.div`
+z-index: 10;
 position: absolute;
 top: calc(100% + 18px);
 width: 282px;
