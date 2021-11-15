@@ -34,13 +34,13 @@ function ReportsPage() {
     <AppWrap>
       <ReportsPageHeader>
         <GoBackHomeBtn />
+        <Balance />
         <MonthPicker
           monthChangeHandler={monthChangeHandler}
           monthChangeHandlerRight={monthChangeHandlerRight}
           dateMonth={dateMonth}
           dateYears={dateYears}
         />
-        <Balance />
       </ReportsPageHeader>
       <StatisticAmounts />
       <Report dateMonth={Number(dateMonth)} dateYears={Number(dateYears)} />
