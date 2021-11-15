@@ -49,7 +49,9 @@ const TransactionsPage = () => {
                             // type={type}
                         />
                     </TabPanel>
-                     <TabPanel onClick={typeIncome}>
+                     <TabPanel 
+                    //  onClick={typeIncome}
+                     >
                         <TransactionsIncForm
                             onSubmit={onSubmit}
                             // type={type}
