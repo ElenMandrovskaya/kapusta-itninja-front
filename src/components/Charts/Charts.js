@@ -1,8 +1,9 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
 import { CartsBg } from './Charts.styled';
 import { BarChart, Bar, XAxis, Cell } from 'recharts';
-// import data from '../../data/catCosts.json';
+import data from '../../data/expense.json';
 
 // console.log(data[0].chart);
 
@@ -18,25 +19,38 @@ const renderCustomBarLabel = ({ x, y, width, value }) => {
   );
 };
 
-const MyChart = ({ data }) => {
-  console.log(data);
+const MyChart = ({ categs }) => {
+  const { icon } = useParams();
+  const categ = categs.find(categ => categ.icon === icon);
+
+  categ.chart.sort(function (a, b) {
+    if (a.total > b.total) {
+      return -1;
+    }
+    if (a.total < b.total) {
+      return 1;
+    }
+
+    return 0;
+  });
+
   return (
     <CartsBg>
       <BarChart
         width={605}
         height={328}
-        data={data[0].chart}
+        data={categ.chart}
         margin={{ top: 50, right: 15, bottom: 9, left: 15 }}
       >
         <XAxis
-          dataKey="Description"
+          dataKey="description"
           // tick={data.name}
           axisLine={false}
           tickLine={false}
         ></XAxis>
 
         <Bar
-          dataKey="Total"
+          dataKey="total"
           barSize={38}
           fill="#fd8905"
           label={renderCustomBarLabel}

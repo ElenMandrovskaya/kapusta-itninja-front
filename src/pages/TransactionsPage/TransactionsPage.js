@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import Balance from "../../components/Balance/Balance";
 import GoToStatementsButton from "../../components/GoToStatementsButton/GoToStatementsButton"
@@ -9,6 +9,17 @@ import TransactionsIncForm from "../../components/TransactionsIncForm/Transactio
 import { AppWrap, BalannceTab } from "../../app/App.styled";
 
 const TransactionsPage = () => {
+    const [transactions, setTransactions] = useState('');
+    const onSubmit = ({ date, category, description, amount }) => {
+        const newTransactons = {
+            date,
+            description,
+            category,
+            amount
+    }
+        setTransactions((transactions) => [ newTransactons, ...transactions]);
+    }
+    // console.log(transactions)
     return (
         <AppWrap>
             <BalannceTab> 
@@ -22,12 +33,12 @@ const TransactionsPage = () => {
                         <Tab>Доход</Tab>
                     </TabList>
                     <TabPanel>
-                        <TransactionsExpForm />
-                        <TransactionsExpense />
+                        <TransactionsExpForm onSubmit={onSubmit}/>
+                        <TransactionsExpense transactions={transactions}/>
                     </TabPanel>
                     <TabPanel>
-                        <TransactionsIncForm />
-                        <TransactionsIncome />
+                        <TransactionsIncForm onSubmit={onSubmit}/>
+                        <TransactionsIncome transactions={transactions}/>
                     </TabPanel>
                 </Tabs>
             </AppWrap> 

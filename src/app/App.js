@@ -42,7 +42,6 @@ export default function App() {
           <PrivateRoute exact path="/transactions">
             <TransactionPage />
           </PrivateRoute>
-
           <PrivateRoute path="/reports">
             <ReportsPage />
           </PrivateRoute>
@@ -53,3 +52,5 @@ export default function App() {
     </AppWrap>
   );
 }
+
+

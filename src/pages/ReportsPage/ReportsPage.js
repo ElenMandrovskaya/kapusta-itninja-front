@@ -32,7 +32,6 @@ function ReportsPage() {
   };
   return (
     <AppWrap>
-      <Balance />
       <ReportsPageHeader>
         <GoBackHomeBtn />
         <MonthPicker
@@ -41,6 +40,7 @@ function ReportsPage() {
           dateMonth={dateMonth}
           dateYears={dateYears}
         />
+        <Balance />
       </ReportsPageHeader>
       <StatisticAmounts />
       <Report dateMonth={Number(dateMonth)} dateYears={Number(dateYears)} />

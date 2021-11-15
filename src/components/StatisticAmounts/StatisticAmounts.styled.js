@@ -43,6 +43,8 @@ export const Vl = styled.div`
 export const Div = styled.div`
   @media screen and (max-width: 320px) {
     height: 85px;
+    box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+    border-radius: 20px;
   }
   display: flex;
 
@@ -53,9 +55,10 @@ export const Div = styled.div`
 
   text-align: center;
 
-  background: #ccc;
-  /* shadow 1 */
+  background: #ffffff;
 
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   border-radius: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 `;

@@ -59,7 +59,13 @@
   },
   "devDependencies": {
     "eslint": "^3.16.1",
+    "eslint-plugin-react": "^7.25.1",
     "netlify-cli": "^6.7.7",
-    "prettier": "^2.4.1"
+    "prettier": "^2.4.1",
+    "lint-staged": "^11.1.2"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": "eslint --cache --fix",
+    "*.{js,jsx,css,md}": "prettier --write"
   }
 }

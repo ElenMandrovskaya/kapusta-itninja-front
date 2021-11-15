@@ -3,7 +3,8 @@ import Calendar from "../Calendar/Calendar";
 import CategoryInput from "../CategoryInput/CategoryInput";
 import { Form, Wrapper, FormInput, FormBtn, InputAmount, InputDesc, ButtonOrange, Button } from "./TransactionsExpForm.styled";
 
-const TransactionsExpForm = () => {
+const TransactionsExpForm = ({onSubmit}) => {
+    // const [transactions, setTransactions] = useState();
     const [startDate, setStartDate] = useState(new Date());
     const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
@@ -15,7 +16,37 @@ const TransactionsExpForm = () => {
     setDescription("");
     setAmount("");
     };
+
+    // const handleChange = (evt) => {
+    // const { name, value } = evt.currentTarget;
+    // switch (name) {
+    //   case "category":
+    //     setCategory(value);
+    //     break;
+
+    //   case "description":
+    //     setDescription(value);
+    //     break;
+
+    // case "amount":
+    //     setAmount(value);
+    //         break;
+        
+    //   default:
+    //     return;
+    // }
+    // };
     
+    // const onSubmit = ({ date, category, description, amount }) => {
+    //     const newTransactons = {
+    //         date,
+    //         category,
+    //         description,
+    //         amount
+    //     }
+    //     setTransactions(newTransactons)
+    // }
+
     const addExpense = (e) => {
     e.preventDefault();
     const date = [
@@ -23,16 +54,11 @@ const TransactionsExpForm = () => {
       startDate.getMonth() + 1,
       startDate.getFullYear(),
     ].join(".");
-    // const body = {
-    //   type: "expense",
-    //   date,
-    //   amount: +amount,
-    //   category,
-    //   description,
-    // };
+        onSubmit({ date, description, category, amount });
         reset();
     };
 
+    // console.log(transactions)
     return (
         <Form onSubmit={addExpense} >
             <Wrapper>
@@ -43,17 +69,20 @@ const TransactionsExpForm = () => {
                 <FormInput>
                     <InputDesc
                         type="text"
+                        name="description"
                         placeholder="Описание товара"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                     />
                     <CategoryInput
                         type="expenses"
+                        name="category"
                         categoryPick={category}
                         setCategory={setCategory}
                     />
                     <InputAmount
                         type="text"
+                        name="amount"
                         placeholder="0,00"
                         value={amount}
                         onChange={(e) => setAmount(e.target.value)} 
@@ -62,11 +91,13 @@ const TransactionsExpForm = () => {
                 <FormBtn>
                     <ButtonOrange
                         type="submit"
-                        buttonHandler="">
+                        onSubmit={addExpense}>
                         Ввод
                     </ButtonOrange>
                     <Button
-                        type="button">
+                        type="button"
+                        onSubmit={reset}
+                    >
                         Очистить
                     </Button>         
                 </FormBtn>
