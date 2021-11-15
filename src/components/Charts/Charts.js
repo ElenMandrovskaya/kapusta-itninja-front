@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom';
 
 import { CartsBg } from './Charts.styled';
 import { BarChart, Bar, XAxis, Cell } from 'recharts';
-import data from '../../data/expense.json';
+import MobileChart from './ChartMobile';
+// import data from '../../data/expense.json';
 
 // console.log(data[0].chart);
 
@@ -34,7 +35,10 @@ const MyChart = ({ categs }) => {
     return 0;
   });
 
-  return (
+  const screenWidth = window.screen.width;
+  const screenHeight = window.screen.height;
+  // console.log(screenWidth, screenHeight);
+  return screenWidth > 320 ? (
     <CartsBg>
       <BarChart
         width={605}
@@ -56,12 +60,14 @@ const MyChart = ({ categs }) => {
           label={renderCustomBarLabel}
           radius={[10, 10, 0, 0]}
         >
-          {data.map((el, idx) => (
+          {categ.chart.map((el, idx) => (
             <Cell key={`cell-${idx}`} fill={idx % 3 ? '#FFDAC0' : '#ff751d'} />
           ))}
         </Bar>
       </BarChart>
     </CartsBg>
+  ) : (
+    <MobileChart />
   );
 };
 
