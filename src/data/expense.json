@@ -48,32 +48,18 @@
     "category": "Спорт, хобби",
     "amount": 400
   },
-  {
-   "id": "id-09",
-    "date": "11.11.2021",
-    "description": "Английский",
-    "category": "Образование",
+    {
+   "id": "id-07",
+    "date": "10.11.2021",
+    "description": "Оплата занятия",
+    "category": "Спорт, хобби",
     "amount": 400
   },
-  {
-   "id": "id-10",
-    "date": "13.11.2021",
-    "description": "Английский",
-    "category": "Образование",
-    "amount": 450
-  },
-  {
-   "id": "id-11",
-    "date": "12.11.2021",
-    "description": "Бижутерия",
-    "category": "Прочее",
+    {
+   "id": "id-07",
+    "date": "10.11.2021",
+    "description": "Оплата занятия",
+    "category": "Спорт, хобби",
     "amount": 400
-  },
-  {
-   "id": "id-12",
-    "date": "14.11.2021",
-    "description": "Одежда",
-    "category": "Прочее",
-    "amount": 4000
   }
 ]
