@@ -102,12 +102,15 @@ export const updBalance = createAsyncThunk(
     }
   },
 );
+
 export const getBalance = createAsyncThunk('balance/getBalance', async () => {
-  try {
-    const { data } = await axios.get('/api/user/balance');
-    // console.log(data.result)
-    return data.result;
-  } catch (error) {
-    // toast.error("");
-  }
+    try {
+        const { data } = await axios.get('/api/user/balance');
+        // console.log(data.result)
+        return data.result;
+    }
+    catch (status) {
+        toast.warning(status.message);
+    }
 });
+

@@ -1,5 +1,7 @@
 import React, { Fragment, useState } from 'react';
-// import { FcGoogle } from 'react-icons/fc';
+import { FcGoogle } from 'react-icons/fc';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch } from 'react-redux';
 import * as authOperations from '../../redux/auth/auth-operations';
 // import { authSelectors } from '../../redux/auth/auth-selectors';
@@ -59,8 +61,7 @@ function AuthForm() {
   const OnSubmitRegBtn = evt => {
     evt.preventDefault();
     if (!name || !email || !password) {
-      // toast.info('Fill in all the fields')
-      alert('Fill in all the fields');
+      toast.info('Fill in all the fields')
       return;
     }
     dispatch(authOperations.signUp({ name, email, password }));
@@ -70,8 +71,7 @@ function AuthForm() {
   const OnSubmitSignInBtn = evt => {
     evt.preventDefault();
     if (!email || !password) {
-      // toast.info('Fill in all the fields')
-      alert('Fill in all the fields');
+      toast.info('Fill in all the fields')
       return;
     }
     dispatch(authOperations.signIn({ email, password }));

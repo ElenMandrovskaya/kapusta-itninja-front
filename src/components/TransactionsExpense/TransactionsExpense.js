@@ -14,7 +14,7 @@ const TransactionsExpense = ({transactions}) => {
     //   new Date(`${prevDateArr[1]}.${prevDateArr[0]}.${prevDateArr[2]}`)
     // );
     // });
-    console.log(sortedArray)
+    // console.log(sortedArray)
     return (
       <Main>
         <Table>

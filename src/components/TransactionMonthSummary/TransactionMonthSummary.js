@@ -2,7 +2,8 @@ import React, {useState, useEffect} from "react";
 import moment from "moment";
 import { Summary, Title, SummaryList, SummaryItem  } from "./TransactionMonthSummary.styled"
 import {getSummaryExpense, getSummaryIncome} from "../../api/summaryApi"
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const TransactionMonthSummary = ({type}) => {
     const [summary, setSummary] = useState("");
@@ -17,7 +18,7 @@ const TransactionMonthSummary = ({type}) => {
                     setSummary(inc)
                     }
                 } catch (error) {
-                    console.log(error);
+                    toast.warning(error.message)
                 }
             } getSummary()}, []);
 
