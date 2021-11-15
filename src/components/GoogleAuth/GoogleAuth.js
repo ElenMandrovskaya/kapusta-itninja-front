@@ -3,7 +3,7 @@ import GoogleLogin from 'react-google-login';
 import GoogleAuthButton from './GoogleAuthButton';
 import { useDispatch } from 'react-redux';
 
-import { signIn } from '../../redux/auth/auth-operations';
+import { googleAuth } from '../../redux/auth/auth-operations';
 import {
   setName,
   setEmail,
@@ -14,7 +14,7 @@ import {
 const GoogleAuth = () => {
   const dispatch = useDispatch();
 
-  const successLogin = async ({ tokenId, profileObj }) => {
+  const successLogin = async data => {
     // const { email, name } = profileObj;
     // const newUser = {
     //   email,
@@ -28,7 +28,7 @@ const GoogleAuth = () => {
     // console.log(newUser);
     // console.log(tokenId);
     // console.log(login);
-    // dispatch(signIn(newUser));
+    dispatch(googleAuth(data));
   };
   return (
     <Fragment>
