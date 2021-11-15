@@ -7,6 +7,8 @@ import { signIn, signUp } from '../../redux/auth/auth-operations';
 import { useSelector } from 'react-redux';
 import { setName, setEmail } from '../../redux/auth/auth-slice';
 
+import GoogleAuth from '../GoogleAuth/GoogleAuth';
+
 import { AuthGoogleDescription } from './SignInForm.styled';
 import { AuthGoogleBtn } from './SignInForm.styled';
 import { SpanTextWrapper } from './SignInForm.styled';
@@ -126,11 +128,12 @@ function SignInForm() {
       <AuthGoogleDescription>
         Вы можете авторизоваться с помощью Google Account:
       </AuthGoogleDescription>
-
+      {/* 
       <AuthGoogleBtn type="button">
         <FcGoogle size={18} />
         <SpanTextWrapper>Google</SpanTextWrapper>
-      </AuthGoogleBtn>
+      </AuthGoogleBtn> */}
+      <GoogleAuth />
 
       <OtherDescriptionToSignUp>
         Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:
