@@ -60,7 +60,7 @@ const TransactionsExpForm = ({onSubmit, type}) => {
         reset();
     };
 
-    console.log(type)
+    // console.log(type)
     return (
         <Form onSubmit={addExpense} type={type} >
             <Wrapper>
