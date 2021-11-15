@@ -7,8 +7,6 @@ import GoogleAuth from '../GoogleAuth/GoogleAuth';
 
 import {
   AuthGoogleDescription,
-  AuthGoogleBtn,
-  SpanTextWrapper,
   OtherDescriptionToSignUp,
   SignInFormWrapper,
   LabelInputForm,

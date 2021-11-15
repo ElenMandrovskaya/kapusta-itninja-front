@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import GoogleLogin from 'react-google-login';
 import GoogleAuthButton from './GoogleAuthButton';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { signIn } from '../../redux/auth/auth-operations';
 import {
@@ -13,7 +13,6 @@ import {
 
 const GoogleAuth = () => {
   const dispatch = useDispatch();
-  const login = useSelector(state => state.auth.isLoggedIn);
 
   const successLogin = async ({ tokenId, profileObj }) => {
     const { email, name } = profileObj;
