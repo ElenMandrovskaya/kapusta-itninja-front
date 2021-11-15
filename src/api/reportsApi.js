@@ -6,7 +6,7 @@ export async function getCategoriesByCosts(month, year) {
   const { data } = await axios.get(
     `/api/reports/monthlyexpense/?month=${Number(month)}&year=${Number(year)} `,
   );
-  console.log(data);
+  // console.log(data);
   return data;
 }
 

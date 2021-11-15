@@ -7,13 +7,15 @@ import ReportCategoryList from '../ReportCategoryList/ReportCategoryList';
 import { getCategoriesByIncome } from '../../api/reportsApi';
 import { ReportCostContainer, Title } from '../ReportCosts/ReportCosts.styled';
 
-function ReportIncome() {
+function ReportIncome({ dateMonth, dateYears }) {
   const [categories, setCategories] = useState([]);
-  console.log(categories);
+  // console.log(dateMonth, dateYears);
 
   useEffect(() => {
-    getCategoriesByIncome(11, 2021).then(resp => setCategories(resp.result));
-  }, []);
+    getCategoriesByIncome(dateMonth, dateYears).then(resp =>
+      setCategories(resp.result),
+    );
+  }, [dateMonth, dateYears]);
 
   return (
     <div>
@@ -26,7 +28,11 @@ function ReportIncome() {
           <ReportIcon name="arrow-right" color="#000" size="10" />
         </NavLink>
       </ReportCostContainer>
-      <ReportCategoryList categories={categories} />
+      <ReportCategoryList
+        categories={categories}
+        dateMonth={dateMonth}
+        dateYears={dateYears}
+      />
     </div>
   );
 }
