@@ -3,7 +3,7 @@ import Calendar from "../Calendar/Calendar";
 import CategoryInput from "../CategoryInput/CategoryInput";
 import { Form, Wrapper, FormInput, FormBtn, InputAmount, InputDesc, ButtonOrange,Button } from "./TransactionsIncForm.styled";
 
-const TransactionsIncForm = ({ onSubmit }) => {
+const TransactionsIncForm = ({ onSubmit, type }) => {
     const [startDate, setStartDate] = useState(new Date());
     const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
@@ -23,12 +23,12 @@ const TransactionsIncForm = ({ onSubmit }) => {
       startDate.getMonth() + 1,
       startDate.getFullYear(),
     ].join(".");
-        onSubmit({date, description, category, amount })
+        onSubmit({type, date, description, category, amount })
         reset();
     };
 
     return (
-        <Form onSubmit={addIncome} >
+        <Form onSubmit={addIncome} type={type}>
             <Wrapper>
                 <Calendar
                     selectedDate={startDate}
