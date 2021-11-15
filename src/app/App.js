@@ -18,7 +18,6 @@ import { BgGrey, AppWrap, Container } from './App.styled';
 import BgUnAuth from '../components/BgUnAuth/BgUnAuth';
 import BgAuth from '../components/BgAuth/BgAuth';
 import Header from '../components/Header/Header';
-import GoogleAuth from '../components/GoogleAuth/GoogleAuth';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -34,7 +33,6 @@ export default function App() {
       {isLoggedIn ? <BgAuth /> : <BgUnAuth />}
       <Header />
       <Container>
-        <GoogleAuth />
         {/* <Suspense fallback={<Spinner/>}> */}
         <Switch>
           <PublicRoute exact path="/" edirectTo="/transactions" restricted>

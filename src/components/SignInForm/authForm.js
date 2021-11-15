@@ -3,8 +3,19 @@ import { FcGoogle } from 'react-icons/fc';
 import { useDispatch } from 'react-redux';
 import * as authOperations from '../../redux/auth/auth-operations';
 // import { authSelectors } from '../../redux/auth/auth-selectors';
+import GoogleAuth from '../GoogleAuth/GoogleAuth';
 
-import { AuthGoogleDescription, AuthGoogleBtn, SpanTextWrapper, OtherDescriptionToSignUp, SignInFormWrapper, LabelInputForm, FormInputDescription, FormInput, FormBtn} from './SignInForm.styled';
+import {
+  AuthGoogleDescription,
+  AuthGoogleBtn,
+  SpanTextWrapper,
+  OtherDescriptionToSignUp,
+  SignInFormWrapper,
+  LabelInputForm,
+  FormInputDescription,
+  FormInput,
+  FormBtn,
+} from './SignInForm.styled';
 
 function AuthForm() {
   const dispatch = useDispatch();
@@ -14,7 +25,7 @@ function AuthForm() {
   const [password, setPassword] = useState('');
 
   const handleChange = e => {
-    const {name, value} = e.currentTarget;
+    const { name, value } = e.currentTarget;
     switch (name) {
       case 'name':
         setName(value);
@@ -41,54 +52,59 @@ function AuthForm() {
     setPassword('');
     setName('');
   };
-  
-  const OnSubmitRegBtn = (evt) => {
+
+  const OnSubmitRegBtn = evt => {
     evt.preventDefault();
     if (!name || !email || !password) {
-        // toast.info('Fill in all the fields')
-        alert('Fill in all the fields')
-    return;
-  }
-  dispatch(authOperations.signUp({ name, email, password }));
-  resetInputs();
-};
+      // toast.info('Fill in all the fields')
+      alert('Fill in all the fields');
+      return;
+    }
+    dispatch(authOperations.signUp({ name, email, password }));
+    resetInputs();
+  };
 
-const OnSubmitSignInBtn = (evt) => {
+  const OnSubmitSignInBtn = evt => {
     evt.preventDefault();
-        if (!email || !password) {
-        // toast.info('Fill in all the fields')
-        alert('Fill in all the fields')
-        return;
-      }
-      dispatch(authOperations.signIn({ email, password }));
-      resetInputs();
-};
+    if (!email || !password) {
+      // toast.info('Fill in all the fields')
+      alert('Fill in all the fields');
+      return;
+    }
+    dispatch(authOperations.signIn({ email, password }));
+    resetInputs();
+  };
 
   return (
     <Fragment>
-      <AuthGoogleDescription>Вы можете авторизоваться с помощью Google Account:</AuthGoogleDescription>
-      <AuthGoogleBtn type="button">
+      <AuthGoogleDescription>
+        Вы можете авторизоваться с помощью Google Account:
+      </AuthGoogleDescription>
+      {/* <AuthGoogleBtn type="button">
         <FcGoogle size={18} />
         <SpanTextWrapper>Google</SpanTextWrapper>
-      </AuthGoogleBtn>
+      </AuthGoogleBtn> */}
+      <GoogleAuth />
       <OtherDescriptionToSignUp>
         Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:
       </OtherDescriptionToSignUp>
-
-      <SignInFormWrapper 
-    //   onSubmit={handleSubmit} 
-      action="" autoComplete="on">
+      <SignInFormWrapper
+        //   onSubmit={handleSubmit}
+        action=""
+        autoComplete="on"
+      >
         {isRegistration ? (
           <LabelInputForm>
             <FormInputDescription>Введите имя:</FormInputDescription>
             <FormInput
-            //   onBlur={blurHandler}
+              //   onBlur={blurHandler}
               placeholder={'Barry Donatello'}
               type="name"
               name="name"
               onChange={handleChange}
               value={name}
-              required/>
+              required
+            />
           </LabelInputForm>
         ) : null}
 
@@ -101,7 +117,8 @@ const OnSubmitSignInBtn = (evt) => {
             name="email"
             onChange={handleChange}
             value={email}
-            required/>
+            required
+          />
         </LabelInputForm>
 
         <LabelInputForm marginBTM>
@@ -112,7 +129,8 @@ const OnSubmitSignInBtn = (evt) => {
             name="password"
             onChange={handleChange}
             value={password}
-            required/>
+            required
+          />
         </LabelInputForm>
 
         {isRegistration ? (
