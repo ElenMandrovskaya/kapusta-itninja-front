@@ -19,7 +19,7 @@ const TransactionsPage = () => {
     }
         setTransactions((transactions) => [ newTransactons, ...transactions]);
     }
-    console.log(transactions)
+    // console.log(transactions)
     return (
         <AppWrap>
             <BalannceTab> 
