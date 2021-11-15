@@ -1,18 +1,23 @@
 import React from 'react';
 import { Route, useRouteMatch } from 'react-router-dom';
-import  ReportCategoryItem from '../ReportCategoryItem/ReportCategoryItem';
-import CategoryList from './ReportCategoryList.styled';
+import ReportCategoryItem from '../ReportCategoryItem/ReportCategoryItem';
+import { CategoryList } from './ReportCategoryList.styled';
 import MyChart from '../../components/Charts/Charts';
 
-export default function ReportCategoryList({ catagories }) {
+function ReportCategoryList({ categories }) {
   const { url, path } = useRouteMatch();
 
   return (
     <div>
       <CategoryList>
-        {catagories.map(({ name, sum, icon }) => {
+        {categories.map(({ category, total, icon }) => {
           return (
-            <ReportCategoryItem key={icon} name={name} sum={sum} icon={icon} />
+            <ReportCategoryItem
+              key={icon}
+              name={category}
+              sum={total}
+              icon={icon}
+            />
           );
         })}
       </CategoryList>
@@ -23,3 +28,5 @@ export default function ReportCategoryList({ catagories }) {
     </div>
   );
 }
+
+export default ReportCategoryList;

@@ -42,8 +42,7 @@ export default function App() {
           <PrivateRoute exact path="/transactions">
             <TransactionPage />
           </PrivateRoute>
-
-          <PrivateRoute exact path="/reports">
+          <PrivateRoute path="/reports">
             <ReportsPage />
           </PrivateRoute>
         </Switch>

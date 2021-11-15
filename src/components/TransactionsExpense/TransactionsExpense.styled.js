@@ -17,7 +17,6 @@ export const TableHead = styled.div`
   font-size: 13px;
   font-weight: normal;
   color: #52555f;
-  display: grid;
   grid-template-columns: 170px 248px 164px 116px 50px;
   & :nth-child(1) {
     padding-left: 25px;
