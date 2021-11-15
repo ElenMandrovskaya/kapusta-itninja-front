@@ -5,13 +5,19 @@ import { FcGoogle } from 'react-icons/fc';
 import { useDispatch } from 'react-redux';
 import { signIn, signUp } from '../../redux/auth/auth-operations';
 import { useSelector } from 'react-redux';
-import { setName, setEmail } from '../../redux/auth/auth-slice';
+import {
+  setName,
+  setEmail,
+  setisLoggedIn,
+  setToken,
+} from '../../redux/auth/auth-slice';
+import * as authOperations from '../../redux/auth/auth-operations';
 
 import GoogleAuth from '../GoogleAuth/GoogleAuth';
 
 import { AuthGoogleDescription } from './SignInForm.styled';
-import { AuthGoogleBtn } from './SignInForm.styled';
-import { SpanTextWrapper } from './SignInForm.styled';
+// import { AuthGoogleBtn } from './SignInForm.styled';
+// import { SpanTextWrapper } from './SignInForm.styled';
 import { OtherDescriptionToSignUp } from './SignInForm.styled';
 
 import { SignInFormWrapper } from './SignInForm.styled';
@@ -24,13 +30,15 @@ function SignInForm() {
   const dispatch = useDispatch();
 
   const [isRegistration, setRegistration] = useState(false);
+  // const state = useSelector(state => console.log(state));
+  // let name = useSelector(state => state.auth.user.name);
+  // console.log(name)
 
-  const name = useSelector(state => state.auth.user.name);
+  // let email = useSelector(state => state.auth.user.email);
 
-  const email = useSelector(state => state.auth.user.email);
+  const [nameLocal, setNameLocal] = useState('');
+  const [emailLocal, setEmailLocal] = useState('');
 
-  // const [name, setName] = useState('');
-  // const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const [emailDirty, setEmailDirty] = useState(false);
@@ -60,6 +68,24 @@ function SignInForm() {
     }
   };
 
+  //   const handleChange = e => {
+  //   const { name, value } = e.currentTarget;
+  //   switch (name) {
+  //     case 'name':
+  //       setName(value);
+  //       break;
+  //     case 'email':
+  //       setEmail(value);
+  //       break;
+  //     case 'password':
+  //       setPassword(value);
+  //       break;
+
+  //     default:
+  //       return;
+  //   }
+  // };
+
   const handleChangeForm = e => {
     e.preventDefault();
     setRegistration(!isRegistration);
@@ -68,7 +94,7 @@ function SignInForm() {
   const handleChangePassword = e => {
     setPassword(e.target.value);
     // dispatch(setName(e.target.value));
-    console.log(password);
+    // console.log(password);
     if (e.target.value.length < 6) {
       setPasswordError('Пароль должен быть не меньше 6 символов');
       if (!e.target.value) {
@@ -80,19 +106,24 @@ function SignInForm() {
   };
 
   const handleChangeName = e => {
-    dispatch(setName(e.target.value));
     // dispatch(setName(e.target.value));
-    // console.log(name);
-    if (!e.target.value) {
-      setNameError('Это обязательное поле');
+    setNameLocal(e.target.value);
+    // console.log(nameLocal);
+    const re = /^[A-Za-zА-Яа-яЁё' '\-()0-9]{3,30}$/;
+    if (!re.test(String(e.target.value).toLowerCase())) {
+      setNameError('Некорректное имя');
+      if (!e.target.value) {
+        setNameError('это обязательное поле');
+      }
     } else {
       setNameError('');
     }
   };
 
   const handleChangeEmail = e => {
-    dispatch(setEmail(e.target.value));
-    // dispatch(setName(e.target.value));
+    // dispatch(setEmail(e.target.value));
+    console.log(e.target.value);
+    setEmailLocal(e.target.value);
     // console.log(email);
     const re =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -106,40 +137,75 @@ function SignInForm() {
     }
   };
 
-  const clearInput = () => {
-    setEmail('');
+  const resetInputs = () => {
+    setEmailLocal('');
     setPassword('');
-    setName('');
+    setNameLocal('');
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    if (name === '') {
-      dispatch(signIn({ email, password }));
-    } else {
-      dispatch(signUp({ email, password, name }));
-    }
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+  //   if (name === '') {
+  //     dispatch(signIn({ email, password }));
+  //   } else {
+  //     dispatch(signUp({ email, password, name }));
+  //   }
 
-    clearInput({});
+  //   resetInputs({});
+  // };
+
+  const OnSubmitRegBtn = evt => {
+    evt.preventDefault();
+    if (!nameLocal || !emailLocal || !password) {
+      // toast.info('Fill in all the fields')
+      alert('Fill in all the fields');
+      return;
+    }
+    console.log(nameLocal);
+    console.log(emailLocal);
+    console.log(password);
+    //  console.log(nameLocal)
+
+    // The rest of the code
+    dispatch(
+      authOperations.signUp({ name: nameLocal, email: emailLocal, password }),
+    );
+
+    resetInputs();
+  };
+
+  const OnSubmitSignInBtn = evt => {
+    evt.preventDefault();
+    if (!emailLocal || !password) {
+      // toast.info('Fill in all the fields')
+      alert('Fill in all the fields');
+      return;
+    }
+    dispatch(authOperations.signIn({ email: emailLocal, password }));
+    resetInputs();
   };
 
   return (
     <Fragment>
-      <AuthGoogleDescription>
-        Вы можете авторизоваться с помощью Google Account:
-      </AuthGoogleDescription>
       {/* 
       <AuthGoogleBtn type="button">
         <FcGoogle size={18} />
         <SpanTextWrapper>Google</SpanTextWrapper>
       </AuthGoogleBtn> */}
-      <GoogleAuth />
+      {isRegistration ? null : (
+        <Fragment>
+          <AuthGoogleDescription>
+            Вы можете авторизоваться с помощью Google Account:
+          </AuthGoogleDescription>
+          <GoogleAuth />
+        </Fragment>
+      )}
 
       <OtherDescriptionToSignUp>
         Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:
       </OtherDescriptionToSignUp>
 
-      <SignInFormWrapper onSubmit={handleSubmit} action="" autoComplete="on">
+      <SignInFormWrapper autoComplete="on">
         {isRegistration ? (
           <LabelInputForm>
             {nameDirty && nameError && (
@@ -154,7 +220,9 @@ function SignInForm() {
               type="name"
               name="name"
               onChange={handleChangeName}
-              value={name}
+              value={nameLocal}
+              pattern="^[A-Za-zА-Яа-яЁёЄєЇї' '\-()0-9]{3,30}$"
+              title="Имя может состоять только от трёх до 30 букв, апострофа, тире и пробелов. Например Adrian, Jac Mercer, d'Artagnan, Александр Репета и т.п."
               required
             />
             {nameDirty && nameError && (
@@ -178,7 +246,7 @@ function SignInForm() {
             type="email"
             name="email"
             onChange={handleChangeEmail}
-            value={email}
+            value={emailLocal}
             pattern="[A-Za-zА-Яа-яЁёЄєЇї0-9._%+-]+@[A-Za-zА-Яа-яЁёЄєЇї0-9.-]+\.[A-Za-zА-Яа-яЁёЄєЇї]{2,4}$"
             title="Email может, сoстоять из букв цифр и обязательного символа '@'"
             required
@@ -221,7 +289,7 @@ function SignInForm() {
             <FormBtn type="button" marginRigth15 onClick={handleChangeForm}>
               Войти
             </FormBtn>
-            <FormBtn type="submit" submitBtn onClick={handleSubmit}>
+            <FormBtn type="submit" submitBtn onClick={OnSubmitRegBtn}>
               Регистрация
             </FormBtn>
           </Fragment>
@@ -231,7 +299,7 @@ function SignInForm() {
               type="submit"
               marginRigth15
               submitBtn
-              onClick={handleSubmit}
+              onClick={OnSubmitSignInBtn}
             >
               Войти
             </FormBtn>

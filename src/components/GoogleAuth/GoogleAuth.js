@@ -15,16 +15,16 @@ const GoogleAuth = () => {
   const dispatch = useDispatch();
 
   const successLogin = async ({ tokenId, profileObj }) => {
-    const { email, name } = profileObj;
-    const newUser = {
-      email,
-      name,
-    };
-    const isLoggedIn = true;
-    dispatch(setName({ name }));
-    dispatch(setEmail({ email }));
-    dispatch(setToken({ tokenId }));
-    dispatch(setisLoggedIn({ isLoggedIn }));
+    // const { email, name } = profileObj;
+    // const newUser = {
+    //   email,
+    //   name,
+    // };
+    // const isLoggedIn = true;
+    // dispatch(setName({ name }));
+    // dispatch(setEmail({ email }));
+    // dispatch(setToken({ tokenId }));
+    // dispatch(setisLoggedIn({ isLoggedIn }));
     // console.log(newUser);
     // console.log(tokenId);
     // console.log(login);
