@@ -19,7 +19,7 @@ const TransactionsPage = () => {
     }
         setTransactions((transactions) => [ newTransactons, ...transactions]);
     }
-    console.log(transactions)
+    // console.log(transactions)
     return (
         <AppWrap>
             <BalannceTab> 
@@ -37,8 +37,8 @@ const TransactionsPage = () => {
                         <TransactionsExpense transactions={transactions}/>
                     </TabPanel>
                     <TabPanel>
-                        <TransactionsIncForm />
-                        <TransactionsIncome />
+                        <TransactionsIncForm onSubmit={onSubmit}/>
+                        <TransactionsIncome transactions={transactions}/>
                     </TabPanel>
                 </Tabs>
             </AppWrap> 

@@ -4,17 +4,17 @@ import { ReportContainer } from './Report.styled';
 import ReportCosts from '../ReportCosts/ReportCosts';
 import ReportIncome from '../ReportIncome/ReportIncome';
 
-function Report() {
+function Report({ dateMonth, dateYears }) {
   // const { url, path } = useRouteMatch();
 
   return (
     <ReportContainer>
       <Switch>
         <Route path={`/reports/costs`}>
-          <ReportCosts />
+          <ReportCosts dateMonth={dateMonth} dateYears={dateYears} />
         </Route>
         <Route path={`/reports/income`}>
-          <ReportIncome />
+          <ReportIncome dateMonth={dateMonth} dateYears={dateYears} />
         </Route>
         <Redirect to="/reports/costs" />
       </Switch>
