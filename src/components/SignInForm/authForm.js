@@ -1,9 +1,10 @@
 import React, { Fragment, useState } from 'react';
-import { FcGoogle } from 'react-icons/fc';
+// import { FcGoogle } from 'react-icons/fc';
 import { useDispatch } from 'react-redux';
 import * as authOperations from '../../redux/auth/auth-operations';
 // import { authSelectors } from '../../redux/auth/auth-selectors';
 import GoogleAuth from '../GoogleAuth/GoogleAuth';
+import * as Yup from 'yup';
 
 import {
   AuthGoogleDescription,
@@ -21,6 +22,10 @@ function AuthForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  let schemaMail = Yup.string().email();
+  let result = schemaMail.isValidSync('test@test.com'); // isValidSync returns boolean
+  console.log(result);
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
@@ -75,14 +80,19 @@ function AuthForm() {
 
   return (
     <Fragment>
-      <AuthGoogleDescription>
-        Вы можете авторизоваться с помощью Google Account:
-      </AuthGoogleDescription>
       {/* <AuthGoogleBtn type="button">
         <FcGoogle size={18} />
         <SpanTextWrapper>Google</SpanTextWrapper>
       </AuthGoogleBtn> */}
-      <GoogleAuth />
+      {isRegistration ? null : (
+        <Fragment>
+          <AuthGoogleDescription>
+            Вы можете авторизоваться с помощью Google Account:
+          </AuthGoogleDescription>
+          <GoogleAuth />
+        </Fragment>
+      )}
+
       <OtherDescriptionToSignUp>
         Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:
       </OtherDescriptionToSignUp>
