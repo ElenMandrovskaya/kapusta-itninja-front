@@ -3,18 +3,19 @@ import Calendar from "../Calendar/Calendar";
 import CategoryInput from "../CategoryInput/CategoryInput";
 import { Form, Wrapper, FormInput, FormBtn, InputAmount, InputDesc, ButtonOrange, Button } from "./TransactionsExpForm.styled";
 
-const TransactionsExpForm = ({onSubmit}) => {
+const TransactionsExpForm = ({onSubmit, type}) => {
     // const [transactions, setTransactions] = useState();
     const [startDate, setStartDate] = useState(new Date());
     const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
     const [amount, setAmount] = useState("");
+    // const [typeForm, setTypeForm] = useState("");
 
     const reset = () => {
     setStartDate(new Date());
     setCategory("");
     setDescription("");
-    setAmount("");
+     setAmount("");
     };
 
     // const handleChange = (evt) => {
@@ -46,21 +47,22 @@ const TransactionsExpForm = ({onSubmit}) => {
     //     }
     //     setTransactions(newTransactons)
     // }
-
+    
     const addExpense = (e) => {
-    e.preventDefault();
+        e.preventDefault();
+        // setTypeForm(type);
     const date = [
       startDate.getDate(),
       startDate.getMonth() + 1,
       startDate.getFullYear(),
     ].join(".");
-        onSubmit({ date, description, category, amount });
+        onSubmit({type, date, description, category, amount });
         reset();
     };
 
-    // console.log(transactions)
+    console.log(type)
     return (
-        <Form onSubmit={addExpense} >
+        <Form onSubmit={addExpense} type={type} >
             <Wrapper>
                 <Calendar
                     selectedDate={startDate}
