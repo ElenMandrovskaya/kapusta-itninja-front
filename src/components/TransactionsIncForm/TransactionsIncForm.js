@@ -3,7 +3,7 @@ import Calendar from "../Calendar/Calendar";
 import CategoryInput from "../CategoryInput/CategoryInput";
 import { Form, Wrapper, FormInput, FormBtn, InputAmount, InputDesc, ButtonOrange,Button } from "./TransactionsIncForm.styled";
 
-const TransactionsIncForm = () => {
+const TransactionsIncForm = ({ onSubmit }) => {
     const [startDate, setStartDate] = useState(new Date());
     const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
@@ -16,25 +16,19 @@ const TransactionsIncForm = () => {
     setAmount("");
     };
     
-    const addExpense = (e) => {
+    const addIncome = (e) => {
     e.preventDefault();
     const date = [
       startDate.getDate(),
       startDate.getMonth() + 1,
       startDate.getFullYear(),
     ].join(".");
-    // const body = {
-    //   type: "expense",
-    //   date,
-    //   amount: +amount,
-    //   category,
-    //   description,
-    // };
+        onSubmit({date, description, category, amount })
         reset();
     };
 
     return (
-        <Form onSubmit={addExpense} >
+        <Form onSubmit={addIncome} >
             <Wrapper>
                 <Calendar
                     selectedDate={startDate}
@@ -62,11 +56,14 @@ const TransactionsIncForm = () => {
                 <FormBtn>
                     <ButtonOrange
                         type="submit"
-                        buttonHandler="">
+                        onSubmit={addIncome}
+                    >
                         Ввод
                     </ButtonOrange>
                     <Button
-                        type="button">
+                        type="button"
+                        onSubmit={reset}
+                    >
                         Очистить
                     </Button>
                 </FormBtn>
