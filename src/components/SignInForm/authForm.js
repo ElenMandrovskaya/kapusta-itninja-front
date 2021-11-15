@@ -27,7 +27,7 @@ function AuthForm() {
 
   let schemaMail = Yup.string().email();
   let result = schemaMail.isValidSync('test@test.com'); // isValidSync returns boolean
-  console.log(result);
+  // console.log(result);
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;

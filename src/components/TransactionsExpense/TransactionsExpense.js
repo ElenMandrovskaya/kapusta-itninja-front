@@ -14,7 +14,7 @@ const TransactionsExpense = ({transactions, type}) => {
     //   new Date(`${prevDateArr[1]}.${prevDateArr[0]}.${prevDateArr[2]}`)
     // );
     // });
-    console.log(type)
+    // console.log(type)
     return (
       <Main>
         <Table>
