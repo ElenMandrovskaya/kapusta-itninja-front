@@ -11,7 +11,7 @@ const TransactionsIncome = ({ transactions, type }) => {
   //   const nextDateArr = nextIncome.date.split(".");
   //   return new Date(`${nextDateArr[1]}.${nextDateArr[0]}.${nextDateArr[2]}`) - new Date(`${prevDateArr[1]}.${prevDateArr[0]}.${prevDateArr[2]}`)
   // });
-     console.log(type)
+    //  console.log(type)
     return (
       <Main>
         <Table>

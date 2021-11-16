@@ -22,7 +22,7 @@ const TransactionsPage = () => {
         setTransactions((transactions) => [ newTransactons, ...transactions]);
     }
     // const typeIncome = () => { setType("Incomes")}
-    // console.log(type)
+    // console.log(transactions)
     return (
         <AppWrap>
             <BalannceTab> 
