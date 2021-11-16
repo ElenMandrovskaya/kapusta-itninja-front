@@ -14,7 +14,7 @@ const TransactionsExpense = ({transactions}) => {
     //   new Date(`${prevDateArr[1]}.${prevDateArr[0]}.${prevDateArr[2]}`)
     // );
     // });
-    // console.log(type)
+    console.log(sortedArray)
     return (
       <Main>
         <Table>
@@ -27,8 +27,8 @@ const TransactionsExpense = ({transactions}) => {
           </TableHead>
 
           {<TableList>
-                {sortedArray.map(({date, description, category, amount}) => 
-                  (<ExpenseItem date={date} description={description} amount={amount} category={category}/>)
+                {sortedArray.map(({date, description, category, amount, typeTransaction}) => 
+                  (<ExpenseItem date={date} description={description} amount={amount} category={category} typeTransaction={typeTransaction}/>)
                 )}
               </TableList>}
         </Table>
