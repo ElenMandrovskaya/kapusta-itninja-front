@@ -3,7 +3,7 @@ import useModal from "../Modal/useModal";
 import Modal from "../Modal/logoutModal";
 import { Item, ItemDate, ItemDesc, ItemCategory, ItemSum, ItemBtn } from "./IncomeItem.styled"
 
-const IncomeItem = ({ date, description, amount, id, category }) => {
+const IncomeItem = ({ date, description, amount, id, category, typeTransaction }) => {
     const { isShowingModal, toggle } = useModal();
     
     return (
