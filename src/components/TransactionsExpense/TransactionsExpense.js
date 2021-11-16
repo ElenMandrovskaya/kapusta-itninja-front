@@ -4,7 +4,7 @@ import TransactionMonthSummary from "../TransactionMonthSummary/TransactionMonth
 import { Main, Table, TableHead, TableTitle, TableList } from "./TransactionsExpense.styled";
 // import expense from "../../data/expense.json";
 
-const TransactionsExpense = ({transactions, type}) => {
+const TransactionsExpense = ({transactions}) => {
     const sortedArray = [...transactions]
     // .sort((prevExpense, nextExpense) => {
     // const prevDateArr = prevExpense.date.split(".");
@@ -14,7 +14,7 @@ const TransactionsExpense = ({transactions, type}) => {
     //   new Date(`${prevDateArr[1]}.${prevDateArr[0]}.${prevDateArr[2]}`)
     // );
     // });
-    // console.log(type)
+    console.log(sortedArray)
     return (
       <Main>
         <Table>
@@ -26,9 +26,9 @@ const TransactionsExpense = ({transactions, type}) => {
             <TableTitle />
           </TableHead>
 
-          {type === 'Expenses' && <TableList>
-                {sortedArray.map(({date, description, category, amount}) => 
-                  (<ExpenseItem date={date} description={description} amount={amount} category={category}/>)
+          {<TableList>
+                {sortedArray.map(({date, description, category, amount, typeTransaction}) => 
+                  (<ExpenseItem date={date} description={description} amount={amount} category={category} typeTransaction={typeTransaction}/>)
                 )}
               </TableList>}
         </Table>

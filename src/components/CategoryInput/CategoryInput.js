@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
     CategoryContainer, Input, CategoryList,
     CategoryItem, CategoryLabel, RadioButton, ArrowDown, ArrowUp
@@ -6,24 +6,23 @@ import {
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { getCategoriesByExpense, getCategoriesByIncome } from "../../api/categoriesApi";
 
-const CategoryInput = ({ type, categoryPick, setCategory}) => {
+const CategoryInput = ({ type, setTypeTransaction, categoryPick, setCategory, setCategoryId}) => {
     const [isCategories, setIsCategories] = useState(false);
-    // const expenseCategoryArray = getCategoriesByExpense()
+    const [categories, setCategories] = useState("");
 
-    const expenseCategory = [
-        "Транспорт",
-        "Продукты",
-        "Здоровье",
-        "Алкоголь",
-        "Развлечения",
-        "Всё для дома",
-        "Техника",
-        "Коммуналка, связь",
-        "Спорт, хобби",
-        "Образование",
-        "Прочее",
-    ];
-    const incomeCategory = ["ЗП", "Доп. доход"];
+    useEffect(() => {   
+        async function getCategory() {
+            try {
+                const listExp = await getCategoriesByExpense();
+                setCategories(listExp)
+                if (type === 'Incomes') {
+                const listInc = await getCategoriesByIncome();
+                setCategories(listInc)    
+                }
+            } catch (error) {
+                // toast.warning(error.message)
+            }
+        } getCategory()}, []);
 
     const handleClick = () => {
     setIsCategories(!isCategories);
@@ -31,9 +30,11 @@ const CategoryInput = ({ type, categoryPick, setCategory}) => {
 
     const handleCategoryClick = (e) => {
     setCategory(e.currentTarget.value);
+    setCategoryId(e.currentTarget.id);
+    setTypeTransaction(e.currentTarget.name)
+    // console.log(e.currentTarget)
     handleClick();
     };
-
     return (
         <CategoryContainer>
             <Input
@@ -43,41 +44,43 @@ const CategoryInput = ({ type, categoryPick, setCategory}) => {
                 readOnly
                 value={categoryPick}                
                 placeholder={
-                type === "expenses" ? "Категория товара" : "Категория дохода"
+                type === "Expenses" ? "Категория товара" : "Категория дохода"
                 }
                 onClick={handleClick}
                 onFocus={handleClick}            
             />
             {!isCategories || (
                 <CategoryList>
-                    {type === "expenses"
-                        ? expenseCategory.map((expense, index) => (
-                            <CategoryItem key={index}>
+                    {type === "Expenses"
+                        ? categories.map(({_id, name}) => (
+                            <CategoryItem key={_id}>
                                 <CategoryLabel tabIndex={0}>
                                     <RadioButton
                                         onClick={handleCategoryClick}
                                         hidden
-                                        value={expense}
+                                        value={name}
+                                        id={_id}
                                         readOnly
                                         type="radio"
-                                        name="exp_category"
+                                        name={type}
                                     />
-                                    {expense}
+                                    {name}
                                 </CategoryLabel>
                             </CategoryItem>
                         ))
-                        : incomeCategory.map((income, index) => (
-                            <CategoryItem key={index}>
+                        : categories.map(({_id, name}) => (
+                            <CategoryItem key={_id}>
                                 <CategoryLabel tabIndex={0}>
                                     <RadioButton
                                         onClick={handleCategoryClick}
                                         hidden
-                                        value={income}
+                                        value={name}
+                                        id={_id}
                                         readOnly
                                         type="radio"
-                                        name="exp_category"                            
+                                        name={type}                            
                                     />
-                                    {income}
+                                    {name}
                                 </CategoryLabel>
                             </CategoryItem>
                         ))}

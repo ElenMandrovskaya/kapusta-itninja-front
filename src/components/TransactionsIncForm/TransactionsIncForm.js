@@ -3,17 +3,21 @@ import Calendar from "../Calendar/Calendar";
 import CategoryInput from "../CategoryInput/CategoryInput";
 import { Form, Wrapper, FormInput, FormBtn, InputAmount, InputDesc, ButtonOrange,Button } from "./TransactionsIncForm.styled";
 
-const TransactionsIncForm = ({ onSubmit, type }) => {
+const TransactionsIncForm = ({ onSubmit }) => {
     const [startDate, setStartDate] = useState(new Date());
     const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
     const [amount, setAmount] = useState("");
+    const [categoryId, setCategoryId] = useState('');
+    const [typeTransaction, setTypeTransaction] = useState('');
 
     const reset = () => {
     setStartDate(new Date());
     setCategory("");
+    setCategoryId('');
     setDescription("");
     setAmount("");
+    setTypeTransaction('');
     };
     
     const addIncome = (e) => {
@@ -23,12 +27,12 @@ const TransactionsIncForm = ({ onSubmit, type }) => {
       startDate.getMonth() + 1,
       startDate.getFullYear(),
     ].join(".");
-        onSubmit({type, date, description, category, amount })
+        onSubmit({typeTransaction, date, description, category, categoryId, amount });
         reset();
     };
 
     return (
-        <Form onSubmit={addIncome} type={type}>
+        <Form onSubmit={addIncome} >
             <Wrapper>
                 <Calendar
                     selectedDate={startDate}
@@ -42,9 +46,12 @@ const TransactionsIncForm = ({ onSubmit, type }) => {
                         onChange={(e) => setDescription(e.target.value)}
                     />
                     <CategoryInput
-                        type="income"
+                        type="Incomes"
+                        name="category"
                         categoryPick={category}
                         setCategory={setCategory}
+                        setCategoryId={setCategoryId}
+                        setTypeTransaction={setTypeTransaction}
                     />
                     <InputAmount
                         type="text"

@@ -9,20 +9,19 @@ import TransactionsIncForm from "../../components/TransactionsIncForm/Transactio
 import { AppWrap, BalannceTab } from "../../app/App.styled";
 
 const TransactionsPage = () => {
-    // const [type, setType] = useState("Expenses");
     const [transactions, setTransactions] = useState('');
-    const onSubmit = ({type, date, category, description, amount }) => {
+    const onSubmit = ({typeTransaction, date, category, description, amount, categoryId }) => {
         const newTransactons = {
-            type,
+            typeTransaction,
             date,
             description,
             category,
-            amount
+            amount,
+            categoryId
     }
         setTransactions((transactions) => [ newTransactons, ...transactions]);
     }
-    // const typeIncome = () => { setType("Incomes")}
-    // console.log(type)
+    console.log(transactions)
     return (
         <AppWrap>
             <BalannceTab> 
@@ -32,34 +31,16 @@ const TransactionsPage = () => {
             <AppWrap>
                 <Tabs>
                     <TabList>
-                        <Tab
-                            // onClick={() => { setType("Expenses") }}
-                        >Расход</Tab>
-                        <Tab
-                            // onClick={() => { setType("Incomes") }}
-                        >Доход</Tab>
+                        <Tab>Расход</Tab>
+                        <Tab>Доход</Tab>
                     </TabList>
                     <TabPanel>
-                        <TransactionsExpForm
-                            onSubmit={onSubmit}
-                        // type={type}
-                        />
-                        <TransactionsExpense
-                            transactions={transactions}
-                            // type={type}
-                        />
+                        <TransactionsExpForm onSubmit={onSubmit}/>
+                        <TransactionsExpense transactions={transactions}/>
                     </TabPanel>
-                     <TabPanel 
-                    //  onClick={typeIncome}
-                     >
-                        <TransactionsIncForm
-                            onSubmit={onSubmit}
-                            // type={type}
-                        />
-                        <TransactionsIncome
-                            transactions={transactions}
-                            // type={type}
-                        />
+                     <TabPanel>
+                        <TransactionsIncForm onSubmit={onSubmit}/>
+                        <TransactionsIncome transactions={transactions}/>
                     </TabPanel>
                 </Tabs>
             </AppWrap> 
