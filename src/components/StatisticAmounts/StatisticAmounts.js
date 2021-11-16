@@ -7,14 +7,30 @@ import {
   Vl,
   CostSpan,
 } from './StatisticAmounts.styled';
-// import { Costs, P, Profit, Vl, Span } from './StatisticAmounts.styled';
 
-const StatisticAmounts = () => {
+const StatisticAmounts = ({ categoriesCosts, categoriesIncome }) => {
+  let totalCosts = 0;
+  let totalIncome = 0;
+
+  if (categoriesCosts) {
+    const sum = categoriesCosts.reduce((acc, amount) => {
+      return acc + amount.total;
+    }, 0);
+    totalCosts = sum.toLocaleString();
+  }
+
+  if (categoriesIncome) {
+    const sum = categoriesIncome.reduce((acc, amount) => {
+      return acc + amount.total;
+    }, 0);
+    totalIncome = sum.toLocaleString();
+  }
+
   return (
     <Div>
-      <Title>Расходы: {<CostSpan> - 5 555 грн.</CostSpan>} </Title>
+      <Title>Расходы: {<CostSpan> - {totalCosts}.00 грн.</CostSpan>} </Title>
       <Vl />
-      <Title>Доходы:{<ProfitSpan> + 7 777 грн.</ProfitSpan>} </Title>
+      <Title>Доходы:{<ProfitSpan> + {totalIncome}.00 грн.</ProfitSpan>} </Title>
     </Div>
   );
 };

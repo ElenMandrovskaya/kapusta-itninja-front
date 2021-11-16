@@ -1,23 +1,10 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import ReportIcon from '../ReportIcon/ReportIcon';
 import ReportCategoryList from '../ReportCategoryList/ReportCategoryList';
-// import categories from '../../data/catagoriesCosts.json';
 import { ReportCostContainer, Title } from './ReportCosts.styled';
-import { getCategoriesByCosts } from '../../api/reportsApi';
 
-function ReportCosts({ dateMonth, dateYears }) {
-  const [categories, setCategories] = useState([]);
-  // console.log(dateMonth, dateYears);
-  // console.log(categories);
-
-  useEffect(() => {
-    getCategoriesByCosts(dateMonth, dateYears).then(resp =>
-      setCategories(resp.result),
-    );
-  }, [dateMonth, dateYears]);
-
+function ReportCosts({ dateMonth, dateYears, categoriesCosts }) {
   return (
     <div>
       <ReportCostContainer>
@@ -29,9 +16,9 @@ function ReportCosts({ dateMonth, dateYears }) {
           <ReportIcon name="arrow-right" color="#000" size="10" />
         </NavLink>
       </ReportCostContainer>
-      {categories && (
+      {categoriesCosts && (
         <ReportCategoryList
-          categories={categories}
+          categories={categoriesCosts}
           dateMonth={dateMonth}
           dateYears={dateYears}
         />
