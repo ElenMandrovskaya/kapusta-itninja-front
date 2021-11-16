@@ -23,12 +23,13 @@ export default function Balance() {
     useEffect(() => {
             dispatch(authOperations.getBalance());
           }, [dispatch]);   
+    
 
     const handleSubmit = (evt) => {
             evt.preventDefault();
             dispatch(authOperations.updBalance({balance}))
          };
-
+  
     return (
         <BalanceContainer 
         onSubmit={handleSubmit}
@@ -37,6 +38,7 @@ export default function Balance() {
             {currentBalance === 0 ? (
                 <BalanceWrap>
                     <BalanceAmount 
+                        required
                         name="balance"
                         type="text"
                         onChange={handleChange}
@@ -57,9 +59,10 @@ export default function Balance() {
                     <BalanceAmount 
                         name="balance"
                         type="text"
-                        defaultValue={`${currentBalance.toFixed(2)} UAH`}
+                        defaultValue={`${currentBalance}.00 UAH`}
                         disabled/>
-                    <SubmitBtn type="submit" disabled>подтвердить</SubmitBtn>
+                    <SubmitBtn type="submit" onSubmit={handleSubmit} 
+                    disabled>подтвердить</SubmitBtn>
                 </BalanceWrap>
          )}
          </BalanceContainer>

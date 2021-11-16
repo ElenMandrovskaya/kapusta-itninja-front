@@ -96,9 +96,11 @@ export const updBalance = createAsyncThunk(
   async balance => {
     try {
       const { data } = await axios.post('/api/user/balance', balance);
-      return data;
-    } catch (error) {
-      // toast.error("");
+      // console.log(data.result.balance)
+      return data.result.balance;
+
+    } catch ({message}) {
+      toast.error(message);
     }
   },
 );

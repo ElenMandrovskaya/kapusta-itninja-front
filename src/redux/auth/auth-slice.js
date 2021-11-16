@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import * as authOperations from './auth-operations';
 
 const initialState = {
-  user: { name: '', email: '', balance: 0 },
+  user: { name: '', email: '', balance: 0},
   token: null,
   isLoggedIn: false,
 };
@@ -44,6 +44,9 @@ const authSlice = createSlice({
       state.token = null;
       state.isLoggedIn = false;
     },
+    [authOperations.updBalance.fulfilled](state, action) {
+      state.user.balance = action.payload;
+    }
   },
 });
 
