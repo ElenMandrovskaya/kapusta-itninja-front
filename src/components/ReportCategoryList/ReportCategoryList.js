@@ -22,9 +22,11 @@ function ReportCategoryList({ categories }) {
         })}
       </CategoryList>
 
-      <Route path={`${path}/:icon`}>
-        <MyChart categs={categories} />
-      </Route>
+      {categories && (
+        <Route path={`${path}/:icon`}>
+          <MyChart categs={categories} />
+        </Route>
+      )}
     </div>
   );
 }

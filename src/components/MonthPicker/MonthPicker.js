@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { Button, Div, Title, Span, Picker } from './MonthPicker.styled';
 import 'moment/locale/ru';
 import moment from 'moment';
@@ -15,13 +16,17 @@ const MonthPicker = ({
       <Title>Текущий период:</Title>
       <Picker>
         <Button type="button" onClick={monthChangeHandler}>
-          <ReportIcon name="arrow-left" color="#000" size="10" />
+          <NavLink to={`/reports/costs`}>
+            <ReportIcon name="arrow-left" color="#000" size="10" />
+          </NavLink>
         </Button>
         <Span>
           {moment(dateMonth).format('MMMM')} {dateYears}
         </Span>
         <Button type="button" onClick={monthChangeHandlerRight}>
-          <ReportIcon name="arrow-right" color="#000" size="10" />
+          <NavLink to={`/reports/costs`}>
+            <ReportIcon name="arrow-right" color="#000" size="10" />
+          </NavLink>
         </Button>
       </Picker>
     </Div>
