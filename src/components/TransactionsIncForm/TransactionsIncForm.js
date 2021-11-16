@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+// import * as transactionsOps from "../../redux/transactions/transactions-ops";
 import Calendar from "../Calendar/Calendar";
 import CategoryInput from "../CategoryInput/CategoryInput";
 import { Form, Wrapper, FormInput, FormBtn, InputAmount, InputDesc, ButtonOrange,Button } from "./TransactionsIncForm.styled";
@@ -10,6 +12,7 @@ const TransactionsIncForm = ({ onSubmit }) => {
     const [amount, setAmount] = useState("");
     const [categoryId, setCategoryId] = useState('');
     const [typeTransaction, setTypeTransaction] = useState('');
+    // const dispatch = useDispatch();
 
     const reset = () => {
     setStartDate(new Date());
@@ -26,11 +29,20 @@ const TransactionsIncForm = ({ onSubmit }) => {
       startDate.getDate(),
       startDate.getMonth() + 1,
       startDate.getFullYear(),
-    ].join(".");
+        ].join(".");
+    // const body = {
+    //   type: "income",
+    //   date,
+    //   amount: +amount,
+    //   categoryId,
+    //   description,
+    // };
+    // dispatch(transactionsOps.addTransaction(body));
         onSubmit({typeTransaction, date, description, category, categoryId, amount });
         reset();
+        // goToTransactions();
     };
-
+console.log(addIncome)
     return (
         <Form onSubmit={addIncome} >
             <Wrapper>
@@ -68,8 +80,8 @@ const TransactionsIncForm = ({ onSubmit }) => {
                         Ввод
                     </ButtonOrange>
                     <Button
-                        type="button"
-                        onSubmit={reset}
+                        type="submit"
+                        onClick={reset}
                     >
                         Очистить
                     </Button>
