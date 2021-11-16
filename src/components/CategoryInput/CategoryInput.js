@@ -5,7 +5,6 @@ import {
 } from "./CategoryInput.styled";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { getCategoriesByExpense, getCategoriesByIncome } from "../../api/categoriesApi";
-import { scryRenderedComponentsWithType } from "react-dom/test-utils";
 
 const CategoryInput = ({ type, setTypeTransaction, categoryPick, setCategory, setCategoryId}) => {
     const [isCategories, setIsCategories] = useState(false);
