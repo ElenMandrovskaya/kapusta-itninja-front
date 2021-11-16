@@ -7,7 +7,7 @@ const TransactionsIncForm = ({ onSubmit }) => {
     const [startDate, setStartDate] = useState(new Date());
     const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
-    const [amount, setAmount] = useState("");
+    const [value, setValue] = useState("");
     const [categoryId, setCategoryId] = useState('');
     const [typeTransaction, setTypeTransaction] = useState('');
 
@@ -16,7 +16,7 @@ const TransactionsIncForm = ({ onSubmit }) => {
     setCategory("");
     setCategoryId('');
     setDescription("");
-    setAmount("");
+    setValue("");
     setTypeTransaction('');
     };
     
@@ -27,7 +27,7 @@ const TransactionsIncForm = ({ onSubmit }) => {
       startDate.getMonth() + 1,
       startDate.getFullYear(),
     ].join(".");
-        onSubmit({typeTransaction, date, description, category, categoryId, amount });
+        onSubmit({typeTransaction, date, description, category, categoryId, value });
         reset();
     };
 
@@ -56,8 +56,8 @@ const TransactionsIncForm = ({ onSubmit }) => {
                     <InputAmount
                         type="text"
                         placeholder="0,00"
-                        value={amount}
-                        onChange={(e) => setAmount(e.target.value)} 
+                        value={value}
+                        onChange={(e) => setValue(e.target.value)} 
                     />
                 </FormInput>
                 <FormBtn>

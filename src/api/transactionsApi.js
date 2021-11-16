@@ -1,34 +1,36 @@
 import axios from 'axios';
 
 // ОТПРАВКА ТРАНЗАКЦИИ РАСХОДА
-// пример запроса
-// https://kapusta-finance-tracker.herokuapp.com/api/transactions/expense/618d6f49d6ef526ae14ea08a/?day=11&month=11&year=2021
-//пример тела запроса 
 
-// export async function addExpTransactions() {
-//     // const transactionState = {
-//     //     "description": "Шоколад",
-//     //     "value": 50.00
-//     // }
-//     // const categoryId = '618d6f49d6ef526ae14ea093'
-//     // const day = '13'
-//     // const month = '11'
-//     // const year = '2021'
+const transaction = {
+    amount: "300",
+    category: "Продукты",
+    categoryId: "619026a94ff3aead8b416ea1",
+    date: "17.11.2021",
+    description: "мясо",
+    typeTransaction: "Expenses",
+  }
+  
 
-//     const { data } = await axios.post(`/api/transactions/expence/${categoryId}/?day=${day}&month=${month}&year=${year}`, transactionState);
+//   export async function addExpTransactions(transaction) {
+//     const {value} = transaction
+//     const splitDate = transaction.date.split('.')
+//     const day = splitDate[0]
+//     const month = splitDate[1]
+//     const year = splitDate[2]
+//     const { data } = await axios.post(`/api/transactions/expence/${categoryId}/?day=${day}&month=${month}&year=${year}`, description, value, transactionType);
 //     console.log(data)
 //     return data;
 //   }
+ 
 // пример запроса
-// https://kapusta-finance-tracker.herokuapp.com/api/transactions/expense/618d6f49d6ef526ae14ea093/?day=11&month=11&year=2021
-//пример тела запроса 
+// https://kapusta-finance-tracker.herokuapp.com/api/transactions/expense/619026a94ff3aead8b416ea4/?day=10&month=11&year=2021
+// transaction это объект как ниже
 // {
 //     "description": "Шоколад",
-//     "value": 50.00
+//     "value": 50.00,
+//      "transactionType": "Expenses",
 // }
-
-
-
 
 // // https://kapusta-finance-tracker.herokuapp.com/api/transactions/expense/61881d846a0d3f73e0414dbb
 // export async function addTransactions(transaction) {
