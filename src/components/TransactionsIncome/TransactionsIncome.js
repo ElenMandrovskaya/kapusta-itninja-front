@@ -24,9 +24,9 @@ const TransactionsIncome = ({ transactions }) => {
           </TableHead>
 
           {<TableList>
-            {sortedArray.map(({date, description, amount, id, category}) => (
-              <IncomeItem date={date} description={description} amount={amount} key={id} id={id} category={category}/>
-            ))}
+            {sortedArray.map(({ date, description, amount, id, category, typeTransaction }) =>
+            ( typeTransaction === "Incomes" && <IncomeItem date={date} description={description} amount={amount} key={id} id={id} category={category} typeTransaction={typeTransaction}/>)
+            )}
           </TableList>}
         </Table>
 
