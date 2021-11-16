@@ -4,7 +4,6 @@ import CategoryInput from "../CategoryInput/CategoryInput";
 import { Form, Wrapper, FormInput, FormBtn, InputAmount, InputDesc, ButtonOrange, Button } from "./TransactionsExpForm.styled";
 
 const TransactionsExpForm = ({onSubmit, type}) => {
-    // const [transactions, setTransactions] = useState();
     const [startDate, setStartDate] = useState(new Date());
     const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
@@ -19,41 +18,10 @@ const TransactionsExpForm = ({onSubmit, type}) => {
     setDescription("");
     setAmount("");
     };
-
-    // const handleChange = (evt) => {
-    // const { name, value } = evt.currentTarget;
-    // switch (name) {
-    //   case "category":
-    //     setCategory(value);
-    //     break;
-
-    //   case "description":
-    //     setDescription(value);
-    //     break;
-
-    // case "amount":
-    //     setAmount(value);
-    //         break;
-        
-    //   default:
-    //     return;
-    // }
-    // };
-    
-    // const onSubmit = ({ date, category, description, amount }) => {
-    //     const newTransactons = {
-    //         date,
-    //         category,
-    //         description,
-    //         amount
-    //     }
-    //     setTransactions(newTransactons)
-    // }
     
     const addExpense = (e) => {
         e.preventDefault();
-        // setTypeForm(type);
-    const date = [
+        const date = [
       startDate.getDate(),
       startDate.getMonth() + 1,
       startDate.getFullYear(),
@@ -79,7 +47,7 @@ const TransactionsExpForm = ({onSubmit, type}) => {
                         onChange={(e) => setDescription(e.target.value)}
                     />
                     <CategoryInput
-                        type="expenses"
+                        type="Expenses"
                         name="category"
                         categoryPick={category}
                         setCategory={setCategory}

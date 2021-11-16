@@ -8,10 +8,12 @@ const TransactionsIncForm = ({ onSubmit, type }) => {
     const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
     const [amount, setAmount] = useState("");
+    const [categoryId, setCategoryId] = useState('');
 
     const reset = () => {
     setStartDate(new Date());
     setCategory("");
+    setCategoryId('');
     setDescription("");
     setAmount("");
     };
@@ -23,7 +25,7 @@ const TransactionsIncForm = ({ onSubmit, type }) => {
       startDate.getMonth() + 1,
       startDate.getFullYear(),
     ].join(".");
-        onSubmit({type, date, description, category, amount })
+        onSubmit({type, date, description, category, categoryId, amount });
         reset();
     };
 
@@ -42,9 +44,11 @@ const TransactionsIncForm = ({ onSubmit, type }) => {
                         onChange={(e) => setDescription(e.target.value)}
                     />
                     <CategoryInput
-                        type="income"
+                        type="Incomes"
+                        name="category"
                         categoryPick={category}
                         setCategory={setCategory}
+                        setCategoryId={setCategoryId}
                     />
                     <InputAmount
                         type="text"

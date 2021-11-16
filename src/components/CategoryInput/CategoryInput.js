@@ -5,17 +5,19 @@ import {
 } from "./CategoryInput.styled";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { getCategoriesByExpense, getCategoriesByIncome } from "../../api/categoriesApi";
+import { scryRenderedComponentsWithType } from "react-dom/test-utils";
 
 const CategoryInput = ({ type, categoryPick, setCategory, setCategoryId}) => {
     const [isCategories, setIsCategories] = useState(false);
     const [categories, setCategories] = useState("");
+    const [typeTransaction, setTypeTransaction] = useState("");
 
     useEffect(() => {   
         async function getCategory() {
             try {
                 const listExp = await getCategoriesByExpense();
                 setCategories(listExp)
-                if (type === 'income') {
+                if (type === 'Incomes') {
                 const listInc = await getCategoriesByIncome();
                 setCategories(listInc)    
                 }
@@ -31,9 +33,11 @@ const CategoryInput = ({ type, categoryPick, setCategory, setCategoryId}) => {
     const handleCategoryClick = (e) => {
     setCategory(e.currentTarget.value);
     setCategoryId(e.currentTarget.id);
+    setTypeTransaction(e.currentTarget.name)
+    console.log(e.currentTarget)
     handleClick();
     };
-
+    // console.log(typeTransaction)
     return (
         <CategoryContainer>
             <Input
@@ -43,14 +47,14 @@ const CategoryInput = ({ type, categoryPick, setCategory, setCategoryId}) => {
                 readOnly
                 value={categoryPick}                
                 placeholder={
-                type === "expenses" ? "Категория товара" : "Категория дохода"
+                type === "Expenses" ? "Категория товара" : "Категория дохода"
                 }
                 onClick={handleClick}
                 onFocus={handleClick}            
             />
             {!isCategories || (
                 <CategoryList>
-                    {type === "expenses"
+                    {type === "Expenses"
                         ? categories.map(({_id, name}) => (
                             <CategoryItem key={_id}>
                                 <CategoryLabel tabIndex={0}>
@@ -61,7 +65,7 @@ const CategoryInput = ({ type, categoryPick, setCategory, setCategoryId}) => {
                                         id={_id}
                                         readOnly
                                         type="radio"
-                                        name="exp_category"
+                                        name={type}
                                     />
                                     {name}
                                 </CategoryLabel>
@@ -77,7 +81,7 @@ const CategoryInput = ({ type, categoryPick, setCategory, setCategoryId}) => {
                                         id={_id}
                                         readOnly
                                         type="radio"
-                                        name="exp_category"                            
+                                        name={type}                            
                                     />
                                     {name}
                                 </CategoryLabel>
