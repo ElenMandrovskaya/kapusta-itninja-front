@@ -7,10 +7,9 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { getCategoriesByExpense, getCategoriesByIncome } from "../../api/categoriesApi";
 import { scryRenderedComponentsWithType } from "react-dom/test-utils";
 
-const CategoryInput = ({ type, categoryPick, setCategory, setCategoryId}) => {
+const CategoryInput = ({ type, setTypeTransaction, categoryPick, setCategory, setCategoryId}) => {
     const [isCategories, setIsCategories] = useState(false);
     const [categories, setCategories] = useState("");
-    const [typeTransaction, setTypeTransaction] = useState("");
 
     useEffect(() => {   
         async function getCategory() {
@@ -37,7 +36,6 @@ const CategoryInput = ({ type, categoryPick, setCategory, setCategoryId}) => {
     console.log(e.currentTarget)
     handleClick();
     };
-    // console.log(typeTransaction)
     return (
         <CategoryContainer>
             <Input
