@@ -68,8 +68,8 @@ const TransactionsIncForm = ({ onSubmit }) => {
                         Ввод
                     </ButtonOrange>
                     <Button
-                        type="button"
-                        onSubmit={reset}
+                        type="submit"
+                        onClick={reset}
                     >
                         Очистить
                     </Button>
