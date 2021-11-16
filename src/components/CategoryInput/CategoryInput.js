@@ -6,7 +6,7 @@ import {
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { getCategoriesByExpense, getCategoriesByIncome } from "../../api/categoriesApi";
 
-const CategoryInput = ({ type, categoryPick, setCategory}) => {
+const CategoryInput = ({ type, categoryPick, setCategory, setCategoryId}) => {
     const [isCategories, setIsCategories] = useState(false);
     const [categories, setCategories] = useState("");
 
@@ -24,28 +24,13 @@ const CategoryInput = ({ type, categoryPick, setCategory}) => {
             }
         } getCategory()}, []);
 
-    //    console.log(categories) 
-    // const expenseCategory = [
-    //     "Транспорт",
-    //     "Продукты",
-    //     "Здоровье",
-    //     "Алкоголь",
-    //     "Развлечения",
-    //     "Всё для дома",
-    //     "Техника",
-    //     "Коммуналка, связь",
-    //     "Спорт, хобби",
-    //     "Образование",
-    //     "Прочее",
-    // ];
-    const incomeCategory = ["ЗП", "Доп. доход"];
-
     const handleClick = () => {
     setIsCategories(!isCategories);
     };
 
     const handleCategoryClick = (e) => {
     setCategory(e.currentTarget.value);
+    setCategoryId(e.currentTarget.id);
     handleClick();
     };
 
@@ -73,6 +58,7 @@ const CategoryInput = ({ type, categoryPick, setCategory}) => {
                                         onClick={handleCategoryClick}
                                         hidden
                                         value={name}
+                                        id={_id}
                                         readOnly
                                         type="radio"
                                         name="exp_category"
@@ -88,6 +74,7 @@ const CategoryInput = ({ type, categoryPick, setCategory}) => {
                                         onClick={handleCategoryClick}
                                         hidden
                                         value={name}
+                                        id={_id}
                                         readOnly
                                         type="radio"
                                         name="exp_category"                            

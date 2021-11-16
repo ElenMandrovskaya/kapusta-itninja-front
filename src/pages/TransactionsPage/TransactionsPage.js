@@ -11,13 +11,14 @@ import { AppWrap, BalannceTab } from "../../app/App.styled";
 const TransactionsPage = () => {
     // const [type, setType] = useState("Expenses");
     const [transactions, setTransactions] = useState('');
-    const onSubmit = ({type, date, category, description, amount }) => {
+    const onSubmit = ({type, date, category, description, amount, categoryId }) => {
         const newTransactons = {
-            type,
+            // type,
             date,
             description,
             category,
-            amount
+            amount,
+            categoryId
     }
         setTransactions((transactions) => [ newTransactons, ...transactions]);
     }

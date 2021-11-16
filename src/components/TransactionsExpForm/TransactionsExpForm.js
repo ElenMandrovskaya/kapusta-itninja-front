@@ -9,13 +9,15 @@ const TransactionsExpForm = ({onSubmit, type}) => {
     const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
     const [amount, setAmount] = useState("");
+    const [categoryId, setCategoryId] = useState('');
     // const [typeForm, setTypeForm] = useState("");
 
     const reset = () => {
     setStartDate(new Date());
     setCategory("");
+    setCategoryId('');
     setDescription("");
-     setAmount("");
+    setAmount("");
     };
 
     // const handleChange = (evt) => {
@@ -56,7 +58,7 @@ const TransactionsExpForm = ({onSubmit, type}) => {
       startDate.getMonth() + 1,
       startDate.getFullYear(),
     ].join(".");
-        onSubmit({type, date, description, category, amount });
+        onSubmit({type, date, description, category, categoryId, amount });
         reset();
     };
 
@@ -81,6 +83,7 @@ const TransactionsExpForm = ({onSubmit, type}) => {
                         name="category"
                         categoryPick={category}
                         setCategory={setCategory}
+                        setCategoryId={setCategoryId}
                     />
                     <InputAmount
                         type="text"

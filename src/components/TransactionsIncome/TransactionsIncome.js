@@ -4,7 +4,7 @@ import IncomeItem from "./IncomeItem";
 import { Main, Table, TableHead, TableTitle, TableList } from "./TransactionsIncome.styled";
 // import income from "../../data/income.json";
 
-const TransactionsIncome = ({ transactions, type }) => {
+const TransactionsIncome = ({ transactions }) => {
   const sortedArray = [...transactions]
   //   const sortedArray = [...income].sort((prevIncome, nextIncome) => {
   //   const prevDateArr = prevIncome.date.split(".");
@@ -23,7 +23,7 @@ const TransactionsIncome = ({ transactions, type }) => {
             <TableTitle />
           </TableHead>
 
-          {type === "Incomes" && <TableList>
+          {<TableList>
             {sortedArray.map(({date, description, amount, id, category}) => (
               <IncomeItem date={date} description={description} amount={amount} key={id} id={id} category={category}/>
             ))}
