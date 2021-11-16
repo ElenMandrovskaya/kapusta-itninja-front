@@ -1,31 +1,11 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
 import { Route, useRouteMatch } from 'react-router-dom';
 import ReportCategoryItem from '../ReportCategoryItem/ReportCategoryItem';
 import { CategoryList } from './ReportCategoryList.styled';
 import MyChart from '../../components/Charts/Charts';
-import {
-  getCategoriesByIncome,
-  getCategoriesByCosts,
-} from '../../api/reportsApi';
 
-function ReportCategoryList({ categories, dateMonth, dateYears }) {
-  const { url, path } = useRouteMatch();
-  const [categs, setCategs] = useState([]);
-  // console.log(categs);
-
-  useEffect(() => {
-    getCategoriesByCosts(dateMonth, dateYears).then(resp =>
-      setCategs(resp.result),
-    );
-  }, []);
-  useEffect(() => {
-    getCategoriesByIncome(dateMonth, dateYears).then(resp =>
-      setCategs(resp.result),
-    );
-  }, []);
-
-  console.log(categs);
+function ReportCategoryList({ categories }) {
+  const { path } = useRouteMatch();
 
   return (
     <div>
@@ -43,7 +23,7 @@ function ReportCategoryList({ categories, dateMonth, dateYears }) {
       </CategoryList>
 
       <Route path={`${path}/:icon`}>
-        <MyChart categs={categs} />
+        <MyChart categs={categories} />
       </Route>
     </div>
   );
