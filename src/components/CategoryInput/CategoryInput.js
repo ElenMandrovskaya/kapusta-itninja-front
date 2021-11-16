@@ -33,7 +33,7 @@ const CategoryInput = ({ type, setTypeTransaction, categoryPick, setCategory, se
     setCategory(e.currentTarget.value);
     setCategoryId(e.currentTarget.id);
     setTypeTransaction(e.currentTarget.name)
-    console.log(e.currentTarget)
+    // console.log(e.currentTarget)
     handleClick();
     };
     return (
