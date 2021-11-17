@@ -23,7 +23,6 @@ export default function Header() {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
   const { isShowingModal, toggle } = useModal();
-
   return (
     <ContainerHeader>
       <Logo />
@@ -40,16 +39,19 @@ export default function Header() {
 
           <Button
             type="button"
-            onClick={() => dispatch(authOperations.signOut())}
-            // onClick={() => toggle()}
+            // onClick={() => dispatch(authOperations.signOut())}
+            onClick={() => toggle()}
           >
             <LogoutP>Выйти</LogoutP>
             <LogoutSvg />
           </Button>
           {isShowingModal && (
-            <Modal text={'Вы уверены, что хотите выйти?'} onClose={toggle} />
+            <Modal
+              text={'Вы уверены, что хотите выйти?'}
+              onClose={toggle}
+              onCloseModal={() => dispatch(authOperations.signOut())}
+            />
           )}
-          {/* {isModalLogout && <LogoutModal />} */}
         </UserInfo>
       )}
     </ContainerHeader>
