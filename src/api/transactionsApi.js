@@ -1,17 +1,17 @@
 import axios from 'axios';
 
 //https://kapusta-finance-tracker.herokuapp.com/api/transactions/expense
-export async function getExpTransactions(){
-    const { data } = await axios.get('/api/transactions/expense');
-    console.log(data)
-    return data.result.transactions;
-}
+// export async function getExpTransactions(){
+//     const { data } = await axios.get('/api/transactions/expense');
+//     console.log(data)
+//     return data.result.transactions;
+// }
 
-// https://kapusta-finance-tracker.herokuapp.com/api/transactions/income
-export async function getIncTransactions(){
-    const { data } = await axios.get('/api/transactions/income');
-    return data.result.transactions;
-}
+// // https://kapusta-finance-tracker.herokuapp.com/api/transactions/income
+// export async function getIncTransactions(){
+//     const { data } = await axios.get('/api/transactions/income');
+//     return data.result.transactions;
+// }
 
 // ОТПРАВКА ТРАНЗАКЦИИ РАСХОДА
 // объект приходящий с формы
