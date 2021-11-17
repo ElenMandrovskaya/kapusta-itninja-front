@@ -32,9 +32,9 @@ export const signUp = createAsyncThunk(
 
 export const googleAuth = createAsyncThunk(
   'auth/googleAuth',
-  async (credentials, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
-      const { data } = await userApi.googleAuth(credentials);
+      const { data } = await userApi.googleAuth();
       // token.set(data.result.token);
       toast.warning('You have successfully loggin with Google');
       return data.result;
@@ -46,7 +46,7 @@ export const googleAuth = createAsyncThunk(
 );
 
 export const signIn = createAsyncThunk(
-  'auth/google',
+  'auth/signIn',
   async (credentials, thunkAPI) => {
     try {
       const { data } = await userApi.signIn(credentials);
@@ -98,21 +98,18 @@ export const updBalance = createAsyncThunk(
       const { data } = await axios.post('/api/user/balance', balance);
       // console.log(data.result.balance)
       return data.result.balance;
-
-    } catch ({message}) {
+    } catch ({ message }) {
       toast.error(message);
     }
   },
 );
 
 export const getBalance = createAsyncThunk('balance/getBalance', async () => {
-    try {
-        const { data } = await axios.get('/api/user/balance');
-        // console.log(data.result)
-        return data.result;
-    }
-    catch (status) {
-        toast.warning(status.message);
-    }
+  try {
+    const { data } = await axios.get('/api/user/balance');
+    // console.log(data.result)
+    return data.result;
+  } catch (status) {
+    toast.warning(status.message);
+  }
 });
-

@@ -24,6 +24,7 @@ export async function signOut() {
 
 export async function googleAuth() {
   const data = await axios.get(`/api/user/google`);
+  console.log(data);
   return data;
 }
 
