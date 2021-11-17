@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import 'react-toastify/dist/ReactToastify.css';
 
 import TransactionPage from '../pages/TransactionsPage/TransactionsPage';
 import RegistrationPage from '../pages/RegistrationPage';
