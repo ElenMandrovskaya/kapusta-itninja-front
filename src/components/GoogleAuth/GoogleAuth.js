@@ -4,12 +4,12 @@ import GoogleAuthButton from './GoogleAuthButton';
 import { useDispatch } from 'react-redux';
 
 import { googleAuth } from '../../redux/auth/auth-operations';
-import {
-  setName,
-  setEmail,
-  setToken,
-  setisLoggedIn,
-} from '../../redux/auth/auth-slice';
+// import {
+//   setName,
+//   setEmail,
+//   setToken,
+//   setisLoggedIn,
+// } from '../../redux/auth/auth-slice';
 
 const GoogleAuth = () => {
   const dispatch = useDispatch();

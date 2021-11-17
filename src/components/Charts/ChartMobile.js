@@ -10,7 +10,7 @@ import {
   YAxis,
 } from 'recharts';
 // import data from '../../data/catCosts.json';
-import data1 from '../../data/expense.json';
+// import data1 from '../../data/expense.json';
 
 // console.log(data1);
 
@@ -27,8 +27,8 @@ const MobileChart = ({ categs }) => {
     </text>
   );
 
-  const screenWidth = window.screen.width;
-  const screenHeight = window.screen.height;
+  // const screenWidth = window.screen.width;
+  // const screenHeight = window.screen.height;
   // console.log(screenWidth, screenHeight);
   const { icon } = useParams();
   const categ = categs.find(categ => categ.icon === icon);

@@ -1,12 +1,12 @@
 import React, { Fragment, useState } from 'react';
-import { FcGoogle } from 'react-icons/fc';
+// import { FcGoogle } from 'react-icons/fc';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch } from 'react-redux';
 import * as authOperations from '../../redux/auth/auth-operations';
 // import { authSelectors } from '../../redux/auth/auth-selectors';
 import GoogleAuth from '../GoogleAuth/GoogleAuth';
-import * as Yup from 'yup';
+// import * as Yup from 'yup';
 
 import {
   AuthGoogleDescription,
@@ -25,8 +25,8 @@ function AuthForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  let schemaMail = Yup.string().email();
-  let result = schemaMail.isValidSync('test@test.com'); // isValidSync returns boolean
+  // let schemaMail = Yup.string().email();
+  // let result = schemaMail.isValidSync('test@test.com'); // isValidSync returns boolean
   // console.log(result);
 
   const handleChange = e => {

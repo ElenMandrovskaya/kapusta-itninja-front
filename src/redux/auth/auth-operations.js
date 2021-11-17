@@ -111,8 +111,8 @@ export const getBalance = createAsyncThunk('balance/getBalance', async () => {
         // console.log(data.result)
         return data.result;
     }
-    catch (status) {
-        toast.warning(status.message);
+    catch (error) {
+        toast.warning(error);
     }
 });
 

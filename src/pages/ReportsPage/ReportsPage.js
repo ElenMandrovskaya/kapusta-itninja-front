@@ -13,7 +13,7 @@ import {
   getCategoriesByCosts,
   getCategoriesByIncome,
 } from '../../api/reportsApi';
-
+/* eslint-disable */
 function ReportsPage() {
   const [newDate, setNewDate] = useState(moment(new Date()));
   const [dateMonth, setDateMonth] = useState(moment(new Date()).format('MM'));
