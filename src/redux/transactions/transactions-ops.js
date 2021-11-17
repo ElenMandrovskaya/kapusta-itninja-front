@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import * as transactionsApi from "../../api/transactionsApi";
 
 axios.defaults.baseURL = 'https://kapusta-finance-tracker.herokuapp.com';
 
