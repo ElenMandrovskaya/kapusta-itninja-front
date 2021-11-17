@@ -42,7 +42,8 @@ export default class Modal extends Component {
   };
 
   // logOut = e => {
-  //   this.props.onCloseModal();
+  //   this.props.onCloseModal;
+  //   this.props.onClose();
   // };
 
   render() {
@@ -58,7 +59,7 @@ export default class Modal extends Component {
             <Button
               type="button"
               buttonHandler={this.toAgree}
-              buttonHandler={this.props.onCloseModal()}
+              onClick={this.props.onCloseModal}
             >
               ДА
             </Button>

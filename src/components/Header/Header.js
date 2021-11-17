@@ -21,7 +21,7 @@ export default function Header() {
   const dispatch = useDispatch();
   const name = useSelector(authSelectors.getUserName);
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-
+  const logout = () => dispatch(authOperations.signOut());
   const { isShowingModal, toggle } = useModal();
   return (
     <ContainerHeader>
@@ -49,7 +49,7 @@ export default function Header() {
             <Modal
               text={'Вы уверены, что хотите выйти?'}
               onClose={toggle}
-              onCloseModal={() => dispatch(authOperations.signOut())}
+              onCloseModal={logout}
             />
           )}
         </UserInfo>

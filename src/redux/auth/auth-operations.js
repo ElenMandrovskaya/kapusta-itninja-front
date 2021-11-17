@@ -19,7 +19,7 @@ export const signUp = createAsyncThunk(
     try {
       const { data } = await userApi.signUp(credentials);
       // token.set(data.result.token);
-      toast.warning('Warning, something wrong - sign up');
+      // toast.warning('Warning, something wrong - sign up');
       toast.success('Success sign up');
       return data.result;
     } catch (error) {
@@ -35,7 +35,7 @@ export const googleAuth = createAsyncThunk(
     try {
       const { data } = await userApi.googleAuth();
       // token.set(data.result.token);
-      toast.warning('Warning, something wrong - google Auth');
+      // toast.warning('Warning, something wrong - google Auth');
       toast.success('Success Google auth');
       return data.result;
     } catch (error) {
@@ -51,7 +51,7 @@ export const signIn = createAsyncThunk(
     try {
       const { data } = await userApi.signIn(credentials);
       token.set(data.result.token);
-      toast.warning('Warning, something wrong - sign in');
+      // toast.warning('Warning, something wrong - sign in');
       toast.success('Success sign in');
       return data.result;
     } catch (error) {
