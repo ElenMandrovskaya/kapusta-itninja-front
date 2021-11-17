@@ -1,45 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as authOperations from '../../redux/auth/auth-operations';
-import { authSelectors } from '../../redux/auth/auth-selectors'
-// import LogoutModal from '../LogoutModal/LogoutModal';
-import { ContainerHeader, UserInfo, UserName, Button, LogoutP, AvatarUser, Line, LogoutSvg , Logo } from "./Header.styled";
+import { authSelectors } from '../../redux/auth/auth-selectors';
+import Modal from '../Modal/logoutModal';
+import useModal from '../Modal/useModal';
+import {
+  ContainerHeader,
+  UserInfo,
+  UserName,
+  Button,
+  LogoutP,
+  AvatarUser,
+  Line,
+  LogoutSvg,
+  Logo,
+} from './Header.styled';
 import defaultAvatar from '../../images/avatar.png';
 
+export default function Header() {
+  const dispatch = useDispatch();
+  const name = useSelector(authSelectors.getUserName);
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
-export default function Header () {
-    const dispatch = useDispatch();
-    const name = useSelector(authSelectors.getUserName);
-    const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+  const { isShowingModal, toggle } = useModal();
+  return (
+    <ContainerHeader>
+      <Logo />
+      {isLoggedIn && (
+        <UserInfo>
+          <AvatarUser>
+            <img src={defaultAvatar} alt="Default Avatar" width="32" />
+            {/* <AvatarTxt>U</AvatarTxt> */}
+          </AvatarUser>
 
-    return (
-        <ContainerHeader>         
-            <Logo />
-            {isLoggedIn  && ( 
-            <UserInfo>                    
-                <AvatarUser>   
-                    <img
-                    src={defaultAvatar}
-                    alt="Default Avatar"
-                    width="32"
-                />              
-                {/* <AvatarTxt>U</AvatarTxt> */}
-                </AvatarUser>
+          {/* <UserName>User Name</UserName> */}
+          <UserName>{name}</UserName>
+          <Line> </Line>
 
-                {/* <UserName>User Name</UserName> */}
-                <UserName>{name}</UserName>
-                <Line> </Line>
-
-                <Button type="button" 
-                  onClick={() => dispatch(authOperations.signOut())}>
-              
-                    <LogoutP>Выйти</LogoutP>
-                    <LogoutSvg />
-                </Button>
-
-               {/* {isModalLogout && <LogoutModal />} */}
-            </UserInfo>
-             )}
-        </ContainerHeader>      
-    )
+          <Button
+            type="button"
+            // onClick={() => dispatch(authOperations.signOut())}
+            onClick={() => toggle()}
+          >
+            <LogoutP>Выйти</LogoutP>
+            <LogoutSvg />
+          </Button>
+          {isShowingModal && (
+            <Modal
+              text={'Вы уверены, что хотите выйти?'}
+              onClose={toggle}
+              onCloseModal={() => dispatch(authOperations.signOut())}
+            />
+          )}
+        </UserInfo>
+      )}
+    </ContainerHeader>
+  );
 }
