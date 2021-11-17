@@ -19,9 +19,8 @@ export const signUp = createAsyncThunk(
     try {
       const { data } = await userApi.signUp(credentials);
       // token.set(data.result.token);
-      toast.warning(
-        'You have successfully registered please confirm your email',
-      );
+      toast.warning('Warning, something wrong - sign up');
+      toast.success('Success sign up');
       return data.result;
     } catch (error) {
       toast.warning('Such an account already exists');
@@ -36,10 +35,11 @@ export const googleAuth = createAsyncThunk(
     try {
       const { data } = await userApi.googleAuth();
       // token.set(data.result.token);
-      toast.warning('You have successfully loggin with Google');
+      toast.warning('Warning, something wrong - google Auth');
+      toast.success('Success Google auth');
       return data.result;
     } catch (error) {
-      toast.warning('Error');
+      toast.warning('Error with Google auth');
       return thunkAPI.rejectWithValue(error.message);
     }
   },
@@ -51,7 +51,8 @@ export const signIn = createAsyncThunk(
     try {
       const { data } = await userApi.signIn(credentials);
       token.set(data.result.token);
-      toast.warning('You are logged into your account');
+      toast.warning('Warning, something wrong - sign in');
+      toast.success('Success sign in');
       return data.result;
     } catch (error) {
       toast.warning('Something went wrong! Check your the credentials');
