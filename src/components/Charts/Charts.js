@@ -52,11 +52,13 @@ const MyChart = ({ categs }) => {
         ></XAxis>
 
         <Bar
+          // isAnimationActive={true}
           dataKey="total"
           barSize={38}
           fill="#fd8905"
           label={renderCustomBarLabel}
           radius={[10, 10, 0, 0]}
+          animationDuration={1000}
         >
           {categ.chart.map((el, idx) => (
             <Cell key={`cell-${idx}`} fill={idx % 3 ? '#FFDAC0' : '#ff751d'} />
