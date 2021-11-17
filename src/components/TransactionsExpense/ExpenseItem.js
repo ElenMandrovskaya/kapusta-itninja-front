@@ -3,7 +3,7 @@ import useModal from "../Modal/useModal";
 import Modal from "../Modal/logoutModal";
 import { Item, ItemDate, ItemDesc, ItemCategory, ItemSum, ItemBtn } from "./ExpenseItem.styled"
 
-function ExpenseItem( {date, description, amount, id, category, typeTransaction} ) {
+function ExpenseItem( {date, description, value, category, typeTransaction} ) {
     const { isShowingModal, toggle } = useModal();
     console.log(typeTransaction) 
 
@@ -12,7 +12,7 @@ function ExpenseItem( {date, description, amount, id, category, typeTransaction}
             <ItemDate>{date}</ItemDate>
             <ItemDesc>{description}</ItemDesc>
             <ItemCategory>{category}</ItemCategory>
-            <ItemSum>-{amount} грн.</ItemSum>
+            <ItemSum>-{value} грн.</ItemSum>
             <ItemBtn
                 type="button"
                 onClick={()=>toggle()}

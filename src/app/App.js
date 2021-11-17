@@ -21,7 +21,7 @@ import Header from '../components/Header/Header';
 
 export default function App() {
   const dispatch = useDispatch();
-
+  
   useEffect(() => {
     dispatch(authOperations.getCurrentUser());
   }, [dispatch]);
