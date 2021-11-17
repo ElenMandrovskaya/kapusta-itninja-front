@@ -9,7 +9,7 @@ export async function getExpTransactions(){
 
 // https://kapusta-finance-tracker.herokuapp.com/api/transactions/income
 export async function getIncTransactions(){
-    const { data } = await axios.get('/api/transactions/expense');
+    const { data } = await axios.get('/api/transactions/income');
     return data.result.transactions;
 }
 
@@ -62,6 +62,11 @@ export async function addIncTransactions(transactions) {
   // 
 
   export async function getIncTransactions(transactionId){
+    const { data } = await axios.delete(`/api/transactions/${transactionId}`);
+    return data;
+  }
+
+    export async function getExpTransactions(transactionId){
     const { data } = await axios.delete(`/api/transactions/${transactionId}`);
     return data;
 }
