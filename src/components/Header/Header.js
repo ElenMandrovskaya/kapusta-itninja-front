@@ -9,7 +9,7 @@ import defaultAvatar from '../../images/avatar.png';
 
 export default function Header () {
     const dispatch = useDispatch();
-    // const name = useSelector(authSelectors.getUserName);
+    const name = useSelector(authSelectors.getUserName);
     const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
     return (
@@ -26,8 +26,8 @@ export default function Header () {
                 {/* <AvatarTxt>U</AvatarTxt> */}
                 </AvatarUser>
 
-                <UserName>User Name</UserName>
-                {/* <UserName>{name}</UserName> */}
+                {/* <UserName>User Name</UserName> */}
+                <UserName>{name}</UserName>
                 <Line> </Line>
 
                 <Button type="button" 

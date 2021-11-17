@@ -1,50 +1,76 @@
 import axios from 'axios';
 
+//https://kapusta-finance-tracker.herokuapp.com/api/transactions/expense
+export async function getExpTransactions(){
+    const { data } = await axios.get('/api/transactions/expense');
+    console.log(data)
+    return data.result.transactions;
+}
+
+// https://kapusta-finance-tracker.herokuapp.com/api/transactions/income
+export async function getIncTransactions(){
+    const { data } = await axios.get('/api/transactions/expense');
+    return data.result.transactions;
+}
+
 // ОТПРАВКА ТРАНЗАКЦИИ РАСХОДА
-
-const transaction = {
-    amount: "300",
-    category: "Продукты",
-    categoryId: "619026a94ff3aead8b416ea1",
-    date: "17.11.2021",
-    description: "мясо",
-    typeTransaction: "Expenses",
-  }
-  
-
-//   export async function addExpTransactions(transaction) {
-//     const {value} = transaction
-//     const splitDate = transaction.date.split('.')
-//     const day = splitDate[0]
-//     const month = splitDate[1]
-//     const year = splitDate[2]
-//     const { data } = await axios.post(`/api/transactions/expence/${categoryId}/?day=${day}&month=${month}&year=${year}`, description, value, transactionType);
-//     console.log(data)
-//     return data;
+// объект приходящий с формы
+// const transactions = {
+//     value: "300",
+//     category: "Продукты",
+//     categoryId: "619026a94ff3aead8b416ea1",
+//     date: "17.11.2021",
+//     description: "мясо",
+//     typeTransaction: "Expenses",
 //   }
- 
 // пример запроса
 // https://kapusta-finance-tracker.herokuapp.com/api/transactions/expense/619026a94ff3aead8b416ea4/?day=10&month=11&year=2021
-// transaction это объект как ниже
-// {
-//     "description": "Шоколад",
-//     "value": 50.00,
-//      "transactionType": "Expenses",
-// }
+  export async function addExpTransactions(transactions) {
+    const splitDate = transactions.date.split('.')
+    const day = splitDate[0]
+    const month = splitDate[1]
+    const year = splitDate[2]
+    const newTransaction = {
+        descreption: transactions.description,
+        value: transactions.value,
+        typeTransaction: transactions.typeTransaction
+    }
+    const { data } = await axios.post(`/api/transactions/expense/${transactions.categoryId}/?day=${day}&month=${month}&year=${year}`, newTransaction );
+    console.log(data)
+    return data.result;
+  }
+ 
+// ДОХОД
+// https://kapusta-finance-tracker.herokuapp.com/api/transactions/income/619026a94ff3aead8b416ead/?day=11&month=11&year=2021
+export async function addIncTransactions(transactions) {
+    const splitDate = transactions.date.split('.')
+    const day = Number(splitDate[0])
+    const month = Number(splitDate[1])
+    const year = Number(splitDate[2])
+    const newTransaction = {
+        descreption: transactions.description,
+        value: transactions.value,
+        typeTransaction: transactions.typeTransaction
+    }
+    const { data } = await axios.post(`/api/transactions/income/${transactions.categoryId}/?day=${day}&month=${month}&year=${year}`, newTransaction );
+    console.log(data)
+    return data.result;
+  }
 
-// // https://kapusta-finance-tracker.herokuapp.com/api/transactions/expense/61881d846a0d3f73e0414dbb
-// export async function addTransactions(transaction) {
-//   const { data } = await axios.post(`/transactions/expence/${category}`, contact);
-//   return data;
-// }
+  // УДАЛЕНИЕ ТРАНЗАКЦИИ
+  // https://kapusta-finance-tracker.herokuapp.com/api/transactions/61944953da2a3c0076d5ebdd
+  // 
 
-// export async function editBalance({ id, ? }) {
-//   const { data } = await axios.patch(`/transactions/${id}`, { ? });
-//   return data;
-// }
+  export async function getIncTransactions(transactionId){
+    const { data } = await axios.delete(`/api/transactions/${transactionId}`);
+    return data;
+}
 
-// export async function deleteTransactions(id) {
-//   await axios.delete(`/transactions/${id}`);
-//   return id;
-// }
+// ОБНОВЛЕНИЕ БАЛАНСА ПРИ ДОБАВЛЕНИИ ТРАНЗАКЦИИ
+// необходимо отправлять вместе с запросом на добавление транзакции
+export async function editBalance() {
+  const { data } = await axios.patch(`/api/user/balance`);
+  return data;
+}
+
 

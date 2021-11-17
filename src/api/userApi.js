@@ -26,3 +26,6 @@ export async function googleAuth() {
   const data = await axios.get(`/api/user/google`);
   return data;
 }
+
+// GET:/user/google - зарегистрировать/залогинить нового пользователя через гугл
+// редиректит по ссылке FRONTEND_URL/?token=”userToken”&email=”test@gmail.com”

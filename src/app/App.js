@@ -18,13 +18,10 @@ import { BgGrey, AppWrap, Container } from './App.styled';
 import BgUnAuth from '../components/BgUnAuth/BgUnAuth';
 import BgAuth from '../components/BgAuth/BgAuth';
 import Header from '../components/Header/Header';
-import {addExpTransactions} from  '../api/transactionsApi'
-  // useEffect(addExpTransactions())
-
 
 export default function App() {
   const dispatch = useDispatch();
-
+  
   useEffect(() => {
     dispatch(authOperations.getCurrentUser());
   }, [dispatch]);
