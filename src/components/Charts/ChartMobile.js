@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { useParams } from 'react-router-dom';
 import {
   BarChart,
   Bar,
@@ -14,7 +14,7 @@ import data1 from '../../data/expense.json';
 
 // console.log(data1);
 
-const MobileChart = () => {
+const MobileChart = ({ categs }) => {
   const renderBarLabel = ({ x, y, width, value }) => (
     <text x={x + width / 1.1} y={y} textAnchor="middle" fontSize={10} dy={-10}>
       {value ? `${value} грн` : ''}
@@ -26,38 +26,46 @@ const MobileChart = () => {
       {value}
     </text>
   );
-  data1.sort(function (a, b) {
-    if (a.amount > b.amount) {
+
+  const screenWidth = window.screen.width;
+  const screenHeight = window.screen.height;
+  // console.log(screenWidth, screenHeight);
+  const { icon } = useParams();
+  const categ = categs.find(categ => categ.icon === icon);
+  categ.chart.sort(function (a, b) {
+    if (a.total > b.total) {
       return -1;
     }
-    if (a.amount < b.amount) {
+    if (a.total < b.total) {
       return 1;
     }
 
     return 0;
   });
-  const screenWidth = window.screen.width;
-  const screenHeight = window.screen.height;
-  // console.log(screenWidth, screenHeight);
-
+  console.log(categ.chart);
   return (
-    <ResponsiveContainer width="100%" height={50 * data1.length} debounce={50}>
+    <ResponsiveContainer
+      width="100%"
+      height={50 * categ.chart.length}
+      // debounce={50}
+    >
       <BarChart
         layout="vertical"
-        data={data1}
-        margin={{ top: 30, right: 0, bottom: 30, left: 0 }}
+        data={categ.chart}
+        margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
+        barGap="15"
       >
         <XAxis hide axisLine={false} type="number" />
         <YAxis dataKey="description" type="category" hide />
         <Bar
-          dataKey="amount"
+          dataKey="total"
           barSize={15}
           radius={[0, 10, 10, 0]}
           label={renderBarLabel}
           fill="#52555f"
-          minPointSize={80}
+          minPointSize={5}
         >
-          {data1.map((el, idx) => (
+          {categ.chart.map((el, idx) => (
             <Cell key={`cell-${idx}`} fill={idx % 3 ? '#FFDAC0' : '#ff751d'} />
           ))}
           <LabelList

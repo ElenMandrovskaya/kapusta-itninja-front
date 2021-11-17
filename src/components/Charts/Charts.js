@@ -4,9 +4,6 @@ import { useParams } from 'react-router-dom';
 import { CartsBg } from './Charts.styled';
 import { BarChart, Bar, XAxis, Cell } from 'recharts';
 import MobileChart from './ChartMobile';
-// import data from '../../data/expense.json';
-
-// console.log(data[0].chart);
 
 const renderCustomBarLabel = ({ x, y, width, value }) => {
   return (
@@ -37,7 +34,7 @@ const MyChart = ({ categs }) => {
 
   const screenWidth = window.screen.width;
   const screenHeight = window.screen.height;
-  // console.log(screenWidth, screenHeight);
+
   return screenWidth > 320 ? (
     <CartsBg>
       <BarChart
@@ -45,12 +42,13 @@ const MyChart = ({ categs }) => {
         height={328}
         data={categ.chart}
         margin={{ top: 50, right: 15, bottom: 9, left: 15 }}
+        barCategoryGap={20}
       >
         <XAxis
           dataKey="description"
-          // tick={data.name}
           axisLine={false}
           tickLine={false}
+          dy={5}
         ></XAxis>
 
         <Bar
@@ -67,7 +65,7 @@ const MyChart = ({ categs }) => {
       </BarChart>
     </CartsBg>
   ) : (
-    <MobileChart />
+    <MobileChart categs={categs} />
   );
 };
 
