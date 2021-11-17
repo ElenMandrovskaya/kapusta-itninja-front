@@ -20,7 +20,16 @@ export const Img = styled.img`
   margin-left: 15px;
   width: 14px;
   height: 14px;
+  @media screen and (max-width: 320px) {
+    margin-bottom: 40px;
+  }
 `;
 export const Span = styled.p`
+  @media screen and (max-width: 320px) {
+    margin-bottom: 40px;
+  }
+  &:hover {
+    color: #555;
+  }
   /* padding-left: 55px; */
 `;

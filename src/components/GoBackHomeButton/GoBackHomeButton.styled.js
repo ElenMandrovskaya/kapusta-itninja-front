@@ -5,6 +5,9 @@ export const Title = styled.p`
   @media screen and (max-width: 320px) {
     display: none;
   }
+  &:hover {
+    color: #555;
+  }
 `;
 export const Img = styled.svg`
   background-image: url(${arrowBack});

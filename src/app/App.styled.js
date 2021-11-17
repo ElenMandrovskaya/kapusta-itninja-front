@@ -34,6 +34,7 @@ export const BgGrey = styled.div`
 export const AppWrap = styled.div``;
 
 export const BalannceTab = styled.div`
+  margin-bottom: 10px;
   display: grid;
 
   grid-template-columns: 6fr 1fr;
@@ -41,4 +42,14 @@ export const BalannceTab = styled.div`
   justify-items: end;
 
   margin-top: 40px;
+  @media screen and (max-width: 320px) {
+    display: inline-flex;
+    flex-direction: column-reverse;
+    margin-bottom: 40px;
+    align-items: center;
+  }
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 6fr 2fr;
+    margin-bottom: 60px;
+  }
 `;
