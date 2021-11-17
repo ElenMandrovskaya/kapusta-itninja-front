@@ -31,7 +31,7 @@ const TransactionsExpForm = ({onSubmit}) => {
         reset();
     };
 
-    // console.log(type)
+    // console.log(reset)
     return (
         <Form onSubmit={addExpense} >
             <Wrapper>
@@ -70,8 +70,8 @@ const TransactionsExpForm = ({onSubmit}) => {
                         Ввод
                     </ButtonOrange>
                     <Button
-                        type="button"
-                        onSubmit={reset}
+                        type="submit"
+                        onClick={reset}
                     >
                         Очистить
                     </Button>         
