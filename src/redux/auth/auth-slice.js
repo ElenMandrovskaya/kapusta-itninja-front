@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import * as authOperations from './auth-operations';
 
 const initialState = {
-  user: { name: '', email: '', balance: 0},
+  user: { name: '', email: '', balance: 0 },
   token: null,
   isLoggedIn: false,
 };
@@ -46,7 +46,13 @@ const authSlice = createSlice({
     },
     [authOperations.updBalance.fulfilled](state, action) {
       state.user.balance = action.payload;
-    }
+    },
+    [authOperations.googleAuth.fulfilled](state, action) {
+      // state.user = action.payload.user;
+      // state.token = action.payload.token;
+      // state.isLoggedIn = true;
+      console('googleAuth.fulfilled');
+    },
   },
 });
 
