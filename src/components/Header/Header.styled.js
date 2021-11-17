@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
-import img from '../../images/logout.svg';
-import logo from '../../images/logo.svg';
+import img from "../../images/logout.svg";
+import logo from "../../images/logo.svg";
 
 export const ContainerHeader = styled.header`
   width: 100%;

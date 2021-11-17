@@ -1,8 +1,8 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import ReportIcon from '../ReportIcon/ReportIcon';
-import ReportCategoryList from '../ReportCategoryList/ReportCategoryList';
-import { ReportCostContainer, Title } from './ReportCosts.styled';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import ReportIcon from "../ReportIcon/ReportIcon";
+import ReportCategoryList from "../ReportCategoryList/ReportCategoryList";
+import { ReportCostContainer, Title } from "./ReportCosts.styled";
 
 function ReportCosts({ dateMonth, dateYears, categoriesCosts }) {
   return (

@@ -1,5 +1,5 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React from "react";
+import { useParams } from "react-router-dom";
 import {
   BarChart,
   Bar,
@@ -8,16 +8,16 @@ import {
   ResponsiveContainer,
   LabelList,
   YAxis,
-} from 'recharts';
-// import data from '../../data/catCosts.json';
-// import data1 from '../../data/expense.json';
+} from "recharts";
+// import data from "../../data/catCosts.json";
+// import data1 from "../../data/expense.json";
 
 // console.log(data1);
 
 const MobileChart = ({ categs }) => {
   const renderBarLabel = ({ x, y, width, value }) => (
     <text x={x + width / 1.1} y={y} textAnchor="middle" fontSize={10} dy={-10}>
-      {value ? `${value} грн` : ''}
+      {value ? `${value} грн` : ""}
     </text>
   );
 
@@ -66,7 +66,7 @@ const MobileChart = ({ categs }) => {
           minPointSize={5}
         >
           {categ.chart.map((el, idx) => (
-            <Cell key={`cell-${idx}`} fill={idx % 3 ? '#FFDAC0' : '#ff751d'} />
+            <Cell key={`cell-${idx}`} fill={idx % 3 ? "#FFDAC0" : "#ff751d"} />
           ))}
           <LabelList
             dataKey="description"

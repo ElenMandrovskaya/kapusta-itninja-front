@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import * as balanceOperations from './balance-operations';
+import * as balanceOperations from "./balance-operations";
 import * as transactionsOps from "./transactions-ops";
 
 const balanceSlice = createSlice({
-    name: 'balance',
-    initialState: '',
+    name: "balance",
+    initialState: "",
     extraReducers: {
         [balanceOperations.getBalance.fulfilled](state, action) {
             state.balance = action.payload

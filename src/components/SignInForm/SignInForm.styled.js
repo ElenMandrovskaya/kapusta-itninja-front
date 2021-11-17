@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
 export const AuthGoogleDescription = styled.p`
   font-family: Roboto, sant-serif;
@@ -114,7 +114,7 @@ export const FormBtn = styled.button`
 
   border: 0px solid transparent;
   border-radius: 16px;
-  margin-right: ${props => (props.marginRigth15 ? '15px' : '0px')};
+  margin-right: ${props => (props.marginRigth15 ? "15px" : "0px")};
   background-color: ${props =>
     props.submitBtn ? `var(--accent-color)` : `#f6f7fb`};
   cursor: pointer;
@@ -133,7 +133,7 @@ export const FormBtn = styled.button`
 `;
 
 /** @jsx jsx */
-// import { jsx, css } from '@emotion/react';
+// import { jsx, css } from "@emotion/react";
 
 // const pinkInput = css`
 //   background-color: pink;

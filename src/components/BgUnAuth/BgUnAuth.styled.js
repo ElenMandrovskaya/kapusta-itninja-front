@@ -1,9 +1,9 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
-import img from '../../images/kapustaMob.svg';
-import imgTab from '../../images/kapustaTab.svg';
-import imgBot from '../../images/kapustaNob-bottom.svg';
-import imgTabBot from '../../images/kapustaTab-bottom.svg';
+import img from "../../images/kapustaMob.svg";
+import imgTab from "../../images/kapustaTab.svg";
+import imgBot from "../../images/kapustaNob-bottom.svg";
+import imgTabBot from "../../images/kapustaTab-bottom.svg";
 
 
 export const BgIcon = styled.svg`

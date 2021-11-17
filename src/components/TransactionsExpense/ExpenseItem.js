@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import useModal from "../Modal/useModal";
 import Modal from "../Modal/logoutModal";
 import { Item, ItemDate, ItemDesc, ItemCategory, ItemSum, ItemBtn } from "./ExpenseItem.styled"
@@ -17,7 +17,7 @@ function ExpenseItem( {date, description, value, category, typeTransaction} ) {
                 type="button"
                 onClick={()=>toggle()}
             />
-            {isShowingModal && <Modal text={'Вы уверены?'} onClose={toggle} />}
+            {isShowingModal && <Modal text={"Вы уверены?"} onClose={toggle} />}
         </Item>
     );
 };

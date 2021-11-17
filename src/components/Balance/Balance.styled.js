@@ -112,7 +112,7 @@ box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
 color: white;
 padding: 30px 25px 15px 25px;
 &::before {
-content: '';
+content: "";
 position: absolute;
 top: -24px;
 left: 69px;

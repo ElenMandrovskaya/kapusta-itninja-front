@@ -1,23 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 // lazy, Suspense,
-import { Switch } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { ToastContainer } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
+import { Switch } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { ToastContainer } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 
-import TransactionPage from '../pages/TransactionsPage/TransactionsPage';
-import RegistrationPage from '../pages/RegistrationPage';
-import ReportsPage from '../pages/ReportsPage/ReportsPage';
+import TransactionPage from "../pages/TransactionsPage/TransactionsPage";
+import RegistrationPage from "../pages/RegistrationPage";
+import ReportsPage from "../pages/ReportsPage/ReportsPage";
 
-import PrivateRoute from '../routers/PrivateRouter';
-import PublicRoute from '../routers/PublicRouter';
+import PrivateRoute from "../routers/PrivateRouter";
+import PublicRoute from "../routers/PublicRouter";
 
-import * as authOperations from '../redux/auth/auth-operations';
-import { authSelectors } from '../redux/auth/auth-selectors';
-import { BgGrey, AppWrap, Container } from './App.styled';
-import BgUnAuth from '../components/BgUnAuth/BgUnAuth';
-import BgAuth from '../components/BgAuth/BgAuth';
-import Header from '../components/Header/Header';
+import * as authOperations from "../redux/auth/auth-operations";
+import { authSelectors } from "../redux/auth/auth-selectors";
+import { BgGrey, AppWrap, Container } from "./App.styled";
+import BgUnAuth from "../components/BgUnAuth/BgUnAuth";
+import BgAuth from "../components/BgAuth/BgAuth";
+import Header from "../components/Header/Header";
 
 export default function App() {
   const dispatch = useDispatch();

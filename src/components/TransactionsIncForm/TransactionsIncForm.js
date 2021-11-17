@@ -10,17 +10,17 @@ const TransactionsIncForm = ({ onSubmit }) => {
     const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
     const [value, setValue] = useState("");
-    const [categoryId, setCategoryId] = useState('');
-    const [typeTransaction, setTypeTransaction] = useState('');
+    const [categoryId, setCategoryId] = useState("");
+    const [typeTransaction, setTypeTransaction] = useState("");
     // const dispatch = useDispatch();
 
     const reset = () => {
     setStartDate(new Date());
     setCategory("");
-    setCategoryId('');
+    setCategoryId("");
     setDescription("");
     setValue("");
-    setTypeTransaction('');
+    setTypeTransaction("");
     };
     
     const addIncome = (e) => {

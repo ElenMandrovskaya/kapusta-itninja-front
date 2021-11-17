@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios from "axios";
 
-axios.defaults.baseURL = 'https://kapusta-finance-tracker.herokuapp.com';
+axios.defaults.baseURL = "https://kapusta-finance-tracker.herokuapp.com";
 
 export async function signUp(credentials) {
   const data = await axios.post(`/api/user/signup`, credentials);

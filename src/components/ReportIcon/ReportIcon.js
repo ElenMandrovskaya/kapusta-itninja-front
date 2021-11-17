@@ -1,6 +1,6 @@
-import React from 'react';
-import Icons from '../../images/sprite.svg';
-import { Icon } from './ReportIcon.styled';
+import React from "react";
+import Icons from "../../images/sprite.svg";
+import { Icon } from "./ReportIcon.styled";
 
 function ReportIcon({ name, color, size }) {
   return (

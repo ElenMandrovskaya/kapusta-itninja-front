@@ -1,9 +1,9 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React from "react";
+import { useParams } from "react-router-dom";
 
-import { CartsBg } from './Charts.styled';
-import { BarChart, Bar, XAxis, Cell } from 'recharts';
-import MobileChart from './ChartMobile';
+import { CartsBg } from "./Charts.styled";
+import { BarChart, Bar, XAxis, Cell } from "recharts";
+import MobileChart from "./ChartMobile";
 
 const renderCustomBarLabel = ({ x, y, width, value }) => {
   return (
@@ -61,7 +61,7 @@ const MyChart = ({ categs }) => {
           animationDuration={1000}
         >
           {categ.chart.map((el, idx) => (
-            <Cell key={`cell-${idx}`} fill={idx % 3 ? '#FFDAC0' : '#ff751d'} />
+            <Cell key={`cell-${idx}`} fill={idx % 3 ? "#FFDAC0" : "#ff751d"} />
           ))}
         </Bar>
       </BarChart>

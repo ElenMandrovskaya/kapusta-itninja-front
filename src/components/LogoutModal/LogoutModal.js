@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { ModalWrapper, ModalContent, ModalLogoutP, Button, ModalLogoutButton } from  "../LogoutModal/LogoutModal.styled";
 
 export const LogoutModal = () => {

@@ -1,9 +1,9 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import * as authOperations from '../../redux/auth/auth-operations';
-import { authSelectors } from '../../redux/auth/auth-selectors';
-import Modal from '../Modal/logoutModal';
-import useModal from '../Modal/useModal';
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import * as authOperations from "../../redux/auth/auth-operations";
+import { authSelectors } from "../../redux/auth/auth-selectors";
+import Modal from "../Modal/logoutModal";
+import useModal from "../Modal/useModal";
 import {
   ContainerHeader,
   UserInfo,
@@ -14,8 +14,8 @@ import {
   Line,
   LogoutSvg,
   Logo,
-} from './Header.styled';
-import defaultAvatar from '../../images/avatar.png';
+} from "./Header.styled";
+import defaultAvatar from "../../images/avatar.png";
 
 export default function Header() {
   const dispatch = useDispatch();
@@ -47,7 +47,7 @@ export default function Header() {
           </Button>
           {isShowingModal && (
             <Modal
-              text={'Вы уверены, что хотите выйти?'}
+              text={"Вы уверены, что хотите выйти?"}
               onClose={toggle}
               onCloseModal={logout}
             />

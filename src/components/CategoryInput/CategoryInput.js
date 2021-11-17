@@ -15,7 +15,7 @@ const CategoryInput = ({ type, setTypeTransaction, categoryPick, setCategory, se
             try {
                 const listExp = await getCategoriesByExpense();
                 setCategories(listExp)
-                if (type === 'Incomes') {
+                if (type === "Incomes") {
                 const listInc = await getCategoriesByIncome();
                 setCategories(listInc)    
                 }
