@@ -9,6 +9,10 @@ const transactionsSlice = createSlice({
         isLoading: false,
     },
     extraReducers: {
+        [transactionsOps.getExpTransactions.fulfilled]: (_, { payload }) => {
+            state.items = [...payload.data];
+        },
+
         [transactionsOps.addExpTransaction.fulfilled]: (state, { payload }) => {
             state.items = [payload, ...state.items];
         },
@@ -20,17 +24,7 @@ const transactionsSlice = createSlice({
             state.error = action.error.message;
             state.isLoading = false;
         },
-        [transactionsOps.addIncTransaction.fulfilled]: (state, { payload }) => {
-            state.items = [payload, ...state.items];
-        },
-        [transactionsOps.addIncTransaction.pending]: (state, _) => {
-            state.error = null;
-            state.isLoading = false;
-        },
-        [transactionsOps.addIncTransaction.rejected]: (state, action) => {
-            state.error = action.error.message;
-            state.isLoading = false;
-        },
+
          [transactionsOps.deleteExpTransaction.fulfilled]: (state, { payload }) => {
              state.items = state.items.filter(el => el._id !== payload);
              state.isLoading = false;
@@ -43,6 +37,23 @@ const transactionsSlice = createSlice({
             state.error = action.error.message;
             state.isLoading = false;
         },
+
+
+        [transactionsOps.getIncTransactions.fulfilled]: (_, { payload }) => {
+            state.items = [...payload.data];
+        },
+        [transactionsOps.addIncTransaction.fulfilled]: (state, { payload }) => {
+            state.items = [payload, ...state.items];
+        },
+        [transactionsOps.addIncTransaction.pending]: (state, _) => {
+            state.error = null;
+            state.isLoading = false;
+        },
+        [transactionsOps.addIncTransaction.rejected]: (state, action) => {
+            state.error = action.error.message;
+            state.isLoading = false;
+        },
+
         [transactionsOps.deleteIncTransaction.fulfilled]: (state, { payload }) => {
              state.items = state.items.filter(el => el._id !== payload);
              state.isLoading = false;
@@ -57,3 +68,5 @@ const transactionsSlice = createSlice({
         },
     }
 })
+
+export default transactionsSlice.reducer;
