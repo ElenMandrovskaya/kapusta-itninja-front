@@ -5,7 +5,7 @@ import GoBackHomeBtn from '../../components/GoBackHomeButton/GoBackHomeButton';
 import MonthPicker from '../../components/MonthPicker/MonthPicker';
 import StatisticAmounts from '../../components/StatisticAmounts/StatisticAmounts';
 import Report from '../../components/Report/Report';
-import { ReportsPageHeader } from './ReportsPage.styled';
+import { ReportsPageHeader, ReportsPageForMobile } from './ReportsPage.styled';
 import { AppWrap } from '../../app/App.styled';
 import 'moment/locale/ru';
 import moment from 'moment';
@@ -39,7 +39,6 @@ function ReportsPage() {
     async function getCategories() {
       const costs = await getCategoriesByCosts(dateMonth, dateYears);
       setCategoriesCosts(costs);
-      // console.log(costs);
       const income = await getCategoriesByIncome(dateMonth, dateYears);
       setCategoriesIncome(income);
     }
@@ -50,13 +49,15 @@ function ReportsPage() {
     <AppWrap>
       <ReportsPageHeader>
         <GoBackHomeBtn />
-        <Balance />
-        <MonthPicker
-          monthChangeHandler={monthChangeHandler}
-          monthChangeHandlerRight={monthChangeHandlerRight}
-          dateMonth={dateMonth}
-          dateYears={dateYears}
-        />
+        <ReportsPageForMobile>
+          <Balance />
+          <MonthPicker
+            monthChangeHandler={monthChangeHandler}
+            monthChangeHandlerRight={monthChangeHandlerRight}
+            dateMonth={dateMonth}
+            dateYears={dateYears}
+          />
+        </ReportsPageForMobile>
       </ReportsPageHeader>
       <StatisticAmounts
         categoriesCosts={categoriesCosts.result}

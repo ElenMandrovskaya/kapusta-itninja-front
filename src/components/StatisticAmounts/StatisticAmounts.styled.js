@@ -20,14 +20,21 @@ export const Title = styled.p`
 export const ProfitSpan = styled.span`
   @media screen and (max-width: 320px) {
     display: block;
+    margin-top: 5px;
+  }
+  @media screen and (min-width: 768px) {
+    margin-left: 15px;
   }
   color: #e53935;
 `;
 export const CostSpan = styled.span`
   @media screen and (max-width: 320px) {
     display: block;
+    margin-top: 5px;
   }
-
+  @media screen and (min-width: 768px) {
+    margin-left: 15px;
+  }
   color: #407946;
 `;
 export const Vl = styled.div`
@@ -42,6 +49,7 @@ export const Vl = styled.div`
 `;
 export const Div = styled.div`
   @media screen and (max-width: 320px) {
+    margin-bottom: 40px;
     height: 85px;
     box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
     border-radius: 20px;

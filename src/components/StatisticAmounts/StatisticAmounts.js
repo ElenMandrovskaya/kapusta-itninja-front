@@ -28,9 +28,9 @@ const StatisticAmounts = ({ categoriesCosts, categoriesIncome }) => {
 
   return (
     <Div>
-      <Title>Расходы: {<CostSpan> - {totalCosts}.00 грн.</CostSpan>} </Title>
+      <Title>Расходы:{<CostSpan>- {totalCosts}.00 грн.</CostSpan>} </Title>
       <Vl />
-      <Title>Доходы:{<ProfitSpan> + {totalIncome}.00 грн.</ProfitSpan>} </Title>
+      <Title>Доходы:{<ProfitSpan>+ {totalIncome}.00 грн.</ProfitSpan>} </Title>
     </Div>
   );
 };

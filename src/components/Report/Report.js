@@ -1,12 +1,11 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { ReportContainer } from './Report.styled';
 import ReportCosts from '../ReportCosts/ReportCosts';
 import ReportIncome from '../ReportIncome/ReportIncome';
 
 function Report({ dateMonth, dateYears, categoriesCosts, categoriesIncome }) {
   return (
-    <ReportContainer>
+    <div>
       <Switch>
         <Route path={`/reports/costs`}>
           <ReportCosts
@@ -24,7 +23,7 @@ function Report({ dateMonth, dateYears, categoriesCosts, categoriesIncome }) {
         </Route>
         <Redirect to="/reports/costs" />
       </Switch>
-    </ReportContainer>
+    </div>
   );
 }
 

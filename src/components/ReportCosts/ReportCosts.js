@@ -1,27 +1,41 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Route, NavLink, useRouteMatch } from 'react-router-dom';
 import ReportIcon from '../ReportIcon/ReportIcon';
 import ReportCategoryList from '../ReportCategoryList/ReportCategoryList';
-import { ReportCostContainer, Title } from './ReportCosts.styled';
+import {
+  ReportCostContainer,
+  Title,
+  ReportTitleListWrapper,
+} from './ReportCosts.styled';
+import MyChart from '../../components/Charts/Charts';
 
 function ReportCosts({ dateMonth, dateYears, categoriesCosts }) {
+  const { path } = useRouteMatch();
   return (
     <div>
-      <ReportCostContainer>
-        <NavLink to={`/reports/income`}>
-          <ReportIcon name="arrow-left" color="#000" size="10" />
-        </NavLink>
-        <Title>Расходы</Title>
-        <NavLink to={`/reports/income`}>
-          <ReportIcon name="arrow-right" color="#000" size="10" />
-        </NavLink>
-      </ReportCostContainer>
+      <ReportTitleListWrapper>
+        <ReportCostContainer>
+          <NavLink to={`/reports/income`}>
+            <ReportIcon name="arrow-left" color="#000" size="10" />
+          </NavLink>
+          <Title>Расходы</Title>
+          <NavLink to={`/reports/income`}>
+            <ReportIcon name="arrow-right" color="#000" size="10" />
+          </NavLink>
+        </ReportCostContainer>
+        {categoriesCosts && (
+          <ReportCategoryList
+            categories={categoriesCosts}
+            dateMonth={dateMonth}
+            dateYears={dateYears}
+          />
+        )}
+      </ReportTitleListWrapper>
+
       {categoriesCosts && (
-        <ReportCategoryList
-          categories={categoriesCosts}
-          dateMonth={dateMonth}
-          dateYears={dateYears}
-        />
+        <Route path={`${path}/:icon`}>
+          <MyChart categs={categoriesCosts} />
+        </Route>
       )}
     </div>
   );
