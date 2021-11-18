@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { css } from "@emotion/react";
-import GridLoader from "react-spinners/GridLoader";
+import CircleLoader from "react-spinners/CircleLoader";
 
 const override = css`
   display: block;
-  margin: 0 auto;
-  border-color: red;
+  position: fixed;
+  left: 40%;
+  top: 20%;
 `;
 
 export default function Spinner() {
   return (
-      <GridLoader color="#ff0d82" loading={useState(true)} css={override} size={80} />
+      <CircleLoader color="#FF751D" loading={useState(true)} css={override} size={180} />
   );
 }

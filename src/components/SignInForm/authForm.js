@@ -18,7 +18,7 @@ import {
   FormBtn,
 } from "./AuthForm.styled.js";
 
-function AuthForm() {
+export default function AuthForm() {
   const dispatch = useDispatch();
   const [isRegistration, setRegistration] = useState(false);
   const [name, setName] = useState("");
@@ -170,4 +170,4 @@ function AuthForm() {
   );
 }
 
-export default AuthForm;
+ 
