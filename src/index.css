@@ -82,6 +82,12 @@ img {
   background-color: transparent;
 }
 
+@media screen and (max-width: 767px) {
+  .datepicker {
+    background: inherit;
+  }
+}
+
 .datepicker:hover {
   cursor: pointer;
 }
@@ -89,7 +95,7 @@ img {
 /* Tabs */
 .react-tabs {
   -webkit-tap-highlight-color: transparent;
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
 }
 
 .react-tabs__tab-list {
@@ -163,4 +169,73 @@ img {
   display: block;
   padding: 20px;
   background: #fff;
+}
+
+/* mobile */
+@media screen and (max-width: 767px) {
+  .react-tabs__tab-list {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .react-tabs__tab {
+    width: 100%;
+    height: 53px;
+  }
+
+  .react-tabs__tab--selected {
+    background: #ff751d;
+    border-color: #aaa;
+    color: #fefefe;
+  }
+
+  .react-tabs__tab-panel--selected {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .react-tabs__tab-panel {
+    position: absolute;
+    bottom: 54px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    background: inherit;
+    text-align: center;
+  }
+}
+
+
+/* tablet */
+@media screen and (min-width: 768px) {
+  .react-tabs__tab {
+    border-radius: 20px 20px 0px 0px;
+  }
+
+  .react-tabs__tab-panel {
+    width: 100%;
+    height: 626px;
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+    border-radius: 0px 30px 30px 30px;
+  }
+
+  .react-tabs {
+    margin-top: 58px;
+  }
+}
+
+/* desktop */
+@media screen and (min-width: 1280px) {
+  .react-tabs__tab-panel {
+    width: 1060px;
+    height: 579px;
+  }
+
+  .react-tabs {
+    margin-top: 10px;
+  }
 }

@@ -14,7 +14,7 @@ export const Input = styled.input`
   border-bottom: 2px solid var(--table-color);
   border-left: none;
   outline: none;
-  padding-left: 21px;
+  padding-left: 5px;
   &::placeholder {
     color: #C7CCDC;
   }
@@ -46,7 +46,7 @@ export const CategoryList = styled.ul`
   position: absolute;
   left: 0px;
   top: 100%;
-    border: none;
+  border: none;
   outline: none;
   z-index: 100;
   color: var(--placeholder-text-color);
