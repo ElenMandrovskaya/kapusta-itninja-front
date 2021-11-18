@@ -28,9 +28,11 @@ display: flex;
   flex-direction: column;
   }
 
-  /* @media screen and (min-width: 768px) {
- 
-  } */
+  @media screen and (min-width: 768px) {
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  }
 
   @media screen and (min-width: 1280px) {
   margin-bottom: 0;
@@ -77,9 +79,13 @@ export const FormInput = styled.div`
 
 export const FormBtn = styled.div`
  width: 272px;
-  display: flex;
-  justify-content: space-between;
+display: flex;
+justify-content: space-between;
 margin-left: 0;
+
+@media screen and (min-width: 768px) {
+  margin-top:30px;
+}
 
   @media screen and (min-width: 1280px) {
   margin-left:15px;

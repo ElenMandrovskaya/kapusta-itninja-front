@@ -159,10 +159,10 @@ img {
 
 .react-tabs__tab-panel {
   display: none;
-  /* width: 1060px;
+  width: 1060px;
   height: 579px;
   box-shadow: 0px 10px 60px rgb(170 178 197 / 20%);
-  border-radius: 0px 30px 30px 30px; */
+  border-radius: 0px 30px 30px 30px;
 }
 
 .react-tabs__tab-panel--selected {

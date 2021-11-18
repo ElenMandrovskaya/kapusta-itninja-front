@@ -30,10 +30,13 @@ display: flex;
 
   @media screen and (min-width: 768px) {
   margin-bottom: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
   }
 
   @media screen and (min-width: 1280px) {
   margin-bottom: 0;
+  flex-wrap: nowrap;
   }
 `;
 
@@ -79,6 +82,14 @@ export const FormBtn = styled.div`
  width: 272px;
   display: flex;
   justify-content: space-between;
+
+  @media screen and (min-width: 768px) {
+  margin-top:30px;
+}
+
+@media screen and (min-width: 1280px) {
+  margin-left:15px;
+  }
 `;
 
 export const InputAmount = styled.input`

@@ -67,7 +67,7 @@ export const TableList = styled.ul`
 
   @media screen and (min-width: 768px) {
   overflow: scroll;
-  height: 380px;
+  height: 346px;
   border-left: 1px solid #f4f6fb;
   border-right: 1px solid #f4f6fb;
   background-size: 2px 74px;
@@ -75,6 +75,6 @@ export const TableList = styled.ul`
   }
 
   @media screen and (min-width: 1280px) {
-  height: 342px;
+  height: 344px;
   }
 `;
