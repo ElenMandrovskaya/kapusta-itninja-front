@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import useModal from "../Modal/useModal";
 import Modal from "../Modal/logoutModal";
 // import { useDispatch } from "react-redux";

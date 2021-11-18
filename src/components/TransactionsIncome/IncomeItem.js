@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import useModal from "../Modal/useModal";
 import Modal from "../Modal/logoutModal";
 import { Item, ItemDate, ItemDesc, ItemCategory, ItemSum, ItemBtn } from "./IncomeItem.styled"
@@ -16,7 +16,7 @@ const IncomeItem = ({ date, description, value, category }) => {
                 type="button"
                 onClick={()=>toggle()}
             />
-            {isShowingModal && <Modal text={'Вы уверены?'} onClose={toggle} />}
+            {isShowingModal && <Modal text={"Вы уверены?"} onClose={toggle} />}
         </Item>
     );
 };

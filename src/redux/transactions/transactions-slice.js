@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import * as transactionsOps from "./transactions-ops";
 
 const transactionsSlice = createSlice({
-    name: 'transactions',
+    name: "transactions",
     initialState: {
         items: [],
         error: null,

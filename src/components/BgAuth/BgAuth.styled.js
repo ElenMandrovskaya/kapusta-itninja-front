@@ -1,7 +1,7 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
-import imgTab from '../../images/kapustaTab-bottom.svg';
-import imgDesc from '../../images/kapustaDesc-Bottom.svg';
+import imgTab from "../../images/kapustaTab-bottom.svg";
+import imgDesc from "../../images/kapustaDesc-Bottom.svg";
 
 export const BgBottom = styled.svg`
 @media screen and (min-width: 768px) {

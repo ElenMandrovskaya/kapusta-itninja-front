@@ -1,9 +1,9 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { Button, Div, Title, Span, Picker } from './MonthPicker.styled';
-import 'moment/locale/ru';
-import moment from 'moment';
-import ReportIcon from '../ReportIcon/ReportIcon';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { Button, Div, Title, Span, Picker } from "./MonthPicker.styled";
+import "moment/locale/ru";
+import moment from "moment";
+import ReportIcon from "../ReportIcon/ReportIcon";
 
 const MonthPicker = ({
   monthChangeHandler,
@@ -21,7 +21,7 @@ const MonthPicker = ({
           </NavLink>
         </Button>
         <Span>
-          {moment(dateMonth).format('MMMM')} {dateYears}
+          {moment(dateMonth).format("MMMM")} {dateYears}
         </Span>
         <Button type="button" onClick={monthChangeHandlerRight}>
           <NavLink to={`/reports/costs`}>

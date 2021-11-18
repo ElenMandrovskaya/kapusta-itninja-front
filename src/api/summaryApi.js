@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 // РЕПОРТЫ ДЛЯ СВОДКИ (В ТРАЗАКЦАКШН ПЕЙДЖ)
 // пример запроса РАСХОД GET

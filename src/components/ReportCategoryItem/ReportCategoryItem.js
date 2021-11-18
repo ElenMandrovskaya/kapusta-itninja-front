@@ -1,7 +1,7 @@
-import React from 'react';
-import { useRouteMatch } from 'react-router-dom';
-import ReportIcon from '../ReportIcon/ReportIcon';
-import { CategoryItem, Text, NavLinkElem } from './ReportCategoryItem.styled';
+import React from "react";
+import { useRouteMatch } from "react-router-dom";
+import ReportIcon from "../ReportIcon/ReportIcon";
+import { CategoryItem, Text, NavLinkElem } from "./ReportCategoryItem.styled";
 
 function ReportCategoryItem({ name, sum, icon }) {
   const { url } = useRouteMatch();

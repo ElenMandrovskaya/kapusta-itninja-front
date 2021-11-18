@@ -1,12 +1,12 @@
-import axios from 'axios';
+import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import * as transactionsApi from "../../api/transactionsApi";
 
-axios.defaults.baseURL = 'https://kapusta-finance-tracker.herokuapp.com';
+axios.defaults.baseURL = "https://kapusta-finance-tracker.herokuapp.com";
 
-export const getExpTransactions = createAsyncThunk('transactions/getExpTransactions', async () => {
+export const getExpTransactions = createAsyncThunk("transactions/getExpTransactions", async () => {
     try {
-        const { data } = await axios.get('/api/transactions/expense');
+        const { data } = await axios.get("/api/transactions/expense");
         // console.log(data)
         return data;
     } catch (error) {
@@ -14,9 +14,9 @@ export const getExpTransactions = createAsyncThunk('transactions/getExpTransacti
     }
 });
 
-export const getIncTransactions = createAsyncThunk('transactions/getIncTransactions', async () => {
+export const getIncTransactions = createAsyncThunk("transactions/getIncTransactions", async () => {
     try {
-        const { data } = await axios.get('/api/transactions/income');
+        const { data } = await axios.get("/api/transactions/income");
         console.log(data)
         return data;
     } catch (error) {

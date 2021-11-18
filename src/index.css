@@ -1,5 +1,5 @@
-@import '../node_modules/modern-normalize/modern-normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+@import "../node_modules/modern-normalize/modern-normalize.css";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
 
 :root {
 
@@ -20,13 +20,13 @@
  
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 html {
@@ -143,7 +143,7 @@ img {
 }
 
 .react-tabs__tab:focus:after {
-  content: '';
+  content: "";
   position: absolute;
   height: 5px;
   left: -4px;

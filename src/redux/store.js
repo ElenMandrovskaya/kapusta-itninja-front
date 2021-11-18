@@ -1,7 +1,7 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
-import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
-import authReducer from './auth/auth-slice'
+import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import authReducer from "./auth/auth-slice"
 // import balanceReducer from "./balance/balance-slice"
 
 const middleware = [
@@ -13,9 +13,9 @@ const middleware = [
   ];
 
   const authPersistConfig = {
-    key: 'auth',
+    key: "auth",
     storage,
-    whitelist: ['token'],
+    whitelist: ["token"],
   };
 
 export const store = configureStore({
@@ -24,7 +24,7 @@ export const store = configureStore({
         // balance: balanceReducer, 
       },
       middleware,
-    //   devtools: process.env.NODE_ENV !== 'production'
+    //   devtools: process.env.NODE_ENV !== "production"
   })
 
 export const persistor = persistStore(store);

@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
 export const Title = styled.p`
   @media screen and (max-width: 320px) {

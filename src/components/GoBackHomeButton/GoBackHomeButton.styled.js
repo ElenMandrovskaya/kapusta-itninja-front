@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
-import arrowBack from '../../images/arrow-back.svg';
+import styled from "@emotion/styled";
+import arrowBack from "../../images/arrow-back.svg";
 
 export const Title = styled.p`
   @media screen and (max-width: 320px) {
