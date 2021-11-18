@@ -46,7 +46,7 @@ export const CategoryList = styled.ul`
   position: absolute;
   left: 0px;
   top: 100%;
-    border: none;
+  border: none;
   outline: none;
   z-index: 100;
   color: var(--placeholder-text-color);
