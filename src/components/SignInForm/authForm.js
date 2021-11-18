@@ -16,7 +16,7 @@ import {
   FormInputDescription,
   FormInput,
   FormBtn,
-} from "./SignInForm.styled";
+} from "./AuthForm.styled.js";
 
 function AuthForm() {
   const dispatch = useDispatch();

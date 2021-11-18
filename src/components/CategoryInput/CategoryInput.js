@@ -10,7 +10,7 @@ const CategoryInput = ({ type, setTypeTransaction, categoryPick, setCategory, se
     const [isCategories, setIsCategories] = useState(false);
     const [categories, setCategories] = useState("");
 
-    useEffect(() => {   
+    useEffect((type) => {   
         async function getCategory() {
             try {
                 const listExp = await getCategoriesByExpense();
