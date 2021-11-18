@@ -7,6 +7,7 @@ export const Icon = styled.svg`
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: 59px 46px;
+  transition: all linear 0.3s;
   &:hover {
     background-image: url(${imgHover});
     fill: var(--accent-color);

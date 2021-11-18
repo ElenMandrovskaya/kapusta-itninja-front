@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import img from "../../images/delete.svg";
+import styled from '@emotion/styled';
+import img from '../../images/delete.svg';
 
 export const Item = styled.li`
   display: grid;
@@ -23,7 +23,7 @@ export const Item = styled.li`
     text-overflow: ellipsis;
   }
 
-    /* @media screen and (max-width: 767px) {
+  /* @media screen and (max-width: 767px) {
     &:nth-child(1) {
       grid-row: 2 / 4;
     }
@@ -47,7 +47,7 @@ export const Item = styled.li`
       grid-row: 1 / 4;
     }
   } */
-/* 
+  /* 
     @media screen and (min-width: 768px) {
     display: grid;
     align-items: center;
@@ -63,7 +63,7 @@ export const Item = styled.li`
     }
   } */
 
-    @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1280px) {
     grid-template-columns: 170px 248px 164px 116px 50px;
 
     & span {
@@ -81,15 +81,16 @@ export const ItemSum = styled.span`
 `;
 
 export const ItemBtn = styled.button`
-    width: 32px;
-    height: 32px;
-    border-radius: 20px;
-    border: none;
-    background-color: inherit;
-    background-image: url(${img});
-    background-repeat: no-repeat;
-    background-position: center;
-    &:hover {
-      background-color: #f5f6fb;
-    }
+  width: 32px;
+  height: 32px;
+  border-radius: 20px;
+  border: none;
+  background-color: inherit;
+  background-image: url(${img});
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all linear 0.3s;
+  &:hover {
+    background-color: #f5f6fb;
+  }
 `;

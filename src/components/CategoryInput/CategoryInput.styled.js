@@ -1,7 +1,7 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const CategoryContainer = styled.div`
-position: relative;
+  position: relative;
   @media screen and (max-width: 767px) {
     margin-bottom: 30px;
   }
@@ -16,7 +16,7 @@ export const Input = styled.input`
   outline: none;
   padding-left: 21px;
   &::placeholder {
-    color: #C7CCDC;
+    color: #c7ccdc;
   }
 
   &:focus + .arrow {
@@ -46,17 +46,17 @@ export const CategoryList = styled.ul`
   position: absolute;
   left: 0px;
   top: 100%;
-    border: none;
+  border: none;
   outline: none;
   z-index: 100;
   color: var(--placeholder-text-color);
   background-color: #fff;
   box-shadow: 0px 3px 4px rgba(170, 178, 197, 0.4);
-  
-@media screen and (min-width: 768px) {
-   width: 171px;
+
+  @media screen and (min-width: 768px) {
+    width: 171px;
   }
-@media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1280px) {
     width: 188px;
   }
 `;
@@ -76,7 +76,7 @@ export const CategoryLabel = styled.label`
   display: inline-block;
   cursor: pointer;
   outline: none;
-
+  transition: all linear 0.3s;
   &:hover,
   &:focus {
     background-color: var(--table-color);
@@ -84,8 +84,7 @@ export const CategoryLabel = styled.label`
   }
 `;
 
-export const RadioButton = styled.input`
-`;
+export const RadioButton = styled.input``;
 
 export const ArrowDown = styled.span`
   position: absolute;
@@ -94,7 +93,7 @@ export const ArrowDown = styled.span`
   width: 12px;
   height: 8px;
   /* color: var(--main-text-color); */
-  `;
+`;
 
 export const ArrowUp = styled.span`
   position: absolute;
@@ -103,4 +102,4 @@ export const ArrowUp = styled.span`
   width: 12px;
   height: 8px;
   /* color: var(--main-text-color); */
-  `;
+`;

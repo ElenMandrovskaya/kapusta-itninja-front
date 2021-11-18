@@ -1,18 +1,13 @@
 import styled from '@emotion/styled';
 
 export const CartsBg = styled.div`
-  /* background: #FFFFFF; */
-  /* shadow 1 */
   display: flex;
   justify-content: center;
   align-items: center;
-
   border-radius: 30px;
   margin: 0 auto;
-
   background-color: #fff;
   width: 758px;
-
   background: linear-gradient(
     to top,
     #ffffff 0%,
