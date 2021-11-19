@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
+import { useDispatch } from "react-redux";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import Balance from "../../components/Balance/Balance";
 import GoToStatementsButton from "../../components/GoToStatementsButton/GoToStatementsButton"
@@ -7,8 +8,13 @@ import TransactionsExpense from "../../components/TransactionsExpense/Transactio
 import TransactionsIncome from "../../components/TransactionsIncome/TransactionsIncome";
 import TransactionsIncForm from "../../components/TransactionsIncForm/TransactionsIncForm";
 import { AppWrap, BalannceTab } from "../../app/App.styled";
-
+import * as authOperations from "../../redux/auth/auth-operations"
 const TransactionsPage = () => {
+    const dispatch = useDispatch();
+  
+    useEffect(() => {
+      dispatch(authOperations.getCurrentUser());
+    }, [dispatch]);
     // const [transactions, setTransactions] = useState("");
     // const onSubmit = ({typeTransaction, date, category, description, value, categoryId }) => {
     //     const newTransactons = {

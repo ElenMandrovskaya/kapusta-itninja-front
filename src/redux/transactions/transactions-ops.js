@@ -40,6 +40,7 @@ try {
    
 } catch (error) {
     // toast.error("");
+    return []
 }
 }
 );
