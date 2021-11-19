@@ -51,21 +51,12 @@ try {
 //     }
 // );
 
-// export const deleteExpTransaction = createAsyncThunk("/transactions/deleteExpTransaction",
-//         async transactionId => {
-//              await transactionsApi.getExpTransactions(transactionId);
-//                 return transactionId;
-//     })
-
-// export const deleteIncTransaction  = createAsyncThunk ("/transactions/deleteExpTransaction",
-//         async transactionId => {
-//              await transactionsApi.getIncTransactions(transactionId);
-//                 return transactionId;
-//     })
-
-// export const editBalance = createAsyncThunk("/transactions/editBalance",
-//     async balance => {
-//         await transactionsApi.editBalance(balance);
-//         return balance;
-//     }
-// )
+export const removeTransaction = createAsyncThunk('contacts/removecontact', async id => {
+    try {
+        await axios.delete(`api/transactions/${id}`);
+        return id;
+    }
+    catch (error) {
+     
+    }
+});

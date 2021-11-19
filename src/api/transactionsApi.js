@@ -62,10 +62,10 @@ export async function addIncTransactions(transactions) {
   // https://kapusta-finance-tracker.herokuapp.com/api/transactions/61944953da2a3c0076d5ebdd
   // 
 
-  export async function removeTransaction(transactionId){
-    const { data } = await axios.delete(`/api/transactions/${transactionId}`);
-    return data;
-  }
+  // export async function removeTransaction(transactionId){
+  //   const { data } = await axios.delete(`/api/transactions/${transactionId}`);
+  //   return data;
+  // }
 
 //     export async function getExpTransactions(transactionId){
 //     const { data } = await axios.delete(`/api/transactions/${transactionId}`);
