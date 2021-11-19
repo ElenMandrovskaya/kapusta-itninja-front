@@ -49,7 +49,7 @@ function ReportsPage() {
   return (
     <AppWrap>
       <ReportsPageHeader>
-        <GoBackHomeBtn />
+        <GoBackHomeBtn text="Вернуться на главную"/>
         <Balance />
         <MonthPicker
           monthChangeHandler={monthChangeHandler}

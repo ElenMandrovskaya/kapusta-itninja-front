@@ -5,7 +5,7 @@ import { Img, Title } from "./GoBackHomeButton.styled";
 import { NavLink } from "react-router-dom";
 // import arrowButton from "../../images/arrow-back.svg";
 
-const GoBackHomeBtn = () => {
+const GoBackHomeBtn = ({text}) => {
   return (
     <NavLink
       to="/transactions"
@@ -23,7 +23,7 @@ const GoBackHomeBtn = () => {
       })}
     >
       <Img />
-      <Title>Вернутся на главную</Title>
+      <Title>{text}</Title>
     </NavLink>
   );
 };

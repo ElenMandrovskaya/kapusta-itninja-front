@@ -4,7 +4,7 @@ import img from "../../images/delete.svg";
 export const Item = styled.li`
   display: grid;
   align-items: center;
-  grid-template-columns: 85px 100px 100px 30px;
+  grid-template-columns: 80px 85px 100px 30px;
   align-items: center;
   background: #fff;
   color: #52555f;
@@ -17,36 +17,6 @@ export const Item = styled.li`
   letter-spacing: 0.04em;
   height: 50px;
   padding: 0 10px;
-  & span {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-
-    @media screen and (max-width: 767px) {
-    &:nth-child(1) {
-      grid-row: 2 / 4;
-    }
-
-    &:nth-child(2) {
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    &:nth-child(3) {
-      grid-row: 2 / 4;
-    }
-
-    &:nth-child(4) {
-      grid-row: 1 / 4;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    &:nth-child(5) {
-      grid-row: 1 / 4;
-    }
-  }
 
     @media screen and (min-width: 768px) {
     display: grid;
@@ -72,12 +42,42 @@ export const Item = styled.li`
   }
 `;
 
-export const ItemDate = styled.span``;
-export const ItemDesc = styled.span``;
-export const ItemCategory = styled.span``;
+export const ItemDate = styled.span`
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+  @media screen and (max-width: 767px) {
+    grid-row: 2/4;
+  }
+`;
+export const ItemDesc = styled.span`
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+font-weight: 400;
+font-size: 10px;
+@media screen and (max-width: 767px) {
+    font-size: 14px;
+    font-weight: 700;
+  }
+`;
+export const ItemCategory = styled.span`
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+ @media screen and (max-width: 767px) {
+    grid-row: 1/4;
+  }
+`;
 export const ItemSum = styled.span`
-  font-weight: 700;
-  color: var(--green-text-color);
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+font-weight: 700;
+color: var(--green-text-color);
+@media screen and (max-width: 767px) {
+    grid-row: 1/4;
+  }
 `;
 
 export const ItemBtn = styled.button`
@@ -92,4 +92,8 @@ export const ItemBtn = styled.button`
     &:hover {
       background-color: #f5f6fb;
     }
+
+    @media screen and (max-width: 767px) {
+    grid-row: 1/4;
+  }
 `;

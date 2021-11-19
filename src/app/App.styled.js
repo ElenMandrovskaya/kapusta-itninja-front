@@ -3,9 +3,10 @@ import styled from "@emotion/styled";
 export const Container = styled.div`
   margin: 0 auto;
 
-  @media screen and (min-width: 320px) {
+  @media (min-width: 320px) and (max-width: 767px) {
     max-width: 320px;
     padding: 0 19px;
+    margin-top: -70px;
   }
   @media screen and (min-width: 768px) {
     max-width: 768px;

@@ -28,7 +28,7 @@ display: flex;
   flex-direction: column;
   }
 
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) and (max-width: 1279px) {
   margin-bottom: 30px;
   flex-wrap: wrap;
   justify-content: center;
@@ -36,7 +36,6 @@ display: flex;
 
   @media screen and (min-width: 1280px) {
   margin-bottom: 0;
-  flex-wrap: nowrap;
   }
 `;
 
@@ -82,8 +81,9 @@ export const FormBtn = styled.div`
  width: 272px;
   display: flex;
   justify-content: space-between;
+  margin-left: 0;
 
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) and (max-width: 1279px) {
   margin-top:30px;
 }
 

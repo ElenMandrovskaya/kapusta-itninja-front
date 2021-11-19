@@ -56,6 +56,7 @@ console.log(addIncome)
                 <FormInput>
                     <InputDesc
                         type="text"
+                        autoComplete="off"
                         placeholder="Описание дохода"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
@@ -70,6 +71,7 @@ console.log(addIncome)
                     />
                     <InputAmount
                         type="text"
+                        autoComplete="off"
                         placeholder="0,00"
                         value={value}
                         onChange={(e) => setValue(e.target.value)} 
