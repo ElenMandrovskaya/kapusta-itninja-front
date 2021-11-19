@@ -28,7 +28,7 @@ display: flex;
   flex-direction: column;
   }
 
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) and (max-width: 1279px) {
   margin-bottom: 30px;
   flex-wrap: wrap;
   justify-content: center;
@@ -78,18 +78,18 @@ export const FormInput = styled.div`
 
 
 export const FormBtn = styled.div`
- width: 272px;
+width: 272px;
 display: flex;
 justify-content: space-between;
 margin-left: 0;
 
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1279px) {
   margin-top:30px;
 }
 
-  @media screen and (min-width: 1280px) {
-  margin-left:15px;
-  }
+@media screen and (min-width: 1280px) {
+margin-left:15px;
+}
 `;
 
 export const InputAmount = styled.input`

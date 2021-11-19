@@ -3,7 +3,7 @@ import { Img, Title } from './GoBackHomeButton.styled';
 import { NavLink } from 'react-router-dom';
 
 
-const GoBackHomeBtn = () => {
+const GoBackHomeBtn = ({text}) => {
   return (
     <NavLink
       to="/transactions"
@@ -21,7 +21,7 @@ const GoBackHomeBtn = () => {
       })}
     >
       <Img />
-      <Title>Вернутся на главную</Title>
+      <Title>{text}</Title>
     </NavLink>
   );
 };

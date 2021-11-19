@@ -4,7 +4,7 @@ import img from '../../images/delete.svg';
 export const Item = styled.li`
   display: grid;
   align-items: center;
-  grid-template-columns: 85px 100px 100px 30px;
+  grid-template-columns: 80px 85px 100px 30px;
   align-items: center;
   background: #fff;
   color: #52555f;
@@ -70,25 +70,59 @@ export const Item = styled.li`
   }
 `;
 
-export const ItemDate = styled.span``;
-export const ItemDesc = styled.span``;
-export const ItemCategory = styled.span``;
+export const ItemDate = styled.span`
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+  @media screen and (max-width: 767px) {
+    grid-row: 2/4;
+  }
+`;
+export const ItemDesc = styled.span`
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+font-weight: 400;
+font-size: 10px;
+@media screen and (max-width: 767px) {
+    font-size: 14px;
+    font-weight: 700;
+  }
+`;
+export const ItemCategory = styled.span`
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+ @media screen and (max-width: 767px) {
+    grid-row: 1/4;
+  }
+`;
 export const ItemSum = styled.span`
-  font-weight: 700;
-  color: #e7192e;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+font-weight: 700;
+color: var(--red-text-color);
+@media screen and (max-width: 767px) {
+    grid-row: 1/4;
+  }
 `;
 
 export const ItemBtn = styled.button`
-  width: 32px;
-  height: 32px;
-  border-radius: 20px;
-  border: none;
-  background-color: inherit;
-  background-image: url(${img});
-  background-repeat: no-repeat;
-  background-position: center;
-  transition: all linear 0.3s;
-  &:hover {
-    background-color: #f5f6fb;
+    width: 32px;
+    height: 32px;
+    border-radius: 20px;
+    border: none;
+    background-color: inherit;
+    background-image: url(${img});
+    background-repeat: no-repeat;
+    background-position: center;
+    &:hover {
+      background-color: #f5f6fb;
+    }
+
+    @media screen and (max-width: 767px) {
+    grid-row: 1/4;
   }
 `;
+

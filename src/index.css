@@ -171,6 +171,20 @@ img {
   background: #fff;
 }
 
+.Add_button {
+  border-radius: 14px;
+  border: none;
+  background:#ff751d;
+  color: #fafbfd;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  /* margin-bottom: 10px; */
+}
+
 /* mobile */
 @media screen and (max-width: 767px) {
   .react-tabs__tab-list {
@@ -200,12 +214,16 @@ img {
   .react-tabs__tab-panel {
     position: absolute;
     bottom: 54px;
+    height: 214px;
     left: 0;
     width: 100%;
     overflow: hidden;
     padding: 0;
     background: inherit;
     text-align: center;
+    box-shadow: none;
+    border-radius: 0;
+    
   }
 }
 

@@ -21,6 +21,10 @@ export const Content = styled.div`
   box-shadow: 10px 10px 30px rgba(82, 85, 95, 0.4);
   border-radius: 30px;
   background-color: #fff;
+  @media screen and (max-width: 767px) {
+  width: 280px;
+  height: 174px;
+  }
 `;
 
 export const CloseButton = styled.button`
