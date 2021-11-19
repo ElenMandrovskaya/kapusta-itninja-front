@@ -12,7 +12,6 @@ import * as authOperations from "../../redux/auth/auth-operations";
 //   setisLoggedIn,
 // } from "../../redux/auth/auth-slice";
 
-
 // const GoogleAuth = () => {
 //   const dispatch = useDispatch();
 
@@ -48,7 +47,6 @@ import * as authOperations from "../../redux/auth/auth-operations";
 
 // export default GoogleAuth;
 
-
 const GoogleAuth = () => {
   const dispatch = useDispatch();
 
@@ -62,7 +60,12 @@ const GoogleAuth = () => {
   // console.log(data);
   return (
     <Fragment>
-      <GoogleAuthButton onClick={OnGoogleLoginBtn} />
+      <a
+        href="https://kapusta-finance-tracker.herokuapp.com/api/user/google"
+        alt="GoogleAuth"
+      >
+        <GoogleAuthButton onClick={OnGoogleLoginBtn} />
+      </a>
     </Fragment>
   );
 };
