@@ -47,16 +47,11 @@ export const Div = styled.div`
     border-radius: 20px;
   }
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   height: 50px;
-
   text-align: center;
-
   background: #ffffff;
-
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   border-radius: 30px;
   margin-top: 30px;

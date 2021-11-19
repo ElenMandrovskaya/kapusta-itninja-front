@@ -54,7 +54,7 @@ const GoogleAuth = () => {
 
   const OnGoogleLoginBtn = evt => {
     const data = dispatch(authOperations.googleAuth());
-    // console.log(data);
+    console.log(data);
     return data;
   };
 

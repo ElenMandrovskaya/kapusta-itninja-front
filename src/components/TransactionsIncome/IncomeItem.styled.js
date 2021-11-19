@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import img from "../../images/delete.svg";
+import styled from '@emotion/styled';
+import img from '../../images/delete.svg';
 
 export const Item = styled.li`
   display: grid;
@@ -33,7 +33,7 @@ export const Item = styled.li`
     }
   }
 
-    @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1280px) {
     grid-template-columns: 170px 248px 164px 116px 50px;
 
     & span {
@@ -97,3 +97,4 @@ export const ItemBtn = styled.button`
     grid-row: 1/4;
   }
 `;
+

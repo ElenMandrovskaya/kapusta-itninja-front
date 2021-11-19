@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import img from "../../images/delete.svg";
+import styled from '@emotion/styled';
+import img from '../../images/delete.svg';
 
 export const Item = styled.li`
   display: grid;
@@ -17,7 +17,35 @@ export const Item = styled.li`
   letter-spacing: 0.04em;
   height: 50px;
   padding: 0 10px;
+  & span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+    @media screen and (max-width: 767px) {
+    &:nth-child(1) {
+      grid-row: 2 / 4;
+    }
 
+    &:nth-child(2) {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    &:nth-child(3) {
+      grid-row: 2 / 4;
+    }
+
+    &:nth-child(4) {
+      grid-row: 1 / 4;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    &:nth-child(5) {
+      grid-row: 1 / 4;
+    }
+  }
     @media screen and (min-width: 768px) {
     display: grid;
     align-items: center;
@@ -33,7 +61,7 @@ export const Item = styled.li`
     }
   }
 
-    @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1280px) {
     grid-template-columns: 170px 248px 164px 116px 50px;
 
     & span {
@@ -97,3 +125,4 @@ export const ItemBtn = styled.button`
     grid-row: 1/4;
   }
 `;
+

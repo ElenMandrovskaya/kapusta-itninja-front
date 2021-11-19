@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import img from "../../images/close.svg";
+import styled from '@emotion/styled';
+import img from '../../images/close.svg';
 
 export const Backdrop = styled.div`
   position: fixed;
@@ -38,8 +38,8 @@ export const CloseButton = styled.button`
 `;
 
 export const CloseIcon = styled.svg`
-background-image: url(${img});
-background-repeat: no-repeat;
+  background-image: url(${img});
+  background-repeat: no-repeat;
 `;
 
 export const TextContent = styled.p`
