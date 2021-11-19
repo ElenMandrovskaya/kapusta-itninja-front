@@ -14,7 +14,7 @@ export const Input = styled.input`
   border-bottom: 2px solid var(--table-color);
   border-left: none;
   outline: none;
-  padding-left: 21px;
+  padding-left: 5px;
   &::placeholder {
     color: #c7ccdc;
   }

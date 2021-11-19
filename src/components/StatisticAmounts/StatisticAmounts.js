@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import {
   Div,
@@ -6,7 +6,7 @@ import {
   ProfitSpan,
   Vl,
   CostSpan,
-} from './StatisticAmounts.styled';
+} from "./StatisticAmounts.styled";
 
 const StatisticAmounts = ({ categoriesCosts, categoriesIncome }) => {
   let totalCosts = 0;

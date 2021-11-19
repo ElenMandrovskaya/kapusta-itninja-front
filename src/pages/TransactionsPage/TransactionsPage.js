@@ -9,7 +9,7 @@ import TransactionsIncForm from "../../components/TransactionsIncForm/Transactio
 import { AppWrap, BalannceTab } from "../../app/App.styled";
 
 const TransactionsPage = () => {
-    const [transactions, setTransactions] = useState('');
+    const [transactions, setTransactions] = useState("");
     const onSubmit = ({typeTransaction, date, category, description, value, categoryId }) => {
         const newTransactons = {
             typeTransaction,

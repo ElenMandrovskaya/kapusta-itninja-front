@@ -1,8 +1,8 @@
-import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import { ReportContainer } from './Report.styled';
-import ReportCosts from '../ReportCosts/ReportCosts';
-import ReportIncome from '../ReportIncome/ReportIncome';
+import React from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
+import { ReportContainer } from "./Report.styled";
+import ReportCosts from "../ReportCosts/ReportCosts";
+import ReportIncome from "../ReportIncome/ReportIncome";
 
 function Report({ dateMonth, dateYears, categoriesCosts, categoriesIncome }) {
   return (

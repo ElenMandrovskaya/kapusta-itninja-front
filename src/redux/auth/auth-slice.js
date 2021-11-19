@@ -1,14 +1,14 @@
-import { createSlice } from '@reduxjs/toolkit';
-import * as authOperations from './auth-operations';
+import { createSlice } from "@reduxjs/toolkit";
+import * as authOperations from "./auth-operations";
 
 const initialState = {
-  user: { name: '', email: '', balance: 0 },
+  user: { name: "", email: "", balance: 0 },
   token: null,
   isLoggedIn: false,
 };
 
 const authSlice = createSlice({
-  name: 'auth',
+  name: "auth",
   initialState,
   reducers: {
     setEmail: (state, action) => {
@@ -51,7 +51,7 @@ const authSlice = createSlice({
       // state.user = action.payload.user;
       // state.token = action.payload.token;
       // state.isLoggedIn = true;
-      console('googleAuth.fulfilled');
+      console("googleAuth.fulfilled");
     },
   },
 });

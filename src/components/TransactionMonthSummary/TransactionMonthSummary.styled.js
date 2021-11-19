@@ -3,6 +3,13 @@ import styled from "@emotion/styled";
 export const Summary = styled.div`
   width: 230px;
   height: 278px;
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+
+  @media (min-width: 768px) and (max-width: 1280px) {
+    height: 300px;
+  }
 `;
 export const Title = styled.h4`
     display: flex;

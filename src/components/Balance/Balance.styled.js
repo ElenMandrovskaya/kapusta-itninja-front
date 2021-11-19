@@ -103,22 +103,22 @@ export const BalanceWrap = styled.div`
 `;
 
 export const BalanceModal = styled.div`
-  z-index: 10;
-  position: absolute;
-  top: calc(100% + 18px);
-  width: 282px;
-  border-radius: 30px;
-  background: linear-gradient(117.84deg, #1d346a 2.84%, #031634 67.28%);
-  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
-  color: white;
-  padding: 30px 25px 15px 25px;
-  &::before {
-    content: '';
-    position: absolute;
-    top: -24px;
-    left: 69px;
-    border: 12px solid transparent;
-    border-bottom: 13px solid #162b58;
+z-index: 10;
+position: absolute;
+top: calc(100% + 18px);
+width: 282px;
+border-radius: 30px;
+background: linear-gradient(117.84deg, #1d346a 2.84%, #031634 67.28%);
+box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+color: white;
+padding: 30px 25px 15px 25px;
+&::before {
+content: "";
+position: absolute;
+top: -24px;
+left: 69px;
+border: 12px solid transparent; 
+border-bottom: 13px solid #162b58;
 
     @media screen and (min-width: 768px) {
       left: 47px;

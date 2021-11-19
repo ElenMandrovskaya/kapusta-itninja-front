@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 // import { useDispatch } from "react-redux";
 // import * as transactionsOps from "../../redux/transactions/transactions-ops";
+// import * as authOperations from "../../redux/balance/balance-operations"
 import Calendar from "../Calendar/Calendar";
 import CategoryInput from "../CategoryInput/CategoryInput";
 import { Form, Wrapper, FormInput, FormBtn, InputAmount, InputDesc, ButtonOrange,Button } from "./TransactionsIncForm.styled";
@@ -10,17 +11,17 @@ const TransactionsIncForm = ({ onSubmit }) => {
     const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
     const [value, setValue] = useState("");
-    const [categoryId, setCategoryId] = useState('');
-    const [typeTransaction, setTypeTransaction] = useState('');
+    const [categoryId, setCategoryId] = useState("");
+    const [typeTransaction, setTypeTransaction] = useState("");
     // const dispatch = useDispatch();
 
     const reset = () => {
     setStartDate(new Date());
     setCategory("");
-    setCategoryId('');
+    setCategoryId("");
     setDescription("");
     setValue("");
-    setTypeTransaction('');
+    setTypeTransaction("");
     };
     
     const addIncome = (e) => {
@@ -31,13 +32,14 @@ const TransactionsIncForm = ({ onSubmit }) => {
       startDate.getFullYear(),
         ].join(".");
     // const body = {
-    //   type: "income",
+    //   typeTransaction,
     //   date,
-    //   amount: +amount,
+    //   value: +value,
     //   categoryId,
     //   description,
     // };
-    // dispatch(transactionsOps.addTransaction(body));
+    //     dispatch(transactionsOps.addExpTransaction(body));
+    //     dispatch(authOperations.updBalance());
         onSubmit({typeTransaction, date, description, category, categoryId, value });
 
         reset();

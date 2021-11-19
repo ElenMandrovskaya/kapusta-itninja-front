@@ -7,7 +7,7 @@ export const Backdrop = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 101; //потому что в CategoriesListItems - 100
+  z-index: 101; 
   backdrop-filter: blur(5px);
 `;
 

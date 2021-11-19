@@ -1,16 +1,16 @@
-import React, { Fragment } from 'react';
-// import GoogleLogin from 'react-google-login';
-import GoogleAuthButton from './GoogleAuthButton';
-import { useDispatch } from 'react-redux';
-import * as authOperations from '../../redux/auth/auth-operations';
+import React, { Fragment } from "react";
+// import GoogleLogin from "react-google-login";
+import GoogleAuthButton from "./GoogleAuthButton";
+import { useDispatch } from "react-redux";
+import * as authOperations from "../../redux/auth/auth-operations";
 
-// import { googleAuth } from '../../redux/auth/auth-operations';
+// import { googleAuth } from "../../redux/auth/auth-operations";
 // import {
 //   setName,
 //   setEmail,
 //   setToken,
 //   setisLoggedIn,
-// } from '../../redux/auth/auth-slice';
+// } from "../../redux/auth/auth-slice";
 
 
 // const GoogleAuth = () => {
@@ -40,7 +40,7 @@ import * as authOperations from '../../redux/auth/auth-operations';
 //           <GoogleAuthButton onClick={onClick} disabled={disabled} />
 //         )}
 //         onSuccess={successLogin}
-//         cookiePolicy={'single_host_origin'}
+//         cookiePolicy={"single_host_origin"}
 //       />
 //     </Fragment>
 //   );

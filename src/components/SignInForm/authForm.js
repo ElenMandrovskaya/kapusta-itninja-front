@@ -1,12 +1,12 @@
-import React, { Fragment, useState } from 'react';
-// import { FcGoogle } from 'react-icons/fc';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { useDispatch } from 'react-redux';
-import * as authOperations from '../../redux/auth/auth-operations';
-// import { authSelectors } from '../../redux/auth/auth-selectors';
-import GoogleAuth from '../GoogleAuth/GoogleAuth';
-// import * as Yup from 'yup';
+import React, { Fragment, useState } from "react";
+// import { FcGoogle } from "react-icons/fc";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useDispatch } from "react-redux";
+import * as authOperations from "../../redux/auth/auth-operations";
+// import { authSelectors } from "../../redux/auth/auth-selectors";
+import GoogleAuth from "../GoogleAuth/GoogleAuth";
+// import * as Yup from "yup";
 
 import {
   AuthGoogleDescription,
@@ -16,29 +16,29 @@ import {
   FormInputDescription,
   FormInput,
   FormBtn,
-} from './SignInForm.styled';
+} from "./AuthForm.styled.js";
 
-function AuthForm() {
+export default function AuthForm() {
   const dispatch = useDispatch();
   const [isRegistration, setRegistration] = useState(false);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   // let schemaMail = Yup.string().email();
-  // let result = schemaMail.isValidSync('test@test.com'); // isValidSync returns boolean
+  // let result = schemaMail.isValidSync("test@test.com"); // isValidSync returns boolean
   // console.log(result);
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
     switch (name) {
-      case 'name':
+      case "name":
         setName(value);
         break;
-      case 'email':
+      case "email":
         setEmail(value);
         break;
-      case 'password':
+      case "password":
         setPassword(value);
         break;
 
@@ -53,15 +53,15 @@ function AuthForm() {
   };
 
   const resetInputs = () => {
-    setEmail('');
-    setPassword('');
-    setName('');
+    setEmail("");
+    setPassword("");
+    setName("");
   };
 
   const OnSubmitRegBtn = evt => {
     evt.preventDefault();
     if (!name || !email || !password) {
-      toast.info('Fill in all the fields')
+      toast.info("Fill in all the fields")
       return;
     }
     dispatch(authOperations.signUp({ name, email, password }));
@@ -71,7 +71,7 @@ function AuthForm() {
   const OnSubmitSignInBtn = evt => {
     evt.preventDefault();
     if (!email || !password) {
-      toast.info('Fill in all the fields')
+      toast.info("Fill in all the fields")
       return;
     }
     dispatch(authOperations.signIn({ email, password }));
@@ -106,7 +106,7 @@ function AuthForm() {
             <FormInputDescription>Введите имя:</FormInputDescription>
             <FormInput
               //   onBlur={blurHandler}
-              placeholder={'Barry Donatello'}
+              placeholder={"Barry Donatello"}
               type="name"
               name="name"
               onChange={handleChange}
@@ -120,7 +120,7 @@ function AuthForm() {
           <FormInputDescription>Электронная почта:</FormInputDescription>
           <FormInput
             // onBlur={blurHandler}
-            placeholder={'your@email.com'}
+            placeholder={"your@email.com"}
             type="email"
             name="email"
             onChange={handleChange}
@@ -132,7 +132,7 @@ function AuthForm() {
         <LabelInputForm marginBTM>
           <FormInputDescription>Пароль:</FormInputDescription>
           <FormInput
-            placeholder={'········'}
+            placeholder={"········"}
             type="password"
             name="password"
             onChange={handleChange}
@@ -170,4 +170,4 @@ function AuthForm() {
   );
 }
 
-export default AuthForm;
+ 

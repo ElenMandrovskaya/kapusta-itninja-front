@@ -12,7 +12,7 @@ export const Item = styled.li`
   font-family: Roboto;
   font-style: normal;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 10px;
   line-height: 15px;
   letter-spacing: 0.04em;
   height: 50px;
@@ -22,8 +22,7 @@ export const Item = styled.li`
     white-space: nowrap;
     text-overflow: ellipsis;
   }
-
-  /* @media screen and (max-width: 767px) {
+    @media screen and (max-width: 767px) {
     &:nth-child(1) {
       grid-row: 2 / 4;
     }
@@ -46,8 +45,7 @@ export const Item = styled.li`
     &:nth-child(5) {
       grid-row: 1 / 4;
     }
-  } */
-  /* 
+  }
     @media screen and (min-width: 768px) {
     display: grid;
     align-items: center;
@@ -61,7 +59,7 @@ export const Item = styled.li`
     & span {
       padding: 0px 13px 0px 0px;
     }
-  } */
+  }
 
   @media screen and (min-width: 1280px) {
     grid-template-columns: 170px 248px 164px 116px 50px;

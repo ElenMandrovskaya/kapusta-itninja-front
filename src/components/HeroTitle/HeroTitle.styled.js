@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import logo from '../../images/logoBgMobile.svg';
-import logoTab from '../../images/logoBgTab.svg';
-import logoDesc from '../../images/logoBgDesc.svg';
+import logo from "../../images/logoBgMobile.svg";
+import logoTab from "../../images/logoBgTab.svg";
+import logoDesc from "../../images/logoBgDesc.svg";
 
 export const HeroLogo = styled.div`
 width: 183px;

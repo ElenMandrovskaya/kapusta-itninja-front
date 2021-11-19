@@ -2,13 +2,13 @@ import React, {useState, useEffect} from "react";
 import moment from "moment";
 import { Summary, Title, SummaryList, SummaryItem  } from "./TransactionMonthSummary.styled"
 import {getSummaryExpense, getSummaryIncome} from "../../api/summaryApi"
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const TransactionMonthSummary = ({type}) => {
     const [summary, setSummary] = useState("");
 
-        useEffect(() => {   
+        useEffect((type) => {   
             async function getSummary() {
                 try {
                     const exp = await getSummaryExpense();

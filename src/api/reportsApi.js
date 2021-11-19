@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios from "axios";
 
-axios.defaults.baseURL = 'https://kapusta-finance-tracker.herokuapp.com';
+axios.defaults.baseURL = "https://kapusta-finance-tracker.herokuapp.com";
 
 export async function getCategoriesByCosts(month, year) {
   const { data } = await axios.get(

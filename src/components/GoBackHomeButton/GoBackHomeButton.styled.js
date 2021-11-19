@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
-import arrowBack from '../../images/arrow-back.svg';
+import styled from "@emotion/styled";
+import arrowBack from "../../images/arrow-back.svg";
 
 export const Title = styled.p`
    transition: all linear 0.3s;

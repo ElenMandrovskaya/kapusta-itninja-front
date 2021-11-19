@@ -1,6 +1,6 @@
-import styled from '@emotion/styled';
-import img from '../../images/bg-img.svg';
-import imgHover from '../../images/bg-img-hover.svg';
+import styled from "@emotion/styled";
+import img from "../../images/bg-img.svg";
+import imgHover from "../../images/bg-img-hover.svg";
 
 export const Icon = styled.svg`
   background-image: url(${img});
