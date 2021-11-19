@@ -14,16 +14,15 @@ export const getExpTransactions = createAsyncThunk("transactions/getExpTransacti
     }
 });
 
-// export const getIncTransactions = createAsyncThunk("transactions/getIncTransactions", async () => {
-//     try {
-//         // const { data } = await axios.get("/api/transactions/income");
-//         const { data } = await transactionsApi.getIncTransactions();
-//         // console.log(data)
-//         return data;
-//     } catch (error) {
-//         // toast.error("");
-//     }
-// });
+export const getIncTransactions = createAsyncThunk("transactions/getIncTransactions", async () => {
+    try {
+        const { data } = await axios.get("/api/transactions/income");
+        return data.result.transactions;
+    } catch (error) {
+        // toast.error("");
+        return []
+    }
+});
 
 export const addExpTransaction = createAsyncThunk("transactions/addExpTransaction", async ({ typeTransaction, date, description, categoryId, value }) => {
 try {
@@ -31,11 +30,8 @@ try {
         description: description,
         value: value,
         typeTransaction: typeTransaction,
-        // date: date
     }
-    // console.log(date.day)
     const { data } = await axios.post(`/api/transactions/expense/${categoryId}/?day=${date.day}&month=${date.month}&year=${date.year}`, newTransaction );
-    
     return data.result.result;
    
 } catch (error) {
@@ -45,12 +41,21 @@ try {
 }
 );
 
-// export const addIncTransaction = createAsyncThunk("transactions/addIncTransaction",
-//     async transactions => {    
-//         const newTransaction = await transactionsApi.addIncTransactions(transactions);
-//         return newTransaction.data.result;
-//     }
-// );
+export const addIncTransaction = createAsyncThunk("transactions/addIncTransaction", async ({ typeTransaction, date, description, categoryId, value }) => {
+    try {
+        const newTransaction = {
+            description: description,
+            value: value,
+            typeTransaction: typeTransaction,
+        }
+        const { data } = await axios.post(`/api/transactions/expense/${categoryId}/?day=${date.day}&month=${date.month}&year=${date.year}`, newTransaction );
+        return data.result.result;
+       
+    } catch (error) {
+        // toast.error("");
+        return []
+    }
+);
 
 export const removeTransaction = createAsyncThunk('contacts/removecontact', async id => {
     try {

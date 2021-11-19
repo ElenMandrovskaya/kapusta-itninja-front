@@ -14,6 +14,9 @@ const transactionsSlice = createSlice({
         },
 
         [transactionsOps.addExpTransaction.fulfilled]: (state, action) => {
+            state.items.push(action.payload)
+        },
+        [transactionsOps.addIncTransaction.fulfilled]: (state, action) => {
             console.log(action.payload)
             state.items.push(action.payload)
         },
