@@ -48,13 +48,14 @@ export const addIncTransaction = createAsyncThunk("transactions/addIncTransactio
             value: value,
             typeTransaction: typeTransaction,
         }
-        const { data } = await axios.post(`/api/transactions/expense/${categoryId}/?day=${date.day}&month=${date.month}&year=${date.year}`, newTransaction );
+        const { data } = await axios.post(`/api/transactions/income/${categoryId}/?day=${date.day}&month=${date.month}&year=${date.year}`, newTransaction );
         return data.result.result;
        
     } catch (error) {
         // toast.error("");
         return []
     }
+}
 );
 
 export const removeTransaction = createAsyncThunk('contacts/removecontact', async id => {

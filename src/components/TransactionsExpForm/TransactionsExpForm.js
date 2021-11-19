@@ -5,7 +5,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import Calendar from "../Calendar/Calendar";
 import CategoryInput from "../CategoryInput/CategoryInput";
 import { Form, Wrapper, FormInput, FormBtn, InputAmount, InputDesc, ButtonOrange, Button } from "./TransactionsExpForm.styled";
-// import { getContacts } from '../../redux/contacts/contacts-selectors';
 import * as transactionstOperations from "../../redux/transactions/transactions-ops";
 
 const TransactionsExpForm = () => {
@@ -37,7 +36,6 @@ const TransactionsExpForm = () => {
         reset();
     };
 
-    // console.log(reset)
     return (
         <Form onSubmit={addExpense} >
             <Wrapper>
