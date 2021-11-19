@@ -15,7 +15,7 @@ const transactionsSlice = createSlice({
 
         [transactionsOps.addExpTransaction.fulfilled]: (state, action) => {
             console.log(action.payload)
-            state.items = [action.payload, ...state.items];
+            state.transactions.items = [action.payload, ...state.transactions.items];
         },
         // [transactionsOps.addExpTransaction.pending]: (state, _) => {
         //     state.error = null;

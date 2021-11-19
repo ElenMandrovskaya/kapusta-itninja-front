@@ -5,12 +5,14 @@ import ExpenseItem from "./ExpenseItem";
 import TransactionMonthSummary from "../TransactionMonthSummary/TransactionMonthSummary";
 import { Main, Table, TableHead, TableTitle, TableList } from "./TransactionsExpense.styled";
 import * as transactionsOperations from "../../redux/transactions/transactions-ops";
+import { getAllTransactions } from "../../redux/transactions/transactions-selectors";
 
 const TransactionsExpense = () => {
 
-    const transactions = useSelector(state => state.transactions.items)
+    const transactions = useSelector(getAllTransactions)
     const dispatch = useDispatch();
     useEffect(() => dispatch(transactionsOperations.getExpTransactions()), [dispatch]);
+    // console.log(transactions)
 
     return (
       <Main>
@@ -24,8 +26,8 @@ const TransactionsExpense = () => {
           </TableHead>
 
           {<TableList>
-                {transactions.map(({date, description, category, value, typeTransaction, _id}) => 
-                  (typeTransaction === "Expences" && <ExpenseItem key={_id} date={`${date.day}.${date.month}.${date.year}`} description={description} value={value} category={category} typeTransaction={typeTransaction} id={_id}/>)
+                {transactions && transactions.map(({date, description, category, value, typeTransaction, _id}) => 
+                  (typeTransaction === "Expenses" && <ExpenseItem key={_id} date={`${date.day}.${date.month}.${date.year}`} description={description} value={value} category={category} typeTransaction={typeTransaction} id={_id}/>)
                 )}
               </TableList>}
         </Table>

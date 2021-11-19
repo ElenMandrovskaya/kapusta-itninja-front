@@ -28,18 +28,11 @@ const TransactionsExpForm = () => {
     
     const addExpense = (e) => {
         e.preventDefault();
-    //     const date = [
-    //   startDate.getDate(),
-    //   startDate.getMonth() + 1,
-    //   startDate.getFullYear(),
-    // ].join(".");
     const date = {
         day: startDate.getDate(),
         month: startDate.getMonth() + 1,
         year: startDate.getFullYear()
     }
-    // console.log(date.day)
-        // onSubmit({typeTransaction, date, description, category, categoryId, value });
         dispatch(transactionstOperations.addExpTransaction({ typeTransaction, date, description, category, categoryId, value }))
         reset();
     };

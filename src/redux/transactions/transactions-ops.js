@@ -10,6 +10,7 @@ export const getExpTransactions = createAsyncThunk("transactions/getExpTransacti
         return data.result.transactions;
     } catch (error) {
         // toast.error("");
+        return []
     }
 });
 

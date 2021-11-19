@@ -1,2 +1,1 @@
-export const getIncomes = (state) => state.transactions.incomes;
-export const getExpenses = (state) => state.transactions.expenses;
+export const getAllTransactions = (state) => state.transactions.items;
