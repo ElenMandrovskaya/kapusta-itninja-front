@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import arrowBack from "../../images/arrow-back.svg";
 
 export const Title = styled.p`
+   transition: all linear 0.3s;
   @media screen and (max-width: 320px) {
     display: none;
   }
@@ -17,7 +18,5 @@ export const Img = styled.svg`
   display: flex;
   align-items: center;
   text-align: center;
-
-  /* display: block; */
   margin-right: 15px;
 `;

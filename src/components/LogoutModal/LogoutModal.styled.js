@@ -1,5 +1,4 @@
-import styled from "@emotion/styled";
-
+import styled from '@emotion/styled';
 
 export const ModalWrapper = styled.div`
   width: 310px;
@@ -9,40 +8,40 @@ export const ModalWrapper = styled.div`
   align-items: center;
   background-color: #fff;
   border-radius: 30px;
-  
+
   @media screen and (min-width: 768px) {
     width: 380px;
-}
+  }
 `;
 
 export const ModalContent = styled.div`
-    display: flex;
-    flex-flow: column;
+  display: flex;
+  flex-flow: column;
 `;
 
 export const ModalLogoutP = styled.p`
   width: 281px;
   font-weight: 500;
   padding-bottom: 20px;
-  color:  var(--main-text-color);
+  color: var(--main-text-color);
 `;
 
 export const ModalLogoutButton = styled.div`
-    display: flex;
-    justify-content: space-between;
-    width: 265px; 
+  display: flex;
+  justify-content: space-between;
+  width: 265px;
 `;
-  
+
 export const Button = styled.button`
   width: 125px;
   height: 44px;
   font-weight: 700;
-  color:  var(--main-text-color); 
-  justify-content: center; 
+  color: var(--main-text-color);
+  justify-content: center;
   text-transform: uppercase;
   border-radius: 16px;
   background-color: transparent;
-  border: 2px solid #F5F6FB;
+  border: 2px solid #f5f6fb;
   transition: 0.3s ease-in-out;
 
   &:hover {
