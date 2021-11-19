@@ -1,38 +1,32 @@
-import React from "react";
+import React from 'react';
 
-import {
-  Div,
-  Title,
-  ProfitSpan,
-  Vl,
-  CostSpan,
-} from "./StatisticAmounts.styled";
+import { Div, Title, ProfitSpan, Vl, CostSpan } from './StatisticAmounts.styled';
 
 const StatisticAmounts = ({ categoriesCosts, categoriesIncome }) => {
-  let totalCosts = 0;
-  let totalIncome = 0;
+    let totalCosts = 0;
+    let totalIncome = 0;
 
-  if (categoriesCosts) {
-    const sum = categoriesCosts.reduce((acc, amount) => {
-      return acc + amount.total;
-    }, 0);
-    totalCosts = sum.toLocaleString();
-  }
+    if (categoriesCosts) {
+        const sum = categoriesCosts.reduce((acc, amount) => {
+            return acc + amount.total;
+        }, 0);
+        totalCosts = sum.toLocaleString();
+    }
 
-  if (categoriesIncome) {
-    const sum = categoriesIncome.reduce((acc, amount) => {
-      return acc + amount.total;
-    }, 0);
-    totalIncome = sum.toLocaleString();
-  }
+    if (categoriesIncome) {
+        const sum = categoriesIncome.reduce((acc, amount) => {
+            return acc + amount.total;
+        }, 0);
+        totalIncome = sum.toLocaleString();
+    }
 
-  return (
-    <Div>
-      <Title>Расходы: {<CostSpan> - {totalCosts}.00 грн.</CostSpan>} </Title>
-      <Vl />
-      <Title>Доходы:{<ProfitSpan> + {totalIncome}.00 грн.</ProfitSpan>} </Title>
-    </Div>
-  );
+    return (
+        <Div>
+            <Title>Расходы:{<CostSpan>- {totalCosts}.00 грн.</CostSpan>} </Title>
+            <Vl />
+            <Title>Доходы:{<ProfitSpan>+ {totalIncome}.00 грн.</ProfitSpan>} </Title>
+        </Div>
+    );
 };
 
 export default StatisticAmounts;
