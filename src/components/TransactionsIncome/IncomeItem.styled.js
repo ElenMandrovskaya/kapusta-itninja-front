@@ -24,26 +24,26 @@ export const Item = styled.li`
   }
 
     @media screen and (max-width: 767px) {
-    &:nth-child(1) {
+    &::nth-of-type(1) {
       grid-row: 2 / 4;
     }
 
-    &:nth-child(2) {
+    &::nth-of-type(2) {
       font-size: 14px;
       font-weight: 700;
     }
 
-    &:nth-child(3) {
+    &::nth-of-type(3) {
       grid-row: 2 / 4;
     }
 
-    &:nth-child(4) {
+    &::nth-of-type(4) {
       grid-row: 1 / 4;
       font-size: 12px;
       font-weight: 700;
     }
 
-    &:nth-child(5) {
+    &::nth-of-type(5) {
       grid-row: 1 / 4;
     }
   }

@@ -1,20 +1,17 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
 import ExpenseItem from "./ExpenseItem";
 import TransactionMonthSummary from "../TransactionMonthSummary/TransactionMonthSummary";
 import { Main, Table, TableHead, TableTitle, TableList } from "./TransactionsExpense.styled";
-// import expense from "../../data/expense.json";
+import * as transactionsOperations from "../../redux/transactions/transactions-ops";
 
-const TransactionsExpense = ({transactions}) => {
-    const sortedArray = [...transactions]
-    // .sort((prevExpense, nextExpense) => {
-    // const prevDateArr = prevExpense.date.split(".");
-    //   const nextDateArr = nextExpense.date.split(".");
-    // return (
-    //   new Date(`${nextDateArr[1]}.${nextDateArr[0]}.${nextDateArr[2]}`) -
-    //   new Date(`${prevDateArr[1]}.${prevDateArr[0]}.${prevDateArr[2]}`)
-    // );
-    // });
-    // console.log(sortedArray)
+const TransactionsExpense = () => {
+
+    const transactions = useSelector(state => state.transactions.items)
+    const dispatch = useDispatch();
+    useEffect(() => dispatch(transactionsOperations.getExpTransactions()), [dispatch]);
+
     return (
       <Main>
         <Table>
@@ -27,8 +24,8 @@ const TransactionsExpense = ({transactions}) => {
           </TableHead>
 
           {<TableList>
-                {sortedArray.map(({date, description, category, value, typeTransaction}) => 
-                  (typeTransaction === "Expenses" && <ExpenseItem date={date} description={description} value={value} category={category} typeTransaction={typeTransaction}/>)
+                {transactions.map(({date, description, category, value, typeTransaction, _id}) => 
+                  (typeTransaction === "Expences" && <ExpenseItem key={_id} date={`${date.day}.${date.month}.${date.year}`} description={description} value={value} category={category} typeTransaction={typeTransaction} id={_id}/>)
                 )}
               </TableList>}
         </Table>

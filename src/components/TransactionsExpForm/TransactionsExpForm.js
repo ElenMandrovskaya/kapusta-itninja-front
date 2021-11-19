@@ -1,15 +1,21 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Calendar from "../Calendar/Calendar";
 import CategoryInput from "../CategoryInput/CategoryInput";
 import { Form, Wrapper, FormInput, FormBtn, InputAmount, InputDesc, ButtonOrange, Button } from "./TransactionsExpForm.styled";
+// import { getContacts } from '../../redux/contacts/contacts-selectors';
+import * as transactionstOperations from "../../redux/transactions/transactions-ops";
 
-const TransactionsExpForm = ({onSubmit}) => {
+const TransactionsExpForm = () => {
     const [startDate, setStartDate] = useState(new Date());
     const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
     const [value, setValue] = useState("");
     const [categoryId, setCategoryId] = useState("");
     const [typeTransaction, setTypeTransaction] = useState("");
+    const dispatch = useDispatch();
 
     const reset = () => {
     setStartDate(new Date());
@@ -22,12 +28,19 @@ const TransactionsExpForm = ({onSubmit}) => {
     
     const addExpense = (e) => {
         e.preventDefault();
-        const date = [
-      startDate.getDate(),
-      startDate.getMonth() + 1,
-      startDate.getFullYear(),
-    ].join(".");
-        onSubmit({typeTransaction, date, description, category, categoryId, value });
+    //     const date = [
+    //   startDate.getDate(),
+    //   startDate.getMonth() + 1,
+    //   startDate.getFullYear(),
+    // ].join(".");
+    const date = {
+        day: startDate.getDate(),
+        month: startDate.getMonth() + 1,
+        year: startDate.getFullYear()
+    }
+    // console.log(date.day)
+        // onSubmit({typeTransaction, date, description, category, categoryId, value });
+        dispatch(transactionstOperations.addExpTransaction({ typeTransaction, date, description, category, categoryId, value }))
         reset();
     };
 

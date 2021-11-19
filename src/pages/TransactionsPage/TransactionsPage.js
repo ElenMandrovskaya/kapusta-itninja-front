@@ -9,18 +9,18 @@ import TransactionsIncForm from "../../components/TransactionsIncForm/Transactio
 import { AppWrap, BalannceTab } from "../../app/App.styled";
 
 const TransactionsPage = () => {
-    const [transactions, setTransactions] = useState("");
-    const onSubmit = ({typeTransaction, date, category, description, value, categoryId }) => {
-        const newTransactons = {
-            typeTransaction,
-            date,
-            description,
-            category,
-            value,
-            categoryId
-    }
-        setTransactions((transactions) => [ newTransactons, ...transactions]);
-    }
+    // const [transactions, setTransactions] = useState("");
+    // const onSubmit = ({typeTransaction, date, category, description, value, categoryId }) => {
+    //     const newTransactons = {
+    //         typeTransaction,
+    //         date,
+    //         description,
+    //         category,
+    //         value,
+    //         categoryId
+    // }
+    //     setTransactions((transactions) => [ newTransactons, ...transactions]);
+    // }
     // console.log(transactions)
     return (
         <AppWrap>
@@ -35,12 +35,12 @@ const TransactionsPage = () => {
                         <Tab>Доход</Tab>
                     </TabList>
                     <TabPanel>
-                        <TransactionsExpForm onSubmit={onSubmit}/>
-                        <TransactionsExpense transactions={transactions}/>
+                        <TransactionsExpForm/>
+                        <TransactionsExpense />
                     </TabPanel>
                      <TabPanel>
-                        <TransactionsIncForm onSubmit={onSubmit}/>
-                        <TransactionsIncome transactions={transactions}/>
+                        <TransactionsIncForm />
+                        <TransactionsIncome />
                     </TabPanel>
                 </Tabs>
             </AppWrap> 

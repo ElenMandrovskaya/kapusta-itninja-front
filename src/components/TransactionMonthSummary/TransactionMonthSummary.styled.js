@@ -25,7 +25,7 @@ export const SummaryList = styled.ul`
   text-align: center;
   list-style: none;
 
-    & :nth-child(6) {
+    & ::nth-of-type(6) {
     border-radius: 0 0 20px 0;
   }
 `;
