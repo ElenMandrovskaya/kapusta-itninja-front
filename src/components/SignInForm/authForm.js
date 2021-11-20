@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch } from 'react-redux';
 import * as authOperations from '../../redux/auth/auth-operations';
 // import { authSelectors } from "../../redux/auth/auth-selectors";
-import GoogleAuth from '../GoogleAuth/GoogleAuth';
+// import GoogleAuth from '../GoogleAuth/GoogleAuth';
 // import * as Yup from "yup";
 import { SpanTextWrapper, AuthGoogleBtn } from './AuthForm.styled';
 import { FcGoogle } from 'react-icons/fc';

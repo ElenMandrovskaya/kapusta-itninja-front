@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 // import GoogleLogin from "react-google-login";
 import GoogleAuthButton from './GoogleAuthButton';
 import { useDispatch } from 'react-redux';
-import * as authOperations from '../../redux/auth/auth-operations';
+// import * as authOperations from '../../redux/auth/auth-operations';
 
 // import { googleAuth } from "../../redux/auth/auth-operations";
 // import {
@@ -48,7 +48,7 @@ import * as authOperations from '../../redux/auth/auth-operations';
 // export default GoogleAuth;
 
 const GoogleAuth = () => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     const OnGoogleLoginBtn = evt => {
         // const data = dispatch(authOperations.googleAuth());
