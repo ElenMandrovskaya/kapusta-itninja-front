@@ -28,3 +28,4 @@ yarn-error.log*
 .idea/
 # Local Netlify folder
 .netlify
+package-lock.json

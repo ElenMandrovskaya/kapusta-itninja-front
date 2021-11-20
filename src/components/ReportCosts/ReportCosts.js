@@ -6,9 +6,9 @@ import { ReportCostContainer, Title, ReportTitleListWrapper } from './ReportCost
 import MyChart from '../../components/Charts/Charts';
 import ReportCostError from './ReportCostError';
 
-function ReportCosts({ dateMonth, dateYears, categoriesCosts, hasError }) {
+function ReportCosts({ dateMonth, dateYears, categoriesCosts }) {
     const { path } = useRouteMatch();
-
+    // console.log(categoriesCosts?.length);
     return (
         <div>
             <ReportTitleListWrapper>
@@ -21,8 +21,8 @@ function ReportCosts({ dateMonth, dateYears, categoriesCosts, hasError }) {
                         <ReportIcon name="arrow-right" color="#000" size="10" />
                     </NavLink>
                 </ReportCostContainer>
-                {hasError && <ReportCostError />}
-                {!hasError && categoriesCosts && (
+                {categoriesCosts?.lenght === 0 && <ReportCostError />}
+                {categoriesCosts && (
                     <ReportCategoryList
                         categories={categoriesCosts}
                         dateMonth={dateMonth}
