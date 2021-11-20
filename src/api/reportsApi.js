@@ -6,12 +6,12 @@ export async function getCategoriesByCosts(month, year) {
     const { data } = await axios.get(
         `/api/reports/monthlyexpense/?month=${Number(month)}&year=${Number(year)} `,
     );
-    return data;
+    return data.result;
 }
 
 export async function getCategoriesByIncome(month, year) {
     const { data } = await axios.get(
         `/api/reports/monthlyincome/?month=${Number(month)}&year=${Number(year)}`,
     );
-    return data;
+    return data.result;
 }

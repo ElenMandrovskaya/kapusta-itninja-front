@@ -1,13 +1,12 @@
 import React from "react";
-// import useModal from "../Modal/useModal";
-// import Modal from "../Modal/logoutModal";
+import useModal from "../Modal/useModal";
+import Modal from "../Modal/logoutModal";
 import { useDispatch } from "react-redux";
 import * as transactionsOps from "../../redux/transactions/transactions-ops";
 import { Item, ItemDate, ItemDesc, ItemCategory, ItemSum, ItemBtn } from "./ExpenseItem.styled"
 
 function ExpenseItem( {date, description, value, category, id} ) {
-    // const { isShowingModal, toggle } = useModal();
-    // console.log(id)
+    const { isShowingModal, toggle } = useModal();
     const dispatch = useDispatch();
     const handleDelete = () => {
              dispatch(transactionsOps.removeTransaction(id))
@@ -21,14 +20,12 @@ function ExpenseItem( {date, description, value, category, id} ) {
             <ItemSum>-{value} грн.</ItemSum>
             <ItemBtn
                 type="button"
-                onClick={handleDelete}
-                // onClick={()=>toggle()}
-
+                onClick={()=>toggle()}
             />
-            {/* {isShowingModal && <Modal
-                // toAgree={handleDelete}
+            {isShowingModal && <Modal
+                toAgree={handleDelete}
                 text={'Вы уверены?'}
-                onClose={toggle} />} */}
+                onClose={toggle} />}
         </Item>
     );
 };

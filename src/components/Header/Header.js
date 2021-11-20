@@ -48,8 +48,8 @@ export default function Header() {
           {isShowingModal && (
             <Modal
               text={"Вы уверены, что хотите выйти?"}
+              toAgree={logout}
               onClose={toggle}
-              onCloseModal={logout}
             />
           )}
         </UserInfo>

@@ -18,7 +18,6 @@ function ReportsPage() {
     const [dateYears, setDateYears] = useState(moment(new Date()).format('YYYY'));
     const [categoriesCosts, setCategoriesCosts] = useState([]);
     const [categoriesIncome, setCategoriesIncome] = useState([]);
-    const [hasError, setHasError] = useState(false);
 
     let monthChangeHandler = () => {
         setDateMonth(newDate.add(-1, 'month').format('MM'));
@@ -36,15 +35,10 @@ function ReportsPage() {
 
     useEffect(() => {
         async function getCategories() {
-            try {
-                const costs = await getCategoriesByCosts(dateMonth, dateYears);
-                setCategoriesCosts(costs);
-                const income = await getCategoriesByIncome(dateMonth, dateYears);
-                setCategoriesIncome(income);
-                setHasError(false);
-            } catch (error) {
-                setHasError(true);
-            }
+            const costs = await getCategoriesByCosts(dateMonth, dateYears);
+            setCategoriesCosts(costs);
+            const income = await getCategoriesByIncome(dateMonth, dateYears);
+            setCategoriesIncome(income);
         }
         getCategories();
     }, [dateMonth, dateYears]);
@@ -64,16 +58,14 @@ function ReportsPage() {
                 </ReportsPageForMobile>
             </ReportsPageHeader>
             <StatisticAmounts
-                categoriesCosts={categoriesCosts.result}
-                categoriesIncome={categoriesIncome.result}
-                hasError={hasError}
+                categoriesCosts={categoriesCosts}
+                categoriesIncome={categoriesIncome}
             />
             <Report
                 dateMonth={Number(dateMonth)}
                 dateYears={Number(dateYears)}
-                categoriesCosts={categoriesCosts.result}
-                categoriesIncome={categoriesIncome.result}
-                hasError={hasError}
+                categoriesCosts={categoriesCosts}
+                categoriesIncome={categoriesIncome}
             />
         </AppWrap>
     );

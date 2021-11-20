@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import TransactionMonthSummary from "../TransactionMonthSummary/TransactionMonthSummary";
 import IncomeItem from "./IncomeItem";
-import { Main, Table, TableHead, TableTitle, TableList } from "./TransactionsIncome.styled";
+import { Main, Table, TableHead, TableDate, TableTitle, TableList } from "./TransactionsIncome.styled";
 import * as transactionsOperations from "../../redux/transactions/transactions-ops";
 import { getAllTransactions } from "../../redux/transactions/transactions-selectors";
 
@@ -16,7 +16,7 @@ const TransactionsIncome = () => {
       <Main>
         <Table>
           <TableHead>
-            <TableTitle>Дата</TableTitle>
+            <TableDate>Дата</TableDate>
             <TableTitle>Описание</TableTitle>
             <TableTitle>Категория</TableTitle>
             <TableTitle>Сумма</TableTitle>

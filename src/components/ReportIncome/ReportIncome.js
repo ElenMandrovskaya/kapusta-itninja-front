@@ -10,7 +10,7 @@ import {
 import MyChart from '../../components/Charts/Charts';
 import ReportIncomeError from './ReportIncomeError';
 
-function ReportIncome({ dateMonth, dateYears, categoriesIncome, hasError }) {
+function ReportIncome({ dateMonth, dateYears, categoriesIncome }) {
     const { path } = useRouteMatch();
     return (
         <div>
@@ -24,8 +24,8 @@ function ReportIncome({ dateMonth, dateYears, categoriesIncome, hasError }) {
                         <ReportIcon name="arrow-right" color="#000" size="10" />
                     </NavLink>
                 </ReportCostContainer>
-                {hasError && <ReportIncomeError />}
-                {!hasError && categoriesIncome && (
+                {categoriesIncome?.length === 0 && <ReportIncomeError />}
+                {categoriesIncome && (
                     <ReportCategoryList
                         categories={categoriesIncome}
                         dateMonth={dateMonth}
