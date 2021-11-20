@@ -11,43 +11,9 @@ import TransactionsIncForm from "../../components/TransactionsIncForm/Transactio
 import { AppWrap, BalannceTab } from "../../app/App.styled";
 
 const TransactionsPage = () => {
-    // const [transactions, setTransactions] = useState("");
-    // const onSubmit = ({typeTransaction, date, category, description, value, categoryId }) => {
-    //     const newTransactons = {
-    //         typeTransaction,
-    //         date,
-    //         description,
-    //         category,
-    //         value,
-    //         categoryId
-    // }
-    //     setTransactions((transactions) => [ newTransactons, ...transactions]);
-    // }
-    // console.log(transactions)
+
     return (
         <AppWrap>
-<<<<<<< HEAD
-            <BalannceTab> 
-                <Balance />
-                <GoToStatementsButton />
-            </BalannceTab>
-            <AppWrap>
-                <Tabs>
-                    <TabList>
-                        <Tab>Расход</Tab>
-                        <Tab>Доход</Tab>
-                    </TabList>
-                    <TabPanel>
-                        <TransactionsExpForm/>
-                        <TransactionsExpense />
-                    </TabPanel>
-                     <TabPanel>
-                        <TransactionsIncForm />
-                        <TransactionsIncome />
-                    </TabPanel>
-                </Tabs>
-            </AppWrap> 
-=======
             <Default>
                 <BalannceTab> 
                     <Balance />
@@ -60,12 +26,12 @@ const TransactionsPage = () => {
                             <Tab>Доход</Tab>
                         </TabList>
                         <TabPanel>
-                            <TransactionsExpForm onSubmit={onSubmit}/>
-                            <TransactionsExpense transactions={transactions}/>
+                            <TransactionsExpForm />
+                            <TransactionsExpense />
                         </TabPanel>
                         <TabPanel>
-                            <TransactionsIncForm onSubmit={onSubmit}/>
-                            <TransactionsIncome transactions={transactions}/>
+                            <TransactionsIncForm />
+                            <TransactionsIncome />
                         </TabPanel>
                     </Tabs>
                 </AppWrap> 
@@ -86,18 +52,17 @@ const TransactionsPage = () => {
                             <NavLink to="/transactions_expenses_form" className="Add_button">
                                 Добавить
                             </NavLink>
-                            <TransactionsExpense transactions={transactions}/>
+                            <TransactionsExpense />
                         </TabPanel>
                         <TabPanel>
                             <NavLink to="/transactions_incomes_form" className="Add_button">
                                 Добавить
                             </NavLink>
-                            <TransactionsIncome transactions={transactions}/>
+                            <TransactionsIncome />
                         </TabPanel>
                     </Tabs>
                 </AppWrap>
             </Mobile>
->>>>>>> bedb7111e17afdfd5aa63a1cf6786d3fab93a78f
         </AppWrap>
     );
 };
