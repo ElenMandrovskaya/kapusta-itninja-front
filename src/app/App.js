@@ -40,9 +40,9 @@ export default function App() {
                         <PublicRoute exact path="/" redirectTo="/transactions" restricted>
                             <RegistrationPage />
                         </PublicRoute>
-                        {/* <PublicRoute path="/google-redirect" redirectTo="/transactions" restricted>
+                        <PublicRoute path="/google-redirect" redirectTo="/transactions" restricted>
                             <GoogleRedirect />
-                        </PublicRoute> */}
+                        </PublicRoute>
                         <PrivateRoute exact path="/transactions">
                             <TransactionPage />
                         </PrivateRoute>
