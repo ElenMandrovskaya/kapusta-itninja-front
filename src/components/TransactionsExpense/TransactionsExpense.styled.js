@@ -32,10 +32,6 @@ export const TableHead = styled.div`
   font-size: 13px;
   font-weight: normal;
   color: #52555f;
-  
-  & ::nth-of-type(1) {
-    padding-left: 25px;
-  }
 
   @media screen and (min-width: 768px) {
     display: grid;
@@ -51,7 +47,15 @@ export const TableTitle = styled.div`
   font-size: 11px;
   font-weight: 700;
   color: #000;
-  padding: 0 8px;
+  padding: 0 10px;
+  text-transform: uppercase;
+`;
+
+export const TableDate = styled.div`
+padding-left: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #000;
   text-transform: uppercase;
 `;
 

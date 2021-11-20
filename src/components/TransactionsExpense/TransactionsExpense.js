@@ -3,22 +3,21 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import ExpenseItem from "./ExpenseItem";
 import TransactionMonthSummary from "../TransactionMonthSummary/TransactionMonthSummary";
-import { Main, Table, TableHead, TableTitle, TableList } from "./TransactionsExpense.styled";
+import { Main, Table, TableHead, TableDate, TableTitle, TableList } from "./TransactionsExpense.styled";
 import * as transactionsOperations from "../../redux/transactions/transactions-ops";
 import { getAllTransactions } from "../../redux/transactions/transactions-selectors";
 
 const TransactionsExpense = () => {
-
     const transactions = useSelector(getAllTransactions)
     const dispatch = useDispatch();
     useEffect(() => dispatch(transactionsOperations.getExpTransactions()), [dispatch]);
-    console.log(transactions)
+    // console.log(transactions)
 
     return (
       <Main>
         <Table>
           <TableHead>
-            <TableTitle>Дата</TableTitle>
+            <TableDate>Дата</TableDate>
             <TableTitle>Описание</TableTitle>
             <TableTitle>Категория</TableTitle>
             <TableTitle>Сумма</TableTitle>
