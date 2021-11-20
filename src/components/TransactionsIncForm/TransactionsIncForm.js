@@ -5,6 +5,8 @@ import Calendar from "../Calendar/Calendar";
 import CategoryInput from "../CategoryInput/CategoryInput";
 import { Form, Wrapper, FormInput, FormBtn, InputAmount, InputDesc, ButtonOrange,Button } from "./TransactionsIncForm.styled";
 import * as transactionstOperations from "../../redux/transactions/transactions-ops";
+import * as authOps from "../../redux/auth/auth-operations";
+
 
 const TransactionsIncForm = () => {
     const [startDate, setStartDate] = useState(new Date());
@@ -32,6 +34,8 @@ const TransactionsIncForm = () => {
         year: startDate.getFullYear()
     }
     dispatch(transactionstOperations.addIncTransaction({ typeTransaction, date, description, category, categoryId, value }))
+    dispatch(authOps.changeBalance());
+
         reset();
     };
 
