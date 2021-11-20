@@ -8,11 +8,9 @@ import { Item, ItemDate, ItemDesc, ItemCategory, ItemSum, ItemBtn } from "./Expe
 function ExpenseItem( {date, description, value, category, id} ) {
     // const { isShowingModal, toggle } = useModal();
     const dispatch = useDispatch();
-    // const handleDelete = async () => {
-    //     await dispatch(
-    //         transactionsOps.deleteExpTransaction({ transactionId })
-    //     )
-    // };
+    const handleDelete = () => {
+             dispatch(transactionsOps.removeTransaction(id))
+    };
 
     return (
         <Item>
@@ -22,7 +20,7 @@ function ExpenseItem( {date, description, value, category, id} ) {
             <ItemSum>-{value} грн.</ItemSum>
             <ItemBtn
                 type="button"
-                onClick={() => dispatch(transactionsOps.removeTransaction(id))}
+                onClick={handleDelete}
                 // onClick={()=>toggle()}
 
             />

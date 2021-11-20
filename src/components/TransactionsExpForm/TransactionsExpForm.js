@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from 'react-redux';
 // import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -6,6 +6,7 @@ import Calendar from "../Calendar/Calendar";
 import CategoryInput from "../CategoryInput/CategoryInput";
 import { Form, Wrapper, FormInput, FormBtn, InputAmount, InputDesc, ButtonOrange, Button } from "./TransactionsExpForm.styled";
 import * as transactionstOperations from "../../redux/transactions/transactions-ops";
+import * as authOps from "../../redux/auth/auth-operations";
 
 const TransactionsExpForm = () => {
     const [startDate, setStartDate] = useState(new Date());
@@ -33,8 +34,11 @@ const TransactionsExpForm = () => {
         year: startDate.getFullYear()
     }
         dispatch(transactionstOperations.addExpTransaction({ typeTransaction, date, description, category, categoryId, value }))
+        dispatch(authOps.changeBalance());
         reset();
     };
+   
+    // dispatch(authOps.changeBalance());
 
     return (
         <Form onSubmit={addExpense} >

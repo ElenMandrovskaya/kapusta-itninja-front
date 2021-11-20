@@ -12,7 +12,8 @@ const TransactionsExpense = () => {
     const transactions = useSelector(getAllTransactions)
     const dispatch = useDispatch();
     useEffect(() => dispatch(transactionsOperations.getExpTransactions()), [dispatch]);
-    console.log(transactions)
+    // console.log(transactions)
+  
 
     return (
       <Main>
