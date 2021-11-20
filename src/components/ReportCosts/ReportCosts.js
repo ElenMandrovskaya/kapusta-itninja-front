@@ -4,10 +4,11 @@ import ReportIcon from '../ReportIcon/ReportIcon';
 import ReportCategoryList from '../ReportCategoryList/ReportCategoryList';
 import { ReportCostContainer, Title, ReportTitleListWrapper } from './ReportCosts.styled';
 import MyChart from '../../components/Charts/Charts';
+import ReportCostError from './ReportCostError';
 
-function ReportCosts({ dateMonth, dateYears, categoriesCosts }) {
+function ReportCosts({ dateMonth, dateYears, categoriesCosts, hasError }) {
     const { path } = useRouteMatch();
-    console.log(categoriesCosts?.length);
+
     return (
         <div>
             <ReportTitleListWrapper>
@@ -20,8 +21,8 @@ function ReportCosts({ dateMonth, dateYears, categoriesCosts }) {
                         <ReportIcon name="arrow-right" color="#000" size="10" />
                     </NavLink>
                 </ReportCostContainer>
-
-                {categoriesCosts && (
+                {hasError && <ReportCostError />}
+                {!hasError && categoriesCosts && (
                     <ReportCategoryList
                         categories={categoriesCosts}
                         dateMonth={dateMonth}

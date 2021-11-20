@@ -30,3 +30,19 @@ export const Title = styled.p`
     letter-spacing: 0.02em;
     text-transform: uppercase;
 `;
+
+export const TitleError = styled.p`
+    padding: 30px;
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    color: var(--black-text-color);
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.143;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+`;
