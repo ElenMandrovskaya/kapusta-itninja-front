@@ -12,12 +12,14 @@ const transactionsSlice = createSlice({
         [transactionsOps.getExpTransactions.fulfilled]: (state, action) => {
             state.items = action.payload
         },
-
+        [transactionsOps.getIncTransactions.fulfilled]: (state, action) => {
+            state.items = action.payload
+        },
         [transactionsOps.addExpTransaction.fulfilled]: (state, action) => {
             state.items.push(action.payload)
         },
         [transactionsOps.addIncTransaction.fulfilled]: (state, action) => {
-            console.log(action.payload)
+            // console.log(action.payload)
             state.items.push(action.payload)
         },
         // [transactionsOps.addExpTransaction.pending]: (state, _) => {

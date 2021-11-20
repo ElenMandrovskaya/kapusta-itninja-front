@@ -10,8 +10,8 @@ import { getAllTransactions } from "../../redux/transactions/transactions-select
 const TransactionsIncome = () => {
     const transactions = useSelector(getAllTransactions)
     const dispatch = useDispatch();
-    useEffect(() => dispatch(transactionsOperations.getExpTransactions()), [dispatch]);
-    // console.log(transactions)
+    useEffect(() => dispatch(transactionsOperations.getIncTransactions()), [dispatch]);
+    
     return (
       <Main>
         <Table>

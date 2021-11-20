@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import * as transactionsOps from "../../redux/transactions/transactions-ops";
 import { Item, ItemDate, ItemDesc, ItemCategory, ItemSum, ItemBtn } from "./ExpenseItem.styled"
 
-function ExpenseItem( {date, description, value, category} ) {
+function ExpenseItem( {date, description, value, category, id} ) {
     const { isShowingModal, toggle } = useModal();
     // const dispatch = useDispatch();
     // const handleDelete = async () => {
