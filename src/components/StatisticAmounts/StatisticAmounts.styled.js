@@ -25,7 +25,7 @@ export const ProfitSpan = styled.span`
     @media screen and (min-width: 768px) {
         margin-left: 15px;
     }
-    color: #e53935;
+    color: #407946;
 `;
 export const CostSpan = styled.span`
     @media screen and (max-width: 320px) {
@@ -35,7 +35,7 @@ export const CostSpan = styled.span`
     @media screen and (min-width: 768px) {
         margin-left: 15px;
     }
-    color: #407946;
+    color: #e53935;
 `;
 export const Vl = styled.div`
     @media screen and (max-width: 320px) {

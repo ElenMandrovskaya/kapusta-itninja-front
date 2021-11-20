@@ -8,7 +8,6 @@ import ReportCostError from './ReportCostError';
 
 function ReportCosts({ dateMonth, dateYears, categoriesCosts }) {
     const { path } = useRouteMatch();
-
     return (
         <div>
             <ReportTitleListWrapper>
@@ -21,7 +20,7 @@ function ReportCosts({ dateMonth, dateYears, categoriesCosts }) {
                         <ReportIcon name="arrow-right" color="#000" size="10" />
                     </NavLink>
                 </ReportCostContainer>
-                {categoriesCosts?.lenght === 0 && <ReportCostError />}
+                {categoriesCosts?.length === 0 && <ReportCostError />}
                 {categoriesCosts && (
                     <ReportCategoryList
                         categories={categoriesCosts}
