@@ -29,7 +29,7 @@ export const signUp = createAsyncThunk('auth/signUp', async (credentials, thunkA
 export const googleAuth = createAsyncThunk('auth/googleAuth', async (credentials, thunkAPI) => {
     try {
         const { data } = await userApi.googleAuth(credentials);
-        token.set(data.result.token);
+        token.set(data.result.user.token);
 
         // toast.warning("Warning, something wrong - google Auth");
         toast.success('Success Google auth');
