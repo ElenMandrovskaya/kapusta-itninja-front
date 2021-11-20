@@ -24,7 +24,7 @@ function ReportIncome({ dateMonth, dateYears, categoriesIncome }) {
                         <ReportIcon name="arrow-right" color="#000" size="10" />
                     </NavLink>
                 </ReportCostContainer>
-                {categoriesCosts?.lenght === 0 && <ReportIncomeError />}
+                {categoriesIncome?.length === 0 && <ReportIncomeError />}
                 {categoriesIncome && (
                     <ReportCategoryList
                         categories={categoriesIncome}

@@ -35,11 +35,11 @@ function ReportsPage() {
 
     useEffect(() => {
         async function getCategories() {
-                const costs = await getCategoriesByCosts(dateMonth, dateYears);
-                setCategoriesCosts(costs);
-                const income = await getCategoriesByIncome(dateMonth, dateYears);
-                setCategoriesIncome(income);
-             }
+            const costs = await getCategoriesByCosts(dateMonth, dateYears);
+            setCategoriesCosts(costs);
+            const income = await getCategoriesByIncome(dateMonth, dateYears);
+            setCategoriesIncome(income);
+        }
         getCategories();
     }, [dateMonth, dateYears]);
 
@@ -58,14 +58,14 @@ function ReportsPage() {
                 </ReportsPageForMobile>
             </ReportsPageHeader>
             <StatisticAmounts
-                categoriesCosts={categoriesCosts.result}
-                categoriesIncome={categoriesIncome.result}
+                categoriesCosts={categoriesCosts}
+                categoriesIncome={categoriesIncome}
             />
             <Report
                 dateMonth={Number(dateMonth)}
                 dateYears={Number(dateYears)}
-                categoriesCosts={categoriesCosts.result}
-                categoriesIncome={categoriesIncome.result}
+                categoriesCosts={categoriesCosts}
+                categoriesIncome={categoriesIncome}
             />
         </AppWrap>
     );
