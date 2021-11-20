@@ -9,8 +9,8 @@ function GoogleRedirect() {
     const location = useLocation();
 
     const email = new URLSearchParams(location.search).get('email'); //отримав зі строки емайл
-    console.log(email);
-    dispatch(authOperations.googleAuth({ email }));
+    // console.log(email);
+    dispatch(authOperations.googleAuth({ email: email }));
 
     // dispatch(googleAuth(email));
     return (
