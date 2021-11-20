@@ -19,6 +19,7 @@ const TransactionPage = lazy(() => import('../pages/TransactionsPage/Transaction
 const ReportsPage = lazy(() => import('../pages/ReportsPage/ReportsPage'));
 const ExpensesFormPage = lazy(() => import('../pages/ExpensesIncomeFormPage/ExpensesFormPage'));
 const IncomesFormPage = lazy(() => import('../pages/ExpensesIncomeFormPage/IncomesFormPage'));
+const GoogleRedirect = lazy(() => import('../pages/GoogleRedirect/GoogleRedirect'));
 
 export default function App() {
   const dispatch = useDispatch();
@@ -27,36 +28,42 @@ export default function App() {
       dispatch(authOperations.getCurrentUser());
     }, [dispatch]);
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-
-  return (
-    <AppWrap>
-      <BgGrey />
-      {isLoggedIn ? <BgAuth /> : <BgUnAuth />}
-      <Header />
-      <Container>
-      <Suspense fallback={<Spinner/>}>
-        <Switch>
-          <PublicRoute exact path="/" edirectTo="/transactions" restricted>
-            <RegistrationPage />
-          </PublicRoute>
-          <PrivateRoute exact path="/transactions">
-            <TransactionPage />
-          </PrivateRoute>
-          <PrivateRoute path="/reports">
-            <ReportsPage />
-          </PrivateRoute>
-          <PrivateRoute path="/transactions_expenses_form">
-            <ExpensesFormPage />
-          </PrivateRoute>
-          <PrivateRoute path="/transactions_incomes_form">
-            <IncomesFormPage />
-          </PrivateRoute>
-        </Switch>
-        </Suspense>
-      </Container>
-      <ToastContainer />
-    </AppWrap>
-  );
+ 
+    return (
+        <AppWrap>
+            <BgGrey />
+            {isLoggedIn ? <BgAuth /> : <BgUnAuth />}
+            <Header />
+            <Container>
+                <Suspense fallback={<Spinner />}>
+                    <Switch>
+                        <PublicRoute
+                            exact
+                            path="/google-redirect"
+                            redirectTo="/transactions"
+                            restricted
+                        >
+                            <GoogleRedirect />
+                        </PublicRoute>
+                        <PublicRoute exact path="/" redirectTo="/transactions" restricted>
+                            <RegistrationPage />
+                        </PublicRoute>
+                        <PrivateRoute exact path="/transactions">
+                            <TransactionPage />
+                        </PrivateRoute>
+                        <PrivateRoute path="/reports">
+                            <ReportsPage />
+                        </PrivateRoute>
+                        <PrivateRoute path="/transactions_expenses_form">
+                            <ExpensesFormPage />
+                        </PrivateRoute>
+                        <PrivateRoute path="/transactions_incomes_form">
+                            <IncomesFormPage />
+                        </PrivateRoute>
+                    </Switch>
+                </Suspense>
+            </Container>
+            <ToastContainer />
+        </AppWrap>
+    );
 }
-
-

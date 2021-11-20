@@ -1,26 +1,24 @@
-import React, { useState, useEffect } from "react";
-import Balance from "../../components/Balance/Balance";
-import GoBackHomeBtn from "../../components/GoBackHomeButton/GoBackHomeButton";
-import MonthPicker from "../../components/MonthPicker/MonthPicker";
-import StatisticAmounts from "../../components/StatisticAmounts/StatisticAmounts";
-import Report from "../../components/Report/Report";
-import { ReportsPageHeader } from "./ReportsPage.styled";
-import { AppWrap } from "../../app/App.styled";
-import "moment/locale/ru";
-import moment from "moment";
-import {
-  getCategoriesByCosts,
-  getCategoriesByIncome,
-} from "../../api/reportsApi";
+import React from 'react';
+import { useState, useEffect } from 'react';
+import Balance from '../../components/Balance/Balance';
+import GoBackHomeBtn from '../../components/GoBackHomeButton/GoBackHomeButton';
+import MonthPicker from '../../components/MonthPicker/MonthPicker';
+import StatisticAmounts from '../../components/StatisticAmounts/StatisticAmounts';
+import Report from '../../components/Report/Report';
+import { ReportsPageHeader, ReportsPageForMobile } from './ReportsPage.styled';
+import { AppWrap } from '../../app/App.styled';
+import 'moment/locale/ru';
+import moment from 'moment';
+import { getCategoriesByCosts, getCategoriesByIncome } from '../../api/reportsApi';
 
 /* eslint-disable */
 function ReportsPage() {
-
-  const [newDate, setNewDate] = useState(moment(new Date()));
-  const [dateMonth, setDateMonth] = useState(moment(new Date()).format("MM"));
-  const [dateYears, setDateYears] = useState(moment(new Date()).format("YYYY"));
-  const [categoriesCosts, setCategoriesCosts] = useState([]);
-  const [categoriesIncome, setCategoriesIncome] = useState([]);
+    const [newDate, setNewDate] = useState(moment(new Date()));
+    const [dateMonth, setDateMonth] = useState(moment(new Date()).format('MM'));
+    const [dateYears, setDateYears] = useState(moment(new Date()).format('YYYY'));
+    const [categoriesCosts, setCategoriesCosts] = useState([]);
+    const [categoriesIncome, setCategoriesIncome] = useState([]);
+    const [hasError, setHasError] = useState(false);
 
     let monthChangeHandler = () => {
         setDateMonth(newDate.add(-1, 'month').format('MM'));
@@ -38,10 +36,15 @@ function ReportsPage() {
 
     useEffect(() => {
         async function getCategories() {
-            const costs = await getCategoriesByCosts(dateMonth, dateYears);
-            setCategoriesCosts(costs);
-            const income = await getCategoriesByIncome(dateMonth, dateYears);
-            setCategoriesIncome(income);
+            try {
+                const costs = await getCategoriesByCosts(dateMonth, dateYears);
+                setCategoriesCosts(costs);
+                const income = await getCategoriesByIncome(dateMonth, dateYears);
+                setCategoriesIncome(income);
+                setHasError(false);
+            } catch (error) {
+                setHasError(true);
+            }
         }
         getCategories();
     }, [dateMonth, dateYears]);
@@ -63,12 +66,14 @@ function ReportsPage() {
             <StatisticAmounts
                 categoriesCosts={categoriesCosts.result}
                 categoriesIncome={categoriesIncome.result}
+                hasError={hasError}
             />
             <Report
                 dateMonth={Number(dateMonth)}
                 dateYears={Number(dateYears)}
                 categoriesCosts={categoriesCosts.result}
                 categoriesIncome={categoriesIncome.result}
+                hasError={hasError}
             />
         </AppWrap>
     );
