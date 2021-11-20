@@ -17,10 +17,12 @@ const IncomeItem = ({ date, description, value, category, id }) => {
             <ItemSum>+{value} грн.</ItemSum>
             <ItemBtn
                 type="button"
-                onClick={() => dispatch(transactionsOps.removeTransaction(id))}
-                // onClick={()=>toggle()}
+                onClick={()=>toggle()}
             />
-            {isShowingModal && <Modal text={"Вы уверены?"} onClose={toggle} />}
+            {isShowingModal && <Modal
+                toAgree={() => dispatch(transactionsOps.removeTransaction(id))}
+                text={"Вы уверены?"}
+                onClose={toggle} />}
         </Item>
     );
 };

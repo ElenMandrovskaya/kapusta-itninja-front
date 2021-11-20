@@ -17,40 +17,12 @@ export const Item = styled.li`
   letter-spacing: 0.04em;
   height: 50px;
   padding: 0 10px;
-<<<<<<< HEAD
-  & span {
+   & span {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-  }
-
-    @media screen and (max-width: 767px) {
-    &::nth-of-type(1) {
-      grid-row: 2 / 4;
-    }
-
-    &::nth-of-type(2) {
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    &::nth-of-type(3) {
-      grid-row: 2 / 4;
-    }
-
-    &::nth-of-type(4) {
-      grid-row: 1 / 4;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    &::nth-of-type(5) {
-      grid-row: 1 / 4;
-    }
-  }
-=======
->>>>>>> bedb7111e17afdfd5aa63a1cf6786d3fab93a78f
-
+  }  
+      
     @media screen and (min-width: 768px) {
     display: grid;
     align-items: center;
@@ -68,7 +40,7 @@ export const Item = styled.li`
 
   @media screen and (min-width: 1280px) {
     grid-template-columns: 170px 248px 164px 116px 50px;
-
+   font-size: 12px;
     & span {
       padding: 0px 25px 0px 0px;
     }
@@ -88,7 +60,6 @@ overflow: hidden;
 white-space: nowrap;
 text-overflow: ellipsis;
 font-weight: 400;
-font-size: 10px;
 @media screen and (max-width: 767px) {
     font-size: 14px;
     font-weight: 700;
@@ -130,4 +101,3 @@ export const ItemBtn = styled.button`
     grid-row: 1/4;
   }
 `;
-

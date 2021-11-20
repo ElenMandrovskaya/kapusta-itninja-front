@@ -4,18 +4,6 @@ import TransactionsExpForm from "../../components/TransactionsExpForm/Transactio
 import {Container} from "./ExpensesIncomeFormPage.styled"
 
 const ExpensesFormPage = () => {
-  // // const [transactions, setTransactions] = useState("");
-  //   const onSubmit = ({typeTransaction, date, category, description, value, categoryId }) => {
-  //       const newTransactons = {
-  //           typeTransaction,
-  //           date,
-  //           description,
-  //           category,
-  //           value,
-  //           categoryId
-  //   }
-  //       setTransactions((transactions) => [ newTransactons, ...transactions]);
-  //   }
   return (
       <Container >
         <GoBackHomeBtn />

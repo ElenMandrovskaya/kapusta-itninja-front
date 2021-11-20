@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { createPortal } from "react-dom";
 import PropTypes from "prop-types";
 import {
   Button,
@@ -10,7 +11,7 @@ import {
   CloseIcon,
 } from "./Modal.styled";
 
-// const modalRoot = document.querySelector("#modal-root");
+const modalRoot = document.querySelector("#modal-root");
 
 export default class Modal extends Component {
   componentDidMount() {
@@ -41,14 +42,9 @@ export default class Modal extends Component {
     this.props.toAgree();
   };
 
-  // logOut = e => {
-  //   this.props.onCloseModal;
-  //   this.props.onClose();
-  // };
-
   render() {
     const textContent = this.props.text;
-    return (
+    return createPortal(
       <Backdrop onClick={this.handleBackdropClick}>
         <Content>
           <CloseButton type="button" onClick={this.closeModal}>
@@ -58,18 +54,17 @@ export default class Modal extends Component {
           <BtnContainer>
             <Button
               type="button"
-              buttonHandler={this.toAgree}
-              onClick={this.props.onCloseModal}
+              onClick={this.toAgree}
             >
               ДА
             </Button>
-            <Button type="button" buttonHandler={this.closeModal}>
+            <Button type="button" onClick={this.closeModal}>
               НЕТ
             </Button>
           </BtnContainer>
         </Content>
-      </Backdrop>
-      //   modalRoot
+      </Backdrop>,
+        modalRoot
     );
   }
 }

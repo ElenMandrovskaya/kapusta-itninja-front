@@ -1,18 +1,13 @@
 import React from "react";
-// import useModal from "../Modal/useModal";
-// import Modal from "../Modal/logoutModal";
+import useModal from "../Modal/useModal";
+import Modal from "../Modal/logoutModal";
 import { useDispatch } from "react-redux";
 import * as transactionsOps from "../../redux/transactions/transactions-ops";
 import { Item, ItemDate, ItemDesc, ItemCategory, ItemSum, ItemBtn } from "./ExpenseItem.styled"
 
 function ExpenseItem( {date, description, value, category, id} ) {
-    // const { isShowingModal, toggle } = useModal();
+    const { isShowingModal, toggle } = useModal();
     const dispatch = useDispatch();
-    // const handleDelete = async () => {
-    //     await dispatch(
-    //         transactionsOps.deleteExpTransaction({ transactionId })
-    //     )
-    // };
 
     return (
         <Item>
@@ -22,14 +17,12 @@ function ExpenseItem( {date, description, value, category, id} ) {
             <ItemSum>-{value} грн.</ItemSum>
             <ItemBtn
                 type="button"
-                onClick={() => dispatch(transactionsOps.removeTransaction(id))}
-                // onClick={()=>toggle()}
-
+                onClick={()=>toggle()}
             />
-            {/* {isShowingModal && <Modal
-                // toAgree={handleDelete}
+            {isShowingModal && <Modal
+                toAgree={() => dispatch(transactionsOps.removeTransaction(id))}
                 text={'Вы уверены?'}
-                onClose={toggle} />} */}
+                onClose={toggle} />}
         </Item>
     );
 };
