@@ -1,6 +1,4 @@
 import styled from '@emotion/styled';
-// import { NavLink } from 'react-router-dom';
-// import imgHover from '../../images/bg-img-hover.svg';
 
 export const CategoryItem = styled.li`
     border-bottom: 1px solid #e0e5eb;

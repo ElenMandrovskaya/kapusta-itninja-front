@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Div, Title, ProfitSpan, Vl, CostSpan } from './StatisticAmounts.styled';
 
-const StatisticAmounts = ({ categoriesCosts, categoriesIncome, hasError }) => {
+const StatisticAmounts = ({ categoriesCosts, categoriesIncome }) => {
     let totalCosts = 0;
     let totalIncome = 0;
 
@@ -20,12 +20,7 @@ const StatisticAmounts = ({ categoriesCosts, categoriesIncome, hasError }) => {
         totalIncome = sum.toLocaleString();
     }
 
-    if (hasError) {
-        totalCosts = 0;
-        totalIncome = 0;
-    }
-
-    return (
+       return (
         <Div>
             <Title>Расходы:{<CostSpan>- {totalCosts}.00 грн.</CostSpan>} </Title>
             <Vl />
