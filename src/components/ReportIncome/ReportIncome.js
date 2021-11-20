@@ -8,8 +8,9 @@ import {
     ReportTitleListWrapper,
 } from '../ReportCosts/ReportCosts.styled';
 import MyChart from '../../components/Charts/Charts';
+import ReportIncomeError from './ReportIncomeError';
 
-function ReportIncome({ dateMonth, dateYears, categoriesIncome }) {
+function ReportIncome({ dateMonth, dateYears, categoriesIncome, hasError }) {
     const { path } = useRouteMatch();
     return (
         <div>
@@ -23,7 +24,8 @@ function ReportIncome({ dateMonth, dateYears, categoriesIncome }) {
                         <ReportIcon name="arrow-right" color="#000" size="10" />
                     </NavLink>
                 </ReportCostContainer>
-                {categoriesIncome && (
+                {hasError && <ReportIncomeError />}
+                {!hasError && categoriesIncome && (
                     <ReportCategoryList
                         categories={categoriesIncome}
                         dateMonth={dateMonth}

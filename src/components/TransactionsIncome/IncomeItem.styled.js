@@ -17,6 +17,39 @@ export const Item = styled.li`
   letter-spacing: 0.04em;
   height: 50px;
   padding: 0 10px;
+<<<<<<< HEAD
+  & span {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+    @media screen and (max-width: 767px) {
+    &::nth-of-type(1) {
+      grid-row: 2 / 4;
+    }
+
+    &::nth-of-type(2) {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    &::nth-of-type(3) {
+      grid-row: 2 / 4;
+    }
+
+    &::nth-of-type(4) {
+      grid-row: 1 / 4;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    &::nth-of-type(5) {
+      grid-row: 1 / 4;
+    }
+  }
+=======
+>>>>>>> bedb7111e17afdfd5aa63a1cf6786d3fab93a78f
 
     @media screen and (min-width: 768px) {
     display: grid;

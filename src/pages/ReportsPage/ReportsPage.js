@@ -10,6 +10,7 @@ import { AppWrap } from '../../app/App.styled';
 import 'moment/locale/ru';
 import moment from 'moment';
 import { getCategoriesByCosts, getCategoriesByIncome } from '../../api/reportsApi';
+
 /* eslint-disable */
 function ReportsPage() {
     const [newDate, setNewDate] = useState(moment(new Date()));
@@ -17,6 +18,7 @@ function ReportsPage() {
     const [dateYears, setDateYears] = useState(moment(new Date()).format('YYYY'));
     const [categoriesCosts, setCategoriesCosts] = useState([]);
     const [categoriesIncome, setCategoriesIncome] = useState([]);
+    const [hasError, setHasError] = useState(false);
 
     let monthChangeHandler = () => {
         setDateMonth(newDate.add(-1, 'month').format('MM'));
@@ -34,10 +36,15 @@ function ReportsPage() {
 
     useEffect(() => {
         async function getCategories() {
-            const costs = await getCategoriesByCosts(dateMonth, dateYears);
-            setCategoriesCosts(costs);
-            const income = await getCategoriesByIncome(dateMonth, dateYears);
-            setCategoriesIncome(income);
+            try {
+                const costs = await getCategoriesByCosts(dateMonth, dateYears);
+                setCategoriesCosts(costs);
+                const income = await getCategoriesByIncome(dateMonth, dateYears);
+                setCategoriesIncome(income);
+                setHasError(false);
+            } catch (error) {
+                setHasError(true);
+            }
         }
         getCategories();
     }, [dateMonth, dateYears]);
@@ -59,12 +66,14 @@ function ReportsPage() {
             <StatisticAmounts
                 categoriesCosts={categoriesCosts.result}
                 categoriesIncome={categoriesIncome.result}
+                hasError={hasError}
             />
             <Report
                 dateMonth={Number(dateMonth)}
                 dateYears={Number(dateYears)}
                 categoriesCosts={categoriesCosts.result}
                 categoriesIncome={categoriesIncome.result}
+                hasError={hasError}
             />
         </AppWrap>
     );

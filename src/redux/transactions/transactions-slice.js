@@ -9,63 +9,23 @@ const transactionsSlice = createSlice({
         isLoading: false,
     },
     extraReducers: {
-        [transactionsOps.getExpTransactions.fulfilled]: (_, { payload }) => {
-            state.items = [...payload.data];
+        [transactionsOps.getExpTransactions.fulfilled]: (state, action) => {
+            state.items = action.payload
         },
-
-        [transactionsOps.addExpTransaction.fulfilled]: (state, { payload }) => {
-            state.items = [payload, ...state.items];
+        [transactionsOps.getIncTransactions.fulfilled]: (state, action) => {
+            state.items = action.payload
         },
-        [transactionsOps.addExpTransaction.pending]: (state, _) => {
-            state.error = null;
-            state.isLoading = false;
+        [transactionsOps.addExpTransaction.fulfilled]: (state, action) => {
+            state.items.push(action.payload)
         },
-        [transactionsOps.addExpTransaction.rejected]: (state, action) => {
-            state.error = action.error.message;
-            state.isLoading = false;
+        [transactionsOps.addIncTransaction.fulfilled]: (state, action) => {
+            // console.log(action.payload)
+            state.items.push(action.payload)
         },
-
-         [transactionsOps.deleteExpTransaction.fulfilled]: (state, { payload }) => {
-             state.items = state.items.filter(el => el._id !== payload);
-             state.isLoading = false;
+        [transactionsOps.removeTransaction.fulfilled](state, action) {
+            state.items = state.items.filter(({ id }) => id !== action.payload);
         },
-        [transactionsOps.deleteExpTransaction.pending]: (state, _) => {
-            state.error = null;
-            state.isLoading = true;
-        },
-        [transactionsOps.deleteExpTransaction.rejected]: (state, action) => {
-            state.error = action.error.message;
-            state.isLoading = false;
-        },
-
-
-        [transactionsOps.getIncTransactions.fulfilled]: (_, { payload }) => {
-            state.items = [...payload.data];
-        },
-        [transactionsOps.addIncTransaction.fulfilled]: (state, { payload }) => {
-            state.items = [payload, ...state.items];
-        },
-        [transactionsOps.addIncTransaction.pending]: (state, _) => {
-            state.error = null;
-            state.isLoading = false;
-        },
-        [transactionsOps.addIncTransaction.rejected]: (state, action) => {
-            state.error = action.error.message;
-            state.isLoading = false;
-        },
-
-        [transactionsOps.deleteIncTransaction.fulfilled]: (state, { payload }) => {
-             state.items = state.items.filter(el => el._id !== payload);
-             state.isLoading = false;
-        },
-        [transactionsOps.deleteIncTransaction.pending]: (state, _) => {
-            state.error = null;
-            state.isLoading = true;
-        },
-        [transactionsOps.deleteIncTransaction.rejected]: (state, action) => {
-            state.error = action.error.message;
-            state.isLoading = false;
-        },
+       
     }
 })
 

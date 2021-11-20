@@ -1,19 +1,19 @@
 import React, { useState } from "react";
-// import { useDispatch } from "react-redux";
-// import * as transactionsOps from "../../redux/transactions/transactions-ops";
-// import * as authOperations from "../../redux/balance/balance-operations"
+import { useDispatch } from "react-redux";
+
 import Calendar from "../Calendar/Calendar";
 import CategoryInput from "../CategoryInput/CategoryInput";
 import { Form, Wrapper, FormInput, FormBtn, InputAmount, InputDesc, ButtonOrange,Button } from "./TransactionsIncForm.styled";
+import * as transactionstOperations from "../../redux/transactions/transactions-ops";
 
-const TransactionsIncForm = ({ onSubmit }) => {
+const TransactionsIncForm = () => {
     const [startDate, setStartDate] = useState(new Date());
     const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
     const [value, setValue] = useState("");
     const [categoryId, setCategoryId] = useState("");
     const [typeTransaction, setTypeTransaction] = useState("");
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     const reset = () => {
     setStartDate(new Date());
@@ -25,27 +25,16 @@ const TransactionsIncForm = ({ onSubmit }) => {
     };
     
     const addIncome = (e) => {
-    e.preventDefault();
-    const date = [
-      startDate.getDate(),
-      startDate.getMonth() + 1,
-      startDate.getFullYear(),
-        ].join(".");
-    // const body = {
-    //   typeTransaction,
-    //   date,
-    //   value: +value,
-    //   categoryId,
-    //   description,
-    // };
-    //     dispatch(transactionsOps.addExpTransaction(body));
-    //     dispatch(authOperations.updBalance());
-        onSubmit({typeTransaction, date, description, category, categoryId, value });
-
+        e.preventDefault();
+    const date = {
+        day: startDate.getDate(),
+        month: startDate.getMonth() + 1,
+        year: startDate.getFullYear()
+    }
+    dispatch(transactionstOperations.addIncTransaction({ typeTransaction, date, description, category, categoryId, value }))
         reset();
-        // goToTransactions();
     };
-console.log(addIncome)
+
     return (
         <Form onSubmit={addIncome} >
             <Wrapper>
