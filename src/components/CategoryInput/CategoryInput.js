@@ -9,9 +9,9 @@ import { getCategoriesByExpense, getCategoriesByIncome } from "../../api/categor
 const CategoryInput = ({type,  setTypeTransaction, categoryPick, setCategory, setCategoryId}) => {
     const [isCategories, setIsCategories] = useState(false);
     const [categories, setCategories] = useState("");
-    // console.log(type)
+
+/* eslint-disable */
     useEffect(() => {   
-        
         async function getCategory() {
             try {
                 const listExp = await getCategoriesByExpense();
@@ -33,7 +33,6 @@ const CategoryInput = ({type,  setTypeTransaction, categoryPick, setCategory, se
     setCategory(e.currentTarget.value);
     setCategoryId(e.currentTarget.id);
     setTypeTransaction(e.currentTarget.name)
-    // console.log(e.currentTarget)
     handleClick();
     };
     return (

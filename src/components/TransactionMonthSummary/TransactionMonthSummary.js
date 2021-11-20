@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 const TransactionMonthSummary = ({type}) => {
     const [summary, setSummary] = useState("");
 
+/* eslint-disable */
         useEffect(() => {   
             async function getSummary() {
                 try {
