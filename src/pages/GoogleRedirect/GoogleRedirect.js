@@ -10,13 +10,13 @@ function GoogleRedirect() {
 
     const email = new URLSearchParams(location.search).get('email'); //отримав зі строки емайл
     console.log(email);
-    dispatch(authOperations.googleAuth(email));
+    dispatch(authOperations.googleAuth({ email }));
 
     // dispatch(googleAuth(email));
     return (
         <section>
             <div>
-                <h2>Redirecting...</h2>
+                <h2>Loading...</h2>
             </div>
         </section>
     );
