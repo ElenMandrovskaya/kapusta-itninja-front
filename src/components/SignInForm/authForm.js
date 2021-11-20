@@ -5,7 +5,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch } from 'react-redux';
 import * as authOperations from '../../redux/auth/auth-operations';
 // import { authSelectors } from "../../redux/auth/auth-selectors";
-import GoogleAuth from '../GoogleAuth/GoogleAuth';
 // import * as Yup from "yup";
 import { SpanTextWrapper, AuthGoogleBtn } from './AuthForm.styled';
 import { FcGoogle } from 'react-icons/fc';
@@ -86,23 +85,21 @@ export default function AuthForm() {
         <FcGoogle size={18} />
         <SpanTextWrapper>Google</SpanTextWrapper>
       </AuthGoogleBtn> */}
-            {isRegistration ? null : (
-                <Fragment>
-                    <AuthGoogleDescription>
-                        Вы можете авторизоваться с помощью Google Account:
-                    </AuthGoogleDescription>
-                    <a
-                        href="https://kapusta-finance-tracker.herokuapp.com/api/user/google"
-                        alt="GoogleAuth"
-                    >
-                        <AuthGoogleBtn type="button">
-                            <FcGoogle size={18} />
-                            <SpanTextWrapper>Google</SpanTextWrapper>
-                        </AuthGoogleBtn>
-                    </a>
-                    {/* <GoogleAuth /> */}
-                </Fragment>
-            )}
+
+            <Fragment>
+                <AuthGoogleDescription>
+                    Вы можете авторизоваться с помощью Google Account:
+                </AuthGoogleDescription>
+                <a
+                    href="https://kapusta-finance-tracker.herokuapp.com/api/user/google"
+                    alt="GoogleAuth"
+                >
+                    <AuthGoogleBtn type="button">
+                        <FcGoogle size={18} />
+                        <SpanTextWrapper>Google</SpanTextWrapper>
+                    </AuthGoogleBtn>
+                </a>
+            </Fragment>
 
             <OtherDescriptionToSignUp>
                 Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:
