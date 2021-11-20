@@ -107,8 +107,8 @@ export const changeBalance = createAsyncThunk('balance/changeBalance', async() =
         // console.log(data.result.updateBalance)
         return data.result.updateBalance;
     } catch (error) {
-        const { data } = await axios.get('/api/user/balance');
-        return data.result.balance;
+        // const { data } = await axios.get('/api/user/balance');
+        // return data.result.balance;
         // toast.error(message);
     }
 });

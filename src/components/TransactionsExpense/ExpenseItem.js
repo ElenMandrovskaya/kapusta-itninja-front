@@ -7,6 +7,7 @@ import { Item, ItemDate, ItemDesc, ItemCategory, ItemSum, ItemBtn } from "./Expe
 
 function ExpenseItem( {date, description, value, category, id} ) {
     // const { isShowingModal, toggle } = useModal();
+    // console.log(id)
     const dispatch = useDispatch();
     const handleDelete = () => {
              dispatch(transactionsOps.removeTransaction(id))

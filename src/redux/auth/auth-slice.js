@@ -61,7 +61,7 @@ const authSlice = createSlice({
         },
         [authOperations.changeBalance.fulfilled](state, action) {
             // console.log(state.user.balance)
-            console.log(action.payload)
+            // console.log(action.payload)
             state.user.balance = action.payload;
         },
     },

@@ -13,7 +13,7 @@ const TransactionsExpense = () => {
     const dispatch = useDispatch();
     useEffect(() => dispatch(transactionsOperations.getExpTransactions()), [dispatch]);
     // console.log(transactions)
-  
+    
 
     return (
       <Main>
