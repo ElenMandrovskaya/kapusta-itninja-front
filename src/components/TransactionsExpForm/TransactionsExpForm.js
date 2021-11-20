@@ -48,6 +48,7 @@ const TransactionsExpForm = () => {
                         type="text"
                         name="description"
                         placeholder="Описание товара"
+                        autoComplete="off"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                     />
@@ -62,6 +63,7 @@ const TransactionsExpForm = () => {
                     <InputAmount
                         type="text"
                         name="amount"
+                        autoComplete="off"
                         placeholder="0,00"
                         value={value}
                         onChange={(e) => setValue(e.target.value)} 

@@ -3,6 +3,9 @@ import styled from "@emotion/styled";
 export const Summary = styled.div`
   width: 230px;
   height: 278px;
+  background-color: #f5f6fb;
+  border-radius: 21px 21px 20px 0;
+  margin-bottom:60px;
   @media screen and (max-width: 767px) {
     display: none;
   }
@@ -18,16 +21,20 @@ export const Title = styled.h4`
     width: 230px;
     height: 38px;
     background: #f5f6fb;
-    border: 1px solid #fff;
+    border-bottom: 1px solid #fff;
     border-radius: 20px 20px 0 0;
 `;
 export const SummaryList = styled.ul`
   text-align: center;
   list-style: none;
 
+<<<<<<< HEAD
     & ::nth-of-type(6) {
+=======
+    /* & :nth-child(6) {
+>>>>>>> bedb7111e17afdfd5aa63a1cf6786d3fab93a78f
     border-radius: 0 0 20px 0;
-  }
+  } */
 `;
 
 export const SummaryItem = styled.li`

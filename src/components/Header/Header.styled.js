@@ -14,6 +14,11 @@ export const ContainerHeader = styled.header`
   @media screen and (min-width: 768px) { 
      padding: 0 26px;
    }
+
+  @media screen and (max-width: 767px){
+  position: absolute;
+  top: 0;
+  }
 `;
 
 export const Logo = styled.svg`

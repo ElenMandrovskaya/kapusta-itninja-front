@@ -1,4 +1,6 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { Mobile, Default } from "../../utils/mediaQuery";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import Balance from "../../components/Balance/Balance";
 import GoToStatementsButton from "../../components/GoToStatementsButton/GoToStatementsButton"
@@ -24,6 +26,7 @@ const TransactionsPage = () => {
     // console.log(transactions)
     return (
         <AppWrap>
+<<<<<<< HEAD
             <BalannceTab> 
                 <Balance />
                 <GoToStatementsButton />
@@ -44,6 +47,57 @@ const TransactionsPage = () => {
                     </TabPanel>
                 </Tabs>
             </AppWrap> 
+=======
+            <Default>
+                <BalannceTab> 
+                    <Balance />
+                    <GoToStatementsButton />
+                </BalannceTab>
+                <AppWrap>
+                    <Tabs>
+                        <TabList>
+                            <Tab>Расход</Tab>
+                            <Tab>Доход</Tab>
+                        </TabList>
+                        <TabPanel>
+                            <TransactionsExpForm onSubmit={onSubmit}/>
+                            <TransactionsExpense transactions={transactions}/>
+                        </TabPanel>
+                        <TabPanel>
+                            <TransactionsIncForm onSubmit={onSubmit}/>
+                            <TransactionsIncome transactions={transactions}/>
+                        </TabPanel>
+                    </Tabs>
+                </AppWrap> 
+            </Default>
+
+            <Mobile>
+                <BalannceTab> 
+                    <Balance />
+                    <GoToStatementsButton />
+                </BalannceTab>
+                <AppWrap>
+                    <Tabs>
+                        <TabList>
+                            <Tab>Расход</Tab>
+                            <Tab>Доход</Tab>
+                        </TabList>
+                        <TabPanel>
+                            <NavLink to="/transactions_expenses_form" className="Add_button">
+                                Добавить
+                            </NavLink>
+                            <TransactionsExpense transactions={transactions}/>
+                        </TabPanel>
+                        <TabPanel>
+                            <NavLink to="/transactions_incomes_form" className="Add_button">
+                                Добавить
+                            </NavLink>
+                            <TransactionsIncome transactions={transactions}/>
+                        </TabPanel>
+                    </Tabs>
+                </AppWrap>
+            </Mobile>
+>>>>>>> bedb7111e17afdfd5aa63a1cf6786d3fab93a78f
         </AppWrap>
     );
 };
