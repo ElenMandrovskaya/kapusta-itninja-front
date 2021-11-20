@@ -41,6 +41,7 @@ function SignInForm() {
     const [passwordError, setPasswordError] = useState('Это обязательное поле');
     const [nameError, setNameError] = useState('Это обязательное поле');
 
+    // eslint-disable-next-line  
     const [errorSymbol, _setErrorSymbol] = useState('*');
 
     const blurHandler = e => {

@@ -87,7 +87,7 @@ export const updBalance = createAsyncThunk('balance/updBalance', async balance =
         // console.log(data.result.balance)
         return data.result.balance;
     } catch ({ message }) {
-        // toast.error(message);
+        toast.error(message);
     }
 });
 
@@ -97,7 +97,7 @@ export const getBalance = createAsyncThunk('balance/getBalance', async () => {
         // console.log(data.result)
         return data.result;
     } catch (error) {
-        // toast.warning(error);
+        toast.warning(error);
     }
 });
 
