@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import ReportCosts from '../ReportCosts/ReportCosts';
 import ReportIncome from '../ReportIncome/ReportIncome';
 
-function Report({ dateMonth, dateYears, categoriesCosts, categoriesIncome, hasError }) {
+function Report({ dateMonth, dateYears, categoriesCosts, categoriesIncome }) {
     return (
         <div>
             <Switch>
@@ -12,7 +12,6 @@ function Report({ dateMonth, dateYears, categoriesCosts, categoriesIncome, hasEr
                         categoriesCosts={categoriesCosts}
                         dateMonth={dateMonth}
                         dateYears={dateYears}
-                        hasError={hasError}
                     />
                 </Route>
                 <Route path={`/reports/income`}>
@@ -20,7 +19,6 @@ function Report({ dateMonth, dateYears, categoriesCosts, categoriesIncome, hasEr
                         categoriesIncome={categoriesIncome}
                         dateMonth={dateMonth}
                         dateYears={dateYears}
-                        hasError={hasError}
                     />
                 </Route>
                 <Redirect to="/reports/costs" />
