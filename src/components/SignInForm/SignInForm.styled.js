@@ -1,6 +1,5 @@
 /** @jsxRuntime classic */
 import styled from '@emotion/styled';
-// import { jsx, css } from '@emotion/react';
 
 export const AuthGoogleDescription = styled.p`
     font-family: Roboto, sant-serif;
