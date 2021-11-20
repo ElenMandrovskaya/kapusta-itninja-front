@@ -3,12 +3,8 @@ import React, { Fragment, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 // import { css } from "@emotion/react";
 import { useDispatch } from 'react-redux';
-import { signIn, signUp } from '../../redux/auth/auth-operations';
-import { useSelector } from 'react-redux';
-import { setName, setEmail, setisLoggedIn, setToken } from '../../redux/auth/auth-slice';
-import * as authOperations from '../../redux/auth/auth-operations';
 
-import GoogleAuth from '../GoogleAuth/GoogleAuth';
+import * as authOperations from '../../redux/auth/auth-operations';
 
 import { AuthGoogleDescription } from './SignInForm.styled';
 // import { AuthGoogleBtn } from "./SignInForm.styled";
@@ -20,6 +16,7 @@ import { LabelInputForm } from './SignInForm.styled';
 import { FormInputDescription } from './SignInForm.styled';
 import { FormInput } from './SignInForm.styled';
 import { FormBtn } from './SignInForm.styled';
+import { SpanTextWrapper, AuthGoogleBtn } from './AuthForm.styled';
 
 function SignInForm() {
     const dispatch = useDispatch();
@@ -190,7 +187,15 @@ function SignInForm() {
                     <AuthGoogleDescription>
                         Вы можете авторизоваться с помощью Google Account:
                     </AuthGoogleDescription>
-                    <GoogleAuth />
+                    <a
+                        href="https://kapusta-finance-tracker.herokuapp.com/api/user/google"
+                        alt="GoogleAuth"
+                    >
+                        <AuthGoogleBtn type="button">
+                            <FcGoogle size={18} />
+                            <SpanTextWrapper>Google</SpanTextWrapper>
+                        </AuthGoogleBtn>
+                    </a>
                 </Fragment>
             )}
 

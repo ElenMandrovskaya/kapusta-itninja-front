@@ -82,27 +82,18 @@ export default function AuthForm() {
 
     return (
         <Fragment>
-            {/* <AuthGoogleBtn type="button">
-        <FcGoogle size={18} />
-        <SpanTextWrapper>Google</SpanTextWrapper>
-      </AuthGoogleBtn> */}
-            {isRegistration ? null : (
-                <Fragment>
-                    <AuthGoogleDescription>
-                        Вы можете авторизоваться с помощью Google Account:
-                    </AuthGoogleDescription>
-                    <a
-                        href="https://kapusta-finance-tracker.herokuapp.com/api/user/google"
-                        alt="GoogleAuth"
-                    >
-                        <AuthGoogleBtn type="button">
-                            <FcGoogle size={18} />
-                            <SpanTextWrapper>Google</SpanTextWrapper>
-                        </AuthGoogleBtn>
-                    </a>
-                    {/* <GoogleAuth /> */}
-                </Fragment>
-            )}
+            <AuthGoogleDescription>
+                Вы можете авторизоваться с помощью Google Account:
+            </AuthGoogleDescription>
+            <a
+                href="https://kapusta-finance-tracker.herokuapp.com/api/user/google"
+                alt="GoogleAuth"
+            >
+                <AuthGoogleBtn type="button">
+                    <FcGoogle size={18} />
+                    <SpanTextWrapper>Google</SpanTextWrapper>
+                </AuthGoogleBtn>
+            </a>
 
             <OtherDescriptionToSignUp>
                 Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:
