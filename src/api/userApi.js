@@ -23,7 +23,7 @@ export async function signOut() {
 }
 
 export async function googleAuth(credentials) {
-    const data = await axios.post(`/api/user-google`, credentials);
+    const data = await axios.post(`/api/user/user-google`, credentials);
     // console.log(data);
     return data;
 }
