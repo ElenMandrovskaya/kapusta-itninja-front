@@ -1,25 +1,25 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-// import { googleAuth } from '../../redux/auth/auth-slice';
-import * as authOperations from '../../redux/auth/auth-operations';
+// import React from 'react';
+// import { useLocation } from 'react-router-dom';
+// import { useDispatch } from 'react-redux';
+// // import { googleAuth } from '../../redux/auth/auth-slice';
+// import * as authOperations from '../../redux/auth/auth-operations';
 
-function GoogleRedirect() {
-    const dispatch = useDispatch();
-    const location = useLocation();
+// function GoogleRedirect() {
+//     const dispatch = useDispatch();
+//     const location = useLocation();
 
-    const email = new URLSearchParams(location.search).get('email'); //отримав зі строки емайл
-    // console.log(email);
-    dispatch(authOperations.googleAuth({ email: email }));
+//     const email = new URLSearchParams(location.search).get('email'); //отримав зі строки емайл
+//     // console.log(email);
+//     dispatch(authOperations.googleAuth({ email: email }));
 
-    // dispatch(googleAuth(email));
-    return (
-        <section>
-            <div>
-                <h2>Loading...</h2>
-            </div>
-        </section>
-    );
-}
+//     // dispatch(googleAuth(email));
+//     return (
+//         <section>
+//             <div>
+//                 <h2>Loading...</h2>
+//             </div>
+//         </section>
+//     );
+// }
 
-export default GoogleRedirect;
+// export default GoogleRedirect;
