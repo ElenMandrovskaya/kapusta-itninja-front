@@ -1,14 +1,18 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const CartsBg = styled.div`
+    @media screen and (max-width: 768px) {
+        width: 95%;
+    }
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 30px;
+    /* border-radius: 30px; */
     margin: 0 auto;
     background-color: #fff;
-    /* width: 758px; */
-    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+    width: 71.5%;
+
+    /* box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2); */
     background: linear-gradient(
         to top,
         #ffffff 0%,
@@ -46,4 +50,12 @@ export const CartsBg = styled.div`
         #ffffff 89%,
         #ffffff 100%
     );
+`;
+
+export const BG = styled.div`
+    width: 100%;
+    background-color: #fff;
+    border-radius: 30px;
+    padding-top: 25px;
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
 `;

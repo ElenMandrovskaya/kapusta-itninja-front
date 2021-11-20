@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 const TransactionMonthSummary = ({type}) => {
     const [summary, setSummary] = useState("");
 
-        useEffect((type) => {   
+        useEffect(() => {   
             async function getSummary() {
                 try {
                     const exp = await getSummaryExpense();

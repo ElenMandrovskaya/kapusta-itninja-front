@@ -33,7 +33,7 @@ export const TableHead = styled.div`
   font-weight: normal;
   color: #52555f;
   
-  & :nth-child(1) {
+  & ::nth-of-type(1) {
     padding-left: 25px;
   }
 

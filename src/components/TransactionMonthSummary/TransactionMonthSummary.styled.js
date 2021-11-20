@@ -28,7 +28,11 @@ export const SummaryList = styled.ul`
   text-align: center;
   list-style: none;
 
+<<<<<<< HEAD
+    & ::nth-of-type(6) {
+=======
     /* & :nth-child(6) {
+>>>>>>> bedb7111e17afdfd5aa63a1cf6786d3fab93a78f
     border-radius: 0 0 20px 0;
   } */
 `;
