@@ -56,7 +56,7 @@ const authSlice = createSlice({
         },
         [authOperations.googleAuth.fulfilled](state, action) {
             state.user = action.payload.user;
-            state.token = action.payload.token;
+            state.token = action.payload.user.token;
             state.isLoggedIn = true;
         },
     },
