@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
 import Balance from "../../components/Balance/Balance";
 import GoBackHomeBtn from "../../components/GoBackHomeButton/GoBackHomeButton";
 import MonthPicker from "../../components/MonthPicker/MonthPicker";
@@ -13,15 +12,9 @@ import {
   getCategoriesByCosts,
   getCategoriesByIncome,
 } from "../../api/reportsApi";
-import * as authOperations from "../../redux/auth/auth-operations"
 
 /* eslint-disable */
 function ReportsPage() {
-  const dispatch = useDispatch();
-  
-  useEffect(() => {
-    dispatch(authOperations.getCurrentUser());
-  }, [dispatch]);
 
   const [newDate, setNewDate] = useState(moment(new Date()));
   const [dateMonth, setDateMonth] = useState(moment(new Date()).format("MM"));

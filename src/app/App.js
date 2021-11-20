@@ -1,6 +1,6 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
 import { Switch } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch} from "react-redux";
 import { ToastContainer } from "react-toastify";
 
 import PrivateRoute from "../routers/PrivateRouter";
@@ -12,12 +12,18 @@ import BgUnAuth from "../components/BgUnAuth/BgUnAuth";
 import BgAuth from "../components/BgAuth/BgAuth";
 import Header from "../components/Header/Header";
 import Spinner from "../components/Spinner/Spinner";
+import * as authOperations from "../redux/auth/auth-operations";
 
 const RegistrationPage = lazy(() => import('../pages/RegistrationPage'));
 const TransactionPage = lazy(() => import('../pages/TransactionsPage/TransactionsPage'));
 const ReportsPage = lazy(() => import('../pages/ReportsPage/ReportsPage'));
 
 export default function App() {
+  const dispatch = useDispatch();
+  
+    useEffect(() => {
+      dispatch(authOperations.getCurrentUser());
+    }, [dispatch]);
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
   return (

@@ -1,17 +1,17 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
 import TransactionMonthSummary from "../TransactionMonthSummary/TransactionMonthSummary";
 import IncomeItem from "./IncomeItem";
 import { Main, Table, TableHead, TableTitle, TableList } from "./TransactionsIncome.styled";
-// import income from "../../data/income.json";
+import * as transactionsOperations from "../../redux/transactions/transactions-ops";
+import { getAllTransactions } from "../../redux/transactions/transactions-selectors";
 
-const TransactionsIncome = ({ transactions }) => {
-  const sortedArray = [...transactions]
-  //   const sortedArray = [...income].sort((prevIncome, nextIncome) => {
-  //   const prevDateArr = prevIncome.date.split(".");
-  //   const nextDateArr = nextIncome.date.split(".");
-  //   return new Date(`${nextDateArr[1]}.${nextDateArr[0]}.${nextDateArr[2]}`) - new Date(`${prevDateArr[1]}.${prevDateArr[0]}.${prevDateArr[2]}`)
-  // });
-    //  console.log(type)
+const TransactionsIncome = () => {
+    const transactions = useSelector(getAllTransactions)
+    const dispatch = useDispatch();
+    useEffect(() => dispatch(transactionsOperations.getExpTransactions()), [dispatch]);
+    // console.log(transactions)
     return (
       <Main>
         <Table>
@@ -24,8 +24,8 @@ const TransactionsIncome = ({ transactions }) => {
           </TableHead>
 
           {<TableList>
-            {sortedArray.map(({ date, description, value, id, category, typeTransaction }) =>
-            ( typeTransaction === "Incomes" && <IncomeItem date={date} description={description} value={value} key={id} id={id} category={category} typeTransaction={typeTransaction}/>)
+            {transactions && transactions.map(({ date, description, value, _id, category, typeTransaction }) =>
+            (typeTransaction === "Incomes" && <IncomeItem key={_id} date={`${date.day}.${date.month}.${date.year}`} description={description} value={value} category={category} typeTransaction={typeTransaction} id={_id}/>)
             )}
           </TableList>}
         </Table>
