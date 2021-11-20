@@ -8,6 +8,9 @@ import { Item, ItemDate, ItemDesc, ItemCategory, ItemSum, ItemBtn } from "./Expe
 function ExpenseItem( {date, description, value, category, id} ) {
     const { isShowingModal, toggle } = useModal();
     const dispatch = useDispatch();
+    const handleDelete = () => {
+             dispatch(transactionsOps.removeTransaction(id))
+    };
 
     return (
         <Item>
@@ -20,7 +23,7 @@ function ExpenseItem( {date, description, value, category, id} ) {
                 onClick={()=>toggle()}
             />
             {isShowingModal && <Modal
-                toAgree={() => dispatch(transactionsOps.removeTransaction(id))}
+                toAgree={handleDelete}
                 text={'Вы уверены?'}
                 onClose={toggle} />}
         </Item>

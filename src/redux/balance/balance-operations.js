@@ -6,7 +6,7 @@ axios.defaults.baseURL = "https://kapusta-finance-tracker.herokuapp.com";
 export const getBalance = createAsyncThunk("balance/getBalance", async () => {
     try {
         const { data } = await axios.get("/api/user/balance");
-        console.log(data.data)
+        // console.log(data.data)
         return data;
     }
     catch (error) {

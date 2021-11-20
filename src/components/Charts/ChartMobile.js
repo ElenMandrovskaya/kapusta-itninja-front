@@ -42,7 +42,7 @@ const MobileChart = ({ categs }) => {
 
     return 0;
   });
-  console.log(categ.chart);
+  // console.log(categ.chart);
   return (
     <ResponsiveContainer
       width="100%"

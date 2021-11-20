@@ -19,7 +19,7 @@ export default function Balance() {
         const { value } = evt.currentTarget;
             setBalance(value);
         };
-
+        // console.log(balance)
     useEffect(() => {
             dispatch(authOperations.getBalance());
           }, [dispatch]);   
@@ -59,7 +59,7 @@ export default function Balance() {
                     <BalanceAmount 
                         name="balance"
                         type="text"
-                        defaultValue={`${currentBalance}.00 UAH`}
+                        value={`${currentBalance}.00 UAH`}
                         disabled/>
                     <SubmitBtn type="submit" onSubmit={handleSubmit} 
                     disabled>подтвердить</SubmitBtn>

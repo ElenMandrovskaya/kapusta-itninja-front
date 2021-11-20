@@ -54,7 +54,7 @@ export async function addIncTransactions(transactions) {
         typeTransaction: transactions.typeTransaction
     }
     const { data } = await axios.post(`/api/transactions/income/${transactions.categoryId}/?day=${day}&month=${month}&year=${year}`, newTransaction );
-    console.log(data)
+    // console.log(data)
     return data.result;
   }
 

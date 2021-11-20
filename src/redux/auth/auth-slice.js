@@ -59,6 +59,11 @@ const authSlice = createSlice({
             state.token = action.payload.user.token;
             state.isLoggedIn = true;
         },
+        [authOperations.changeBalance.fulfilled](state, action) {
+            // console.log(state.user.balance)
+            // console.log(action.payload)
+            state.user.balance = action.payload;
+        },
     },
 });
 
