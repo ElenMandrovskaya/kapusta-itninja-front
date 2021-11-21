@@ -35,7 +35,7 @@ const MyChart = ({ categs }) => {
     const screenWidth = window.screen.width;
     // const screenHeight = window.screen.height;
 
-    return screenWidth > 320 ? (
+    return screenWidth >= 768 ? (
         <BG>
             <CartsBg>
                 <BarChart
