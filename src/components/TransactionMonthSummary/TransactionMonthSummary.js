@@ -23,12 +23,12 @@ const TransactionMonthSummary = ({type}) => {
                     toast.warning(error.message)
                 }
             } getSummary()}, []);
-
-
+            const sortedSummary = [...summary].sort((prev, next) => prev.month - next.month)
+            // console.log(sortedSummary)
     return (
         <Summary>
             <Title>Сводка</Title>
-            {summary && summary.map(({month, value}) =>
+            {summary && sortedSummary.map(({month, value}) =>
             <SummaryList key={month}>
                     <SummaryItem >
                         <span>{moment(month).format("MMMM")}</span>

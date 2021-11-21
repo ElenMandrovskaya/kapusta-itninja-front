@@ -43,7 +43,6 @@ const TransactionsExpForm = () => {
             setTimeout(() => {
                 dispatch(authOps.changeBalance({balance: currentBalance}));
               }, 500)
-        // dispatch(authOps.changeBalance({balance: currentBalance}));
         reset();
     };
    

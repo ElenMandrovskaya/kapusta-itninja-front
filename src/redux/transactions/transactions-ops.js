@@ -1,15 +1,11 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-// import * as transactionsApi from "../../api/transactionsApi";
-
-// axios.defaults.baseURL = "https://kapusta-finance-tracker.herokuapp.com";
 
 export const getExpTransactions = createAsyncThunk("transactions/getExpTransactions", async () => {
     try {
         const { data } = await axios.get("/api/transactions/expense");
         return data.result.transactions;
     } catch (error) {
-        // toast.error("");
         return []
     }
 });
@@ -19,7 +15,6 @@ export const getIncTransactions = createAsyncThunk("transactions/getIncTransacti
         const { data } = await axios.get("/api/transactions/income");
         return data.result.transactions;
     } catch (error) {
-        // toast.error("");
         return []
     }
 });
@@ -35,7 +30,6 @@ try {
     return data.result.result;
    
 } catch (error) {
-    // toast.error("");
     return []
 }
 }
@@ -52,7 +46,6 @@ export const addIncTransaction = createAsyncThunk("transactions/addIncTransactio
         return data.result.result;
        
     } catch (error) {
-        // toast.error("");
         return []
     }
 }
@@ -60,9 +53,10 @@ export const addIncTransaction = createAsyncThunk("transactions/addIncTransactio
 
 export const removeTransaction = createAsyncThunk('transactions/removetransactions', async (id) => {
     try {
-        await axios.delete(`api/transactions/${id}`);
-        
-        return id
+        const { data } = await axios.delete(`api/transactions/${id}`);
+        // console.log(data.result.balance)
+
+        return {id: id, balance: data.result.balance}
     }
     catch (error) {
      

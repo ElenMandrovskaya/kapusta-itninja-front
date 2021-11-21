@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import * as transactionsOps from "./transactions-ops";
+import authReducer from "../auth/auth-slice";
+// console.log(authReducer.state.auth)
 
 const transactionsSlice = createSlice({
     name: "transactions",
@@ -10,6 +12,7 @@ const transactionsSlice = createSlice({
     },
     extraReducers: {
         [transactionsOps.getExpTransactions.fulfilled]: (state, action) => {
+            console.log(state)
             state.items = action.payload
         },
         [transactionsOps.getIncTransactions.fulfilled]: (state, action) => {
@@ -19,11 +22,11 @@ const transactionsSlice = createSlice({
             state.items.push(action.payload)
         },
         [transactionsOps.addIncTransaction.fulfilled]: (state, action) => {
-            // console.log(action.payload)
             state.items.push(action.payload)
         },
         [transactionsOps.removeTransaction.fulfilled](state, action) {
-            state.items = state.items.filter(({_id}) => _id !== action.payload);
+            state.items = state.items.filter(({_id}) => _id !== action.payload.id);
+            // console.log(.getState().user.balance === action.payload.balance)
         },
        
     }
