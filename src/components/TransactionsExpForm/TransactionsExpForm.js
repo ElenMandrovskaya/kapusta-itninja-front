@@ -27,7 +27,7 @@ const TransactionsExpForm = () => {
     };
     
     const addExpense = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         const date = {
             day: startDate.getDate(),
             month: startDate.getMonth() + 1,

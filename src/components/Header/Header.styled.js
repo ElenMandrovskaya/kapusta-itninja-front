@@ -9,7 +9,7 @@ export const ContainerHeader = styled.header`
   justify-content: space-between;  
   background-color: #FFFFFF;
   height: 56px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   padding: 0 19px;
   @media screen and (min-width: 768px) { 
      padding: 0 26px;
