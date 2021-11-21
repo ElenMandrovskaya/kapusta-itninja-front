@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useDispatch } from 'react-redux';
-// import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { useDispatch, useSelector } from 'react-redux';
 import Calendar from "../Calendar/Calendar";
 import CategoryInput from "../CategoryInput/CategoryInput";
 import { Form, Wrapper, FormInput, FormBtn, InputAmount, InputDesc, ButtonOrange, Button } from "./TransactionsExpForm.styled";
 import * as transactionstOperations from "../../redux/transactions/transactions-ops";
 import * as authOps from "../../redux/auth/auth-operations";
+import { authSelectors } from "../../redux/auth/auth-selectors"
+
 
 const TransactionsExpForm = () => {
     const [startDate, setStartDate] = useState(new Date());
@@ -15,6 +15,7 @@ const TransactionsExpForm = () => {
     const [value, setValue] = useState("");
     const [categoryId, setCategoryId] = useState("");
     const [typeTransaction, setTypeTransaction] = useState("");
+    const currentBalance = useSelector(authSelectors.getCurrentBalance);
     const dispatch = useDispatch();
 
     const reset = () => {
@@ -27,14 +28,22 @@ const TransactionsExpForm = () => {
     };
     
     const addExpense = (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         const date = {
             day: startDate.getDate(),
             month: startDate.getMonth() + 1,
             year: startDate.getFullYear()
         }
-        dispatch(transactionstOperations.addExpTransaction({ typeTransaction, date, description, category, categoryId, value }))
-        dispatch(authOps.changeBalance());
+        dispatch(transactionstOperations.addExpTransaction({ typeTransaction, 
+            date, 
+            description, 
+            category, 
+            categoryId, 
+            value }))
+            setTimeout(() => {
+                dispatch(authOps.changeBalance({balance: currentBalance}));
+              }, 500)
+        // dispatch(authOps.changeBalance({balance: currentBalance}));
         reset();
     };
    

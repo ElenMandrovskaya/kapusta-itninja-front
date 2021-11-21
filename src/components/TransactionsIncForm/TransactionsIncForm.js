@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import Calendar from "../Calendar/Calendar";
 import CategoryInput from "../CategoryInput/CategoryInput";
 import { Form, Wrapper, FormInput, FormBtn, InputAmount, InputDesc, ButtonOrange,Button } from "./TransactionsIncForm.styled";
 import * as transactionstOperations from "../../redux/transactions/transactions-ops";
 import * as authOps from "../../redux/auth/auth-operations";
-
+import { authSelectors } from "../../redux/auth/auth-selectors"
 
 const TransactionsIncForm = () => {
     const [startDate, setStartDate] = useState(new Date());
@@ -15,6 +15,7 @@ const TransactionsIncForm = () => {
     const [value, setValue] = useState("");
     const [categoryId, setCategoryId] = useState("");
     const [typeTransaction, setTypeTransaction] = useState("");
+    const currentBalance = useSelector(authSelectors.getCurrentBalance);
     const dispatch = useDispatch();
 
     const reset = () => {
@@ -34,8 +35,9 @@ const TransactionsIncForm = () => {
         year: startDate.getFullYear()
     }
     dispatch(transactionstOperations.addIncTransaction({ typeTransaction, date, description, category, categoryId, value }))
-    dispatch(authOps.changeBalance());
-
+    setTimeout(() => {
+        dispatch(authOps.changeBalance({balance: currentBalance}));
+      }, 500)
         reset();
     };
 

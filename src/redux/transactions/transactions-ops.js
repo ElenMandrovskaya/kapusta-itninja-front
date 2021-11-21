@@ -61,7 +61,7 @@ export const addIncTransaction = createAsyncThunk("transactions/addIncTransactio
 export const removeTransaction = createAsyncThunk('transactions/removetransactions', async (id) => {
     try {
         await axios.delete(`api/transactions/${id}`);
-        // console.log(id)
+        
         return id
     }
     catch (error) {

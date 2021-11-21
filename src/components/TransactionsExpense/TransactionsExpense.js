@@ -10,8 +10,9 @@ import { getAllTransactions } from "../../redux/transactions/transactions-select
 const TransactionsExpense = () => {
     const transactions = useSelector(getAllTransactions)
     const dispatch = useDispatch();
-    useEffect(() => dispatch(transactionsOperations.getExpTransactions()), [dispatch]);
-    // console.log(transactions)
+    useEffect(() => 
+    dispatch(transactionsOperations.getExpTransactions())
+    , [dispatch]);
 
 
     return (

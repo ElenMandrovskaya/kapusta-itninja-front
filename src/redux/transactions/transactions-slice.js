@@ -23,8 +23,6 @@ const transactionsSlice = createSlice({
             state.items.push(action.payload)
         },
         [transactionsOps.removeTransaction.fulfilled](state, action) {
-            // console.log(state.items.map(({_id} )=> _id))
-            // console.log(action.payload)
             state.items = state.items.filter(({_id}) => _id !== action.payload);
         },
        
