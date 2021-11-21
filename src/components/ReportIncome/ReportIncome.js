@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, NavLink, useRouteMatch } from 'react-router-dom';
+import { Route, NavLink, useRouteMatch, Switch, Redirect } from 'react-router-dom';
 import ReportIcon from '../ReportIcon/ReportIcon';
 import ReportCategoryList from '../ReportCategoryList/ReportCategoryList';
 import {
@@ -25,7 +25,7 @@ function ReportIncome({ dateMonth, dateYears, categoriesIncome }) {
                     </NavLink>
                 </ReportCostContainer>
                 {categoriesIncome?.length === 0 && <ReportIncomeError />}
-                {categoriesIncome && (
+                {categoriesIncome?.length > 0 && (
                     <ReportCategoryList
                         categories={categoriesIncome}
                         dateMonth={dateMonth}
@@ -33,10 +33,13 @@ function ReportIncome({ dateMonth, dateYears, categoriesIncome }) {
                     />
                 )}
             </ReportTitleListWrapper>
-            {categoriesIncome && (
-                <Route path={`${path}/:icon`}>
-                    <MyChart categs={categoriesIncome} />
-                </Route>
+            {categoriesIncome?.length > 0 && (
+                <Switch>
+                    <Route path={`${path}/:icon`}>
+                        <MyChart categs={categoriesIncome} />
+                    </Route>
+                    <Redirect to="/reports/income/salary" />
+                </Switch>
             )}
         </div>
     );
