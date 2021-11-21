@@ -62,6 +62,17 @@ padding-left: 20px;
 export const TableList = styled.ul`
   margin: 0;
   padding: 0;
+  
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 0;
+    overflow-x: scroll;
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+      background-color: #FF751D;
+      border-radius: 4px;
+    }
 
   @media screen and (max-width: 767px) {
     overflow: auto;
@@ -70,12 +81,13 @@ export const TableList = styled.ul`
   }
 
   @media screen and (min-width: 768px) {
-  overflow: scroll;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
   height: 346px;
   border-left: 1px solid #f4f6fb;
   border-right: 1px solid #f4f6fb;
   background-size: 2px 74px;
-  
+
   }
 
   @media screen and (min-width: 1280px) {
