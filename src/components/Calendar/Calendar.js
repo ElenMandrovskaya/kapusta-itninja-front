@@ -4,7 +4,7 @@ import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
 import { DateContainer, Label } from "./Calendar.styled";
 // import { IoCalendarOutline } from "react-icons/io5";
 
-const Calendar = ({ selectedDate, handleChange }) => (
+const Calendar = ({ selectedDate, handleChange, maxDate }) => (
     <DateContainer>
         <Label htmlFor="datepicker" >
             {/* <IoCalendarOutline /> */}
@@ -16,6 +16,7 @@ const Calendar = ({ selectedDate, handleChange }) => (
         onChange={handleChange}
         dateFormat="dd.MM.yyyy"
             name="date"
+            maxDate={maxDate}
         fixedHeight
         />
   </DateContainer>

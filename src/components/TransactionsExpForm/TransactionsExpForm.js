@@ -45,7 +45,8 @@ const TransactionsExpForm = () => {
             <Wrapper>
                 <Calendar
                     selectedDate={startDate}
-                    handleChange={(date) => setStartDate(date)}                
+                    handleChange={(date) => setStartDate(date)}
+                    maxDate={startDate}
                 />
                 <FormInput>
                     <InputDesc

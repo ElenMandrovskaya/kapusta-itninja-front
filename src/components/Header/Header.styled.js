@@ -21,7 +21,7 @@ export const ContainerHeader = styled.header`
   }
 `;
 
-export const Logo = styled.svg`
+export const Logo = styled.a`
     background-image: url(${logo});
     width: 90px;
     height: 31px;
