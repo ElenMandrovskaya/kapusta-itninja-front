@@ -4,6 +4,7 @@ import imgTab from "../../images/kapustaTab-bottom.svg";
 import imgDesc from "../../images/kapustaDesc-Bottom.svg";
 
 export const BgBottom = styled.svg`
+
 @media screen and (min-width: 768px) {
 z-index: -1;
 position: fixed;

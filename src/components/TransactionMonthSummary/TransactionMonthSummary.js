@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import "moment/locale/ru";
 import moment from "moment";
 import { Summary, Title, SummaryList, SummaryItem  } from "./TransactionMonthSummary.styled"
 import {getSummaryExpense, getSummaryIncome} from "../../api/summaryApi"

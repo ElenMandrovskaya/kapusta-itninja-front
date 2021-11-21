@@ -27,21 +27,21 @@ const TransactionsExpForm = () => {
     };
     
     const addExpense = (e) => {
-        e.preventDefault();
-    const date = {
-        day: startDate.getDate(),
-        month: startDate.getMonth() + 1,
-        year: startDate.getFullYear()
-    }
+        // e.preventDefault();
+        const date = {
+            day: startDate.getDate(),
+            month: startDate.getMonth() + 1,
+            year: startDate.getFullYear()
+        }
         dispatch(transactionstOperations.addExpTransaction({ typeTransaction, date, description, category, categoryId, value }))
         dispatch(authOps.changeBalance());
         reset();
     };
    
-    // dispatch(authOps.changeBalance());
-
     return (
-        <Form onSubmit={addExpense} >
+        <Form 
+        onSubmit={addExpense}
+         >
             <Wrapper>
                 <Calendar
                     selectedDate={startDate}
@@ -80,7 +80,7 @@ const TransactionsExpForm = () => {
                         Ввод
                     </ButtonOrange>
                     <Button
-                        type="submit"
+                        type="reset"
                         onClick={reset}
                     >
                         Очистить
