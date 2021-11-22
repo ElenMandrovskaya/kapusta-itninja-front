@@ -53,12 +53,14 @@ const TransactionsExpForm = () => {
          >
             <Wrapper>
                 <Calendar
+                    required
                     selectedDate={startDate}
                     handleChange={(date) => setStartDate(date)} 
                     onChange={dispatch(setStartedDate(startDate))}             
                 />
                 <FormInput>
                     <InputDesc
+                        required
                         type="text"
                         name="description"
                         placeholder="Описание товара"
@@ -67,6 +69,7 @@ const TransactionsExpForm = () => {
                         onChange={(e) => setDescription(e.target.value)}
                     />
                     <CategoryInput
+                        required
                         type="Expenses"
                         name="category"
                         categoryPick={category}
@@ -75,11 +78,14 @@ const TransactionsExpForm = () => {
                         setTypeTransaction={setTypeTransaction}
                     />
                     <InputAmount
+                        required
                         type="text"
                         name="amount"
                         autoComplete="off"
-                        placeholder="0,00"
+                        placeholder="0.00"
                         value={value}
+                        pattern="\d+(\.\d{1-2})?"
+                        title="Введите сумму в формате 00.00"
                         onChange={(e) => setValue(e.target.value)} 
                     />
                 </FormInput>

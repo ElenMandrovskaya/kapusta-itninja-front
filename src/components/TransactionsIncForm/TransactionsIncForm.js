@@ -46,12 +46,14 @@ const TransactionsIncForm = () => {
         <Form onSubmit={addIncome} >
             <Wrapper>
                 <Calendar
+                    required
                     selectedDate={startDate}
                     handleChange={(date) => setStartDate(date)}
                     onChange={dispatch(setStartedDate(startDate))} 
                 />
                 <FormInput>
                     <InputDesc
+                        required
                         type="text"
                         autoComplete="off"
                         placeholder="Описание дохода"
@@ -59,6 +61,7 @@ const TransactionsIncForm = () => {
                         onChange={(e) => setDescription(e.target.value)}
                     />
                     <CategoryInput
+                        required
                         type="Incomes"
                         name="category"
                         categoryPick={category}
@@ -67,6 +70,9 @@ const TransactionsIncForm = () => {
                         setTypeTransaction={setTypeTransaction}
                     />
                     <InputAmount
+                        required
+                        pattern="\d+(\.\d{1-2})?"
+                        title="Введите сумму в формате 00.00"
                         type="text"
                         autoComplete="off"
                         placeholder="0,00"

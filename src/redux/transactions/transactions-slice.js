@@ -9,7 +9,8 @@ const transactionsSlice = createSlice({
         items: [],
         error: null,
         isLoading: false,
-        startDate: ''
+        startDate: '',
+        monthlySummary: [],
     },
     reducers: { 
         setStartedDate(state, action) {
@@ -33,6 +34,7 @@ const transactionsSlice = createSlice({
             state.items = state.items.filter(({_id}) => _id !== action.payload.id);
             // console.log(.getState().user.balance === action.payload.balance)
         },
+
        
     }
 })

@@ -38,6 +38,7 @@ const CategoryInput = ({type,  setTypeTransaction, categoryPick, setCategory, se
     return (
         <CategoryContainer>
             <Input
+                required
                 id="category_input"
                 autoComplete="off"
                 type="text"
@@ -56,6 +57,7 @@ const CategoryInput = ({type,  setTypeTransaction, categoryPick, setCategory, se
                             <CategoryItem key={_id}>
                                 <CategoryLabel tabIndex={0}>
                                     <RadioButton
+                                        required
                                         onClick={handleCategoryClick}
                                         hidden
                                         value={name}
@@ -72,6 +74,7 @@ const CategoryInput = ({type,  setTypeTransaction, categoryPick, setCategory, se
                             <CategoryItem key={_id}>
                                 <CategoryLabel tabIndex={0}>
                                     <RadioButton
+                                        required
                                         onClick={handleCategoryClick}
                                         hidden
                                         value={name}
