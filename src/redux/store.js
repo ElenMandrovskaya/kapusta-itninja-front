@@ -7,11 +7,13 @@ import transactionsReducer from "./transactions/transactions-slice"
 
 const middleware = [
     ...getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
+      serializableCheck: false
+      // {
+      //   ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      // },
     }),
   ];
+
 
   const authPersistConfig = {
     key: "auth",

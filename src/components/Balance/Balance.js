@@ -22,12 +22,11 @@ export default function Balance() {
             dispatch(authOperations.getBalance());
           }, [dispatch]);   
     
-
     const handleSubmit = (evt) => {
             evt.preventDefault();
             dispatch(authOperations.updBalance({balance}))
          };
-  
+//   console.log(currentBalance)
     return (
         <BalanceContainer 
         onSubmit={handleSubmit}
@@ -39,6 +38,7 @@ export default function Balance() {
                         required
                         name="balance"
                         type="text"
+                        value={balance}
                         onChange={handleChange}
                         autoComplete="off"
                         placeholder={`${currentBalance.toFixed(2)} UAH`}
@@ -57,7 +57,7 @@ export default function Balance() {
                     <BalanceAmount 
                         name="balance"
                         type="text"
-                        value={`${currentBalance}.00 UAH`}
+                        value={`${parseFloat(currentBalance).toFixed(2)} UAH`}
                         disabled/>
                     <SubmitBtn type="submit" onSubmit={handleSubmit} 
                     disabled>подтвердить</SubmitBtn>

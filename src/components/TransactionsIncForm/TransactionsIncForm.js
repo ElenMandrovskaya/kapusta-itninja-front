@@ -72,7 +72,7 @@ const TransactionsIncForm = () => {
                     />
                     <InputAmount
                         required
-                        pattern="\d+(\.\d{1-2})?"
+                        pattern="^\$?[0-9]+\.?[0-9]?[0-9]"
                         title="Введите сумму в формате 00.00"
                         type="text"
                         autoComplete="off"

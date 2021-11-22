@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import Calendar from "../Calendar/Calendar";
 import CategoryInput from "../CategoryInput/CategoryInput";
@@ -17,8 +17,12 @@ const TransactionsExpForm = () => {
     const [typeTransaction, setTypeTransaction] = useState("");
     const currentBalance = useSelector(authSelectors.getCurrentBalance);
     const dispatch = useDispatch();
-    // console.log(startDate)
-    
+    console.log(startDate)
+
+    useEffect(() => {
+        dispatch(setStartedDate(startDate))   
+    }, [dispatch, startDate])
+
     const reset = () => {
     setStartDate(new Date());
     setCategory("");
@@ -56,9 +60,8 @@ const TransactionsExpForm = () => {
                 <Calendar
                     required
                     selectedDate={startDate}
-                    handleChange={(date) => setStartDate(date)} 
-                    // onChange={dispatch(setStartedDate(startDate))}             
-                    maxDate={startDate}
+                    handleChange={(date) => setStartDate(date)}           
+                    maxDate={new Date()}
                 />
                 <FormInput>
                     <InputDesc
@@ -86,8 +89,8 @@ const TransactionsExpForm = () => {
                         autoComplete="off"
                         placeholder="0.00"
                         value={value}
-                        pattern="\d+(\.\d{1-2})?"
-                        title="Введите сумму в формате 00.00"
+                        pattern="^\$?[0-9]+\.?[0-9]?[0-9]"
+                        title="Введите сумму в формате 0.00"
                         onChange={(e) => setValue(e.target.value)} 
                     />
                 </FormInput>
