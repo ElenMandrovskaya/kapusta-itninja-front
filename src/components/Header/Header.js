@@ -21,12 +21,16 @@ export default function Header() {
     const dispatch = useDispatch();
     const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
     const name = useSelector(authSelectors.getUserName) || '';
-
-    const logout = () => dispatch(authOperations.signOut());
     const { isShowingModal, toggle } = useModal();
+
+    const logout = () => {
+        dispatch(authOperations.signOut());
+        toggle();
+    };
+    
     return (
         <ContainerHeader>
-            <Logo />
+            <Logo href="/"/>
             {isLoggedIn && (
                 <UserInfo>
                     <AvatarUser>
@@ -40,7 +44,6 @@ export default function Header() {
 
                     <Button
                         type="button"
-                        // onClick={() => dispatch(authOperations.signOut())}
                         onClick={() => toggle()}
                     >
                         <LogoutP>Выйти</LogoutP>

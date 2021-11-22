@@ -19,9 +19,9 @@ const renderCustomBarLabel = ({ x, y, width, value }) => {
 
 const MyChart = ({ categs }) => {
     const { icon } = useParams();
-    const categ = categs.find(categ => categ.icon === icon);
+    const categ = categs?.find(categ => categ.icon === icon);
 
-    categ.chart.sort(function (a, b) {
+    categ?.chart?.sort(function (a, b) {
         if (a.total > b.total) {
             return -1;
         }
@@ -35,13 +35,13 @@ const MyChart = ({ categs }) => {
     const screenWidth = window.screen.width;
     // const screenHeight = window.screen.height;
 
-    return screenWidth > 320 ? (
+    return screenWidth >= 768 ? (
         <BG>
             <CartsBg>
                 <BarChart
                     width={605}
                     height={328}
-                    data={categ.chart}
+                    data={categ?.chart}
                     margin={{ top: 50, right: 15, bottom: 9, left: 15 }}
                     barCategoryGap={20}
                 >
@@ -56,7 +56,7 @@ const MyChart = ({ categs }) => {
                         radius={[10, 10, 0, 0]}
                         animationDuration={1000}
                     >
-                        {categ.chart.map((el, idx) => (
+                        {categ?.chart?.map((el, idx) => (
                             <Cell key={`cell-${idx}`} fill={idx % 3 ? '#FFDAC0' : '#ff751d'} />
                         ))}
                     </Bar>

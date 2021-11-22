@@ -1,18 +1,16 @@
 import styled from '@emotion/styled';
 
 export const CartsBg = styled.div`
-    @media screen and (max-width: 768px) {
-        width: 95%;
+    @media screen and (min-width: 768px) {
+        width: 71.5%;
     }
+
     display: flex;
+    width: 95%;
     justify-content: center;
     align-items: center;
-    /* border-radius: 30px; */
     margin: 0 auto;
     background-color: #fff;
-    width: 71.5%;
-
-    /* box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2); */
     background: linear-gradient(
         to top,
         #ffffff 0%,
