@@ -7,7 +7,7 @@ const transactionsSlice = createSlice({
         items: [],
         error: null,
         isLoading: false,
-        startDate: '',
+        startDate: new Date(),
         // monthlySummary: []
     },
     reducers: { 
