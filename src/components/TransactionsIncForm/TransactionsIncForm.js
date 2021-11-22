@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import Calendar from "../Calendar/Calendar";
@@ -18,6 +18,10 @@ const TransactionsIncForm = () => {
     const [typeTransaction, setTypeTransaction] = useState("");
     const currentBalance = useSelector(authSelectors.getCurrentBalance);
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(setStartedDate(startDate))   
+    }, [dispatch, startDate])
 
     const reset = () => {
     setStartDate(new Date());
@@ -49,8 +53,7 @@ const TransactionsIncForm = () => {
                     required
                     selectedDate={startDate}
                     handleChange={(date) => setStartDate(date)}
-                    // onChange={dispatch(setStartedDate(startDate))} 
-                    maxDate={startDate}
+                    maxDate={new Date()}
                 />
                 <FormInput>
                     <InputDesc

@@ -17,7 +17,6 @@ const TransactionsExpForm = () => {
     const [typeTransaction, setTypeTransaction] = useState("");
     const currentBalance = useSelector(authSelectors.getCurrentBalance);
     const dispatch = useDispatch();
-    console.log(startDate)
 
     useEffect(() => {
         dispatch(setStartedDate(startDate))   
