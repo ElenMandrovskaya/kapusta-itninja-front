@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
 import "moment/locale/ru";
 import moment from "moment";
 import { Summary, Title, SummaryList, SummaryItem  } from "./TransactionMonthSummary.styled"
@@ -8,7 +9,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 const TransactionMonthSummary = ({type}) => {
     const [summary, setSummary] = useState("");
-
+    // const summary = useSelector(state => state.transactions.monthlySummary)
+    // console.log(summary)
 /* eslint-disable */
         useEffect(() => {   
             async function getSummary() {
@@ -24,11 +26,13 @@ const TransactionMonthSummary = ({type}) => {
                 }
             } getSummary()}, []);
 
+            const sortedSummary = [...summary].sort((prev, next) => prev.month - next.month)
+            // console.log(sortedSummary)
 
     return (
         <Summary>
             <Title>Сводка</Title>
-            {summary && summary.map(({month, value}) =>
+            {summary && sortedSummary.map(({month, value}) =>
             <SummaryList key={month}>
                     <SummaryItem >
                         <span>{moment(month).format("MMMM")}</span>

@@ -7,6 +7,12 @@ const transactionsSlice = createSlice({
         items: [],
         error: null,
         isLoading: false,
+        startDate: null,
+        // monthlySummary: []
+    },
+    reducers: { 
+        setStartedDate(state, action) {
+        state.startDate = action.payload}
     },
     extraReducers: {
         [transactionsOps.getExpTransactions.fulfilled]: (state, action) => {
@@ -19,16 +25,20 @@ const transactionsSlice = createSlice({
             state.items.push(action.payload)
         },
         [transactionsOps.addIncTransaction.fulfilled]: (state, action) => {
-            // console.log(action.payload)
             state.items.push(action.payload)
         },
         [transactionsOps.removeTransaction.fulfilled](state, action) {
-            // console.log(state.items.map(({_id} )=> _id))
-            // console.log(action.payload)
-            state.items = state.items.filter(({_id}) => _id !== action.payload);
+            state.items = state.items.filter(({_id}) => _id !== action.payload.id);
         },
+        // [transactionsOps.getSummaryExp.fulfilled]: (state, action) => {
+        //     state.monthlySummary.push(action.payload)
+        // },
+        // [transactionsOps.getSummaryInc.fulfilled]: (state, action) => {
+        //     state.monthlySummary.push(action.payload)
+        // },
        
     }
 })
 
 export default transactionsSlice.reducer;
+export const { setStartedDate } = transactionsSlice.actions;

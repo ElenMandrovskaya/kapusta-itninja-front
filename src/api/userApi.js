@@ -28,5 +28,11 @@ export async function googleAuth(credentials) {
     return data;
 }
 
+export async function changeBalance(balance) {
+    const { data } = await axios.patch('/api/user/balance', balance);
+    // console.log(data.result.updateBalance)
+    return data.result.updateBalance;
+}
+
 // GET:/user/google - зарегистрировать/залогинить нового пользователя через гугл
 // редиректит по ссылке FRONTEND_URL/?token=”userToken”&email=”test@gmail.com”

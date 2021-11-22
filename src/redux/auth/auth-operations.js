@@ -94,21 +94,17 @@ export const updBalance = createAsyncThunk('balance/updBalance', async balance =
 export const getBalance = createAsyncThunk('balance/getBalance', async () => {
     try {
         const { data } = await axios.get('/api/user/balance');
-        // console.log(data.result)
         return data.result;
     } catch (error) {
         toast.warning(error);
     }
 });
 
-export const changeBalance = createAsyncThunk('balance/changeBalance', async() => {
+export const changeBalance = createAsyncThunk('balance/changeBalance', async(balance) => {
     try {
-        const { data } = await axios.patch('/api/user/balance');
-        // console.log(data.result.updateBalance)
+        const { data } = await axios.patch('/api/user/balance', balance);
         return data.result.updateBalance;
     } catch (error) {
-        // const { data } = await axios.get('/api/user/balance');
-        // return data.result.balance;
-        // toast.error(message);
+
     }
 });

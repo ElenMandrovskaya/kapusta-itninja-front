@@ -1,16 +1,24 @@
-import React from "react";
+import React, {useEffect} from "react";
 import useModal from "../Modal/useModal";
 import Modal from "../Modal/logoutModal";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as transactionsOps from "../../redux/transactions/transactions-ops";
 import { Item, ItemDate, ItemDesc, ItemCategory, ItemSum, ItemBtn } from "./ExpenseItem.styled"
+// import { authSelectors } from "../../redux/auth/auth-selectors"
+import * as authOperations from "../../redux/auth/auth-operations"
 
 function ExpenseItem( {date, description, value, category, id} ) {
+
     const { isShowingModal, toggle } = useModal();
     const dispatch = useDispatch();
+
     const handleDelete = () => {
-             dispatch(transactionsOps.removeTransaction(id))
+             dispatch(transactionsOps.removeTransaction(id));
+            //  setTimeout(() => {dispatch(authOperations.getBalance())}, 500)
+            //  dispatch(authOperations.getBalance())
     };
+
+
 
     return (
         <Item>
@@ -25,7 +33,8 @@ function ExpenseItem( {date, description, value, category, id} ) {
             {isShowingModal && <Modal
                 toAgree={handleDelete}
                 text={'Вы уверены?'}
-                onClose={toggle} />}
+                onClose={toggle} 
+                />}
         </Item>
     );
 };

@@ -1,15 +1,12 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-// import * as transactionsApi from "../../api/transactionsApi";
 
-// axios.defaults.baseURL = "https://kapusta-finance-tracker.herokuapp.com";
 
 export const getExpTransactions = createAsyncThunk("transactions/getExpTransactions", async () => {
     try {
         const { data } = await axios.get("/api/transactions/expense");
         return data.result.transactions;
     } catch (error) {
-        // toast.error("");
         return []
     }
 });
@@ -19,7 +16,6 @@ export const getIncTransactions = createAsyncThunk("transactions/getIncTransacti
         const { data } = await axios.get("/api/transactions/income");
         return data.result.transactions;
     } catch (error) {
-        // toast.error("");
         return []
     }
 });
@@ -35,7 +31,6 @@ try {
     return data.result.result;
    
 } catch (error) {
-    // toast.error("");
     return []
 }
 }
@@ -52,7 +47,6 @@ export const addIncTransaction = createAsyncThunk("transactions/addIncTransactio
         return data.result.result;
        
     } catch (error) {
-        // toast.error("");
         return []
     }
 }
@@ -60,11 +54,33 @@ export const addIncTransaction = createAsyncThunk("transactions/addIncTransactio
 
 export const removeTransaction = createAsyncThunk('transactions/removetransactions', async (id) => {
     try {
-        await axios.delete(`api/transactions/${id}`);
-        // console.log(id)
-        return id
+        const { data } = await axios.delete(`api/transactions/${id}`);
+        // console.log(data.result.balance)
+
+        return {id: id, balance: data.result.balance}
     }
     catch (error) {
      
     }
 });
+
+// export const getSummaryExp = createAsyncThunk('transactions/summary', async (year) => {
+//     try {
+//         const {data} = await axios.get(`/api/reports/expense?year=${year}`);
+//         const finrep = data.result.finalReportArray;
+//         console.log(finrep)
+//         return data.result.finalReportArray;
+//     }
+//     catch (error) {
+     
+//     }
+// });
+// export const getSummaryInc = createAsyncThunk('transactions/summary', async ({year}) => {
+//     try {
+//         const {data} = await axios.get(`/api/reports/income?year=${year}`);
+//         return data.result.finalReportArray;
+//     }
+//     catch (error) {
+     
+//     }
+// });

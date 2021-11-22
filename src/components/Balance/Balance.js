@@ -2,8 +2,6 @@ import React, {useState, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { HiOutlineCursorClick, HiOutlineLightBulb } from "react-icons/hi";
 import { authSelectors } from "../../redux/auth/auth-selectors"
-// import { getCurrentBalance } from "../../redux/balance/balance-selectors";
-// import * as balanceOperations from "../../redux/balance/balance-operations";
 import * as authOperations from "../../redux/auth/auth-operations"
 import { BalanceContainer, BalanceTitle, BalanceAmount, SubmitBtn, BalanceWrap, BalanceModal, BalanceText, BalanceNote } from "./Balance.styled";
 
@@ -19,7 +17,7 @@ export default function Balance() {
         const { value } = evt.currentTarget;
             setBalance(value);
         };
-        // console.log(balance)
+        
     useEffect(() => {
             dispatch(authOperations.getBalance());
           }, [dispatch]);   

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useDispatch } from 'react-redux';
-// import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { useDispatch, useSelector } from 'react-redux';
 import Calendar from "../Calendar/Calendar";
 import CategoryInput from "../CategoryInput/CategoryInput";
 import { Form, Wrapper, FormInput, FormBtn, InputAmount, InputDesc, ButtonOrange, Button } from "./TransactionsExpForm.styled";
 import * as transactionstOperations from "../../redux/transactions/transactions-ops";
 import * as authOps from "../../redux/auth/auth-operations";
+import { authSelectors } from "../../redux/auth/auth-selectors"
+import { setStartedDate } from "../../redux/transactions/transactions-slice";
 
 const TransactionsExpForm = () => {
     const [startDate, setStartDate] = useState(new Date());
@@ -15,7 +15,9 @@ const TransactionsExpForm = () => {
     const [value, setValue] = useState("");
     const [categoryId, setCategoryId] = useState("");
     const [typeTransaction, setTypeTransaction] = useState("");
+    const currentBalance = useSelector(authSelectors.getCurrentBalance);
     const dispatch = useDispatch();
+    // console.log(startDate)
 
     const reset = () => {
     setStartDate(new Date());
@@ -27,14 +29,22 @@ const TransactionsExpForm = () => {
     };
     
     const addExpense = (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         const date = {
             day: startDate.getDate(),
             month: startDate.getMonth() + 1,
             year: startDate.getFullYear()
         }
-        dispatch(transactionstOperations.addExpTransaction({ typeTransaction, date, description, category, categoryId, value }))
-        dispatch(authOps.changeBalance());
+        dispatch(transactionstOperations.addExpTransaction({ typeTransaction, 
+            date, 
+            description, 
+            category, 
+            categoryId, 
+            value }))
+            setTimeout(() => {
+                dispatch(authOps.changeBalance({balance: currentBalance}));
+                // dispatch(transactionstOperations.getSummaryExp(date.year));
+              }, 500)
         reset();
     };
    
@@ -44,12 +54,15 @@ const TransactionsExpForm = () => {
          >
             <Wrapper>
                 <Calendar
+                    required
                     selectedDate={startDate}
-                    handleChange={(date) => setStartDate(date)}
+                    handleChange={(date) => setStartDate(date)} 
+                    onChange={dispatch(setStartedDate(startDate))}             
                     maxDate={startDate}
                 />
                 <FormInput>
                     <InputDesc
+                        required
                         type="text"
                         name="description"
                         placeholder="Описание товара"
@@ -58,6 +71,7 @@ const TransactionsExpForm = () => {
                         onChange={(e) => setDescription(e.target.value)}
                     />
                     <CategoryInput
+                        required
                         type="Expenses"
                         name="category"
                         categoryPick={category}
@@ -66,11 +80,14 @@ const TransactionsExpForm = () => {
                         setTypeTransaction={setTypeTransaction}
                     />
                     <InputAmount
+                        required
                         type="text"
                         name="amount"
                         autoComplete="off"
-                        placeholder="0,00"
+                        placeholder="0.00"
                         value={value}
+                        pattern="\d+(\.\d{1-2})?"
+                        title="Введите сумму в формате 00.00"
                         onChange={(e) => setValue(e.target.value)} 
                     />
                 </FormInput>
