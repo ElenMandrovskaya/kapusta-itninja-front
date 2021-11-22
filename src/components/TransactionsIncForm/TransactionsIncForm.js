@@ -45,6 +45,7 @@ const TransactionsIncForm = () => {
                 <Calendar
                     selectedDate={startDate}
                     handleChange={(date) => setStartDate(date)}
+                    maxDate={startDate}
                 />
                 <FormInput>
                     <InputDesc
