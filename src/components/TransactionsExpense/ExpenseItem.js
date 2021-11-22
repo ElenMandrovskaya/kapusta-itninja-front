@@ -1,11 +1,10 @@
-import React, {useEffect} from "react";
+import React from "react";
 import useModal from "../Modal/useModal";
 import Modal from "../Modal/logoutModal";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import * as transactionsOps from "../../redux/transactions/transactions-ops";
 import { Item, ItemDate, ItemDesc, ItemCategory, ItemSum, ItemBtn } from "./ExpenseItem.styled"
-// import { authSelectors } from "../../redux/auth/auth-selectors"
-import * as authOperations from "../../redux/auth/auth-operations"
+
 
 function ExpenseItem( {date, description, value, category, id} ) {
 
