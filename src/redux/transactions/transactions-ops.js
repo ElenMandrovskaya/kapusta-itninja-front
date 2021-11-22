@@ -1,6 +1,7 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
+
 export const getExpTransactions = createAsyncThunk("transactions/getExpTransactions", async () => {
     try {
         const { data } = await axios.get("/api/transactions/expense");
@@ -62,3 +63,24 @@ export const removeTransaction = createAsyncThunk('transactions/removetransactio
      
     }
 });
+
+// export const getSummaryExp = createAsyncThunk('transactions/summary', async (year) => {
+//     try {
+//         const {data} = await axios.get(`/api/reports/expense?year=${year}`);
+//         const finrep = data.result.finalReportArray;
+//         console.log(finrep)
+//         return data.result.finalReportArray;
+//     }
+//     catch (error) {
+     
+//     }
+// });
+// export const getSummaryInc = createAsyncThunk('transactions/summary', async ({year}) => {
+//     try {
+//         const {data} = await axios.get(`/api/reports/income?year=${year}`);
+//         return data.result.finalReportArray;
+//     }
+//     catch (error) {
+     
+//     }
+// });

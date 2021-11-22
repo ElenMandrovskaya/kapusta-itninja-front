@@ -1,7 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import * as transactionsOps from "./transactions-ops";
-import authReducer from "../auth/auth-slice";
-// console.log(authReducer.state.auth)
 
 const transactionsSlice = createSlice({
     name: "transactions",
@@ -9,8 +7,8 @@ const transactionsSlice = createSlice({
         items: [],
         error: null,
         isLoading: false,
-        startDate: '',
-        monthlySummary: [],
+        startDate: null,
+        // monthlySummary: []
     },
     reducers: { 
         setStartedDate(state, action) {
@@ -18,7 +16,6 @@ const transactionsSlice = createSlice({
     },
     extraReducers: {
         [transactionsOps.getExpTransactions.fulfilled]: (state, action) => {
-            console.log(state)
             state.items = action.payload
         },
         [transactionsOps.getIncTransactions.fulfilled]: (state, action) => {
@@ -32,9 +29,13 @@ const transactionsSlice = createSlice({
         },
         [transactionsOps.removeTransaction.fulfilled](state, action) {
             state.items = state.items.filter(({_id}) => _id !== action.payload.id);
-            // console.log(.getState().user.balance === action.payload.balance)
         },
-
+        // [transactionsOps.getSummaryExp.fulfilled]: (state, action) => {
+        //     state.monthlySummary.push(action.payload)
+        // },
+        // [transactionsOps.getSummaryInc.fulfilled]: (state, action) => {
+        //     state.monthlySummary.push(action.payload)
+        // },
        
     }
 })
