@@ -19,14 +19,14 @@ const TransactionsExpense = () => {
     dispatch(transactionsOperations.getExpTransactions())
     , [dispatch]);
 
-    // const selectedDate = useSelector(state => state.transactions.startDate)
+    const selectedDate = useSelector(state => state.transactions.startDate)
 
-    // const selectedYear = selectedDate.getFullYear()
-    // const selectedMonth = selectedDate.getMonth() + 1
+    const selectedYear = selectedDate.getFullYear()
+    const selectedMonth = selectedDate.getMonth() + 1
     // const screenWidth = window.screen.width;
-    // let sortedTransactions = transactions.filter(({date}) => date.year == selectedYear)
-    //                                         .filter(({date}) => date.month == selectedMonth)
-    //                                         .sort((prev, next) => next.date.day - prev.date.day)
+    let sortedTransactions = transactions.filter(({date}) => date.year == selectedYear)
+                                            .filter(({date}) => date.month == selectedMonth)
+                                            .sort((prev, next) => next.date.day - prev.date.day)
     
     // console.log(sortedTransactions)
   
@@ -42,7 +42,7 @@ const TransactionsExpense = () => {
           </TableHead>
 
           {<TableList>
-                {transactions && transactions.map(({date, description, category, value, typeTransaction, _id}) => 
+                {transactions && sortedTransactions.map(({date, description, category, value, typeTransaction, _id}) => 
                   (typeTransaction === "Expenses" && <ExpenseItem key={_id} 
                                                                   date={`${date.day}.${date.month}.${date.year}`} 
                                                                   description={description} 

@@ -11,14 +11,14 @@ const TransactionsIncome = () => {
     const transactions = useSelector(getAllTransactions)
     const dispatch = useDispatch();
     useEffect(() => dispatch(transactionsOperations.getIncTransactions()), [dispatch]);
-    // const selectedDate = useSelector(state => state.transactions.startDate)
+    const selectedDate = useSelector(state => state.transactions.startDate)
 
-    // const selectedYear = selectedDate.getFullYear()
-    // const selectedMonth = selectedDate.getMonth() + 1
+    const selectedYear = selectedDate.getFullYear()
+    const selectedMonth = selectedDate.getMonth() + 1
 
-    // const sortedTransactions = transactions.filter(({date}) => date.year == selectedYear)
-    //                                         .filter(({date}) => date.month == selectedMonth)
-    //                                         .sort((prev, next) => next.date.day - prev.date.day)
+    let sortedTransactions = transactions.filter(({date}) => date.year == selectedYear)
+                                            .filter(({date}) => date.month == selectedMonth)
+                                            .sort((prev, next) => next.date.day - prev.date.day)
     return (
       <Main>
         <Table>
@@ -31,7 +31,7 @@ const TransactionsIncome = () => {
           </TableHead>
 
           {<TableList>
-            {transactions && transactions.map(({ date, description, value, _id, category, typeTransaction }) =>
+            {transactions && sortedTransactions.map(({ date, description, value, _id, category, typeTransaction }) =>
             (typeTransaction === "Incomes" && <IncomeItem key={_id} date={`${date.day}.${date.month}.${date.year}`} description={description} value={value} category={category} typeTransaction={typeTransaction} id={_id}/>)
             )}
           </TableList>}
