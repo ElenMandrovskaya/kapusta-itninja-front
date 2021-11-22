@@ -49,7 +49,7 @@ const TransactionsIncForm = () => {
                     required
                     selectedDate={startDate}
                     handleChange={(date) => setStartDate(date)}
-                    onChange={dispatch(setStartedDate(startDate))} 
+                    // onChange={dispatch(setStartedDate(startDate))} 
                     maxDate={startDate}
                 />
                 <FormInput>

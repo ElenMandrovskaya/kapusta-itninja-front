@@ -18,7 +18,7 @@ const TransactionsExpForm = () => {
     const currentBalance = useSelector(authSelectors.getCurrentBalance);
     const dispatch = useDispatch();
     // console.log(startDate)
-
+    
     const reset = () => {
     setStartDate(new Date());
     setCategory("");
@@ -57,7 +57,7 @@ const TransactionsExpForm = () => {
                     required
                     selectedDate={startDate}
                     handleChange={(date) => setStartDate(date)} 
-                    onChange={dispatch(setStartedDate(startDate))}             
+                    // onChange={dispatch(setStartedDate(startDate))}             
                     maxDate={startDate}
                 />
                 <FormInput>
