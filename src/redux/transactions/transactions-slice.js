@@ -9,6 +9,11 @@ const transactionsSlice = createSlice({
         items: [],
         error: null,
         isLoading: false,
+        startDate: ''
+    },
+    reducers: { 
+        setStartedDate(state, action) {
+        state.startDate = action.payload}
     },
     extraReducers: {
         [transactionsOps.getExpTransactions.fulfilled]: (state, action) => {
@@ -33,3 +38,4 @@ const transactionsSlice = createSlice({
 })
 
 export default transactionsSlice.reducer;
+export const { setStartedDate } = transactionsSlice.actions;

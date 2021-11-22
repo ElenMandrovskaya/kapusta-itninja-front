@@ -6,6 +6,7 @@ import TransactionMonthSummary from "../TransactionMonthSummary/TransactionMonth
 import { Main, Table, TableHead, TableDate, TableTitle, TableList } from "./TransactionsExpense.styled";
 import * as transactionsOperations from "../../redux/transactions/transactions-ops";
 import { getAllTransactions } from "../../redux/transactions/transactions-selectors";
+import { date } from "yup";
 // import { authSelectors } from "../../redux/auth/auth-selectors"
 // import * as authOperations from "../../redux/auth/auth-operations"
 
@@ -18,7 +19,16 @@ const TransactionsExpense = () => {
     dispatch(transactionsOperations.getExpTransactions())
     , [dispatch]);
 
+    const selectedDate = useSelector(state => state.transactions.startDate)
 
+    const selectedYear = selectedDate.getFullYear()
+    const selectedMonth = selectedDate.getMonth() + 1
+
+    const sortedTransactions = transactions.filter(({date}) => date.year == selectedYear)
+                                            .filter(({date}) => date.month == selectedMonth)
+                                            .sort((prev, next) => next.date.day - prev.date.day)
+    // console.log(sortedTransactions)
+  
     return (
       <Main>
         <Table>
@@ -31,7 +41,7 @@ const TransactionsExpense = () => {
           </TableHead>
 
           {<TableList>
-                {transactions && transactions.map(({date, description, category, value, typeTransaction, _id}) => 
+                {transactions && sortedTransactions.map(({date, description, category, value, typeTransaction, _id}) => 
                   (typeTransaction === "Expenses" && <ExpenseItem key={_id} 
                                                                   date={`${date.day}.${date.month}.${date.year}`} 
                                                                   description={description} 

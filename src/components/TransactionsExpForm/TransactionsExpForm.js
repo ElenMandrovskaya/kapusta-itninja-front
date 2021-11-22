@@ -6,7 +6,7 @@ import { Form, Wrapper, FormInput, FormBtn, InputAmount, InputDesc, ButtonOrange
 import * as transactionstOperations from "../../redux/transactions/transactions-ops";
 import * as authOps from "../../redux/auth/auth-operations";
 import { authSelectors } from "../../redux/auth/auth-selectors"
-
+import { setStartedDate } from "../../redux/transactions/transactions-slice";
 
 const TransactionsExpForm = () => {
     const [startDate, setStartDate] = useState(new Date());
@@ -17,6 +17,7 @@ const TransactionsExpForm = () => {
     const [typeTransaction, setTypeTransaction] = useState("");
     const currentBalance = useSelector(authSelectors.getCurrentBalance);
     const dispatch = useDispatch();
+    // console.log(startDate)
 
     const reset = () => {
     setStartDate(new Date());
@@ -53,7 +54,8 @@ const TransactionsExpForm = () => {
             <Wrapper>
                 <Calendar
                     selectedDate={startDate}
-                    handleChange={(date) => setStartDate(date)}                
+                    handleChange={(date) => setStartDate(date)} 
+                    onChange={dispatch(setStartedDate(startDate))}             
                 />
                 <FormInput>
                     <InputDesc
