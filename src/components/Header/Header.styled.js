@@ -46,6 +46,7 @@ export const AvatarUser = styled.div`
   background-color: #F5F6FA;
   border-radius: 50%;
   margin-right: 12px;
+  overflow: hidden;
 `;
 
 export const AvatarTxt = styled.div`

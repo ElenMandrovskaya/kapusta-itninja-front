@@ -6,18 +6,22 @@ import TransactionMonthSummary from "../TransactionMonthSummary/TransactionMonth
 import { Main, Table, TableHead, TableDate, TableTitle, TableList } from "./TransactionsExpense.styled";
 import * as transactionsOperations from "../../redux/transactions/transactions-ops";
 import { getAllTransactions } from "../../redux/transactions/transactions-selectors";
-import { date } from "yup";
 // import { authSelectors } from "../../redux/auth/auth-selectors"
-// import * as authOperations from "../../redux/auth/auth-operations"
+import * as authOperations from "../../redux/auth/auth-operations"
+import * as transactionsOps from "../../redux/transactions/transactions-ops";
 
 
 const TransactionsExpense = () => {
     const transactions = useSelector(getAllTransactions)
     const dispatch = useDispatch();
 
-    useEffect(() => 
+  
+    useEffect(() => {
     dispatch(transactionsOperations.getExpTransactions())
-    , [dispatch]);
+    // dispatch(authOperations.getBalance())
+  }, [dispatch])
+
+  
 
     const selectedDate = useSelector(state => state.transactions.startDate)
 
@@ -50,6 +54,8 @@ const TransactionsExpense = () => {
                                                                   category={category} 
                                                                   typeTransaction={typeTransaction} 
                                                                   id={_id} 
+                                                                  onDelete={() => {dispatch(transactionsOps.removeTransaction(_id))
+                                                                  setTimeout(dispatch(authOperations.getBalance()), 1500)}}
                                                                   />)
                 )}
               </TableList>}

@@ -15,7 +15,7 @@ import {
     LogoutSvg,
     Logo,
 } from './Header.styled';
-import defaultAvatar from '../../images/avatar.png';
+import defaultAvatar from '../../images/avatar.jpeg';
 
 export default function Header() {
     const dispatch = useDispatch();
@@ -34,7 +34,7 @@ export default function Header() {
             {isLoggedIn && (
                 <UserInfo>
                     <AvatarUser>
-                        <img src={defaultAvatar} alt="Default Avatar" width="32" />
+                        <img src={defaultAvatar} alt="Default Avatar" width="32"/>
                         {/* <AvatarTxt>U</AvatarTxt> */}
                     </AvatarUser>
 
