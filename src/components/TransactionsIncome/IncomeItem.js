@@ -1,13 +1,10 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import * as transactionsOps from "../../redux/transactions/transactions-ops";
 import useModal from "../Modal/useModal";
 import Modal from "../Modal/logoutModal";
 import { Item, ItemDate, ItemDesc, ItemCategory, ItemSum, ItemBtn } from "./IncomeItem.styled"
 
-const IncomeItem = ({ date, description, value, category, id }) => {
+const IncomeItem = ({ date, description, value, category, onDelete }) => {
     const { isShowingModal, toggle } = useModal();
-    const dispatch = useDispatch();
 
     return (
         <Item>
@@ -20,7 +17,7 @@ const IncomeItem = ({ date, description, value, category, id }) => {
                 onClick={()=>toggle()}
             />
             {isShowingModal && <Modal
-                toAgree={() => dispatch(transactionsOps.removeTransaction(id))}
+                toAgree={onDelete}
                 text={"Вы уверены?"}
                 onClose={toggle} />}
         </Item>

@@ -6,7 +6,6 @@ import TransactionMonthSummary from "../TransactionMonthSummary/TransactionMonth
 import { Main, Table, TableHead, TableDate, TableTitle, TableList } from "./TransactionsExpense.styled";
 import * as transactionsOperations from "../../redux/transactions/transactions-ops";
 import { getAllTransactions } from "../../redux/transactions/transactions-selectors";
-// import { authSelectors } from "../../redux/auth/auth-selectors"
 import * as authOperations from "../../redux/auth/auth-operations"
 import * as transactionsOps from "../../redux/transactions/transactions-ops";
 
@@ -18,7 +17,6 @@ const TransactionsExpense = () => {
   
     useEffect(() => {
     dispatch(transactionsOperations.getExpTransactions())
-    // dispatch(authOperations.getBalance())
   }, [dispatch])
 
   
@@ -27,12 +25,15 @@ const TransactionsExpense = () => {
 
     const selectedYear = selectedDate.getFullYear()
     const selectedMonth = selectedDate.getMonth() + 1
-    // const screenWidth = window.screen.width;
+    /* eslint-disable */
     let sortedTransactions = transactions.filter(({date}) => date.year == selectedYear)
                                             .filter(({date}) => date.month == selectedMonth)
                                             .sort((prev, next) => next.date.day - prev.date.day)
     
-    // console.log(sortedTransactions)
+    const getBalance = () => {
+      dispatch(authOperations.getBalance())
+    }
+  
   
     return (
       <Main>
@@ -46,17 +47,26 @@ const TransactionsExpense = () => {
           </TableHead>
 
           {<TableList>
-                {transactions && sortedTransactions.map(({date, description, category, value, typeTransaction, _id}) => 
-                  (typeTransaction === "Expenses" && <ExpenseItem key={_id} 
-                                                                  date={`${date.day}.${date.month}.${date.year}`} 
-                                                                  description={description} 
-                                                                  value={value} 
-                                                                  category={category} 
-                                                                  typeTransaction={typeTransaction} 
-                                                                  id={_id} 
-                                                                  onDelete={() => {dispatch(transactionsOps.removeTransaction(_id))
-                                                                  setTimeout(dispatch(authOperations.getBalance()), 1500)}}
-                                                                  />)
+                {transactions && sortedTransactions.map(({
+                    date, 
+                    description, 
+                    category, 
+                    value, 
+                    typeTransaction, 
+                    _id}) => (typeTransaction === "Expenses" && 
+                      <ExpenseItem 
+                          key={_id} 
+                          date={`${date.day}.${date.month}.${date.year}`} 
+                          description={description} 
+                          value={value} 
+                          category={category} 
+                          typeTransaction={typeTransaction} 
+                          id={_id} 
+                          onDelete={async () => {
+                            await dispatch(transactionsOps.removeTransaction(_id))
+                            getBalance()
+                          }}
+                        />)
                 )}
               </TableList>}
         </Table>
