@@ -46,7 +46,6 @@ const TransactionsExpForm = () => {
             value }))
             setTimeout(() => {
                 dispatch(authOps.changeBalance({balance: currentBalance}));
-                // dispatch(transactionstOperations.getSummaryExp(date.year));
               }, 500)
         reset();
     };

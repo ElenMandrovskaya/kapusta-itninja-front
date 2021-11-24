@@ -10,20 +10,25 @@ import * as authOperations from "../../redux/auth/auth-operations"
 
 const TransactionsIncome = () => {
     const transactions = useSelector(getAllTransactions)
-    const dispatch = useDispatch();
-    useEffect(() => dispatch(transactionsOperations.getIncTransactions()), [dispatch]);
     const selectedDate = useSelector(state => state.transactions.startDate)
+    const dispatch = useDispatch();
 
     const selectedYear = selectedDate.getFullYear()
     const selectedMonth = selectedDate.getMonth() + 1
-    
+
+    useEffect(() => {
+      dispatch(transactionsOperations.getIncTransactions())
+      }, [dispatch]);
+
     /* eslint-disable */
     let sortedTransactions = transactions.filter(({date}) => date.year == selectedYear)
                                             .filter(({date}) => date.month == selectedMonth)
                                             .sort((prev, next) => next.date.day - prev.date.day)
 
-    const getBalance = () => {
-      dispatch(authOperations.getBalance())}
+    const getCurrent = () => {
+      dispatch(authOperations.getBalance())
+      dispatch(transactionsOperations.getSummaryInc(selectedYear))
+    }
                                             
     return (
       <Main>
@@ -54,13 +59,14 @@ const TransactionsIncome = () => {
                             id={_id}
                             onDelete={async () => {
                               await dispatch(transactionsOperations.removeTransaction(_id))
-                              getBalance()
-                            }}/>)
+                              getCurrent()
+                            }}
+                            />)
                         )}
                       </TableList>}
         </Table>
 
-        <TransactionMonthSummary type="Incomes" />
+        <TransactionMonthSummary type='Incomes'/>
       </Main>
   );
 }

@@ -1,37 +1,34 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
 import ExpenseItem from "./ExpenseItem";
 import TransactionMonthSummary from "../TransactionMonthSummary/TransactionMonthSummary";
 import { Main, Table, TableHead, TableDate, TableTitle, TableList } from "./TransactionsExpense.styled";
 import * as transactionsOperations from "../../redux/transactions/transactions-ops";
 import { getAllTransactions } from "../../redux/transactions/transactions-selectors";
 import * as authOperations from "../../redux/auth/auth-operations"
-import * as transactionsOps from "../../redux/transactions/transactions-ops";
 
 
 const TransactionsExpense = () => {
-    const transactions = useSelector(getAllTransactions)
+    const transactions = useSelector(getAllTransactions);
+    const selectedDate = useSelector(state => state.transactions.startDate);
     const dispatch = useDispatch();
-
-  
-    useEffect(() => {
-    dispatch(transactionsOperations.getExpTransactions())
-  }, [dispatch])
-
-  
-
-    const selectedDate = useSelector(state => state.transactions.startDate)
-
+    
     const selectedYear = selectedDate.getFullYear()
     const selectedMonth = selectedDate.getMonth() + 1
+
+    useEffect(() => {
+        dispatch(transactionsOperations.getExpTransactions())
+      }, [dispatch]) 
+
     /* eslint-disable */
     let sortedTransactions = transactions.filter(({date}) => date.year == selectedYear)
                                             .filter(({date}) => date.month == selectedMonth)
                                             .sort((prev, next) => next.date.day - prev.date.day)
     
-    const getBalance = () => {
+
+    const getCurrent = () => {
       dispatch(authOperations.getBalance())
+      dispatch(transactionsOperations.getSummaryExp(selectedYear))
     }
   
   
@@ -63,15 +60,15 @@ const TransactionsExpense = () => {
                           typeTransaction={typeTransaction} 
                           id={_id} 
                           onDelete={async () => {
-                            await dispatch(transactionsOps.removeTransaction(_id))
-                            getBalance()
+                            await dispatch(transactionsOperations.removeTransaction(_id))
+                            getCurrent()
                           }}
                         />)
                 )}
               </TableList>}
         </Table>
 
-        <TransactionMonthSummary type="Expenses" />
+        <TransactionMonthSummary type='Expenses'/>
       </Main>
   );
 }

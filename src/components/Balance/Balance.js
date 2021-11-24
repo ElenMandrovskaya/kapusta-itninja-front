@@ -22,8 +22,6 @@ export default function Balance() {
             dispatch(authOperations.getBalance());
           }, [dispatch]);   
     
-        //   console.log(balance)
-          console.log(currentBalance)
     const handleSubmit = (evt) => {
             evt.preventDefault();
             dispatch(authOperations.updBalance({balance}))
@@ -34,36 +32,52 @@ export default function Balance() {
         onSubmit={handleSubmit}
         >
          <BalanceTitle>Баланс:</BalanceTitle>
-            {currentBalance === 0 ? (
-                <BalanceWrap>
-                    <BalanceAmount 
-                        required
-                        name="balance"
-                        type="text"
-                        onChange={handleChange}
-                        autoComplete="off"
-                        placeholder={`${currentBalance.toFixed(2)} UAH`}
-                        />
-                    <SubmitBtn type="submit">подтвердить</SubmitBtn>
-                    {balanceNote && <BalanceModal onClick={removeBalanceNote}>
-                    <BalanceText>Привет! Для начала работы внеси текущий баланс своего счета!</BalanceText>
-                    <BalanceNote>Ты не можешь тратить деньги пока их у тебя нет 
-                        <HiOutlineLightBulb style={{ fontSize: 16, marginLeft: 10 }}/>
-                    </BalanceNote>
-                    <HiOutlineCursorClick style={{ fontSize: 20, marginLeft: "80%" }}/>
-                    </BalanceModal>}
-                </BalanceWrap>
-            ) : (
-                <BalanceWrap>
-                    <BalanceAmount 
-                        name="balance"
-                        type="text"
-                        value={`${parseFloat(currentBalance).toFixed(2)} UAH`}
-                        disabled/>
-                    <SubmitBtn type="submit" onSubmit={handleSubmit} 
-                    disabled>подтвердить</SubmitBtn>
-                </BalanceWrap>
-         )}
+            {currentBalance === 0 && <BalanceWrap>
+                                        <BalanceAmount 
+                                            required
+                                            name="balance"
+                                            type="text"
+                                            onChange={handleChange}
+                                            autoComplete="off"
+                                            placeholder={`${currentBalance.toFixed(2)} UAH`}
+                                            />
+                                        <SubmitBtn type="submit">подтвердить</SubmitBtn>
+                                        {balanceNote && <BalanceModal onClick={removeBalanceNote}>
+                                        <BalanceText>Привет! Для начала работы внеси текущий баланс своего счета!</BalanceText>
+                                        <BalanceNote>Ты не можешь тратить деньги пока их у тебя нет 
+                                            <HiOutlineLightBulb style={{ fontSize: 16, marginLeft: 10 }}/>
+                                        </BalanceNote>
+                                        <HiOutlineCursorClick style={{ fontSize: 20, marginLeft: "80%" }}/>
+                                        </BalanceModal>}
+                                    </BalanceWrap> }
+            
+                {currentBalance > 0 && <BalanceWrap>
+                                            <BalanceAmount 
+                                                name="balance"
+                                                type="text"
+                                                value={`${parseFloat(currentBalance).toFixed(2)} UAH`}
+                                                disabled/>
+                                            <SubmitBtn type="submit" 
+                                                        onSubmit={handleSubmit} 
+                                                        disabled>подтвердить</SubmitBtn>
+                                        </BalanceWrap>}
+                {currentBalance < 0 && <BalanceWrap>
+                                            <BalanceAmount 
+                                                name="balance"
+                                                type="text"
+                                                value={`${parseFloat(currentBalance).toFixed(2)} UAH`}
+                                                disabled/>
+                                            <SubmitBtn type="submit" 
+                                                        onSubmit={handleSubmit} 
+                                                        disabled>подтвердить</SubmitBtn>
+                                            {balanceNote && <BalanceModal onClick={removeBalanceNote}>
+                                            <BalanceText>Привет! Обрати внимание на то, что твои расходы привышают доходы!</BalanceText>
+                                            <BalanceNote>Пора усердно поработать! 
+                                                <HiOutlineLightBulb style={{ fontSize: 16, marginLeft: 10 }}/>
+                                            </BalanceNote>
+                                            <HiOutlineCursorClick style={{ fontSize: 20, marginLeft: "80%" }}/>
+                                            </BalanceModal>}
+                                        </BalanceWrap> }
          </BalanceContainer>
   )
 }

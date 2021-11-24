@@ -7,8 +7,9 @@ const transactionsSlice = createSlice({
         items: [],
         error: null,
         isLoading: false,
-        startDate: new Date(),
-        // monthlySummary: []
+        monthlyExp: [],
+        monthlyInc: [],
+        startDate: new Date()
     },
     reducers: { 
         setStartedDate(state, action) {
@@ -28,14 +29,16 @@ const transactionsSlice = createSlice({
             state.items.push(action.payload)
         },
         [transactionsOps.removeTransaction.fulfilled](state, action) {
-            state.items = state.items.filter(({_id}) => _id !== action.payload.id);
+            state.items = state.items.filter(({_id}) => _id !== action.payload);
         },
-        // [transactionsOps.getSummaryExp.fulfilled]: (state, action) => {
-        //     state.monthlySummary.push(action.payload)
-        // },
-        // [transactionsOps.getSummaryInc.fulfilled]: (state, action) => {
-        //     state.monthlySummary.push(action.payload)
-        // },
+        [transactionsOps.getSummaryExp.fulfilled]: (state, action) => {
+            console.log(action.payload)
+            state.monthlyExp = [...action.payload]
+        },
+        [transactionsOps.getSummaryInc.fulfilled]: (state, action) => {
+            console.log(action.payload)
+            state.monthlyInc = [...action.payload]
+        },
        
     }
 })

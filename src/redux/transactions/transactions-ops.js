@@ -56,31 +56,28 @@ export const addIncTransaction = createAsyncThunk("transactions/addIncTransactio
 export const removeTransaction = createAsyncThunk('transactions/removetransactions', async (id) => {
     try {
         const { data } = await axios.delete(`api/transactions/${id}`);
-        // console.log(data.result.balance)
-        return {id: id, balance: data.result.balance}
+        return id
     }
     catch (error) {
      
     }
 });
 
-// export const getSummaryExp = createAsyncThunk('transactions/summary', async (year) => {
-//     try {
-//         const {data} = await axios.get(`/api/reports/expense?year=${year}`);
-//         const finrep = data.result.finalReportArray;
-//         console.log(finrep)
-//         return data.result.finalReportArray;
-//     }
-//     catch (error) {
-     
-//     }
-// });
-// export const getSummaryInc = createAsyncThunk('transactions/summary', async ({year}) => {
-//     try {
-//         const {data} = await axios.get(`/api/reports/income?year=${year}`);
-//         return data.result.finalReportArray;
-//     }
-//     catch (error) {
-     
-//     }
-// });
+export const getSummaryExp = createAsyncThunk('transactions/summaryExp', async (year) => {
+    try {
+        const {data} = await axios.get(`/api/reports/expense?year=${year}`);
+        return data.result.finalReportArray;
+    }
+    catch (error) {
+             
+    }
+});
+export const getSummaryInc = createAsyncThunk('transactions/summaryInc', async (year) => {
+    try {
+        const {data} = await axios.get(`/api/reports/income?year=${year}`);
+        return data.result.finalReportArray;
+    }
+    catch (error) {
+        
+    }
+});
