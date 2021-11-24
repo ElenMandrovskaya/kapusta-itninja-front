@@ -17,7 +17,9 @@ const TransactionsIncForm = () => {
     const [categoryId, setCategoryId] = useState("");
     const [typeTransaction, setTypeTransaction] = useState("");
     const currentBalance = useSelector(authSelectors.getCurrentBalance);
+    const selectedDate = useSelector(state => state.transactions.startDate);
     const dispatch = useDispatch();
+    const selectedYear = selectedDate.getFullYear()
 
     useEffect(() => {
         dispatch(setStartedDate(startDate))   
@@ -32,18 +34,27 @@ const TransactionsIncForm = () => {
     setTypeTransaction("");
     };
     
-    const addIncome = (e) => {
+    const getCurrent = () => {
+        dispatch(authOps.changeBalance({balance: currentBalance}));
+        dispatch(transactionstOperations.getSummaryInc(selectedYear))
+      }
+
+    const addIncome = async (e) => {
         e.preventDefault();
     const date = {
         day: startDate.getDate(),
         month: startDate.getMonth() + 1,
         year: startDate.getFullYear()
     }
-    dispatch(transactionstOperations.addIncTransaction({ typeTransaction, date, description, category, categoryId, value }))
-    setTimeout(() => {
-        dispatch(authOps.changeBalance({balance: currentBalance}));
-      }, 500)
-        reset();
+    await dispatch(transactionstOperations.addIncTransaction({ 
+        typeTransaction, 
+        date, 
+        description, 
+        category, 
+        categoryId, 
+        value }))
+    getCurrent();
+    reset();
     };
 
     return (

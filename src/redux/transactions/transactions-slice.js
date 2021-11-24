@@ -32,11 +32,9 @@ const transactionsSlice = createSlice({
             state.items = state.items.filter(({_id}) => _id !== action.payload);
         },
         [transactionsOps.getSummaryExp.fulfilled]: (state, action) => {
-            console.log(action.payload)
             state.monthlyExp = [...action.payload]
         },
         [transactionsOps.getSummaryInc.fulfilled]: (state, action) => {
-            console.log(action.payload)
             state.monthlyInc = [...action.payload]
         },
        

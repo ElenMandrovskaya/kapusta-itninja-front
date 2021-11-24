@@ -16,7 +16,9 @@ const TransactionsExpForm = () => {
     const [categoryId, setCategoryId] = useState("");
     const [typeTransaction, setTypeTransaction] = useState("");
     const currentBalance = useSelector(authSelectors.getCurrentBalance);
+    const selectedDate = useSelector(state => state.transactions.startDate);
     const dispatch = useDispatch();
+    const selectedYear = selectedDate.getFullYear()
 
     useEffect(() => {
         dispatch(setStartedDate(startDate))   
@@ -31,22 +33,25 @@ const TransactionsExpForm = () => {
     setTypeTransaction("");
     };
     
-    const addExpense = (e) => {
+    const getCurrent = () => {
+        dispatch(authOps.changeBalance({balance: currentBalance}));
+        dispatch(transactionstOperations.getSummaryExp(selectedYear))
+      }
+    const addExpense = async (e) => {
         e.preventDefault();
         const date = {
             day: startDate.getDate(),
             month: startDate.getMonth() + 1,
             year: startDate.getFullYear()
         }
-        dispatch(transactionstOperations.addExpTransaction({ typeTransaction, 
+        await dispatch(transactionstOperations.addExpTransaction({ 
+            typeTransaction, 
             date, 
             description, 
             category, 
             categoryId, 
             value }))
-            setTimeout(() => {
-                dispatch(authOps.changeBalance({balance: currentBalance}));
-              }, 500)
+        getCurrent()
         reset();
     };
    

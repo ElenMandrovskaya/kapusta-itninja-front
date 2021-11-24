@@ -1,7 +1,5 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-// import { useDispatch } from "react-redux";
-// import { getBalance } from "../auth/auth-operations";
 
 export const getExpTransactions = createAsyncThunk("transactions/getExpTransactions", async () => {
     try {
@@ -55,7 +53,7 @@ export const addIncTransaction = createAsyncThunk("transactions/addIncTransactio
 
 export const removeTransaction = createAsyncThunk('transactions/removetransactions', async (id) => {
     try {
-        const { data } = await axios.delete(`api/transactions/${id}`);
+        await axios.delete(`api/transactions/${id}`);
         return id
     }
     catch (error) {

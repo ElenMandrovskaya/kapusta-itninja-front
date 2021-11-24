@@ -1,5 +1,4 @@
-import React, {useEffect} from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { Mobile, Default } from "../../utils/mediaQuery";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
